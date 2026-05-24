@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'herlaadt de plugin.'
+  Clear:
+    Description: 'maakt de chat leeg.'
+    Console: 'CONSOLE'
+    Unknown: 'ONBEKEND'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fConfiguratie en locaties succesvol herladen!'
+    Clear:
+      Success: '&4⚠ &fDe chat is geleegd door &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fReclame is niet toegestaan!'
+    BlockedWord: '&c✘ &fDit woord is niet toegestaan!'
+    AdNotify: '&4⚠ %player &fprobeerde reclame te maken in de chat!'
+    NoOneListens: '&4⚠ &fEr zijn geen spelers in de buurt om je te horen! Gebruik de wereldwijde modus.'
+  NoColorPermission: '&c✘ &fJe hebt geen toestemming om normale kleuren te gebruiken!'
+  NoHexPermission: '&c✘ &fJe hebt geen toestemming om HEX-kleuren te gebruiken!'
+  MagicBlocked: '&c✘ &fJe hebt geen toestemming om magische kleuren te gebruiken!'
+  CommandResult:
+    NoPermission: '&c✘ &fJe hebt geen toestemming! Toestemming: &c%perm&f.'
+    WrongUsage: '&c✘ &fVerkeerd gebruik! Typ &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpammen is niet toegestaan! Wacht nog &c%time% &fseconden!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fkwam bij het spel!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fkwam voor het eerst op de server!'
+    Kick: '&f● &e%prefix%displayname%suffix &fwerd uit het spel gezet!'
+    Quit: '&f● &e%prefix%displayname%suffix &fverliet het spel!'

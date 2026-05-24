@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'плагинді қайта жүктейді.'
+  Clear:
+    Description: 'чатты тазартады.'
+    Console: 'КОНСОЛЬ'
+    Unknown: 'БЕЛГІСІЗ'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fКонфигурация мен локали сәтті қайта жүктелді!'
+    Clear:
+      Success: '&4⚠ &fЧат &4%clearer%&f ойыншысымен тазартылды.'
+  Chat:
+    AdDetected: '&c✘ &fЖарнамаға тыйым салынған!'
+    BlockedWord: '&c✘ &fБұл сөзге тыйым салынған!'
+    AdNotify: '&4⚠ %player &fчатта жарнама жазбақшы болды!'
+    NoOneListens: '&4⚠ &fСізді еститін ойыншылар жақын жерде жоқ! Жаһандық режимді қолданыңыз.'
+  NoColorPermission: '&c✘ &fҚарапайым түстерді пайдалану құқығыңыз жоқ!'
+  NoHexPermission: '&c✘ &fHEX-түстерді пайдалану құқығыңыз жоқ!'
+  MagicBlocked: '&c✘ &fСиқырлы түсті пайдалану құқығыңыз жоқ!'
+  CommandResult:
+    NoPermission: '&c✘ &fСіздің бұған рұқсатыңыз жоқ! Рұқсат: &c%perm&f.'
+    WrongUsage: '&c✘ &fҚате қолдану! &c%cmd help&f енгізіңіз!'
+  AntiSpam:
+    Denied: '&c✘ &fСпамға тыйым салынған! Тағы &c%time% &fсекунд күтіңіз!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fсерверге қосылды!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fсерверге бірінші рет қосылды!'
+    Kick: '&f● &e%prefix%displayname%suffix &fсерверден қуылды!'
+    Quit: '&f● &e%prefix%displayname%suffix &fсерверден шықты!'

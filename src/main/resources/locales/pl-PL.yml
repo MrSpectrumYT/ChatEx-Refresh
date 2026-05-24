@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'przeładowuje plugin.'
+  Clear:
+    Description: 'czyści czat.'
+    Console: 'KONSOLA'
+    Unknown: 'NIEZNANY'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fKonfiguracja i lokalizacje zostały przeładowane!'
+    Clear:
+      Success: '&4⚠ &fCzat został wyczyszczony przez &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fReklamy są zabronione!'
+    BlockedWord: '&c✘ &fTo słowo jest zabronione!'
+    AdNotify: '&4⚠ %player &fpróbował napisać reklamę na czacie!'
+    NoOneListens: '&4⚠ &fNikt nie słyszy twojej rozmowy! Użyj trybu globalnego.'
+  NoColorPermission: '&c✘ &fNie masz uprawnień do używania zwykłych kolorów!'
+  NoHexPermission: '&c✘ &fNie masz uprawnień do używania kolorów HEX!'
+  MagicBlocked: '&c✘ &fNie masz uprawnień do używania magicznych kolorów!'
+  CommandResult:
+    NoPermission: '&c✘ &fNie masz uprawnień! Uprawnienie: &c%perm&f.'
+    WrongUsage: '&c✘ &fZłe użycie! Wpisz &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam jest zabroniony! Poczekaj jeszcze &c%time% &fsekund!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fdołączył do gry!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fdołączył po raz pierwszy!'
+    Kick: '&f● &e%prefix%displayname%suffix &fzostał wyrzucony z gry!'
+    Quit: '&f● &e%prefix%displayname%suffix &fwyszedł z gry!'

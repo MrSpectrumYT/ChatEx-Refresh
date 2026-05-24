@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'lädt das Plugin neu.'
+  Clear:
+    Description: 'leert den Chat.'
+    Console: 'KONSOLE'
+    Unknown: 'UNBEKANNT'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fKonfiguration und Locales wurden neu geladen!'
+    Clear:
+      Success: '&4⚠ &fDer Chat wurde von &4%clearer%&f geleert.'
+  Chat:
+    AdDetected: '&c✘ &fWerbung ist nicht erlaubt!'
+    BlockedWord: '&c✘ &fDieses Wort ist nicht erlaubt!'
+    AdNotify: '&4⚠ %player &fversuchte Werbung im Chat zu machen!'
+    NoOneListens: '&4⚠ &fNiemand ist in deiner Nähe, um dich zu hören! Nutze den globalen Modus.'
+  NoColorPermission: '&c✘ &fDu hast keine Rechte für normale Farben!'
+  NoHexPermission: '&c✘ &fDu hast keine Rechte für HEX-Farben!'
+  MagicBlocked: '&c✘ &fDu hast keine Rechte für magische Farben!'
+  CommandResult:
+    NoPermission: '&c✘ &fDu hast keine Rechte dafür! Recht: &c%perm&f.'
+    WrongUsage: '&c✘ &fFalsche Verwendung! Bitte gebe &c%cmd help&f ein!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam ist nicht erlaubt! Bitte warte noch &c%time% &fSekunden!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fbetrat das Spiel!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fbetrat den Server zum ersten Mal!'
+    Kick: '&f● &e%prefix%displayname%suffix &fwurde vom Server gekickt!'
+    Quit: '&f● &e%prefix%displayname%suffix &fverließ das Spiel!'

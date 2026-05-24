@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'перезавантажує плагін.'
+  Clear:
+    Description: 'очищує чат.'
+    Console: 'КОНСОЛЬ'
+    Unknown: 'НЕВІДОМО'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fКонфігурацію та локалі успішно перезавантажено!'
+    Clear:
+      Success: '&4⚠ &fЧат було очищено гравцем &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fРеклама заборонена!'
+    BlockedWord: '&c✘ &fЦе слово заборонено!'
+    AdNotify: '&4⚠ %player &fспробував написати рекламу в чаті!'
+    NoOneListens: '&4⚠ &fПоруч немає гравців, щоб вас почути! Використовуйте глобальний режим.'
+  NoColorPermission: '&c✘ &fУ вас немає прав на використання звичайних кольорів!'
+  NoHexPermission: '&c✘ &fУ вас немає прав на використання HEX-кольорів!'
+  MagicBlocked: '&c✘ &fУ вас немає прав на використання магічного кольору!'
+  CommandResult:
+    NoPermission: '&c✘ &fУ вас немає прав на це! Право: &c%perm&f.'
+    WrongUsage: '&c✘ &fНевірне використання! Введіть &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fСпам заборонено! Зачекайте ще &c%time% &fсекунд!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fприєднався до сервера!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fвперше на сервері!'
+    Kick: '&f● &e%prefix%displayname%suffix &fбув вигнаний з сервера!'
+    Quit: '&f● &e%prefix%displayname%suffix &fзалишив сервер!'

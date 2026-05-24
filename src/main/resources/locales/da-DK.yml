@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'gnindlæser plugin.'
+  Clear:
+    Description: 'rydder chatten.'
+    Console: 'KONSOL'
+    Unknown: 'UKENDT'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fKonfiguration og sprog blev genindlæst!'
+    Clear:
+      Success: '&4⚠ &fChatten blev ryddet af &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fReklame er ikke tilladt!'
+    BlockedWord: '&c✘ &fDette ord er ikke tilladt!'
+    AdNotify: '&4⚠ %player &fprøvede at skrive en reklame i chatten!'
+    NoOneListens: '&4⚠ &fDer er ingen spillere i nærheden til at høre dig! Brug global tilstand.'
+  NoColorPermission: '&c✘ &fDu har ikke tilladelse til at bruge normale farver!'
+  NoHexPermission: '&c✘ &fDu har ikke tilladelse til at bruge HEX-farver!'
+  MagicBlocked: '&c✘ &fDu har ikke tilladelse til at bruge magiske farver!'
+  CommandResult:
+    NoPermission: '&c✘ &fDu har ikke tilladelse til dette! Tilladelse: &c%perm&f.'
+    WrongUsage: '&c✘ &fForkert brug! Indtast &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam er ikke tilladt! Vent &c%time% &fsekunder endnu!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &ftilsluttede spillet!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &ftilsluttede serveren for første gang!'
+    Kick: '&f● &e%prefix%displayname%suffix &fblev sparket fra spillet!'
+    Quit: '&f● &e%prefix%displayname%suffix &fforlod spillet!'
