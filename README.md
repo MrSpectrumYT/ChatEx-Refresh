@@ -32,8 +32,8 @@
 
 ## 📦 Requirements
 
-- **Java 21** or higher
-- **Folia / Leaf / Paper / Pufferfish / Purpur** 1.21+
+- **Java 21+**
+- **Folia / Leaf / Paper / Pufferfish / Purpur 1.21+**
 - **PlaceholderAPI** — optional but recommended
 - **LuckPerms** — optional for permission management
 
