@@ -35,8 +35,7 @@ public class Nothing implements PermissionsPlugin {
 
     @Override
     public String[] getGroupNames(Player p) {
-        String[] data = {""};
-        return data;
+        return new String[0];
     }
 
     @Override
@@ -46,12 +45,11 @@ public class Nothing implements PermissionsPlugin {
 
     @Override
     public String getMessageFormat(Player p) {
-        return Config.FORMAT.getString();
+        return Config.FORMAT.getStringRaw();
     }
 
     @Override
     public String getGlobalMessageFormat(Player p) {
-        return Config.GLOBALFORMAT.getString();
+        return Config.GLOBALFORMAT.getStringRaw();
     }
-
 }

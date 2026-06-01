@@ -1,4 +1,7 @@
 /*
+ * This file is part of ChatEx Refresh
+ * Copyright (C) 2026 MrSpectrumYT
+ *
  * This file is part of ChatEx
  * Copyright (C) 2022 ChatEx Team
  *
@@ -23,11 +26,6 @@ import org.bukkit.plugin.Plugin;
 
 public class HookManager {
 
-    public static boolean checkVault() {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Vault");
-        return plugin != null && plugin.isEnabled();
-    }
-
     public static boolean checkLuckperms() {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("LuckPerms");
         return plugin != null && plugin.isEnabled();
@@ -35,11 +33,6 @@ public class HookManager {
 
     public static boolean checkPlaceholderAPI() {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("PlaceholderAPI");
-        return plugin != null && plugin.isEnabled();
-    }
-
-    public static boolean checkEssentials() {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Essentials");
         return plugin != null && plugin.isEnabled();
     }
 }

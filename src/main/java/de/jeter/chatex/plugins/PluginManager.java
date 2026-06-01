@@ -22,9 +22,7 @@
 package de.jeter.chatex.plugins;
 
 import de.jeter.chatex.ChatEx;
-import de.jeter.chatex.utils.Config;
 import de.jeter.chatex.utils.HookManager;
-import de.jeter.chatex.utils.Utils;
 import org.bukkit.entity.Player;
 
 public class PluginManager implements PermissionsPlugin {
@@ -40,8 +38,6 @@ public class PluginManager implements PermissionsPlugin {
         INSTANCE = new PluginManager();
         if (HookManager.checkLuckperms()) {
             handler = new LuckPerms();
-        } else if (HookManager.checkVault() && Vault.setupChat()) {
-            handler = new Vault();
         } else {
             handler = new Nothing();
         }
@@ -74,11 +70,11 @@ public class PluginManager implements PermissionsPlugin {
 
     @Override
     public String getMessageFormat(Player p) {
-        return Utils.replaceColors(handler.getMessageFormat(p));
+        return handler.getMessageFormat(p);
     }
 
     @Override
     public String getGlobalMessageFormat(Player p) {
-        return Utils.replaceColors(handler.getGlobalMessageFormat(p));
+        return handler.getGlobalMessageFormat(p);
     }
 }

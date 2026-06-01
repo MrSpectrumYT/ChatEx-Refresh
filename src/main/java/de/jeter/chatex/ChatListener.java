@@ -1,24 +1,3 @@
-/*
- * This file is part of ChatEx Refresh
- * Copyright (C) 2026 MrSpectrumYT
- *
- * This file is part of ChatEx
- * Copyright (C) 2022 ChatEx Team
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- */
 package de.jeter.chatex;
 
 import de.jeter.chatex.api.events.*;
@@ -27,6 +6,7 @@ import de.jeter.chatex.utils.*;
 import de.jeter.chatex.utils.adManager.AdManager;
 import de.jeter.chatex.utils.adManager.SimpleAdManager;
 import de.jeter.chatex.utils.adManager.SmartAdManager;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,8 +14,9 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UnknownFormatConversionException;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ChatListener implements Listener {
@@ -89,8 +70,9 @@ public class ChatListener implements Listener {
         Player player = event.getPlayer();
 
         if (!player.hasPermission("chatex.allowchat")) {
-            String msg = Locales.COMMAND_RESULT_NO_PERM.getString(player).replaceAll("%perm", "chatex.allowchat");
-            player.sendMessage(msg);
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%perm", "chatex.allowchat");
+            player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getComponent(player, placeholders));
             event.setCancelled(true);
             return;
         }
@@ -104,9 +86,9 @@ public class ChatListener implements Listener {
 
         if (!AntiSpamManager.getInstance().isAllowed(event.getPlayer())) {
             long remainingTime = AntiSpamManager.getInstance().getRemainingSeconds(event.getPlayer());
-            String message = Locales.ANTI_SPAM_DENIED.getString(event.getPlayer()).replaceAll("%time%", remainingTime + "");
-            
-            event.getPlayer().sendMessage(message);
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%time%", String.valueOf(remainingTime));
+            player.sendMessage(Locales.ANTI_SPAM_DENIED.getComponent(event.getPlayer(), placeholders));
             event.setCancelled(true);
             return;
         }
@@ -115,21 +97,19 @@ public class ChatListener implements Listener {
         LogHelper.debug("Player did not activate the AntiSpam. Continuing...");
 
         if (adManager.checkForAds(chatMessage, player)) {
-            String message = Locales.MESSAGES_AD.getString(null).replaceAll("%perm", "chatex.bypassads");
-            
-            event.getPlayer().sendMessage(message);
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%perm", "chatex.bypassads");
+            player.sendMessage(Locales.MESSAGES_AD.getComponent(null, placeholders));
             event.setCancelled(true);
             return;
         }
 
         LogHelper.debug("Player did not activate the AdBlocker. Continuing...");
 
-        for(String block : Config.BLOCKED_WORDS.getStringList()) {
-            if(chatMessage.toLowerCase().contains(block.toLowerCase())) {
+        for (String block : Config.BLOCKED_WORDS.getStringList()) {
+            if (chatMessage.toLowerCase().contains(block.toLowerCase())) {
                 LogHelper.debug("Player activated wordblocker! ChatMessage: " + chatMessage + " contains blockedWord: " + block);
-                String message = Locales.MESSAGES_BLOCKED.getString(null);
-                
-                event.getPlayer().sendMessage(message);
+                player.sendMessage(Locales.MESSAGES_BLOCKED.getComponent(null));
                 event.setCancelled(true);
                 return;
             }
@@ -156,7 +136,9 @@ public class ChatListener implements Listener {
                         return;
                     }
                 } else {
-                    player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player).replaceAll("%perm", "chatex.chat.global"));
+                    Map<String, String> placeholders = new HashMap<>();
+                    placeholders.put("%perm", "chatex.chat.global");
+                    player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getComponent(player, placeholders));
                     event.setCancelled(true);
                     return;
                 }
@@ -164,7 +146,7 @@ public class ChatListener implements Listener {
                 LogHelper.debug("Range mode enabled!");
                 event.getRecipients().clear();
                 if (Utils.getLocalRecipients(player).size() == 1 && Config.SHOW_NO_RECEIVER_MSG.getBoolean()) {
-                    player.sendMessage(Locales.NO_LISTENING_PLAYERS.getString(player));
+                    player.sendMessage(Locales.NO_LISTENING_PLAYERS.getComponent(player));
                     event.setCancelled(true);
                     return;
                 } else {
@@ -182,9 +164,10 @@ public class ChatListener implements Listener {
         }
 
         LogHelper.debug("Replacing Placeholder in format...");
-        format = Utils.replacePlayerPlaceholders(player, format);
+        format = Utils.replacePlayerPlaceholders(player, format, false);
         format = Utils.escape(format);
         format = format.replace("%%message", "%2$s");
+        format = Utils.replaceColors(format);
         LogHelper.debug("Format after replacing: " + format);
 
         try {

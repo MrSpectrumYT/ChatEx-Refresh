@@ -149,6 +149,10 @@ public enum Config {
         return Utils.replaceColors(cfg.getString(path));
     }
 
+    public String getStringRaw() {
+        return cfg.getString(path);
+    }
+
     public List<String> getStringList() {
         return cfg.getStringList(path);
     }

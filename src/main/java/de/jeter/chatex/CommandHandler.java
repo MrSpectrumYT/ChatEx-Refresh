@@ -1,47 +1,32 @@
-/*
- * This file is part of ChatEx Refresh
- * Copyright (C) 2026 MrSpectrumYT
- *
- * This file is part of ChatEx
- * Copyright (C) 2022 ChatEx Team
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- */
 package de.jeter.chatex;
 
 import de.jeter.chatex.utils.Config;
 import de.jeter.chatex.utils.Locales;
 import de.jeter.chatex.utils.Utils;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CommandHandler implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage("§aChatEx-Refresh plugin by " + ChatEx.getInstance().getDescription().getAuthors());
+            sender.sendMessage(Component.text("ChatEx-Refresh plugin by " + ChatEx.getInstance().getDescription().getAuthors(), NamedTextColor.GREEN));
             return true;
         }
         
         if (args.length > 1) {
-            sender.sendMessage(Locales.COMMAND_RESULT_WRONG_USAGE.getString(null).replaceAll("%cmd", command.getName()));
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%cmd", command.getName());
+            sender.sendMessage(Locales.COMMAND_RESULT_WRONG_USAGE.getComponent(null, placeholders));
             return true;
         }
         
@@ -49,7 +34,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
             if (sender.hasPermission("chatex.reload")) {
                 Config.reload(true);
                 Locales.fullReload();
-                sender.sendMessage(Locales.MESSAGES_RELOAD.getString(null));
+                sender.sendMessage(Locales.MESSAGES_RELOAD.getComponent(null));
 
                 if (Config.CHANGE_TABLIST_NAME.getBoolean()) {
                     for (Player p : Bukkit.getOnlinePlayers()) {
@@ -59,7 +44,9 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
                     }
                 }
             } else {
-                sender.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(null).replaceAll("%perm", "chatex.reload"));
+                Map<String, String> placeholders = new HashMap<>();
+                placeholders.put("%perm", "chatex.reload");
+                sender.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getComponent(null, placeholders));
             }
             return true;
         }
@@ -70,36 +57,43 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         
                 String clearerName;
                 if (sender instanceof ConsoleCommandSender || sender instanceof BlockCommandSender) {
-                    clearerName = Locales.COMMAND_CLEAR_CONSOLE.getString(null);
+                    clearerName = Locales.COMMAND_CLEAR_CONSOLE.getStringRaw();
                 } else if (sender instanceof Player) {
                     clearerName = sender.getName();
                 } else {
-                    clearerName = Locales.COMMAND_CLEAR_UNKNOWN.getString(null);
+                    clearerName = Locales.COMMAND_CLEAR_UNKNOWN.getStringRaw();
                 }
         
-                String message = Locales.MESSAGES_CLEAR.getString(null);
-                message = message.replace("%clearer%", clearerName);
+                Map<String, String> placeholders = new HashMap<>();
+                placeholders.put("%clearer%", clearerName);
+                Component message = Locales.MESSAGES_CLEAR.getComponent(null, placeholders);
         
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     player.sendMessage(message);
                 }
                 Bukkit.getConsoleSender().sendMessage(message);
             } else {
-                sender.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(null).replaceAll("%perm", "chatex.clear"));
+                Map<String, String> placeholders = new HashMap<>();
+                placeholders.put("%perm", "chatex.clear");
+                sender.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getComponent(null, placeholders));
             }
             return true;
         }
         
         if (args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("?")) {
-            sender.sendMessage("§f ");
-            sender.sendMessage("§e☀ §fHelp for chat:");
-            sender.sendMessage("§f● §e/" + command.getName() + " clear §f— " + Locales.COMMAND_CLEAR_DESCRIPTION.getString(null));
-            sender.sendMessage("§f● §e/" + command.getName() + " reload §f— " + Locales.COMMAND_RELOAD_DESCRIPTION.getString(null));
-            sender.sendMessage("§f ");
+            sender.sendMessage(Component.empty());
+            sender.sendMessage(Component.text("☀ Help for chat:", NamedTextColor.YELLOW));
+            sender.sendMessage(Component.text("● /" + command.getName() + " clear — ", NamedTextColor.WHITE)
+                    .append(Locales.COMMAND_CLEAR_DESCRIPTION.getComponent(null)));
+            sender.sendMessage(Component.text("● /" + command.getName() + " reload — ", NamedTextColor.WHITE)
+                    .append(Locales.COMMAND_RELOAD_DESCRIPTION.getComponent(null)));
+            sender.sendMessage(Component.empty());
             return true;
         }
         
-        sender.sendMessage(Locales.COMMAND_RESULT_WRONG_USAGE.getString(null).replaceAll("%cmd", "/chatex"));
+        Map<String, String> placeholders = new HashMap<>();
+        placeholders.put("%cmd", "/chatex");
+        sender.sendMessage(Locales.COMMAND_RESULT_WRONG_USAGE.getComponent(null, placeholders));
         return true;
     }
 
