@@ -4,7 +4,7 @@
 
 ## ✨ Features
 
-- **Full Minecraft 1.21+ support** — Folia, Leaf, Paper, Pufferfish, Purpur
+- **Full Minecraft 1.21+ support** — Folia, Leaf, Paper, Pufferfish, Purpur, Spigot
 - **HEX & Legacy colors** — both `#RRGGBB` and `&#RRGGBB` formats
 - **Anti-Spam system** — configurable cooldowns to prevent chat flooding
 - **Ad Blocker** — smart detection with IP/domain filtering
@@ -33,14 +33,14 @@
 ## 📦 Requirements
 
 - **Java 21+**
-- **Folia / Leaf / Paper / Pufferfish / Purpur 1.21+**
+- **Folia / Leaf / Paper / Pufferfish / Purpur / Spigot 1.21+**
 - **PlaceholderAPI** — optional but recommended
 - **LuckPerms** — optional for permission management
 
 ## ⚠️ Important Notes
 
 ### Server Software Compatibility
-This plugin is designed and tested exclusively on **Folia**, **Leaf**, **Paper**, **Pufferfish**, **Purpur**. It may work on other forks, but **compatibility is NOT guaranteed**.
+This plugin is designed and tested exclusively on **Folia**, **Leaf**, **Paper**, **Pufferfish**, **Purpur** and **Spigot**. It may work on other forks, but **compatibility is NOT guaranteed**.
 
 **Not supported:**
 - ❌ Any Minecraft Bedrock
@@ -48,7 +48,6 @@ This plugin is designed and tested exclusively on **Folia**, **Leaf**, **Paper**
 - ❌ Hybrid server software (Arclight, Magma, Mohist and etc)
 - ❌ Mod loaders (Fabric, Forge, LegacyFabric, LiteLoader, NeoForge, Quilt and etc)
 - ❌ Proxy servers (BungeeCord, Velocity, Waterfall and etc)
-- ❌ Spigot, CraftBukkit and any non-Paper forks
 - ❌ Vanilla Minecraft Java
 
 ## 📁 Commands
@@ -78,7 +77,7 @@ This project is licensed under the **GNU General Public License v2.0** — you a
 ## 💬 Support
 If you encounter issues or have questions:
 1. Check that you have **Java 21+**
-2. Verify your server is running Folia / Leaf / Paper / Pufferfish / Purpur
+2. Verify your server is running Folia / Leaf / Paper / Pufferfish / Purpur / Spigot
 3. Read the console for error messages
 
 ## 🌐 Contacts
