@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'Վերաբեռնում է պլագինը.'
+  Clear:
+    Description: 'Մաքրում է չաթը.'
+    Console: 'ԿՈՆՍՈԼ'
+    Unknown: 'ԱՆՀԱՅՏ'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fԿոնֆիգուրացիան և լեզուները հաջողությամբ վերաբեռնվեցին!'
+    Clear:
+      Success: '&4⚠ &fՉաթը մաքրվեց &4%clearer%&f-ի կողմից։'
+  Chat:
+    AdDetected: '&c✘ &fԳովազդն արգելված է!'
+    BlockedWord: '&c✘ &fԱյս բառն արգելված է!'
+    AdNotify: '&4⚠ %player &fփորձեց գովազդ գրել չաթում։'
+    NoOneListens: '&4⚠ &fՄոտակայքում չկան խաղացողներ, որոնք կլսեն ձեզ։ Օգտագործեք գլոբալ ռեժիմը։'
+  NoColorPermission: '&c✘ &fԴուք չունեք սովորական գույներ օգտագործելու թույլտվություն։'
+  NoHexPermission: '&c✘ &fԴուք չունեք HEX գույներ օգտագործելու թույլտվություն։'
+  MagicBlocked: '&c✘ &fԴուք չունեք կախարդական գույներ օգտագործելու թույլտվություն։'
+  CommandResult:
+    NoPermission: '&c✘ &fԴուք չունեք թույլտվություն սրա համար։ Թույլտվություն՝ &c%perm&f։'
+    WrongUsage: '&c✘ &fՍխալ օգտագործում։ Խնդրում ենք մուտքագրել &c%cmd help&f։'
+  AntiSpam:
+    Denied: '&c✘ &fՍպամն արգելված է։ Սպասեք ևս &c%time% &fվայրկյան։'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fմիացավ խաղին։'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fառաջին անգամ միացավ սերվերին։'
+    Kick: '&f● &e%prefix%displayname%suffix &fհեռացվեց խաղից։'
+    Quit: '&f● &e%prefix%displayname%suffix &fլքեց խաղը։'

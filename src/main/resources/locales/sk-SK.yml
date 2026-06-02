@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'znovu načíta plugin.'
+  Clear:
+    Description: 'vyčistí chat.'
+    Console: 'KONZOLA'
+    Unknown: 'NEZNÁMY'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fKonfigurácia a jazyky boli úspešne znovu načítané!'
+    Clear:
+      Success: '&4⚠ &fChat bol vyčistený hráčom &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fReklama nie je povolená!'
+    BlockedWord: '&c✘ &fToto slovo nie je povolené!'
+    AdNotify: '&4⚠ %player &fsa pokúsil napísať reklamu do chatu!'
+    NoOneListens: '&4⚠ &fV okolí nie sú žiadni hráči, ktorí by vás počuli! Použite globálny režim.'
+  NoColorPermission: '&c✘ &fNemáte oprávnenie používať bežné farby!'
+  NoHexPermission: '&c✘ &fNemáte oprávnenie používať HEX farby!'
+  MagicBlocked: '&c✘ &fNemáte oprávnenie používať magické farby!'
+  CommandResult:
+    NoPermission: '&c✘ &fNemáte oprávnenie! Oprávnenie: &c%perm&f.'
+    WrongUsage: '&c✘ &fChybné použitie! Napíšte &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam nie je povolený! Počkajte ešte &c%time% &fsekúnd!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fsa pripojil k hre!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fsa pripojil prvýkrát!'
+    Kick: '&f● &e%prefix%displayname%suffix &fbol vykopnutý z hry!'
+    Quit: '&f● &e%prefix%displayname%suffix &fopustil hru!'

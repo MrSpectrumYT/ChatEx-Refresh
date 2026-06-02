@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'újratölti a plugint.'
+  Clear:
+    Description: 'kitörli a chat-et.'
+    Console: 'KONZOL'
+    Unknown: 'ISMBETLEN'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fKonfiguráció és nyelvek sikeresen újratöltve!'
+    Clear:
+      Success: '&4⚠ &fA chat-et &4%clearer%&f törölte ki.'
+  Chat:
+    AdDetected: '&c✘ &fA reklámozás nem engedélyezett!'
+    BlockedWord: '&c✘ &fEz a szó nem engedélyezett!'
+    AdNotify: '&4⚠ %player &freklámot próbált írni a chat-be!'
+    NoOneListens: '&4⚠ &fNincs a közelben játékos, aki hallana! Használd a globális módot.'
+  NoColorPermission: '&c✘ &fNincs jogod a normál színek használatához!'
+  NoHexPermission: '&c✘ &fNincs jogod a HEX színek használatához!'
+  MagicBlocked: '&c✘ &fNincs jogod a varázs színek használatához!'
+  CommandResult:
+    NoPermission: '&c✘ &fNincs jogod ehhez! Jogosultság: &c%perm&f.'
+    WrongUsage: '&c✘ &fHelytelen használat! Kérlek írd be: &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fA spam nem engedélyezett! Kérlek várj még &c%time% &fmásodpercet!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fcsatlakozott a játékhoz!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fmost csatlakozott először!'
+    Kick: '&f● &e%prefix%displayname%suffix &fki lett rúgva a játékból!'
+    Quit: '&f● &e%prefix%displayname%suffix &fkilépett a játékból!'

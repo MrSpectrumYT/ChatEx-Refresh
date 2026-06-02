@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'プラグインをリロードします。'
+  Clear:
+    Description: 'チャットをクリアします。'
+    Console: 'コンソール'
+    Unknown: '不明'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &f設定と言語ファイルが正常にリロードされました！'
+    Clear:
+      Success: '&4⚠ &fチャットは &4%clearer%&f によってクリアされました。'
+  Chat:
+    AdDetected: '&c✘ &f広告は禁止されています！'
+    BlockedWord: '&c✘ &fこの単語は使用できません！'
+    AdNotify: '&4⚠ %player &fがチャットで広告を書こうとしました！'
+    NoOneListens: '&4⚠ &f近くにあなたの声を聞けるプレイヤーがいません！グローバルモードをお使いください。'
+  NoColorPermission: '&c✘ &f通常のカラーを使用する権限がありません！'
+  NoHexPermission: '&c✘ &fHEXカラーを使用する権限がありません！'
+  MagicBlocked: '&c✘ &f魔法のカラーを使用する権限がありません！'
+  CommandResult:
+    NoPermission: '&c✘ &f権限がありません！権限: &c%perm&f.'
+    WrongUsage: '&c✘ &f使用方法が間違っています！ &c%cmd help&f を入力してください！'
+  AntiSpam:
+    Denied: '&c✘ &fスパムは禁止されています！あと &c%time% &f秒お待ちください！'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fがゲームに参加しました！'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fが初めてサーバーに参加しました！'
+    Kick: '&f● &e%prefix%displayname%suffix &fがゲームからキックされました！'
+    Quit: '&f● &e%prefix%displayname%suffix &fがゲームを退出しました！'

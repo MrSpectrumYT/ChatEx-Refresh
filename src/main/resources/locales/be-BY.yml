@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'перазагружае плагін.'
+  Clear:
+    Description: 'ачышчае чат.'
+    Console: 'КОНСОЛЬ'
+    Unknown: 'НЕВЯДОМА'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fКанфігурацыя і лакалізацыі паспяхова перазагружаны!'
+    Clear:
+      Success: '&4⚠ &fЧат быў ачышчаны гульцом &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fРэклама забаронена!'
+    BlockedWord: '&c✘ &fГэтае слова забаронена!'
+    AdNotify: '&4⚠ %player &fспрабаваў напісаць рэкламу ў чаце!'
+    NoOneListens: '&4⚠ &fПобач няма гульцоў, якія б маглі вас пачуць! Выкарыстоўвайце глабальны рэжым.'
+  NoColorPermission: '&c✘ &fУ вас няма правоў на выкарыстанне звычайных колераў!'
+  NoHexPermission: '&c✘ &fУ вас няма правоў на выкарыстанне HEX-колераў!'
+  MagicBlocked: '&c✘ &fУ вас няма правоў на выкарыстанне магічнага колеру!'
+  CommandResult:
+    NoPermission: '&c✘ &fУ вас няма правоў на гэта! Права: &c%perm&f.'
+    WrongUsage: '&c✘ &fНяправільны выкарыстанне! Калі ласка, увядзіце &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fСпам забаронены! Пачакайце яшчэ &c%time% &fсекунд!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fдалучыўся да гульні!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fдалучыўся да гульні ўпершыню!'
+    Kick: '&f● &e%prefix%displayname%suffix &fбыў кікнуты з гульні!'
+    Quit: '&f● &e%prefix%displayname%suffix &fпакінуў гульню!'

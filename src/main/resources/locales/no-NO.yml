@@ -1,0 +1,31 @@
+Commands:
+  Reload:
+    Description: 'laster inn plugin på nytt.'
+  Clear:
+    Description: 'tømmer chatten.'
+    Console: 'KONSOL'
+    Unknown: 'UKJENT'
+Messages:
+  Commands:
+    Reload:
+      Success: '&a✔ &fKonfigurasjon og språkfiler ble vellykket lastet inn på nytt!'
+    Clear:
+      Success: '&4⚠ &fChatten ble tømt av &4%clearer%&f.'
+  Chat:
+    AdDetected: '&c✘ &fReklame er ikke tillatt!'
+    BlockedWord: '&c✘ &fDette ordet er ikke tillatt!'
+    AdNotify: '&4⚠ %player &fprøvde å skrive en annonse i chatten!'
+    NoOneListens: '&4⚠ &fIngen spillere er i nærheten for å høre deg! Bruk global modus.'
+  NoColorPermission: '&c✘ &fDu har ikke tillatelse til å bruke vanlige farger!'
+  NoHexPermission: '&c✘ &fDu har ikke tillatelse til å bruke HEX-farger!'
+  MagicBlocked: '&c✘ &fDu har ikke tillatelse til å bruke magiske farger!'
+  CommandResult:
+    NoPermission: '&c✘ &fDu har ikke tillatelse til dette! Tillatelse: &c%perm&f.'
+    WrongUsage: '&c✘ &fFeil bruk! Vennligst skriv &c%cmd help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam er ikke tillatt! Vent &c%time% &fsekunder til!'
+  Player:
+    Join: '&f● &e%prefix%displayname%suffix &fble med i spillet!'
+    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fble med på serveren for første gang!'
+    Kick: '&f● &e%prefix%displayname%suffix &fble sparket fra spillet!'
+    Quit: '&f● &e%prefix%displayname%suffix &fforlot spillet!'
