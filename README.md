@@ -10,7 +10,7 @@
 - **Ad Blocker** — smart detection with IP/domain filtering
 - **Range Mode** — local chat with configurable radius
 - **Global Mode** — cross-server disabled (original BungeeCord feature removed)
-- **35+ languages** — including English, Русский, Українська and more
+- **34 languages** — including English, Русский, Українська and more
 - **Logging** — chat and ad logs with daily rotation
 - **Message formatting** — fully customizable with PlaceholderAPI support
 
