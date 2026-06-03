@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fРекламите не са позволени!'
     BlockedWord: '&c✘ &fТази дума не е позволена!'
-    AdNotify: '&4⚠ %player &fсе опита да напише реклама в чата!'
+    AdNotify: '&4⚠ %player &fсе опита да напише &4%message &fв чата!'
     NoOneListens: '&4⚠ &fНяма играчи наблизо, които да ви чуят! Използвайте глобален режим.'
   NoColorPermission: '&c✘ &fНямате права за използване на обикновени цветове!'
   NoHexPermission: '&c✘ &fНямате права за използване на HEX цветове!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fсе присъедини за първи път!'
     Kick: '&f● &e%prefix%displayname%suffix &fбеше изритан от играта!'
     Quit: '&f● &e%prefix%displayname%suffix &fнапусна играта!'
+  Color:
+    Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fЦветът на чата ви беше актуализиран!'
+    Invalid: '&c✘ &fТова не е валиден цветен код!'
+    Reset: '&a✔ &fЦветът на чата ви беше нулиран!'

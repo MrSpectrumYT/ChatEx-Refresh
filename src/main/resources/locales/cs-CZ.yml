@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklama není povolena!'
     BlockedWord: '&c✘ &fToto slovo není povoleno!'
-    AdNotify: '&4⚠ %player &fse pokusil napsat reklamu do chatu!'
+    AdNotify: '&4⚠ %player &fse pokusil napsat do chatu &4%message&f!'
     NoOneListens: '&4⚠ &fV okolí nejsou žádní hráči, kteří by vás slyšeli! Použijte globální režim.'
   NoColorPermission: '&c✘ &fNemáte oprávnění používat běžné barvy!'
   NoHexPermission: '&c✘ &fNemáte oprávnění používat HEX barvy!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fse připojil poprvé!'
     Kick: '&f● &e%prefix%displayname%suffix &fbyl vykopnut ze hry!'
     Quit: '&f● &e%prefix%displayname%suffix &fopustil hru!'
+  Color:
+    Usage: '&e☀ &fPoužití: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fBarva vašeho chatu byla aktualizována!'
+    Invalid: '&c✘ &fToto není platný barevný kód!'
+    Reset: '&a✔ &fBarva vašeho chatu byla resetována!'

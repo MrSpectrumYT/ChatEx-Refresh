@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fЖарнамаға тыйым салынған!'
     BlockedWord: '&c✘ &fБұл сөзге тыйым салынған!'
-    AdNotify: '&4⚠ %player &fчатта жарнама жазбақшы болды!'
+    AdNotify: '&4⚠ %player &fчатта &4%message &fжазбақшы болды!'
     NoOneListens: '&4⚠ &fСізді еститін ойыншылар жақын жерде жоқ! Жаһандық режимді қолданыңыз.'
   NoColorPermission: '&c✘ &fҚарапайым түстерді пайдалану құқығыңыз жоқ!'
   NoHexPermission: '&c✘ &fHEX-түстерді пайдалану құқығыңыз жоқ!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fсерверге бірінші рет қосылды!'
     Kick: '&f● &e%prefix%displayname%suffix &fсерверден қуылды!'
     Quit: '&f● &e%prefix%displayname%suffix &fсерверден шықты!'
+  Color:
+    Usage: '&e☀ &fҚолдану: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fЧат түсіңіз жаңартылды!'
+    Invalid: '&c✘ &fБұл жарамды түс коды емес!'
+    Reset: '&a✔ &fЧат түсіңіз қалпына келтірілді!'

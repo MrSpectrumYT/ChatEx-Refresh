@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fრეკლამა აკრძალულია!'
     BlockedWord: '&c✘ &fეს სიტყვა აკრძალულია!'
-    AdNotify: '&4⚠ %player &fცდილობდა რეკლამის დაწერას ჩატში!'
+    AdNotify: '&4⚠ %player &fცდილობდა დაეწერა &4%message &fჩატში!'
     NoOneListens: '&4⚠ &fახლოს არ არის მოთამაშეები, რომ გაიგონონ თქვენი საუბარი! გამოიყენეთ გლობალური რეჟიმი.'
   NoColorPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჩვეულებრივი ფერები!'
   NoHexPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ HEX ფერები!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fპირველად შემოუერთდა სერვერს!'
     Kick: '&f● &e%prefix%displayname%suffix &fგამოაგდეს თამაშიდან!'
     Quit: '&f● &e%prefix%displayname%suffix &fგამოვიდა თამაშიდან!'
+  Color:
+    Usage: '&e☀ &fგამოყენება: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fჩატის ფერი განახლდა!'
+    Invalid: '&c✘ &fეს არ არის მართებული ფერის კოდი!'
+    Reset: '&a✔ &fჩატის ფერი გადატვირთულია!'

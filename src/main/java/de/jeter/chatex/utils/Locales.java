@@ -1,24 +1,3 @@
-/*
- * This file is part of ChatEx Refresh
- * Copyright (C) 2026 MrSpectrumYT
- *
- * This file is part of ChatEx
- * Copyright (C) 2022 ChatEx Team
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- */
 package de.jeter.chatex.utils;
 
 import de.jeter.chatex.ChatEx;
@@ -27,6 +6,7 @@ import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 public enum Locales {
 
@@ -38,7 +18,7 @@ public enum Locales {
     MESSAGES_CLEAR("Messages.Commands.Clear.Success", "&4⚠ &fThe chat was cleared by &4%clearer%&f."),
     MESSAGES_AD("Messages.Chat.AdDetected", "&c✘ &fAdvertising is not allowed!"),
     MESSAGES_BLOCKED("Messages.Chat.BlockedWord", "&c✘ &fThis word is not allowed!"),
-    MESSAGES_AD_NOTIFY("Messages.Chat.AdNotify", "&4⚠ %player &ftried to write an ad in chat!"),
+    MESSAGES_AD_NOTIFY("Messages.Chat.AdNotify", "&4⚠ %player &ftried to write &4%message &fin chat!"),
     NO_COLOR_PERMISSION("Messages.NoColorPermission", "&c✘ &fYou don't have permission to use legacy colors!"),
     NO_HEX_PERMISSION("Messages.NoHexPermission", "&c✘ &fYou don't have permission to use HEX colors!"),
     MAGIC_BLOCKED("Messages.MagicBlocked", "&c✘ &fYou don't have permission to use magic color!"),
@@ -49,7 +29,11 @@ public enum Locales {
     PLAYER_JOIN_FIRST_TIME("Messages.Player.JoinFirstTime", "&f● &e%prefix%displayname%suffix &fjoined the server for the first time!"),
     PLAYER_KICK("Messages.Player.Kick", "&f● &e%prefix%displayname%suffix &fwas kicked from the game!"),
     PLAYER_QUIT("Messages.Player.Quit", "&f● &e%prefix%displayname%suffix &fleft the game!"),
-    NO_LISTENING_PLAYERS("Messages.Chat.NoOneListens", "&4⚠ &fNo players are near you to hear you talking! Try to use the global mode to chat globally!");
+    NO_LISTENING_PLAYERS("Messages.Chat.NoOneListens", "&4⚠ &fNo players are near you to hear you talking! Try to use the global mode to chat globally!"),
+    COLOR_USAGE("Messages.Color.Usage", "&e☀ &fUsage: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>"),
+    COLOR_SET_SUCCESS("Messages.Color.Set", "&a✔ &fYour chat color has been updated!"),
+    COLOR_INVALID("Messages.Color.Invalid", "&c✘ &fThat is not a valid color code!"),
+    COLOR_RESET("Messages.Color.Reset", "&a✔ &fYour chat color has been reset!");
 
     private static final File localeFolder = new File(ChatEx.getInstance().getDataFolder(), "locales");
     private static YamlConfiguration cfg;
@@ -126,6 +110,16 @@ public enum Locales {
             return Utils.replaceColors(value);
         }
         String ret = Utils.replaceColors(cfg.getString(path, value));
+        ret = Utils.replacePlayerPlaceholders(p, ret);
+        return ret;
+    }
+
+    public String getString(Player p, Map<String, String> additionalPlaceholders) {
+        String raw = cfg != null ? cfg.getString(path, value) : value;
+        for (Map.Entry<String, String> entry : additionalPlaceholders.entrySet()) {
+            raw = raw.replace(entry.getKey(), entry.getValue());
+        }
+        String ret = Utils.replaceColors(raw);
         ret = Utils.replacePlayerPlaceholders(p, ret);
         return ret;
     }

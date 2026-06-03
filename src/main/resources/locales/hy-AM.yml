@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fԳովազդն արգելված է!'
     BlockedWord: '&c✘ &fԱյս բառն արգելված է!'
-    AdNotify: '&4⚠ %player &fփորձեց գովազդ գրել չաթում։'
+    AdNotify: '&4⚠ %player &fփորձեց գրել &4%message &fչաթում։'
     NoOneListens: '&4⚠ &fՄոտակայքում չկան խաղացողներ, որոնք կլսեն ձեզ։ Օգտագործեք գլոբալ ռեժիմը։'
   NoColorPermission: '&c✘ &fԴուք չունեք սովորական գույներ օգտագործելու թույլտվություն։'
   NoHexPermission: '&c✘ &fԴուք չունեք HEX գույներ օգտագործելու թույլտվություն։'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fառաջին անգամ միացավ սերվերին։'
     Kick: '&f● &e%prefix%displayname%suffix &fհեռացվեց խաղից։'
     Quit: '&f● &e%prefix%displayname%suffix &fլքեց խաղը։'
+  Color:
+    Usage: '&e☀ &fՕգտագործում՝ &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fՉաթի գույնդ թարմացվեց։'
+    Invalid: '&c✘ &fԴա վավեր գունային կոդ չէ։'
+    Reset: '&a✔ &fՉաթի գույնդ վերականգնվեց։'

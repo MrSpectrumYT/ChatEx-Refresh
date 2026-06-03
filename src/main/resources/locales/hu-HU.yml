@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fA reklámozás nem engedélyezett!'
     BlockedWord: '&c✘ &fEz a szó nem engedélyezett!'
-    AdNotify: '&4⚠ %player &freklámot próbált írni a chat-be!'
+    AdNotify: '&4⚠ %player &fmegpróbálta ezt írni a chat-be: &4%message&f!'
     NoOneListens: '&4⚠ &fNincs a közelben játékos, aki hallana! Használd a globális módot.'
   NoColorPermission: '&c✘ &fNincs jogod a normál színek használatához!'
   NoHexPermission: '&c✘ &fNincs jogod a HEX színek használatához!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fmost csatlakozott először!'
     Kick: '&f● &e%prefix%displayname%suffix &fki lett rúgva a játékból!'
     Quit: '&f● &e%prefix%displayname%suffix &fkilépett a játékból!'
+  Color:
+    Usage: '&e☀ &fHasználat: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fA chat színed frissítve!'
+    Invalid: '&c✘ &fEz nem érvényes színkód!'
+    Reset: '&a✔ &fA chat színed visszaállítva!'

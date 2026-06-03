@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fРеклама манъ аст!'
     BlockedWord: '&c✘ &fИн калима манъ аст!'
-    AdNotify: '&4⚠ %player &fкӯшиш кард, ки дар чат реклама нависад!'
+    AdNotify: '&4⚠ %player &fкӯшиш кард, ки дар чат &4%message &fнависад!'
     NoOneListens: '&4⚠ &fҲеҷ бозигаре дар наздикӣ нест, ки шуморо шунавад! Реҷами глобалиро истифода баред.'
   NoColorPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои оддиро надоред!'
   NoHexPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои HEX-ро надоред!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fбори аввал ба сервер ҳамроҳ шуд!'
     Kick: '&f● &e%prefix%displayname%suffix &fаз бозӣ ронда шуд!'
     Quit: '&f● &e%prefix%displayname%suffix &fаз бозӣ баромад!'
+  Color:
+    Usage: '&e☀ &fИстифода: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fРанги чати шумо нав карда шуд!'
+    Invalid: '&c✘ &fИн рамзи ранги дуруст нест!'
+    Reset: '&a✔ &fРанги чати шумо барқарор карда шуд!'

@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fLa pubblicità non è consentita!'
     BlockedWord: '&c✘ &fQuesta parola non è consentita!'
-    AdNotify: '&4⚠ %player &fha tentato di fare pubblicità in chat!'
+    AdNotify: '&4⚠ %player &fha tentato di scrivere &4%message &fin chat!'
     NoOneListens: '&4⚠ &fNessun giocatore è vicino per ascoltarti! Usa la modalità globale.'
   NoColorPermission: '&c✘ &fNon hai il permesso di usare colori normali!'
   NoHexPermission: '&c✘ &fNon hai il permesso di usare colori HEX!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fè entrato nel server per la prima volta!'
     Kick: '&f● &e%prefix%displayname%suffix &fè stato espulso dal gioco!'
     Quit: '&f● &e%prefix%displayname%suffix &fha lasciato il gioco!'
+  Color:
+    Usage: '&e☀ &fUso: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fIl colore della tua chat è stato aggiornato!'
+    Invalid: '&c✘ &fNon è un codice colore valido!'
+    Reset: '&a✔ &fIl colore della tua chat è stato resettato!'

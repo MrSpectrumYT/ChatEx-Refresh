@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fMainostaminen on kielletty!'
     BlockedWord: '&c✘ &fTämä sana on kielletty!'
-    AdNotify: '&4⚠ %player &fyritti lähettää mainoksen chatissa!'
+    AdNotify: '&4⚠ %player &fyritti lähettää &4%message &fchattiin!'
     NoOneListens: '&4⚠ &fKukaan pelaaja ei ole tarpeeksi lähellä kuullakseen sinua! Käytä globaalia tilaa.'
   NoColorPermission: '&c✘ &fSinulla ei ole oikeutta käyttää tavallisia värejä!'
   NoHexPermission: '&c✘ &fSinulla ei ole oikeutta käyttää HEX-värejä!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fliittyi ensimmäistä kertaa!'
     Kick: '&f● &e%prefix%displayname%suffix &fpotkittiin pelistä!'
     Quit: '&f● &e%prefix%displayname%suffix &fpoistui pelistä!'
+  Color:
+    Usage: '&e☀ &fKäyttö: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fChattisi väri on päivitetty!'
+    Invalid: '&c✘ &fTämä ei ole kelvollinen värikoodi!'
+    Reset: '&a✔ &fChattisi väri on nollattu!'

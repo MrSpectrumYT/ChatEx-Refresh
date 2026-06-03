@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fΗ διαφήμιση δεν επιτρέπεται!'
     BlockedWord: '&c✘ &fΑυτή η λέξη δεν επιτρέπεται!'
-    AdNotify: '&4⚠ %player &fπροσπάθησε να γράψει διαφήμιση στο chat!'
+    AdNotify: '&4⚠ %player &fπροσπάθησε να γράψει &4%message &fστο chat!'
     NoOneListens: '&4⚠ &fΔεν υπάρχουν παίκτες κοντά σας για να σας ακούσουν! Χρησιμοποιήστε την καθολική λειτουργία.'
   NoColorPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε κανονικά χρώματα!'
   NoHexPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε HEX χρώματα!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fμπήκε στον server για πρώτη φορά!'
     Kick: '&f● &e%prefix%displayname%suffix &fδιώχθηκε από το παιχνίδι!'
     Quit: '&f● &e%prefix%displayname%suffix &fβγήκε από το παιχνίδι!'
+  Color:
+    Usage: '&e☀ &fΧρήση: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fΤο χρώμα του chat σας ενημερώθηκε!'
+    Invalid: '&c✘ &fΑυτός δεν είναι έγκυρος κωδικός χρώματος!'
+    Reset: '&a✔ &fΤο χρώμα του chat σας επαναφέρθηκε!'

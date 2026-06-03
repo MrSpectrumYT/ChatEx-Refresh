@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fРекламе нису дозвољене!'
     BlockedWord: '&c✘ &fОва реч није дозвољена!'
-    AdNotify: '&4⚠ %player &fје покушао да напише рекламу у чату!'
+    AdNotify: '&4⚠ %player &fје покушао да напише &4%message &fу чату!'
     NoOneListens: '&4⚠ &fНиједан играч није близу да вас чује! Користите глобални режим.'
   NoColorPermission: '&c✘ &fНемате дозволу за коришћење обичних боја!'
   NoHexPermission: '&c✘ &fНемате дозволу за коришћење HEX боја!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fсе први пут придружио серверу!'
     Kick: '&f● &e%prefix%displayname%suffix &fје избачен из игре!'
     Quit: '&f● &e%prefix%displayname%suffix &fнапустио је игру!'
+  Color:
+    Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fБоја вашег ћаскања је ажурирана!'
+    Invalid: '&c✘ &fТо није важећи код боје!'
+    Reset: '&a✔ &fБоја вашег ћаскања је ресетована!'

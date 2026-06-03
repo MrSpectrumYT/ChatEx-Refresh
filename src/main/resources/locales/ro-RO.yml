@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fPublicitatea nu este permisă!'
     BlockedWord: '&c✘ &fAcest cuvânt nu este permis!'
-    AdNotify: '&4⚠ %player &fa încercat să scrie o reclamă în chat!'
+    AdNotify: '&4⚠ %player &fa încercat să scrie &4%message &fîn chat!'
     NoOneListens: '&4⚠ &fNu există jucători în apropiere care să te audă! Folosește modul global.'
   NoColorPermission: '&c✘ &fNu ai permisiunea să folosești culori obișnuite!'
   NoHexPermission: '&c✘ &fNu ai permisiunea să folosești culori HEX!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fs-a alăturat serverului pentru prima dată!'
     Kick: '&f● &e%prefix%displayname%suffix &fa fost eliminat din joc!'
     Quit: '&f● &e%prefix%displayname%suffix &fa părăsit jocul!'
+  Color:
+    Usage: '&e☀ &fUtilizare: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fCuloarea chat-ului tău a fost actualizată!'
+    Invalid: '&c✘ &fAcesta nu este un cod de culoare valid!'
+    Reset: '&a✔ &fCuloarea chat-ului tău a fost resetată!'

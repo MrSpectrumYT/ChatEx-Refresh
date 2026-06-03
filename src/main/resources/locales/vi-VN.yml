@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fQuảng cáo không được phép!'
     BlockedWord: '&c✘ &fTừ này không được phép!'
-    AdNotify: '&4⚠ %player &fđã cố gắng viết quảng cáo trong chat!'
+    AdNotify: '&4⚠ %player &fđã cố gắng viết &4%message &ftrong chat!'
     NoOneListens: '&4⚠ &fKhông có người chơi nào gần bạn để nghe thấy! Hãy sử dụng chế độ toàn cầu.'
   NoColorPermission: '&c✘ &fBạn không có quyền sử dụng màu sắc thông thường!'
   NoHexPermission: '&c✘ &fBạn không có quyền sử dụng màu HEX!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &flần đầu tham gia máy chủ!'
     Kick: '&f● &e%prefix%displayname%suffix &fđã bị kick khỏi trò chơi!'
     Quit: '&f● &e%prefix%displayname%suffix &fđã rời khỏi trò chơi!'
+  Color:
+    Usage: '&e☀ &fCách dùng: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fMàu chat của bạn đã được cập nhật!'
+    Invalid: '&c✘ &fĐó không phải là mã màu hợp lệ!'
+    Reset: '&a✔ &fMàu chat của bạn đã được đặt lại!'

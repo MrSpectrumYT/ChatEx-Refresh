@@ -8,13 +8,13 @@ Commands:
 Messages:
   Commands:
     Reload:
-      Success: '&a✔ &fKonfiguratsiya va lokalizatsiyalar muvaffaqiyatli qayta yuklandi!'
+      Success: '&a✓ &fKonfiguratsiya va lokalizatsiyalar muvaffaqiyatli qayta yuklandi!'
     Clear:
       Success: '&4⚠ &fChat &4%clearer%&f tomonidan tozalandi.'
   Chat:
     AdDetected: '&c✘ &fReklama qilish taqiqlangan!'
     BlockedWord: '&c✘ &fBu soʻz taqiqlangan!'
-    AdNotify: '&4⚠ %player &fchatda reklama yozmoqchi boʻldi!'
+    AdNotify: '&4⚠ %player &fchatga &4%message &fyozmoqchi boʻldi!'
     NoOneListens: '&4⚠ &fSizni eshitadigan oʻyinchilar yoʻq! Global rejimdan foydalaning.'
   NoColorPermission: '&c✘ &fOddiy ranglarni ishlatish huquqi yoʻq!'
   NoHexPermission: '&c✘ &fHEX ranglarini ishlatish huquqi yoʻq!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fbirinchi marta oʻyinga qoʻshildi!'
     Kick: '&f● &e%prefix%displayname%suffix &foʻyindan haydaldi!'
     Quit: '&f● &e%prefix%displayname%suffix &foʻyinni tark etdi!'
+  Color:
+    Usage: '&e☀ &fIshlatish: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✓ &fChat rangingiz yangilandi!'
+    Invalid: '&c✘ &fBu haqiqiy rang kodi emas!'
+    Reset: '&a✓ &fChat rangingiz tiklandi!'

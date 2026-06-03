@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &f禁止发布广告！'
     BlockedWord: '&c✘ &f该词被禁止使用！'
-    AdNotify: '&4⚠ %player &f尝试在聊天栏发布广告！'
+    AdNotify: '&4⚠ %player &f尝试在聊天栏发布 &4%message&f！'
     NoOneListens: '&4⚠ &f附近没有玩家能听到你说话！请使用全局模式.'
   NoColorPermission: '&c✘ &f您没有使用普通颜色的权限！'
   NoHexPermission: '&c✘ &f您没有使用HEX颜色的权限！'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &f首次加入服务器！'
     Kick: '&f● &e%prefix%displayname%suffix &f被踢出游戏！'
     Quit: '&f● &e%prefix%displayname%suffix &f退出了游戏！'
+  Color:
+    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &f您的聊天颜色已更新！'
+    Invalid: '&c✘ &f这不是一个有效的颜色代码！'
+    Reset: '&a✔ &f您的聊天颜色已重置！'

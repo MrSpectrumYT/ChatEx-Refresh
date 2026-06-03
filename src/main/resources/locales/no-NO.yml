@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklame er ikke tillatt!'
     BlockedWord: '&c✘ &fDette ordet er ikke tillatt!'
-    AdNotify: '&4⚠ %player &fprøvde å skrive en annonse i chatten!'
+    AdNotify: '&4⚠ %player &fprøvde å skrive &4%message &fi chatten!'
     NoOneListens: '&4⚠ &fIngen spillere er i nærheten for å høre deg! Bruk global modus.'
   NoColorPermission: '&c✘ &fDu har ikke tillatelse til å bruke vanlige farger!'
   NoHexPermission: '&c✘ &fDu har ikke tillatelse til å bruke HEX-farger!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &fble med på serveren for første gang!'
     Kick: '&f● &e%prefix%displayname%suffix &fble sparket fra spillet!'
     Quit: '&f● &e%prefix%displayname%suffix &fforlot spillet!'
+  Color:
+    Usage: '&e☀ &fBruk: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fChattefargen din er oppdatert!'
+    Invalid: '&c✘ &fDet er ikke en gyldig fargekode!'
+    Reset: '&a✔ &fChattefargen din er tilbakestilt!'

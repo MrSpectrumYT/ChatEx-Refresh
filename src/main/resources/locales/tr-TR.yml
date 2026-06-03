@@ -14,7 +14,7 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklam yapmak yasaktır!'
     BlockedWord: '&c✘ &fBu kelime yasaktır!'
-    AdNotify: '&4⚠ %player &fsohbette reklam yapmaya çalıştı!'
+    AdNotify: '&4⚠ %player &fsohbete &4%message &fyazmaya çalıştı!'
     NoOneListens: '&4⚠ &fSeni duyacak oyuncu yok! Küresel modu kullan.'
   NoColorPermission: '&c✘ &fNormal renkleri kullanma izniniz yok!'
   NoHexPermission: '&c✘ &fHEX renklerini kullanma izniniz yok!'
@@ -29,3 +29,8 @@ Messages:
     JoinFirstTime: '&f● &e%prefix%displayname%suffix &foyuna ilk kez katıldı!'
     Kick: '&f● &e%prefix%displayname%suffix &foyundan atıldı!'
     Quit: '&f● &e%prefix%displayname%suffix &foyundan ayrıldı!'
+  Color:
+    Usage: '&e☀ &fKullanım: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Set: '&a✔ &fSohbet renginiz güncellendi!'
+    Invalid: '&c✘ &fBu geçerli bir renk kodu değil!'
+    Reset: '&a✔ &fSohbet renginiz sıfırlandı!'
