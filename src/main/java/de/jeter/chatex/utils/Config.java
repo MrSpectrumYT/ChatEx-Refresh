@@ -23,6 +23,8 @@ public enum Config {
     RANGEPREFIX("ranged-prefix", "!", "The Prefix to use for Range Mode"),
     SHOW_NO_RECEIVER_MSG("show-no-players-near", true, "Should we check if any player would receiver your chat message?"),
     RANGE("chat-range", 100, "The range to talk to other players. Set to -1 to enable world-wide-chat"),
+    MENTION_ENABLED("mention.enabled", true, "Enable player mentions with sound?"),
+    MENTION_SOUND("mention.sound", "BLOCK_NOTE_BLOCK_PLING", "Sound to play when mentioned"),
     LOGCHAT("logChat", false, "Should the chat be logged?"),
     DEBUG("debug", false, "Should the debug log be enabled?"),
     PRIORITY("EventPriority", EventPriority.LOWEST.name(), "Choose the Eventpriority here of ChatEx. Listeners are called in following order: LOWEST -> LOW -> NORMAL -> HIGH -> HIGHEST -> MONITOR"),

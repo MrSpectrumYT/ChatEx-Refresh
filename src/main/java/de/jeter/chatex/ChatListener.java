@@ -187,6 +187,9 @@ public class ChatListener implements Listener {
         }
         event.setMessage(finalMessage);
         
+        MentionManager.processMentions(player, chatMessage);
+        
+        
         ChatLogger.writeToFile(player, chatMessage);
         LogHelper.debug("Everything done! Method end.");
     }
