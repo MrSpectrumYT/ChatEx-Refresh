@@ -9,20 +9,34 @@
 - **Anti-Spam system** — configurable cooldowns to prevent chat flooding
 - **Ad Blocker** — smart detection with IP/domain filtering
 - **Range Mode** — local chat with configurable radius
-- **Global Mode** — cross-server disabled (original BungeeCord feature removed)
+- **Player Mentions** — mention online players with configurable sound
+- **Personal Chat Color** — players can set their own chat color via `/color`
 - **34 languages** — including English, Русский, Українська and more
 - **Logging** — chat and ad logs with daily rotation
 - **Message formatting** — fully customizable with PlaceholderAPI support
+
+## 📁 Commands
+
+| Command | Aliases | Permission | Description |
+|---------|---------|------------|-------------|
+| `/chatex` | `/chat` | - | Shows help for plugin |
+| `/chatex help` | `/chat help` | - | Shows command help |
+| `/chatex clear` | `/chat clear` | `chatex.clear` | Clears chat for all players |
+| `/chatex reload` | `/chat reload` | `chatex.reload` | Reloads config and locales |
+| `/color` | `/chatcolor`, `/msgcolor` | `chatex.color` | Set personal chat color |
 
 ## 🔑 Permissions
 
 | Permission | Default | Description |
 |------------|---------|-------------|
 | `chatex.allowchat` | true | Allows chatting |
+| `chatex.color` | op | Use `/color` to change color of chat |
 | `chatex.chat.global` | op | Use global chat if ranged mode enabled |
 | `chatex.chat.colorlegacy` | op | Use legacy colors (`&c`, `&a`, etc.) |
+| `chatex.chat.colormodifier` | op | Use formatting codes (`&l`, `&m`, `&n`, `&o`, `&r`) |
 | `chatex.chat.colorhex` | op | Use HEX colors (`#RRGGBB`, `&#RRGGBB`) |
 | `chatex.chat.magic` | op | Use magic color (`&k`) |
+| `chatex.mention` | op | Mention other players with sound |
 | `chatex.antispam.bypass` | op | Bypass the anti-spam system |
 | `chatex.bypassads` | op | Bypass the AdBlocker |
 | `chatex.notifyad` | op | Receive notification when a player tries to advertise |
@@ -37,6 +51,16 @@
 - **PlaceholderAPI** — optional but recommended
 - **LuckPerms** — optional for permission management
 
+## 🎨 Color Examples
+
+| Format | Example | Result |
+|--------|---------|--------|
+| Legacy | `&cHello` | Red text |
+| HEX | `&#FF0000Hello` | Red text |
+| Alternative HEX | `#FF0000Hello` | Red text |
+| Personal Color | `/color &5&l` | Sets chat color to dark purple bold |
+| Personal Color | `/color &#E43A96` | Sets chat color to pink |
+
 ## ⚠️ Important Notes
 
 ### Server Software Compatibility
@@ -49,23 +73,6 @@ This plugin is designed and tested exclusively on **Folia**, **Leaf**, **Paper**
 - ❌ Mod loaders (Fabric, Forge, LegacyFabric, LiteLoader, NeoForge, Quilt and etc)
 - ❌ Proxy servers (BungeeCord, Velocity, Waterfall and etc)
 - ❌ Vanilla Minecraft Java
-
-## 📁 Commands
-
-| Command | Permission | Description |
-|---------|------------|-------------|
-| `/chatex` | - | Shows plugin info |
-| `/chatex reload` | `chatex.reload` | Reloads config and locales |
-| `/chatex clear` | `chatex.clear` | Clears chat for all players |
-| `/chatex help` | - | Shows command help |
-
-## 🎨 Color Examples
-
-| Format | Example | Result |
-|--------|---------|--------|
-| Legacy | `&cHello` | Red text |
-| HEX | `&#FF0000Hello` | Red text |
-| Alternative HEX | `#FF0000Hello` | Red text |
 
 ## 📣 bStats
 
@@ -82,4 +89,4 @@ If you encounter issues or have questions:
 
 ## 🌐 Contacts
 - **Telegram:** @MrSpectrumYT
-- **Bug reports & feature requests:** Contact via Telegram or Issues Github
+- **Bug reports & feature requests:** Contact via Telegram or Issues GitHub
