@@ -13,10 +13,10 @@ import java.util.List;
 
 public enum Config {
 
-    B_STATS("enable-bstats", true, "Do you want to use bstats?"),
+    B_STATS("enable-bstats", true, "Do you want to use bStats?"),
     CHECK_UPDATE("check-for-updates", true, "Check for updates on Modrinth?"),
-    FORMAT("message-format", "%prefix%displayname%suffix: %message", "The standard message-format."),
-    GLOBALFORMAT("global-message-format", "&9[%world] %prefix%displayname%suffix: &e%message", "The message-format if ranged-mode is enabled."),
+    FORMAT("message-format", "&c[%group%] %prefix%%displayname%%suffix%: %message%", "The standard message-format."),
+    GLOBALFORMAT("global-message-format", "&9[%world%] &c[%group%] %prefix%%displayname%%suffix%: &e%message%", "The message-format if ranged-mode is enabled."),
     MULTIPREFIXES("multi-prefixes", false, "Should the multi-prefixes be enabled?"),
     MULTISUFFIXES("multi-suffixes", false, "Should the multi-suffixes be enabled?"),
     RANGEMODE("ranged-mode", false, "Should the ranged-mode be enabled?"),
@@ -46,7 +46,7 @@ public enum Config {
     ANTISPAM_ENABLED("AntiSpam.Enable", true, "Should antispam be enabled?"),
     BLOCKED_WORDS("BlockedWords", Arrays.asList("shit", "@everyone"), "A list of words that should be blocked."),
     CHANGE_TABLIST_NAME("Tablist.Change", true, "Do you want to have the prefixes and suffixes in the tablist?"),
-    TABLIST_FORMAT("Tablist.format", "%prefix%player%suffix", "The format of the tablist name"),
+    TABLIST_FORMAT("Tablist.format", "%prefix%%player%%suffix%", "The format of the tablist name"),
     CHANGE_JOIN_AND_QUIT("Messages.JoinAndQuit.Enabled", false, "Do you want to change the join and the quit messages?"),
     RGB_COLORS("colors", null, "Custom RGB color codes. Use &<code> in chat."),
     RGB_COLORS_EXAMPLE("colors.$g", "#00ff00", "Example: &g will be replaced with green color (#00ff00)."),

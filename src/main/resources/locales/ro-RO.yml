@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'reîncarcă plugin-ul.'
-  Clear:
-    Description: 'curăță chat-ul.'
-    Console: 'CONSOLĂ'
-    Unknown: 'NECUNOSCUT'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fAjutor pentru chat:
+      &f● &e/%cmd% clear &f— curăță chat-ul.
+      &f● &e/%cmd% help &f— ajutor pentru chat.
+      &f● &e/%cmd% reload &f— reîncarcă plugin-ul.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fConfigurația și localizările au fost reîncărcate cu succes!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fPublicitatea nu este permisă!'
     BlockedWord: '&c✘ &fAcest cuvânt nu este permis!'
-    AdNotify: '&4⚠ %player &fa încercat să scrie &4%message &fîn chat!'
+    AdNotify: '&4⚠ %player% &fa încercat să scrie &4%message% &fîn chat!'
     NoOneListens: '&4⚠ &fNu există jucători în apropiere care să te audă! Folosește modul global.'
   NoColorPermission: '&c✘ &fNu ai permisiunea să folosești culori obișnuite!'
+  NoModifierPermission: '&c✘ &fNu ai permisiunea să folosești coduri de formatare!'
   NoHexPermission: '&c✘ &fNu ai permisiunea să folosești culori HEX!'
   MagicBlocked: '&c✘ &fNu ai permisiunea să folosești culori magice!'
-  CommandResult:
-    NoPermission: '&c✘ &fNu ai permisiune pentru aceasta! Permisiune: &c%perm&f.'
-    WrongUsage: '&c✘ &fUtilizare greșită! Te rog să scrii &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fSpam-ul nu este permis! Te rog să aștepți încă &c%time% &fsecunde!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fs-a alăturat jocului!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fs-a alăturat serverului pentru prima dată!'
-    Kick: '&f● &e%prefix%displayname%suffix &fa fost eliminat din joc!'
-    Quit: '&f● &e%prefix%displayname%suffix &fa părăsit jocul!'
   Color:
     Usage: '&e☀ &fUtilizare: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fCuloarea chat-ului tău a fost actualizată!'
     Invalid: '&c✘ &fAcesta nu este un cod de culoare valid!'
     Reset: '&a✔ &fCuloarea chat-ului tău a fost resetată!'
+    OnlyPlayers: '&cDoar jucătorii pot folosi această comandă!'
+  CommandResult:
+    NoPermission: '&c✘ &fNu ai permisiune pentru aceasta! Permisiune: &c%perm%&f.'
+    WrongUsage: '&c✘ &fUtilizare greșită! Te rog să scrii &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam-ul nu este permis! Te rog să aștepți încă &c%time% &fsecunde!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fs-a alăturat jocului!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fs-a alăturat serverului pentru prima dată!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fa fost eliminat din joc!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fa părăsit jocul!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh este acum activat!'
+    Disabled: '✔ ChatEx-Refresh este acum dezactivat!'
+    bStats: '✔ Vă mulțumim că folosiți bStats, a fost activat! ID plugin: %id%.'
+    Hooked:
+      LuckPerms: '✔ Conectat cu succes la LuckPerms!'
+      PlaceholderAPI: '✔ Conectat cu succes la PlaceholderAPI!'
+    NoPermissions: '⚠ Nu a fost găsit niciun plugin de permisiuni. Se folosesc permisiunile implicite.'
+    RGB:
+      Loading: '⚠ Se încarcă codurile de culoare RGB.'
+      NoColors: '⚠ Nu sunt specificate coduri de culoare personalizate în configurație!'
+  Update:
+    Available:
+      Console: '&e⚠ &fVersiune nouă a &eChatEx-Refresh &fdisponibilă pe &eModrinth&f! Versiunea curentă: &e%current%&f. Ultima versiune: &e%latest%&f. Descărcare: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &feste actualizat! Versiune: &a%current%&f.'
+    Failed: '&e⚠ &fNu s-a putut verifica actualizările pentru &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fVersiune nouă a &eChatEx-Refresh &fdisponibilă pe &eModrinth&f!
+        &f● Versiunea curentă: &e%current%&f.
+        &f● Ultima versiune: &e%latest%&f.
+        &f● Descărcare: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: CONSOLĂ
+    Unknown: NECUNOSCUT

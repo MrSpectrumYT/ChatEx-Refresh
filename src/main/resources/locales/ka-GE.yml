@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'გადატვირთავს პლაგინს.'
-  Clear:
-    Description: 'ასუფთავებს ჩატს.'
-    Console: 'კონსოლი'
-    Unknown: 'უცნობი'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fდახმარება ჩატისთვის:
+      &f● &e/%cmd% clear &f— ასუფთავებს ჩატს.
+      &f● &e/%cmd% help &f— დახმარება ჩატისთვის.
+      &f● &e/%cmd% reload &f— გადატვირთავს პლაგინს.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fკონფიგურაცია და ენები წარმატებით გადაიტვირთა!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fრეკლამა აკრძალულია!'
     BlockedWord: '&c✘ &fეს სიტყვა აკრძალულია!'
-    AdNotify: '&4⚠ %player &fცდილობდა დაეწერა &4%message &fჩატში!'
+    AdNotify: '&4⚠ %player% &fცდილობდა დაეწერა &4%message% &fჩატში!'
     NoOneListens: '&4⚠ &fახლოს არ არის მოთამაშეები, რომ გაიგონონ თქვენი საუბარი! გამოიყენეთ გლობალური რეჟიმი.'
   NoColorPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჩვეულებრივი ფერები!'
+  NoModifierPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ფორმატირების კოდები!'
   NoHexPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ HEX ფერები!'
   MagicBlocked: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჯადოსნური ფერები!'
-  CommandResult:
-    NoPermission: '&c✘ &fთქვენ არ გაქვთ უფლება! უფლება: &c%perm&f.'
-    WrongUsage: '&c✘ &fარასწორი გამოყენება! გთხოვთ ჩაწეროთ &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fსპამი აკრძალულია! გთხოვთ დაიცადოთ კიდევ &c%time% &fწამი!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fშემოუერთდა თამაშს!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fპირველად შემოუერთდა სერვერს!'
-    Kick: '&f● &e%prefix%displayname%suffix &fგამოაგდეს თამაშიდან!'
-    Quit: '&f● &e%prefix%displayname%suffix &fგამოვიდა თამაშიდან!'
   Color:
     Usage: '&e☀ &fგამოყენება: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fჩატის ფერი განახლდა!'
     Invalid: '&c✘ &fეს არ არის მართებული ფერის კოდი!'
     Reset: '&a✔ &fჩატის ფერი გადატვირთულია!'
+    OnlyPlayers: '&cამ ბრძანების გამოყენება მხოლოდ მოთამაშეებს შეუძლიათ!'
+  CommandResult:
+    NoPermission: '&c✘ &fთქვენ არ გაქვთ უფლება! უფლება: &c%perm%&f.'
+    WrongUsage: '&c✘ &fარასწორი გამოყენება! გთხოვთ ჩაწეროთ &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fსპამი აკრძალულია! გთხოვთ დაიცადოთ კიდევ &c%time% &fწამი!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fშემოუერთდა თამაშს!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fპირველად შემოუერთდა სერვერს!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fგამოაგდეს თამაშიდან!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fგამოვიდა თამაშიდან!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh ახლა ჩართულია!'
+    Disabled: '✔ ChatEx-Refresh ახლა გამორთულია!'
+    bStats: '✔ მადლობა bStats-ის გამოყენებისთვის, ის ჩართული იყო! პლაგინის ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ წარმატებით დაუკავშირდა LuckPerms-ს!'
+      PlaceholderAPI: '✔ წარმატებით დაუკავშირდა PlaceholderAPI-ს!'
+    NoPermissions: '⚠ ნებართვების პლაგინი ვერ მოიძებნა. გამოიყენება ნაგულისხმევი ნებართვები.'
+    RGB:
+      Loading: '⚠ იტვირთება RGB ფერის კოდები.'
+      NoColors: '⚠ კონფიგურაციაში მითითებული არ არის საბაჟო ფერის კოდები!'
+  Update:
+    Available:
+      Console: '&e⚠ &fChatEx-Refresh-ის ახალი ვერსია ხელმისაწვდომია &eModrinth&f-ზე! მიმდინარე ვერსია: &e%current%&f. უახლესი ვერსია: &e%latest%&f. ჩამოტვირთვა: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fარის განახლებული! ვერსია: &a%current%&f.'
+    Failed: '&e⚠ &fვერ მოხერხდა განახლებების შემოწმება ChatEx-Refresh-ისთვის!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fChatEx-Refresh-ის ახალი ვერსია ხელმისაწვდომია &eModrinth&f-ზე!
+        &f● მიმდინარე ვერსია: &e%current%&f.
+        &f● უახლესი ვერსია: &e%latest%&f.
+        &f● ჩამოტვირთვა: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: კონსოლი
+    Unknown: უცნობი

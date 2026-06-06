@@ -16,12 +16,16 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage("§aChatEx-Refresh plugin by " + ChatEx.getInstance().getDescription().getAuthors());
+            String help = Locales.HELP_MESSAGE.getString(null)
+                    .replace("%cmd%", command.getName());
+            sender.sendMessage(help);
             return true;
         }
         
         if (args.length > 1) {
-            sender.sendMessage(Locales.COMMAND_RESULT_WRONG_USAGE.getString(null).replaceAll("%cmd", command.getName()));
+            String wrongUsage = Locales.COMMAND_RESULT_WRONG_USAGE.getString(null)
+                    .replace("%cmd%", command.getName());
+            sender.sendMessage(wrongUsage);
             return true;
         }
         
@@ -40,7 +44,9 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
                     }
                 }
             } else {
-                sender.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(null).replaceAll("%perm", "chatex.reload"));
+                String noPerm = Locales.COMMAND_RESULT_NO_PERM.getString(null)
+                        .replace("%perm%", "chatex.reload");
+                sender.sendMessage(noPerm);
             }
             return true;
         }
@@ -58,29 +64,31 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
                     clearerName = Locales.COMMAND_CLEAR_UNKNOWN.getString(null);
                 }
         
-                String message = Locales.MESSAGES_CLEAR.getString(null);
-                message = message.replace("%clearer%", clearerName);
+                String message = Locales.MESSAGES_CLEAR.getString(null)
+                        .replace("%clearer%", clearerName);
         
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     player.sendMessage(message);
                 }
                 Bukkit.getConsoleSender().sendMessage(message);
             } else {
-                sender.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(null).replaceAll("%perm", "chatex.clear"));
+                String noPerm = Locales.COMMAND_RESULT_NO_PERM.getString(null)
+                        .replace("%perm%", "chatex.clear");
+                sender.sendMessage(noPerm);
             }
             return true;
         }
         
         if (args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("?")) {
-            sender.sendMessage("§f ");
-            sender.sendMessage("§e☀ §fHelp for chat:");
-            sender.sendMessage("§f● §e/" + command.getName() + " clear §f— " + Locales.COMMAND_CLEAR_DESCRIPTION.getString(null));
-            sender.sendMessage("§f● §e/" + command.getName() + " reload §f— " + Locales.COMMAND_RELOAD_DESCRIPTION.getString(null));
-            sender.sendMessage("§f ");
+            String help = Locales.HELP_MESSAGE.getString(null)
+                    .replace("%cmd%", command.getName());
+            sender.sendMessage(help);
             return true;
         }
         
-        sender.sendMessage(Locales.COMMAND_RESULT_WRONG_USAGE.getString(null).replaceAll("%cmd", "/chatex"));
+        String wrongUsage = Locales.COMMAND_RESULT_WRONG_USAGE.getString(null)
+                .replace("%cmd%", "/chatex");
+        sender.sendMessage(wrongUsage);
         return true;
     }
 

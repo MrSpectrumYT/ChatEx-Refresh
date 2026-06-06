@@ -56,10 +56,10 @@ public class ChatEx extends JavaPlugin {
             metrics.addCustomChart(new SimplePie("used_permissions_plugin", () -> PluginManager.getInstance().getName()));
             metrics.addCustomChart(new SimplePie("updatechecker_enabled", () -> "false"));
             
-            getLogger().info("Thanks for using bStats, it was enabled! (Plugin ID: " + pluginId + ")");
+            getLogger().info(Locales.PLUGIN_BSTATS.getString(null).replace("%id%", String.valueOf(pluginId)));
         }
 
-        getLogger().info("ChatEx-Refresh is now enabled!");
+        getLogger().info(Locales.PLUGIN_ENABLED.getString(null));
     }
 
     @Override
@@ -71,6 +71,6 @@ public class ChatEx extends JavaPlugin {
             taskManager.cancelAll();
         }
         
-        getLogger().info("ChatEx-Refresh is now disabled!");
+        getLogger().info(Locales.PLUGIN_DISABLED.getString(null));
     }
 }

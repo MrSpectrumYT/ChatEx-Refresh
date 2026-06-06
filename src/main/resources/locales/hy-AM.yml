@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'Վերաբեռնում է պլագինը.'
-  Clear:
-    Description: 'Մաքրում է չաթը.'
-    Console: 'ԿՈՆՍՈԼ'
-    Unknown: 'ԱՆՀԱՅՏ'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fՕգնություն չաթի համար:
+      &f● &e/%cmd% clear &f— մաքրում է չաթը:
+      &f● &e/%cmd% help &f— օգնություն չաթի համար:
+      &f● &e/%cmd% reload &f— վերաբեռնում է պլագինը:
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fԿոնֆիգուրացիան և լեզուները հաջողությամբ վերաբեռնվեցին!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fԳովազդն արգելված է!'
     BlockedWord: '&c✘ &fԱյս բառն արգելված է!'
-    AdNotify: '&4⚠ %player &fփորձեց գրել &4%message &fչաթում։'
+    AdNotify: '&4⚠ %player% &fփորձեց գրել &4%message% &fչաթում։'
     NoOneListens: '&4⚠ &fՄոտակայքում չկան խաղացողներ, որոնք կլսեն ձեզ։ Օգտագործեք գլոբալ ռեժիմը։'
   NoColorPermission: '&c✘ &fԴուք չունեք սովորական գույներ օգտագործելու թույլտվություն։'
+  NoModifierPermission: '&c✘ &fԴուք չունեք ֆորմատավորման կոդեր օգտագործելու թույլտվություն։'
   NoHexPermission: '&c✘ &fԴուք չունեք HEX գույներ օգտագործելու թույլտվություն։'
   MagicBlocked: '&c✘ &fԴուք չունեք կախարդական գույներ օգտագործելու թույլտվություն։'
-  CommandResult:
-    NoPermission: '&c✘ &fԴուք չունեք թույլտվություն սրա համար։ Թույլտվություն՝ &c%perm&f։'
-    WrongUsage: '&c✘ &fՍխալ օգտագործում։ Խնդրում ենք մուտքագրել &c%cmd help&f։'
-  AntiSpam:
-    Denied: '&c✘ &fՍպամն արգելված է։ Սպասեք ևս &c%time% &fվայրկյան։'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fմիացավ խաղին։'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fառաջին անգամ միացավ սերվերին։'
-    Kick: '&f● &e%prefix%displayname%suffix &fհեռացվեց խաղից։'
-    Quit: '&f● &e%prefix%displayname%suffix &fլքեց խաղը։'
   Color:
     Usage: '&e☀ &fՕգտագործում՝ &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fՉաթի գույնդ թարմացվեց։'
     Invalid: '&c✘ &fԴա վավեր գունային կոդ չէ։'
     Reset: '&a✔ &fՉաթի գույնդ վերականգնվեց։'
+    OnlyPlayers: '&cՄիայն խաղացողները կարող են օգտագործել այս հրամանը։'
+  CommandResult:
+    NoPermission: '&c✘ &fԴուք չունեք թույլտվություն սրա համար։ Թույլտվություն՝ &c%perm%&f։'
+    WrongUsage: '&c✘ &fՍխալ օգտագործում։ Խնդրում ենք մուտքագրել &c%cmd% help&f։'
+  AntiSpam:
+    Denied: '&c✘ &fՍպամն արգելված է։ Սպասեք ևս &c%time% &fվայրկյան։'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fմիացավ խաղին։'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fառաջին անգամ միացավ սերվերին։'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fհեռացվեց խաղից։'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fլքեց խաղը։'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh-ն այժմ միացված է:'
+    Disabled: '✔ ChatEx-Refresh-ն այժմ անջատված է:'
+    bStats: '✔ Շնորհակալություն bStats-ից օգտվելու համար, այն միացված էր: Plugin ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Հաջողությամբ միացված է LuckPerms-ին:'
+      PlaceholderAPI: '✔ Հաջողությամբ միացված է PlaceholderAPI-ին:'
+    NoPermissions: '⚠ Թույլտվությունների պլագին չի գտնվել: Օգտագործվում են լռելյայն թույլտվությունները:'
+    RGB:
+      Loading: '⚠ Բեռնվում են RGB գունային կոդերը:'
+      NoColors: '⚠ Կոնֆիգուրացիայում նշված չեն հատուկ գունային կոդեր:'
+  Update:
+    Available:
+      Console: '&e⚠ &fChatEx-Refresh-ի նոր տարբերակը հասանելի է &eModrinth&f-ում: Ընթացիկ տարբերակ: &e%current%&f: Վերջին տարբերակ: &e%latest%&f: Ներբեռնում: &e%url%&f:'
+    UpToDate: '&a✔ ChatEx-Refresh &fթարմացված է: Տարբերակ: &a%current%&f:'
+    Failed: '&e⚠ &fՉհաջողվեց ստուգել ChatEx-Refresh-ի թարմացումները:'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fChatEx-Refresh-ի նոր տարբերակը հասանելի է &eModrinth&f-ում:
+        &f● Ընթացիկ տարբերակ: &e%current%&f:
+        &f● Վերջին տարբերակ: &e%latest%&f:
+        &f● Ներբեռնում: &e%url%&f:
+        &f
+Commands:
+  Clear:
+    Console: ԿՈՆՍՈԼ
+    Unknown: ԱՆՀԱՅՏ

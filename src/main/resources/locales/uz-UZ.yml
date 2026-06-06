@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'plaginni qayta yuklaydi.'
-  Clear:
-    Description: 'chatni tozalaydi.'
-    Console: 'KONSOL'
-    Unknown: 'NOMAʼLUM'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fChat uchun yordam:
+      &f● &e/%cmd% clear &f— chatni tozalaydi.
+      &f● &e/%cmd% help &f— chat uchun yordam.
+      &f● &e/%cmd% reload &f— plaginni qayta yuklaydi.
+      &f
   Commands:
     Reload:
       Success: '&a✓ &fKonfiguratsiya va lokalizatsiyalar muvaffaqiyatli qayta yuklandi!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklama qilish taqiqlangan!'
     BlockedWord: '&c✘ &fBu soʻz taqiqlangan!'
-    AdNotify: '&4⚠ %player &fchatga &4%message &fyozmoqchi boʻldi!'
+    AdNotify: '&4⚠ %player% &fchatga &4%message% &fyozmoqchi boʻldi!'
     NoOneListens: '&4⚠ &fSizni eshitadigan oʻyinchilar yoʻq! Global rejimdan foydalaning.'
   NoColorPermission: '&c✘ &fOddiy ranglarni ishlatish huquqi yoʻq!'
+  NoModifierPermission: '&c✘ &fFormatlash kodlarini ishlatish huquqi yoʻq!'
   NoHexPermission: '&c✘ &fHEX ranglarini ishlatish huquqi yoʻq!'
   MagicBlocked: '&c✘ &fSehrli ranglarni ishlatish huquqi yoʻq!'
-  CommandResult:
-    NoPermission: '&c✘ &fBuning uchun huquqingiz yoʻq! Huquq: &c%perm&f.'
-    WrongUsage: '&c✘ &fNotoʻgʻri foydalanish! &c%cmd help&f yozing!'
-  AntiSpam:
-    Denied: '&c✘ &fSpam qilish taqiqlangan! Yana &c%time% &fsoniya kuting!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &foʻyinga qoʻshildi!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fbirinchi marta oʻyinga qoʻshildi!'
-    Kick: '&f● &e%prefix%displayname%suffix &foʻyindan haydaldi!'
-    Quit: '&f● &e%prefix%displayname%suffix &foʻyinni tark etdi!'
   Color:
     Usage: '&e☀ &fIshlatish: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✓ &fChat rangingiz yangilandi!'
     Invalid: '&c✘ &fBu haqiqiy rang kodi emas!'
     Reset: '&a✓ &fChat rangingiz tiklandi!'
+    OnlyPlayers: '&cBu buyruqdan faqat oʻyinchilar foydalanishi mumkin!'
+  CommandResult:
+    NoPermission: '&c✘ &fBuning uchun huquqingiz yoʻq! Huquq: &c%perm%&f.'
+    WrongUsage: '&c✘ &fNotoʻgʻri foydalanish! &c%cmd% help&f yozing!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam qilish taqiqlangan! Yana &c%time% &fsoniya kuting!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &foʻyinga qoʻshildi!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fbirinchi marta oʻyinga qoʻshildi!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &foʻyindan haydaldi!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &foʻyinni tark etdi!'
+  Plugin:
+    Enabled: '✓ ChatEx-Refresh endi yoqilgan!'
+    Disabled: '✓ ChatEx-Refresh endi oʻchirilgan!'
+    bStats: '✓ bStats-dan foydalanganingiz uchun rahmat, u yoqildi! Plagin ID: %id%.'
+    Hooked:
+      LuckPerms: '✓ LuckPerms-ga muvaffaqiyatli ulandi!'
+      PlaceholderAPI: '✓ PlaceholderAPI-ga muvaffaqiyatli ulandi!'
+    NoPermissions: '⚠ Hech qanday ruxsat plagini topilmadi. Standart ruxsatlardan foydalanilmoqda.'
+    RGB:
+      Loading: '⚠ RGB rang kodlari yuklanmoqda.'
+      NoColors: '⚠ Konfiguratsiyada maxsus rang kodlari koʻrsatilmagan!'
+  Update:
+    Available:
+      Console: '&e⚠ &fChatEx-Refresh ning yangi versiyasi &eModrinth&f da mavjud! Joriy versiya: &e%current%&f. Eng soʻnggi versiya: &e%latest%&f. Yuklab olish: &e%url%&f.'
+    UpToDate: '&a✓ ChatEx-Refresh &feng soʻnggi versiya! Versiya: &a%current%&f.'
+    Failed: '&e⚠ &fChatEx-Refresh uchun yangilanishlarni tekshirib boʻlmadi!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fChatEx-Refresh ning yangi versiyasi &eModrinth&f da mavjud!
+        &f● Joriy versiya: &e%current%&f.
+        &f● Eng soʻnggi versiya: &e%latest%&f.
+        &f● Yuklab olish: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONSOL
+    Unknown: NOMAʼLUM

@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'โหลดปลั๊กอินใหม่'
-  Clear:
-    Description: 'ล้างแชท'
-    Console: 'คอนโซล'
-    Unknown: 'ไม่ทราบ'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fวิธีใช้แชท:
+      &f● &e/%cmd% clear &f— ล้างแชท.
+      &f● &e/%cmd% help &f— วิธีใช้แชท.
+      &f● &e/%cmd% reload &f— โหลดปลั๊กอินใหม่.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fโหลดการตั้งค่าและภาษาใหม่สำเร็จ!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fไม่อนุญาตให้โฆษณา!'
     BlockedWord: '&c✘ &fคำนี้ไม่ได้รับอนุญาต!'
-    AdNotify: '&4⚠ %player &fพยายามเขียน &4%message &fในแชท!'
+    AdNotify: '&4⚠ %player% &fพยายามเขียน &4%message% &fในแชท!'
     NoOneListens: '&4⚠ &fไม่มีผู้เล่นใกล้เคียงที่จะได้ยินคุณ! โปรดใช้โหมดทั่วโลก'
   NoColorPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้สีพื้นฐาน!'
+  NoModifierPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้โค้ดการจัดรูปแบบ!'
   NoHexPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้สี HEX!'
   MagicBlocked: '&c✘ &fคุณไม่มีสิทธิ์ใช้สีวิเศษ!'
-  CommandResult:
-    NoPermission: '&c✘ &fคุณไม่มีสิทธิ์! สิทธิ์ที่ต้องใช้: &c%perm&f.'
-    WrongUsage: '&c✘ &fใช้งานผิดพลาด! โปรดพิมพ์ &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fห้ามสแปม! กรุณารออีก &c%time% &fวินาที!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fเข้าร่วมเกม!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fเข้าร่วมเซิร์ฟเวอร์เป็นครั้งแรก!'
-    Kick: '&f● &e%prefix%displayname%suffix &fถูกเตะออกจากเกม!'
-    Quit: '&f● &e%prefix%displayname%suffix &fออกจากเกม!'
   Color:
     Usage: '&e☀ &fวิธีใช้: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fสีแชทของคุณถูกอัปเดตแล้ว!'
     Invalid: '&c✘ &fนั่นไม่ใช่รหัสสีที่ถูกต้อง!'
     Reset: '&a✔ &fสีแชทของคุณถูกรีเซ็ตแล้ว!'
+    OnlyPlayers: '&cเฉพาะผู้เล่นเท่านั้นที่สามารถใช้คำสั่งนี้ได้!'
+  CommandResult:
+    NoPermission: '&c✘ &fคุณไม่มีสิทธิ์! สิทธิ์ที่ต้องใช้: &c%perm%&f.'
+    WrongUsage: '&c✘ &fใช้งานผิดพลาด! โปรดพิมพ์ &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fห้ามสแปม! กรุณารออีก &c%time% &fวินาที!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fเข้าร่วมเกม!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fเข้าร่วมเซิร์ฟเวอร์เป็นครั้งแรก!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fถูกเตะออกจากเกม!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fออกจากเกม!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh เปิดใช้งานแล้ว!'
+    Disabled: '✔ ChatEx-Refresh ปิดใช้งานแล้ว!'
+    bStats: '✔ ขอบคุณที่ใช้ bStats, มันถูกเปิดใช้งาน! รหัสปลั๊กอิน: %id%.'
+    Hooked:
+      LuckPerms: '✔ เชื่อมต่อกับ LuckPerms สำเร็จ!'
+      PlaceholderAPI: '✔ เชื่อมต่อกับ PlaceholderAPI สำเร็จ!'
+    NoPermissions: '⚠ ไม่พบปลั๊กอินสิทธิ์ กำลังใช้สิทธิ์เริ่มต้น'
+    RGB:
+      Loading: '⚠ กำลังโหลดรหัสสี RGB'
+      NoColors: '⚠ ไม่มีการระบุรหัสสีที่กำหนดเองในการตั้งค่า!'
+  Update:
+    Available:
+      Console: '&e⚠ &fพบเวอร์ชันใหม่ของ &eChatEx-Refresh &fบน &eModrinth&f! เวอร์ชันปัจจุบัน: &e%current%&f. เวอร์ชันล่าสุด: &e%latest%&f. ดาวน์โหลด: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fเป็นเวอร์ชันล่าสุด! เวอร์ชัน: &a%current%&f.'
+    Failed: '&e⚠ &fไม่สามารถตรวจสอบการอัปเดตสำหรับ &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fพบเวอร์ชันใหม่ของ &eChatEx-Refresh &fบน &eModrinth&f!
+        &f● เวอร์ชันปัจจุบัน: &e%current%&f.
+        &f● เวอร์ชันล่าสุด: &e%latest%&f.
+        &f● ดาวน์โหลด: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: คอนโซล
+    Unknown: ไม่ทราบ

@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'поново учитава додатак.'
-  Clear:
-    Description: 'чисти чат.'
-    Console: 'КОНЗОЛА'
-    Unknown: 'НЕПОЗНАТ'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fПомоћ за ћаскање:
+      &f● &e/%cmd% clear &f— чисти чат.
+      &f● &e/%cmd% help &f— помоћ за ћаскање.
+      &f● &e/%cmd% reload &f— поново учитава додатак.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fКонфигурација и језици су успешно поново учитани!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fРекламе нису дозвољене!'
     BlockedWord: '&c✘ &fОва реч није дозвољена!'
-    AdNotify: '&4⚠ %player &fје покушао да напише &4%message &fу чату!'
+    AdNotify: '&4⚠ %player% &fје покушао да напише &4%message% &fу чату!'
     NoOneListens: '&4⚠ &fНиједан играч није близу да вас чује! Користите глобални режим.'
   NoColorPermission: '&c✘ &fНемате дозволу за коришћење обичних боја!'
+  NoModifierPermission: '&c✘ &fНемате дозволу за коришћење кодова за форматирање!'
   NoHexPermission: '&c✘ &fНемате дозволу за коришћење HEX боја!'
   MagicBlocked: '&c✘ &fНемате дозволу за коришћење магичних боја!'
-  CommandResult:
-    NoPermission: '&c✘ &fНемате дозволу за ово! Дозвола: &c%perm&f.'
-    WrongUsage: '&c✘ &fПогрешна употреба! Молимо унесите &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fСпам није дозвољен! Сачекајте још &c%time% &fсекунди!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fсе придружио игри!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fсе први пут придружио серверу!'
-    Kick: '&f● &e%prefix%displayname%suffix &fје избачен из игре!'
-    Quit: '&f● &e%prefix%displayname%suffix &fнапустио је игру!'
   Color:
     Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fБоја вашег ћаскања је ажурирана!'
     Invalid: '&c✘ &fТо није важећи код боје!'
     Reset: '&a✔ &fБоја вашег ћаскања је ресетована!'
+    OnlyPlayers: '&cСамо играчи могу користити ову команду!'
+  CommandResult:
+    NoPermission: '&c✘ &fНемате дозволу за ово! Дозвола: &c%perm%&f.'
+    WrongUsage: '&c✘ &fПогрешна употреба! Молимо унесите &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fСпам није дозвољен! Сачекајте још &c%time% &fсекунди!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fсе придружио игри!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fсе први пут придружио серверу!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fје избачен из игре!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fнапустио је игру!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh је сада омогућен!'
+    Disabled: '✔ ChatEx-Refresh је сада онемогућен!'
+    bStats: '✔ Хвала вам што користите bStats, омогућен је! ID додатка: %id%.'
+    Hooked:
+      LuckPerms: '✔ Успешно повезан са LuckPerms!'
+      PlaceholderAPI: '✔ Успешно повезан са PlaceholderAPI!'
+    NoPermissions: '⚠ Додатак за дозволе није пронађен. Користе се подразумеване дозволе.'
+    RGB:
+      Loading: '⚠ Учитавање RGB кодова боја.'
+      NoColors: '⚠ Ниједан прилагођени код боје није наведен у конфигурацији!'
+  Update:
+    Available:
+      Console: '&e⚠ &fНова верзија &eChatEx-Refresh &fдоступна на &eModrinth&f-у! Тренутна верзија: &e%current%&f. Најновија верзија: &e%latest%&f. Преузимање: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fје ажуриран! Верзија: &a%current%&f.'
+    Failed: '&e⚠ &fНије успело проверавање ажурирања за &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fНова верзија &eChatEx-Refresh &fдоступна на &eModrinth&f-у!
+        &f● Тренутна верзија: &e%current%&f.
+        &f● Најновија верзија: &e%latest%&f.
+        &f● Преузимање: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: КОНЗОЛА
+    Unknown: НЕПОЗНАТ

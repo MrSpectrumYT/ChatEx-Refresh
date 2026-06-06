@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'перазагружае плагін.'
-  Clear:
-    Description: 'ачышчае чат.'
-    Console: 'КОНСОЛЬ'
-    Unknown: 'НЕВЯДОМА'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fДаведка па чаце:
+      &f● &e/%cmd% clear &f— ачышчае чат.
+      &f● &e/%cmd% help &f— даведка па чаце.
+      &f● &e/%cmd% reload &f— перазагружае плагін.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fКанфігурацыя і лакалізацыі паспяхова перазагружаны!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fРэклама забаронена!'
     BlockedWord: '&c✘ &fГэтае слова забаронена!'
-    AdNotify: '&4⚠ %player &fспрабаваў напісаць у чаце &4%message&f!'
+    AdNotify: '&4⚠ %player% &fспрабаваў напісаць у чаце &4%message%&f!'
     NoOneListens: '&4⚠ &fПобач няма гульцоў, якія б маглі вас пачуць! Выкарыстоўвайце глабальны рэжым.'
   NoColorPermission: '&c✘ &fУ вас няма правоў на выкарыстанне звычайных колераў!'
+  NoModifierPermission: '&c✘ &fУ вас няма правоў на выкарыстанне кодаў фарматавання!'
   NoHexPermission: '&c✘ &fУ вас няма правоў на выкарыстанне HEX-колераў!'
   MagicBlocked: '&c✘ &fУ вас няма правоў на выкарыстанне магічнага колеру!'
-  CommandResult:
-    NoPermission: '&c✘ &fУ вас няма правоў на гэта! Права: &c%perm&f.'
-    WrongUsage: '&c✘ &fНяправільны выкарыстанне! Калі ласка, увядзіце &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fСпам забаронены! Пачакайце яшчэ &c%time% &fсекунд!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fдалучыўся да гульні!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fдалучыўся да гульні ўпершыню!'
-    Kick: '&f● &e%prefix%displayname%suffix &fбыў кікнуты з гульні!'
-    Quit: '&f● &e%prefix%displayname%suffix &fпакінуў гульню!'
   Color:
     Usage: '&e☀ &fВыкарыстанне: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fКолер вашага чата абноўлены!'
     Invalid: '&c✘ &fГэта няправільны код колеру!'
     Reset: '&a✔ &fКолер вашага чата скінуты!'
+    OnlyPlayers: '&cТолькі гульцы могуць выкарыстоўваць гэтую каманду!'
+  CommandResult:
+    NoPermission: '&c✘ &fУ вас няма правоў на гэта! Права: &c%perm%&f.'
+    WrongUsage: '&c✘ &fНяправільны выкарыстанне! Калі ласка, увядзіце &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fСпам забаронены! Пачакайце яшчэ &c%time% &fсекунд!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fдалучыўся да гульні!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fдалучыўся да гульні ўпершыню!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fбыў кікнуты з гульні!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fпакінуў гульню!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh цяпер уключаны!'
+    Disabled: '✔ ChatEx-Refresh цяпер выключаны!'
+    bStats: '✔ Дзякуй за выкарыстанне bStats, ён быў уключаны! Plugin ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Паспяхова падключаны да LuckPerms!'
+      PlaceholderAPI: '✔ Паспяхова падключаны да PlaceholderAPI!'
+    NoPermissions: '⚠ Плагін правоў не знойдзены. Выкарыстоўваюцца стандартныя правы.'
+    RGB:
+      Loading: '⚠ Загрузка RGB кодаў колераў.'
+      NoColors: '⚠ У канфігурацыі не пазначаны карыстальніцкія коды колераў!'
+  Update:
+    Available:
+      Console: '&e⚠ &fНовая версія &eChatEx-Refresh &fдаступная на &eModrinth&f! Бягучая версія: &e%current%&f. Апошняя версія: &e%latest%&f. Спампаваць: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fабноўлены да апошняй версіі! Версія: &a%current%&f.'
+    Failed: '&e⚠ &fНе атрымалася праверыць абнаўленні для &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fНовая версія &eChatEx-Refresh &fдаступная на &eModrinth&f!
+        &f● Бягучая версія: &e%current%&f.
+        &f● Апошняя версія: &e%latest%&f.
+        &f● Спампаваць: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: КАНСОЛЬ
+    Unknown: НЕВЯДОМА

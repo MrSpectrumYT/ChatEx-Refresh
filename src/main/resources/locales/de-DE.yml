@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'lädt das Plugin neu.'
-  Clear:
-    Description: 'leert den Chat.'
-    Console: 'KONSOLE'
-    Unknown: 'UNBEKANNT'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fHilfe für den Chat:
+      &f● &e/%cmd% clear &f— leert den Chat.
+      &f● &e/%cmd% help &f— Hilfe für den Chat.
+      &f● &e/%cmd% reload &f— lädt das Plugin neu.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fKonfiguration und Locales wurden neu geladen!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fWerbung ist nicht erlaubt!'
     BlockedWord: '&c✘ &fDieses Wort ist nicht erlaubt!'
-    AdNotify: '&4⚠ %player &fversuchte &4%message &fin den Chat zu schreiben!'
+    AdNotify: '&4⚠ %player% &fversuchte &4%message% &fin den Chat zu schreiben!'
     NoOneListens: '&4⚠ &fNiemand ist in deiner Nähe, um dich zu hören! Nutze den globalen Modus.'
   NoColorPermission: '&c✘ &fDu hast keine Rechte für normale Farben!'
+  NoModifierPermission: '&c✘ &fDu hast keine Rechte für Formatierungscodes!'
   NoHexPermission: '&c✘ &fDu hast keine Rechte für HEX-Farben!'
   MagicBlocked: '&c✘ &fDu hast keine Rechte für magische Farben!'
-  CommandResult:
-    NoPermission: '&c✘ &fDu hast keine Rechte dafür! Recht: &c%perm&f.'
-    WrongUsage: '&c✘ &fFalsche Verwendung! Bitte gebe &c%cmd help&f ein!'
-  AntiSpam:
-    Denied: '&c✘ &fSpam ist nicht erlaubt! Bitte warte noch &c%time% &fSekunden!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fbetrat das Spiel!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fbetrat den Server zum ersten Mal!'
-    Kick: '&f● &e%prefix%displayname%suffix &fwurde vom Server gekickt!'
-    Quit: '&f● &e%prefix%displayname%suffix &fverließ das Spiel!'
   Color:
     Usage: '&e☀ &fVerwendung: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fDeine Chatfarbe wurde aktualisiert!'
     Invalid: '&c✘ &fDas ist kein gültiger Farbcode!'
     Reset: '&a✔ &fDeine Chatfarbe wurde zurückgesetzt!'
+    OnlyPlayers: '&cNur Spieler können diesen Befehl verwenden!'
+  CommandResult:
+    NoPermission: '&c✘ &fDu hast keine Rechte dafür! Recht: &c%perm%&f.'
+    WrongUsage: '&c✘ &fFalsche Verwendung! Bitte gebe &c%cmd% help&f ein!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam ist nicht erlaubt! Bitte warte noch &c%time% &fSekunden!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fbetrat das Spiel!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fbetrat den Server zum ersten Mal!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fwurde vom Server gekickt!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fverließ das Spiel!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh ist jetzt aktiviert!'
+    Disabled: '✔ ChatEx-Refresh ist jetzt deaktiviert!'
+    bStats: '✔ Danke für die Nutzung von bStats, es wurde aktiviert! Plugin-ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Erfolgreich mit LuckPerms verbunden!'
+      PlaceholderAPI: '✔ Erfolgreich mit PlaceholderAPI verbunden!'
+    NoPermissions: '⚠ Kein Berechtigungs-Plugin gefunden. Verwende Standardrechte.'
+    RGB:
+      Loading: '⚠ Lade RGB-Farbcodes.'
+      NoColors: '⚠ Keine benutzerdefinierten Farbcodes in der Konfiguration angegeben!'
+  Update:
+    Available:
+      Console: '&e⚠ &fNeue Version von &eChatEx-Refresh &fauf &eModrinth&f verfügbar! Aktuelle Version: &e%current%&f. Neueste Version: &e%latest%&f. Download: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fist aktuell! Version: &a%current%&f.'
+    Failed: '&e⚠ &fUpdateprüfung für &eChatEx-Refresh&f fehlgeschlagen!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fNeue Version von &eChatEx-Refresh &fauf &eModrinth&f verfügbar!
+        &f● Aktuelle Version: &e%current%&f.
+        &f● Neueste Version: &e%latest%&f.
+        &f● Download: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONSOLE
+    Unknown: UNBEKANNT

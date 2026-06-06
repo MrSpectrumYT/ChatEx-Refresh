@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'презарежда плъгина.'
-  Clear:
-    Description: 'изчиства чата.'
-    Console: 'КОНЗОЛА'
-    Unknown: 'НЕИЗВЕСТЕН'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fПомощ за чата:
+      &f● &e/%cmd% clear &f— изчиства чата.
+      &f● &e/%cmd% help &f— помощ за чата.
+      &f● &e/%cmd% reload &f— презарежда плъгина.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fКонфигурацията и езиците бяха успешно презаредени!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fРекламите не са позволени!'
     BlockedWord: '&c✘ &fТази дума не е позволена!'
-    AdNotify: '&4⚠ %player &fсе опита да напише &4%message &fв чата!'
+    AdNotify: '&4⚠ %player% &fсе опита да напише &4%message% &fв чата!'
     NoOneListens: '&4⚠ &fНяма играчи наблизо, които да ви чуят! Използвайте глобален режим.'
   NoColorPermission: '&c✘ &fНямате права за използване на обикновени цветове!'
+  NoModifierPermission: '&c✘ &fНямате права за използване на кодове за форматиране!'
   NoHexPermission: '&c✘ &fНямате права за използване на HEX цветове!'
   MagicBlocked: '&c✘ &fНямате права за използване на магически цветове!'
-  CommandResult:
-    NoPermission: '&c✘ &fНямате права за това! Право: &c%perm&f.'
-    WrongUsage: '&c✘ &fГрешна употреба! Моля, напишете &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fСпамът не е позволен! Изчакайте още &c%time% &fсекунди!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fсе присъедини към играта!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fсе присъедини за първи път!'
-    Kick: '&f● &e%prefix%displayname%suffix &fбеше изритан от играта!'
-    Quit: '&f● &e%prefix%displayname%suffix &fнапусна играта!'
   Color:
     Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fЦветът на чата ви беше актуализиран!'
     Invalid: '&c✘ &fТова не е валиден цветен код!'
     Reset: '&a✔ &fЦветът на чата ви беше нулиран!'
+    OnlyPlayers: '&cСамо играчи могат да използват тази команда!'
+  CommandResult:
+    NoPermission: '&c✘ &fНямате права за това! Право: &c%perm%&f.'
+    WrongUsage: '&c✘ &fГрешна употреба! Моля, напишете &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fСпамът не е позволен! Изчакайте още &c%time% &fсекунди!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fсе присъедини към играта!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fсе присъедини за първи път!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fбеше изритан от играта!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fнапусна играта!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh вече е активиран!'
+    Disabled: '✔ ChatEx-Refresh вече е деактивиран!'
+    bStats: '✔ Благодарим за използването на bStats, той беше активиран! Plugin ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Успешно свързване с LuckPerms!'
+      PlaceholderAPI: '✔ Успешно свързване с PlaceholderAPI!'
+    NoPermissions: '⚠ Не е намерен плъгин за права. Използват се стандартни права.'
+    RGB:
+      Loading: '⚠ Зареждане на RGB цветови кодове.'
+      NoColors: '⚠ В конфигурацията не са посочени персонализирани цветови кодове!'
+  Update:
+    Available:
+      Console: '&e⚠ &fНова версия на &eChatEx-Refresh &fе налична в &eModrinth&f! Текуща версия: &e%current%&f. Последна версия: &e%latest%&f. Изтегляне: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fе актуален! Версия: &a%current%&f.'
+    Failed: '&e⚠ &fНеуспешна проверка за актуализации на &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fНова версия на &eChatEx-Refresh &fе налична в &eModrinth&f!
+        &f● Текуща версия: &e%current%&f.
+        &f● Последна версия: &e%latest%&f.
+        &f● Изтегляне: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: КОНЗОЛА
+    Unknown: НЕИЗВЕСТЕН

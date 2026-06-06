@@ -2,6 +2,9 @@ package de.jeter.chatex.plugins;
 
 import de.jeter.chatex.ChatEx;
 import de.jeter.chatex.utils.HookManager;
+import de.jeter.chatex.utils.Locales;
+import de.jeter.chatex.utils.Utils;
+
 import org.bukkit.entity.Player;
 
 public class PluginManager implements PermissionsPlugin {
@@ -17,14 +20,14 @@ public class PluginManager implements PermissionsPlugin {
         INSTANCE = new PluginManager();
         if (HookManager.checkLuckperms()) {
             handler = new LuckPerms();
-            ChatEx.getInstance().getLogger().info("Successfully hooked into: " + handler.getName());
+            ChatEx.getInstance().getLogger().info(Locales.PLUGIN_HOOKED_LUCKPERMS.getString(null));
         } else {
             handler = new Nothing();
-            ChatEx.getInstance().getLogger().info("No permissions plugin found. Using default: " + handler.getName());
+            ChatEx.getInstance().getLogger().info(Locales.PLUGIN_NO_PERMISSIONS.getString(null));
         }
 
         if (HookManager.checkPlaceholderAPI()) {
-            ChatEx.getInstance().getLogger().info("Hooked into PlaceholderAPI");
+            ChatEx.getInstance().getLogger().info(Locales.PLUGIN_HOOKED_PAPI.getString(null));
         }
     }
 

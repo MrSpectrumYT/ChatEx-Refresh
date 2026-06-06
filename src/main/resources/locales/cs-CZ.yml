@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'znovu načte plugin.'
-  Clear:
-    Description: 'vyčistí chat.'
-    Console: 'KONZOLE'
-    Unknown: 'NEZNÁMÝ'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fNápověda pro chat:
+      &f● &e/%cmd% clear &f— vyčistí chat.
+      &f● &e/%cmd% help &f— nápověda pro chat.
+      &f● &e/%cmd% reload &f— znovu načte plugin.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fKonfigurace a jazyky byly úspěšně znovu načteny!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklama není povolena!'
     BlockedWord: '&c✘ &fToto slovo není povoleno!'
-    AdNotify: '&4⚠ %player &fse pokusil napsat do chatu &4%message&f!'
+    AdNotify: '&4⚠ %player% &fse pokusil napsat do chatu &4%message%&f!'
     NoOneListens: '&4⚠ &fV okolí nejsou žádní hráči, kteří by vás slyšeli! Použijte globální režim.'
   NoColorPermission: '&c✘ &fNemáte oprávnění používat běžné barvy!'
+  NoModifierPermission: '&c✘ &fNemáte oprávnění používat formátovací kódy!'
   NoHexPermission: '&c✘ &fNemáte oprávnění používat HEX barvy!'
   MagicBlocked: '&c✘ &fNemáte oprávnění používat kouzelné barvy!'
-  CommandResult:
-    NoPermission: '&c✘ &fNemáte oprávnění! Oprávnění: &c%perm&f.'
-    WrongUsage: '&c✘ &fChybné použití! Napište &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fSpam není povolen! Počkejte ještě &c%time% &fsekund!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fse připojil ke hře!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fse připojil poprvé!'
-    Kick: '&f● &e%prefix%displayname%suffix &fbyl vykopnut ze hry!'
-    Quit: '&f● &e%prefix%displayname%suffix &fopustil hru!'
   Color:
     Usage: '&e☀ &fPoužití: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fBarva vašeho chatu byla aktualizována!'
     Invalid: '&c✘ &fToto není platný barevný kód!'
     Reset: '&a✔ &fBarva vašeho chatu byla resetována!'
+    OnlyPlayers: '&cTento příkaz mohou používat pouze hráči!'
+  CommandResult:
+    NoPermission: '&c✘ &fNemáte oprávnění! Oprávnění: &c%perm%&f.'
+    WrongUsage: '&c✘ &fChybné použití! Napište &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam není povolen! Počkejte ještě &c%time% &fsekund!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fse připojil ke hře!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fse připojil poprvé!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fbyl vykopnut ze hry!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fopustil hru!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh je nyní zapnutý!'
+    Disabled: '✔ ChatEx-Refresh je nyní vypnutý!'
+    bStats: '✔ Děkujeme za používání bStats, byl povolen! ID pluginu: %id%.'
+    Hooked:
+      LuckPerms: '✔ Úspěšně napojen na LuckPerms!'
+      PlaceholderAPI: '✔ Úspěšně napojen na PlaceholderAPI!'
+    NoPermissions: '⚠ Nebyl nalezen žádný plugin práv. Používají se výchozí práva.'
+    RGB:
+      Loading: '⚠ Načítání RGB barevných kódů.'
+      NoColors: '⚠ V konfiguraci nebyly zadány žádné vlastní barevné kódy!'
+  Update:
+    Available:
+      Console: '&e⚠ &fNová verze &eChatEx-Refresh &fje k dispozici na &eModrinth&f! Aktuální verze: &e%current%&f. Nejnovější verze: &e%latest%&f. Stažení: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fje aktuální! Verze: &a%current%&f.'
+    Failed: '&e⚠ &fNepodařilo se zkontrolovat aktualizace pro &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fNová verze &eChatEx-Refresh &fje k dispozici na &eModrinth&f!
+        &f● Aktuální verze: &e%current%&f.
+        &f● Nejnovější verze: &e%latest%&f.
+        &f● Stažení: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONZOLE
+    Unknown: NEZNÁMÝ

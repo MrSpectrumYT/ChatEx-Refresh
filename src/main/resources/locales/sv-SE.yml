@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'laddar om plugin.'
-  Clear:
-    Description: 'rensar chatten.'
-    Console: 'KONSOL'
-    Unknown: 'OKÄND'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fHjälp för chat:
+      &f● &e/%cmd% clear &f— rensar chatten.
+      &f● &e/%cmd% help &f— hjälp för chat.
+      &f● &e/%cmd% reload &f— laddar om plugin.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fKonfiguration och lokaliseringar har laddats om!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklam är inte tillåtet!'
     BlockedWord: '&c✘ &fDetta ord är inte tillåtet!'
-    AdNotify: '&4⚠ %player &fförsökte skriva &4%message &fi chatten!'
+    AdNotify: '&4⚠ %player% &fförsökte skriva &4%message% &fi chatten!'
     NoOneListens: '&4⚠ &fInga spelare är nära dig för att höra dig! Använd globalt läge.'
   NoColorPermission: '&c✘ &fDu har inte tillstånd att använda vanliga färger!'
+  NoModifierPermission: '&c✘ &fDu har inte tillstånd att använda formateringskoder!'
   NoHexPermission: '&c✘ &fDu har inte tillstånd att använda HEX-färger!'
   MagicBlocked: '&c✘ &fDu har inte tillstånd att använda magiska färger!'
-  CommandResult:
-    NoPermission: '&c✘ &fDu har inte tillstånd för detta! Tillstånd: &c%perm&f.'
-    WrongUsage: '&c✘ &fFel användning! Skriv &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fSpam är inte tillåtet! Vänta ytterligare &c%time% &fsekunder!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fgick med i spelet!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fgick med för första gången!'
-    Kick: '&f● &e%prefix%displayname%suffix &fsparkades från spelet!'
-    Quit: '&f● &e%prefix%displayname%suffix &flämnade spelet!'
   Color:
     Usage: '&e☀ &fAnvändning: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fDin chattfärg har uppdaterats!'
     Invalid: '&c✘ &fDet är inte en giltig färgkod!'
     Reset: '&a✔ &fDin chattfärg har återställts!'
+    OnlyPlayers: '&cEndast spelare kan använda detta kommando!'
+  CommandResult:
+    NoPermission: '&c✘ &fDu har inte tillstånd för detta! Tillstånd: &c%perm%&f.'
+    WrongUsage: '&c✘ &fFel användning! Skriv &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam är inte tillåtet! Vänta ytterligare &c%time% &fsekunder!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fgick med i spelet!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fgick med för första gången!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fsparkades från spelet!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &flämnade spelet!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh är nu aktiverad!'
+    Disabled: '✔ ChatEx-Refresh är nu inaktiverad!'
+    bStats: '✔ Tack för att du använder bStats, den aktiverades! Plugin-ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Ansluten till LuckPerms!'
+      PlaceholderAPI: '✔ Ansluten till PlaceholderAPI!'
+    NoPermissions: '⚠ Inget behörighetsplugin hittades. Använder standardbehörigheter.'
+    RGB:
+      Loading: '⚠ Laddar RGB-färgkoder.'
+      NoColors: '⚠ Inga anpassade färgkoder angivna i konfigurationen!'
+  Update:
+    Available:
+      Console: '&e⚠ &fNy version av &eChatEx-Refresh &ftillgänglig på &eModrinth&f! Nuvarande version: &e%current%&f. Senaste version: &e%latest%&f. Nedladdning: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fär uppdaterad! Version: &a%current%&f.'
+    Failed: '&e⚠ &fKunde inte kontrollera uppdateringar för &eChatEx-Refresh&f!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fNy version av &eChatEx-Refresh &ftillgänglig på &eModrinth&f!
+        &f● Nuvarande version: &e%current%&f.
+        &f● Senaste version: &e%latest%&f.
+        &f● Nedladdning: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONSOL
+    Unknown: OKÄND

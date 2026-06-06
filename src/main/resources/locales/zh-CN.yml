@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: '重新加载插件.'
-  Clear:
-    Description: '清空聊天栏.'
-    Console: '控制台'
-    Unknown: '未知'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &f聊天帮助:
+      &f● &e/%cmd% clear &f— 清空聊天栏.
+      &f● &e/%cmd% help &f— 聊天帮助.
+      &f● &e/%cmd% reload &f— 重新加载插件.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &f配置文件和语言文件已成功重新加载！'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &f禁止发布广告！'
     BlockedWord: '&c✘ &f该词被禁止使用！'
-    AdNotify: '&4⚠ %player &f尝试在聊天栏发布 &4%message&f！'
+    AdNotify: '&4⚠ %player% &f尝试在聊天栏发布 &4%message%&f！'
     NoOneListens: '&4⚠ &f附近没有玩家能听到你说话！请使用全局模式.'
   NoColorPermission: '&c✘ &f您没有使用普通颜色的权限！'
+  NoModifierPermission: '&c✘ &f您没有使用格式代码的权限！'
   NoHexPermission: '&c✘ &f您没有使用HEX颜色的权限！'
   MagicBlocked: '&c✘ &f您没有使用魔法颜色的权限！'
-  CommandResult:
-    NoPermission: '&c✘ &f您没有权限！所需权限: &c%perm&f.'
-    WrongUsage: '&c✘ &f用法错误！请输入 &c%cmd help&f！'
-  AntiSpam:
-    Denied: '&c✘ &f禁止刷屏！请等待 &c%time% &f秒！'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &f加入了游戏！'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &f首次加入服务器！'
-    Kick: '&f● &e%prefix%displayname%suffix &f被踢出游戏！'
-    Quit: '&f● &e%prefix%displayname%suffix &f退出了游戏！'
   Color:
     Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &f您的聊天颜色已更新！'
     Invalid: '&c✘ &f这不是一个有效的颜色代码！'
     Reset: '&a✔ &f您的聊天颜色已重置！'
+    OnlyPlayers: '&c只有玩家才能使用此命令！'
+  CommandResult:
+    NoPermission: '&c✘ &f您没有权限！所需权限: &c%perm%&f.'
+    WrongUsage: '&c✘ &f用法错误！请输入 &c%cmd% help&f！'
+  AntiSpam:
+    Denied: '&c✘ &f禁止刷屏！请等待 &c%time% &f秒！'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &f加入了游戏！'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &f首次加入服务器！'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &f被踢出游戏！'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &f退出了游戏！'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh 已启用！'
+    Disabled: '✔ ChatEx-Refresh 已禁用！'
+    bStats: '✔ 感谢您使用 bStats，它已启用！插件 ID：%id%。'
+    Hooked:
+      LuckPerms: '✔ 成功挂钩到 LuckPerms！'
+      PlaceholderAPI: '✔ 成功挂钩到 PlaceholderAPI！'
+    NoPermissions: '⚠ 未找到权限插件。正在使用默认权限。'
+    RGB:
+      Loading: '⚠ 正在加载 RGB 颜色代码。'
+      NoColors: '⚠ 配置中未指定自定义颜色代码！'
+  Update:
+    Available:
+      Console: '&e⚠ &f&eChatEx-Refresh &f的新版本已在 &eModrinth&f 上可用！当前版本：&e%current%&f。最新版本：&e%latest%&f。下载地址：&e%url%&f。'
+    UpToDate: '&a✔ ChatEx-Refresh &f已是最新版本！版本：&a%current%&f。'
+    Failed: '&e⚠ &f无法检查 &eChatEx-Refresh &f的更新！'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &f&eChatEx-Refresh &f的新版本已在 &eModrinth&f 上可用！
+        &f● 当前版本：&e%current%&f。
+        &f● 最新版本：&e%latest%&f。
+        &f● 下载地址：&e%url%&f。
+        &f
+Commands:
+  Clear:
+    Console: 控制台
+    Unknown: 未知

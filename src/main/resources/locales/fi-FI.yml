@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'lataa liitännäisen uudelleen.'
-  Clear:
-    Description: 'tyhjentää chatin.'
-    Console: 'KONSOLI'
-    Unknown: 'TUNTEMATON'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fApua chattiin:
+      &f● &e/%cmd% clear &f— tyhjentää chatin.
+      &f● &e/%cmd% help &f— apua chattiin.
+      &f● &e/%cmd% reload &f— lataa liitännäisen uudelleen.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fAsetukset ja kielitiedostot ladattiin uudelleen onnistuneesti!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fMainostaminen on kielletty!'
     BlockedWord: '&c✘ &fTämä sana on kielletty!'
-    AdNotify: '&4⚠ %player &fyritti lähettää &4%message &fchattiin!'
+    AdNotify: '&4⚠ %player% &fyritti lähettää &4%message% &fchattiin!'
     NoOneListens: '&4⚠ &fKukaan pelaaja ei ole tarpeeksi lähellä kuullakseen sinua! Käytä globaalia tilaa.'
   NoColorPermission: '&c✘ &fSinulla ei ole oikeutta käyttää tavallisia värejä!'
+  NoModifierPermission: '&c✘ &fSinulla ei ole oikeutta käyttää muotoilukoodeja!'
   NoHexPermission: '&c✘ &fSinulla ei ole oikeutta käyttää HEX-värejä!'
   MagicBlocked: '&c✘ &fSinulla ei ole oikeutta käyttää maagisia värejä!'
-  CommandResult:
-    NoPermission: '&c✘ &fSinulla ei ole oikeutta tähän! Oikeus: &c%perm&f.'
-    WrongUsage: '&c✘ &fVirheellinen käyttö! Kirjoita &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fSpammaaminen on kielletty! Odota vielä &c%time% &fsekuntia!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fliittyi peliin!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fliittyi ensimmäistä kertaa!'
-    Kick: '&f● &e%prefix%displayname%suffix &fpotkittiin pelistä!'
-    Quit: '&f● &e%prefix%displayname%suffix &fpoistui pelistä!'
   Color:
     Usage: '&e☀ &fKäyttö: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fChattisi väri on päivitetty!'
     Invalid: '&c✘ &fTämä ei ole kelvollinen värikoodi!'
     Reset: '&a✔ &fChattisi väri on nollattu!'
+    OnlyPlayers: '&cVain pelaajat voivat käyttää tätä komentoa!'
+  CommandResult:
+    NoPermission: '&c✘ &fSinulla ei ole oikeutta tähän! Oikeus: &c%perm%&f.'
+    WrongUsage: '&c✘ &fVirheellinen käyttö! Kirjoita &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fSpammaaminen on kielletty! Odota vielä &c%time% &fsekuntia!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fliittyi peliin!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fliittyi ensimmäistä kertaa!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fpotkittiin pelistä!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fpoistui pelistä!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh on nyt käytössä!'
+    Disabled: '✔ ChatEx-Refresh on nyt pois käytöstä!'
+    bStats: '✔ Kiitos bStatin käytöstä, se otettiin käyttöön! Liitännäisen ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Yhdistettiin onnistuneesti LuckPermsiin!'
+      PlaceholderAPI: '✔ Yhdistettiin onnistuneesti PlaceholderAPIin!'
+    NoPermissions: '⚠ Oikeusliitännäistä ei löytynyt. Käytetään oletusoikeuksia.'
+    RGB:
+      Loading: '⚠ Ladataan RGB-värikoodeja.'
+      NoColors: '⚠ Asetuksissa ei ole määritetty mukautettuja värikoodeja!'
+  Update:
+    Available:
+      Console: '&e⚠ &fUusi versio &eChatEx-Refresh &fistä saatavilla &eModrinth&fissä! Nykyinen versio: &e%current%&f. Uusin versio: &e%latest%&f. Lataa: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fon ajan tasalla! Versio: &a%current%&f.'
+    Failed: '&e⚠ &fPäivitysten tarkistaminen &eChatEx-Refresh &fille epäonnistui!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fUusi versio &eChatEx-Refresh &fistä saatavilla &eModrinth&fissä!
+        &f● Nykyinen versio: &e%current%&f.
+        &f● Uusin versio: &e%latest%&f.
+        &f● Lataa: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONSOLI
+    Unknown: TUNTEMATON

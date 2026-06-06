@@ -4,6 +4,7 @@ import de.jeter.chatex.ChatEx;
 import de.jeter.chatex.plugins.PluginManager;
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -20,6 +21,7 @@ public class Utils {
         String result = string;
         boolean hasColorWarn = false;
         boolean hasHexWarn = false;
+        boolean hasModifierWarn = false;
         boolean shouldCancel = false;
         
         if (player.hasPermission("chatex.chat.colorhex")) {
@@ -41,6 +43,15 @@ public class Utils {
                 shouldCancel = true;
             }
             result = result.replaceAll("&[0-9a-f]", "");
+        }
+        
+        if (player.hasPermission("chatex.chat.colormodifier")) {
+            result = translateModifierColors(result);
+        } else {
+            if (containsModifierColors(result)) {
+                hasModifierWarn = true;
+                shouldCancel = true;
+            }
             result = result.replaceAll("&[l-or]", "");
             result = result.replaceAll("&r", "");
         }
@@ -50,6 +61,9 @@ public class Utils {
         }
         if (hasHexWarn) {
             player.sendMessage(Locales.NO_HEX_PERMISSION.getString(player));
+        }
+        if (hasModifierWarn) {
+            player.sendMessage(Locales.NO_MODIFIER_PERMISSION.getString(player));
         }
 
         if (Config.BLOCK_MAGIC_COLOR.getBoolean() && !player.hasPermission("chatex.chat.magic")) {
@@ -68,6 +82,15 @@ public class Utils {
         return result;
     }
 
+    private static String translateModifierColors(String message) {
+        return message
+                .replace("&l", "§l")
+                .replace("&m", "§m")
+                .replace("&n", "§n")
+                .replace("&o", "§o")
+                .replace("&r", "§r");
+    }
+
     public static String replaceColors(String message) {
         if (message == null) return null;
         
@@ -84,6 +107,18 @@ public class Utils {
         return message;
     }
     
+    public static void log(String message) {
+        if (message == null) return;
+        String colored = ChatColor.translateAlternateColorCodes('&', message);
+        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §f" + colored);
+    }
+
+    public static void warn(String message) {
+        if (message == null) return;
+        String colored = ChatColor.translateAlternateColorCodes('&', message);
+        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §e" + colored);
+    }
+
     private static String translateHexColors(String message) {
         if (message == null || message.isEmpty()) return message;
         
@@ -112,7 +147,11 @@ public class Utils {
     }
     
     private static boolean containsLegacyColors(String message) {
-        return message.matches(".*&[0-9a-f].*") || message.matches(".*&[l-or].*");
+        return message.matches(".*&[0-9a-f].*");
+    }
+    
+    private static boolean containsModifierColors(String message) {
+        return message.matches(".*&[l-or].*");
     }
     
     private static boolean containsMagicColor(String message) {
@@ -140,12 +179,13 @@ public class Utils {
         }
         String result = format;
 
-        result = result.replace("%displayname", player.getDisplayName());
-        result = result.replace("%prefix", PluginManager.getInstance().getPrefix(player));
-        result = result.replace("%suffix", PluginManager.getInstance().getSuffix(player));
-        result = result.replace("%player", player.getName());
-        result = result.replace("%world", player.getWorld().getName());
-        result = result.replace("%group", PluginManager.getInstance().getGroupNames(player).length > 0 ? PluginManager.getInstance().getGroupNames(player)[0] : "none");
+        result = result.replace("%displayname%", player.getDisplayName());
+        result = result.replace("%prefix%", PluginManager.getInstance().getPrefix(player));
+        result = result.replace("%suffix%", PluginManager.getInstance().getSuffix(player));
+        result = result.replace("%player%", player.getName());
+        result = result.replace("%world%", player.getWorld().getName());
+        result = result.replace("%group%", PluginManager.getInstance().getGroupNames(player).length > 0 
+            ? PluginManager.getInstance().getGroupNames(player)[0] : "none");
 
         if (HookManager.checkPlaceholderAPI()) {
             LogHelper.debug("PlaceholderAPI is installed! Replacing...");

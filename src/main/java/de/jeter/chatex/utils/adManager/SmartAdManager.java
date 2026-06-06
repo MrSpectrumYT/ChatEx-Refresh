@@ -14,10 +14,8 @@ public class SmartAdManager implements AdManager {
     private static final Pattern ipPattern = Pattern.compile("((?<![0-9])(?:(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[ ]?[.,-:; ][ ]?(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[ ]?[., ][ ]?(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[ ]?[., ][ ]?(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2}))(?![0-9]))");
     private static final Pattern webPattern = Pattern.compile("((([a-zA-Z0-9_-]{2,256}\\.)*)?[a-zA-Z0-9_-]{2,256}\\.[a-zA-Z_-]{2,256})(\\/[-a-zA-Z0-9@:%_\\\\+~#?&\\/=]*)?");
 
-    //replace any spaces in the range of ADS_MAX_LENGTH near . or , removes () and [] to prevent example(.)com
     private static final String urlCompactorPatternString = "[\\(\\)\\]\\[]|([\\s:\\/](?=.{0," + Config.ADS_MAX_LENGTH.getInt() + "}[\\.]))|((?<=[\\.].{0,4})\\s*)";
 
-    //Ips are clear
     private static boolean checkForIPPattern(String message) {
 
         message = message.replaceAll(" ", "");
@@ -79,8 +77,8 @@ public class SmartAdManager implements AdManager {
         if (canceled) {
             uuidErrorMap.put(p.getUniqueId(), Config.ADS_THRESHOLD.getDouble());
             String message = Locales.MESSAGES_AD_NOTIFY.getString(p)
-                    .replaceAll("%player", Matcher.quoteReplacement(p.getName()))
-                    .replaceAll("%message", Matcher.quoteReplacement(msg));
+                    .replaceAll("%player%", Matcher.quoteReplacement(p.getName()))
+                    .replaceAll("%message%", Matcher.quoteReplacement(msg));
             Utils.notifyOps(message);
             ChatLogger.writeToAdFile(p, msg);
         } else {

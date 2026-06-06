@@ -75,8 +75,8 @@ public class SimpleAdManager implements AdManager {
         boolean found = checkForIPPattern(msg) || checkForWebPattern(msg);
         if (found) {
             String message = Locales.MESSAGES_AD_NOTIFY.getString(p)
-                    .replaceAll("%player", Matcher.quoteReplacement(p.getName()))
-                    .replaceAll("%message", Matcher.quoteReplacement(msg));
+                    .replaceAll("%player%", Matcher.quoteReplacement(p.getName()))
+                    .replaceAll("%message%", Matcher.quoteReplacement(msg));
             Utils.notifyOps(message);
             ChatLogger.writeToAdFile(p, msg);
         }

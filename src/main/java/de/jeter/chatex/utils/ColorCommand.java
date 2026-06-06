@@ -28,7 +28,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player player)) {
-            sender.sendMessage("Only players can use this command!");
+            sender.sendMessage(Locales.COLOR_ONLY_PLAYERS.getString(null));
             return true;
         }
 
@@ -106,7 +106,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
             }
 
             if (LEGACY_FORMATS.contains(lowerPart)) {
-                if (!player.hasPermission("chatex.chat.colorlegacy")) {
+                if (!player.hasPermission("chatex.chat.colormodifier")) {
                     return false;
                 }
                 continue;
@@ -147,7 +147,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
                     suggestions.add(currentInput);
                 }
                 if (hexPart.matches("^#[a-fA-F0-9]{6}$")) {
-                    if (player.hasPermission("chatex.chat.colorlegacy")) {
+                    if (player.hasPermission("chatex.chat.colormodifier")) {
                         for (String f : LEGACY_FORMATS) {
                             suggestions.add(currentInput + f);
                         }
@@ -192,7 +192,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
                 }
             }
 
-            if (player.hasPermission("chatex.chat.colorlegacy")) {
+            if (player.hasPermission("chatex.chat.colormodifier")) {
                 for (String f : LEGACY_FORMATS) {
                     if (f.substring(1).toLowerCase().startsWith(after.toLowerCase())) {
                         suggestions.add(before + f);
@@ -209,6 +209,8 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
     private void addAvailableOptions(List<String> suggestions, Player player) {
         if (player.hasPermission("chatex.chat.colorlegacy")) {
             suggestions.addAll(LEGACY_COLORS);
+        }
+        if (player.hasPermission("chatex.chat.colormodifier")) {
             suggestions.addAll(LEGACY_FORMATS);
         }
         if (player.hasPermission("chatex.chat.colorhex")) {

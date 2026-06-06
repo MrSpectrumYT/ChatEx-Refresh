@@ -13,8 +13,9 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UnknownFormatConversionException;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ChatListener implements Listener {
@@ -68,8 +69,9 @@ public class ChatListener implements Listener {
         Player player = event.getPlayer();
 
         if (!player.hasPermission("chatex.allowchat")) {
-            String msg = Locales.COMMAND_RESULT_NO_PERM.getString(player).replaceAll("%perm", "chatex.allowchat");
-            player.sendMessage(msg);
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%perm%", "chatex.allowchat");
+            player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
             event.setCancelled(true);
             return;
         }
@@ -83,9 +85,9 @@ public class ChatListener implements Listener {
 
         if (!AntiSpamManager.getInstance().isAllowed(event.getPlayer())) {
             long remainingTime = AntiSpamManager.getInstance().getRemainingSeconds(event.getPlayer());
-            String message = Locales.ANTI_SPAM_DENIED.getString(event.getPlayer()).replaceAll("%time%", remainingTime + "");
-            
-            event.getPlayer().sendMessage(message);
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%time%", String.valueOf(remainingTime));
+            player.sendMessage(Locales.ANTI_SPAM_DENIED.getString(event.getPlayer(), placeholders));
             event.setCancelled(true);
             return;
         }
@@ -94,9 +96,9 @@ public class ChatListener implements Listener {
         LogHelper.debug("Player did not activate the AntiSpam. Continuing...");
 
         if (adManager.checkForAds(chatMessage, player)) {
-            String message = Locales.MESSAGES_AD.getString(null).replaceAll("%perm", "chatex.bypassads");
-            
-            event.getPlayer().sendMessage(message);
+            Map<String, String> placeholders = new HashMap<>();
+            placeholders.put("%perm%", "chatex.bypassads");
+            player.sendMessage(Locales.MESSAGES_AD.getString(null, placeholders));
             event.setCancelled(true);
             return;
         }
@@ -106,9 +108,7 @@ public class ChatListener implements Listener {
         for(String block : Config.BLOCKED_WORDS.getStringList()) {
             if(chatMessage.toLowerCase().contains(block.toLowerCase())) {
                 LogHelper.debug("Player activated wordblocker! ChatMessage: " + chatMessage + " contains blockedWord: " + block);
-                String message = Locales.MESSAGES_BLOCKED.getString(null);
-                
-                event.getPlayer().sendMessage(message);
+                player.sendMessage(Locales.MESSAGES_BLOCKED.getString(null));
                 event.setCancelled(true);
                 return;
             }
@@ -124,7 +124,7 @@ public class ChatListener implements Listener {
                 LogHelper.debug("Global mode enabled!");
                 if (player.hasPermission("chatex.chat.global")) {
                     chatMessage = chatMessage.replaceFirst(Pattern.quote(Config.RANGEPREFIX.getString()), "");
-                    format = PluginManager.getInstance().getGlobalMessageFormat(player);
+                    format = PluginManager.getInstance().getGlobalMessageFormat(player);        
                     global = true;
 
                     PlayerUsesGlobalChatEvent playerUsesGlobalChatEvent = new PlayerUsesGlobalChatEvent(player, chatMessage);
@@ -135,7 +135,9 @@ public class ChatListener implements Listener {
                         return;
                     }
                 } else {
-                    player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player).replaceAll("%perm", "chatex.chat.global"));
+                    Map<String, String> placeholders = new HashMap<>();
+                    placeholders.put("%perm%", "chatex.chat.global");
+                    player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
                     event.setCancelled(true);
                     return;
                 }
@@ -163,13 +165,12 @@ public class ChatListener implements Listener {
         LogHelper.debug("Replacing Placeholder in format...");
         format = Utils.replacePlayerPlaceholders(player, format);
         format = Utils.escape(format);
-        format = format.replace("%%message", "%2$s");
+        format = format.replace("%%message%%", "%2$s");
         LogHelper.debug("Format after replacing: " + format);
 
         try {
             event.setFormat(format);
         } catch (UnknownFormatConversionException ex) {
-            System.out.println(format);
             ChatEx.getInstance().getLogger().severe("Placeholder in format is not allowed!");
             format = format.replaceAll("%\\\\?.*?%", "");
             event.setFormat(format);
@@ -188,7 +189,6 @@ public class ChatListener implements Listener {
         event.setMessage(finalMessage);
         
         MentionManager.processMentions(player, chatMessage);
-        
         
         ChatLogger.writeToFile(player, chatMessage);
         LogHelper.debug("Everything done! Method end.");

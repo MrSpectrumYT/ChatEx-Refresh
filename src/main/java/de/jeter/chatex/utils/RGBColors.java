@@ -13,10 +13,10 @@ public class RGBColors {
     private static final HashMap<String, String> placeHolderColorMap = new HashMap<>();
 
     public static void load() {
-        ChatEx.getInstance().getLogger().info("Loading RGB color codes...");
+        ChatEx.getInstance().getLogger().info(Locales.RGB_LOADING.getString(null));
         
         if (Config.RGB_COLORS.getConfigurationSection() == null) {
-            ChatEx.getInstance().getLogger().info("No custom color codes specified in config!");
+            ChatEx.getInstance().getLogger().info(Locales.RGB_NO_COLORS.getString(null));
             return;
         }
 

@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'újratölti a plugint.'
-  Clear:
-    Description: 'kitörli a chat-et.'
-    Console: 'KONZOL'
-    Unknown: 'ISMBETLEN'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fSegítség a chat-hez:
+      &f● &e/%cmd% clear &f— kitörli a chat-et.
+      &f● &e/%cmd% help &f— segítség a chat-hez.
+      &f● &e/%cmd% reload &f— újratölti a plugint.
+      &f
   Commands:
     Reload:
       Success: '&a✔ &fKonfiguráció és nyelvek sikeresen újratöltve!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fA reklámozás nem engedélyezett!'
     BlockedWord: '&c✘ &fEz a szó nem engedélyezett!'
-    AdNotify: '&4⚠ %player &fmegpróbálta ezt írni a chat-be: &4%message&f!'
+    AdNotify: '&4⚠ %player% &fmegpróbálta ezt írni a chat-be: &4%message%&f!'
     NoOneListens: '&4⚠ &fNincs a közelben játékos, aki hallana! Használd a globális módot.'
   NoColorPermission: '&c✘ &fNincs jogod a normál színek használatához!'
+  NoModifierPermission: '&c✘ &fNincs jogod a formázási kódok használatához!'
   NoHexPermission: '&c✘ &fNincs jogod a HEX színek használatához!'
   MagicBlocked: '&c✘ &fNincs jogod a varázs színek használatához!'
-  CommandResult:
-    NoPermission: '&c✘ &fNincs jogod ehhez! Jogosultság: &c%perm&f.'
-    WrongUsage: '&c✘ &fHelytelen használat! Kérlek írd be: &c%cmd help&f!'
-  AntiSpam:
-    Denied: '&c✘ &fA spam nem engedélyezett! Kérlek várj még &c%time% &fmásodpercet!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &fcsatlakozott a játékhoz!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fmost csatlakozott először!'
-    Kick: '&f● &e%prefix%displayname%suffix &fki lett rúgva a játékból!'
-    Quit: '&f● &e%prefix%displayname%suffix &fkilépett a játékból!'
   Color:
     Usage: '&e☀ &fHasználat: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fA chat színed frissítve!'
     Invalid: '&c✘ &fEz nem érvényes színkód!'
     Reset: '&a✔ &fA chat színed visszaállítva!'
+    OnlyPlayers: '&cEzt a parancsot csak játékosok használhatják!'
+  CommandResult:
+    NoPermission: '&c✘ &fNincs jogod ehhez! Jogosultság: &c%perm%&f.'
+    WrongUsage: '&c✘ &fHelytelen használat! Kérlek írd be: &c%cmd% help&f!'
+  AntiSpam:
+    Denied: '&c✘ &fA spam nem engedélyezett! Kérlek várj még &c%time% &fmásodpercet!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &fcsatlakozott a játékhoz!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fmost csatlakozott először!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &fki lett rúgva a játékból!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &fkilépett a játékból!'
+  Plugin:
+    Enabled: '✔ ChatEx-Refresh mostantól engedélyezve!'
+    Disabled: '✔ ChatEx-Refresh mostantól letiltva!'
+    bStats: '✔ Köszönjük, hogy használod a bStats-ot, engedélyezve lett! Plugin ID: %id%.'
+    Hooked:
+      LuckPerms: '✔ Sikeresen csatlakozva a LuckPerms-hez!'
+      PlaceholderAPI: '✔ Sikeresen csatlakozva a PlaceholderAPI-hoz!'
+    NoPermissions: '⚠ Nem található jogosultság plugin. Alapértelmezett jogok használata.'
+    RGB:
+      Loading: '⚠ RGB színkódok betöltése.'
+      NoColors: '⚠ Nincsenek egyéni színkódok megadva a konfigurációban!'
+  Update:
+    Available:
+      Console: '&e⚠ &fA &eChatEx-Refresh &fúj verziója elérhető a &eModrinth&f-en! Jelenlegi verzió: &e%current%&f. Legújabb verzió: &e%latest%&f. Letöltés: &e%url%&f.'
+    UpToDate: '&a✔ ChatEx-Refresh &fnaprakész! Verzió: &a%current%&f.'
+    Failed: '&e⚠ &fNem sikerült ellenőrizni a &eChatEx-Refresh &ffrissítéseit!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &fA &eChatEx-Refresh &fúj verziója elérhető a &eModrinth&f-en!
+        &f● Jelenlegi verzió: &e%current%&f.
+        &f● Legújabb verzió: &e%latest%&f.
+        &f● Letöltés: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONZOL
+    Unknown: ISMERETLEN

@@ -1,11 +1,12 @@
-Commands:
-  Reload:
-    Description: 'plugini yenidən yükləyir.'
-  Clear:
-    Description: 'sohbəti təmizləyir.'
-    Console: 'KONSOL'
-    Unknown: 'BİLİNMƏYƏN'
 Messages:
+  Help:
+    Message: |-
+      &f
+      &e☀ &fSöhbət yardımı:
+      &f● &e/%cmd% clear &f— söhbəti təmizləyir.
+      &f● &e/%cmd% help &f— söhbət üçün yardım.
+      &f● &e/%cmd% reload &f— plaqini yenidən yükləyir.
+      &f
   Commands:
     Reload:
       Success: '&a✓ &fKonfiqurasiya və dillər uğurla yenidən yükləndi!'
@@ -14,23 +15,53 @@ Messages:
   Chat:
     AdDetected: '&c✘ &fReklama etmək qadağandır!'
     BlockedWord: '&c✘ &fBu söz qadağandır!'
-    AdNotify: '&4⚠ %player &fsohbətdə &4%message &fyazmağa çalışdı!'
+    AdNotify: '&4⚠ %player% &fsohbətdə &4%message% &fyazmağa çalışdı!'
     NoOneListens: '&4⚠ &fYaxınlıqda sizi eşidəcək oyunçu yoxdur! Qlobal rejimdən istifadə edin.'
   NoColorPermission: '&c✘ &fAdi rənglərdən istifadə etmək icazəniz yoxdur!'
+  NoModifierPermission: '&c✘ &fFormat kodlarından istifadə etmək icazəniz yoxdur!'
   NoHexPermission: '&c✘ &fHEX rənglərindən istifadə etmək icazəniz yoxdur!'
   MagicBlocked: '&c✘ &fSehrli rənglərdən istifadə etmək icazəniz yoxdur!'
-  CommandResult:
-    NoPermission: '&c✘ &fBunun üçün icazəniz yoxdur! İcazə: &c%perm&f.'
-    WrongUsage: '&c✘ &fYanlış istifadə! Xahiş edirik &c%cmd help&f yazın!'
-  AntiSpam:
-    Denied: '&c✘ &fSpam qadağandır! Zəhmət olmasa &c%time% &fsaniyə gözləyin!'
-  Player:
-    Join: '&f● &e%prefix%displayname%suffix &foyuna qoşuldu!'
-    JoinFirstTime: '&f● &e%prefix%displayname%suffix &fbirinci dəfə serverə qoşuldu!'
-    Kick: '&f● &e%prefix%displayname%suffix &foyundan qovuldu!'
-    Quit: '&f● &e%prefix%displayname%suffix &foyunu tərk etdi!'
   Color:
     Usage: '&e☀ &fİstifadə: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
     Set: '&a✓ &fSöhbət rənginiz yeniləndi!'
     Invalid: '&c✘ &fBu keçərli rəng kodu deyil!'
     Reset: '&a✓ &fSöhbət rənginiz sıfırlandı!'
+    OnlyPlayers: '&cYalnız oyunçular bu əmrdən istifadə edə bilər!'
+  CommandResult:
+    NoPermission: '&c✘ &fBunun üçün icazəniz yoxdur! İcazə: &c%perm%&f.'
+    WrongUsage: '&c✘ &fYanlış istifadə! Xahiş edirik &c%cmd% help&f yazın!'
+  AntiSpam:
+    Denied: '&c✘ &fSpam qadağandır! Zəhmət olmasa &c%time% &fsaniyə gözləyin!'
+  Player:
+    Join: '&f● &e%prefix%%displayname%%suffix% &foyuna qoşuldu!'
+    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fbirinci dəfə serverə qoşuldu!'
+    Kick: '&f● &e%prefix%%displayname%%suffix% &foyundan qovuldu!'
+    Quit: '&f● &e%prefix%%displayname%%suffix% &foyunu tərk etdi!'
+  Plugin:
+    Enabled: '✓ ChatEx-Refresh artıq aktivdir!'
+    Disabled: '✓ ChatEx-Refresh artıq deaktivdir!'
+    bStats: '✓ bStats istifadə etdiyiniz üçün təşəkkürlər, aktivləşdirildi! Plugin ID: %id%.'
+    Hooked:
+      LuckPerms: '✓ LuckPerms-ə uğurla qoşuldu!'
+      PlaceholderAPI: '✓ PlaceholderAPI-ya uğurla qoşuldu!'
+    NoPermissions: '⚠ Heç bir icazə plaqini tapılmadı. Standart icazələrdən istifadə olunur.'
+    RGB:
+      Loading: '⚠ RGB rəng kodları yüklənir.'
+      NoColors: '⚠ Konfiqurasiyada heç bir xüsusi rəng kodu göstərilməyib!'
+  Update:
+    Available:
+      Console: '&e⚠ &f&eChatEx-Refresh &fünün yeni versiyası &eModrinth&f-də mövcuddur! Cari versiya: &e%current%&f. Son versiya: &e%latest%&f. Yükləmə: &e%url%&f.'
+    UpToDate: '&a✓ ChatEx-Refresh &fən son versiyadır! Versiya: &a%current%&f.'
+    Failed: '&e⚠ &fChatEx-Refresh &füçün yeniləmələr yoxlanıla bilmədi!'
+    Notify:
+      Player: |-
+        &f
+        &e⚠ &f&eChatEx-Refresh &fünün yeni versiyası &eModrinth&f-də mövcuddur!
+        &f● Cari versiya: &e%current%&f.
+        &f● Son versiya: &e%latest%&f.
+        &f● Yükləmə: &e%url%&f.
+        &f
+Commands:
+  Clear:
+    Console: KONSOL
+    Unknown: BİLİNMƏYƏN
