@@ -1,9 +1,9 @@
 name: ChatEx-Refresh
 main: de.jeter.chatex.ChatEx
-version: 4.3.0
+version: 4.3.5
 license: GPL-2.0
 authors: [Jeter, Wizard_x, MrSpectrumYT]
-description: ChatEx-Refresh — a fork of the ChatEx plugin for Folia, Leaf, Paper, Pufferfish, Purpur and Spigot compatible with 1.21+
+description: ChatEx-Refresh — a fork of the ChatEx plugin
 softdepend: [LuckPerms, PlaceholderAPI]
 api-version: 1.21
 folia-supported: true

@@ -69,7 +69,7 @@ public enum Config {
         reload(false);
         List<String> header = new ArrayList<>();
         header.add("Thanks for installing " + ChatEx.getInstance().getName());
-        header.add("ChatEx-Refresh — a fork of the ChatEx plugin for Folia, Leaf, Paper, Pufferfish, Purpur and Spigot compatible with 1.21+");
+        header.add("ChatEx-Refresh — a fork of the ChatEx plugin");
         header.add("Original by Jeter & Wizard_x and fork by MrSpectrumYT");
         header.add("https://modrinth.com/plugin/chatex-refresh");
         for (Config c : values()) {
