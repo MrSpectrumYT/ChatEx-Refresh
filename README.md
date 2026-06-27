@@ -35,6 +35,7 @@
 | `chatex.chat.colorlegacy` | op | Use legacy colors (`&c`, `&a`, etc.) |
 | `chatex.chat.colormodifier` | op | Use formatting codes (`&l`, `&m`, `&n`, `&o`, `&r`) |
 | `chatex.chat.colorhex` | op | Use HEX colors (`#RRGGBB`, `&#RRGGBB`) |
+| `chatex.chat.colorgradient` | op | Use gradient colors (`/color &#FF0000,#00FF00&l`) |
 | `chatex.chat.magic` | op | Use magic color (`&k`) |
 | `chatex.mention` | op | Mention other players with sound |
 | `chatex.antispam.bypass` | op | Bypass the anti-spam system |
@@ -56,10 +57,18 @@
 | Format | Example | Result |
 |--------|---------|--------|
 | Legacy | `&cHello` | Red text |
-| HEX | `&#FF0000Hello` | Red text |
-| Alternative HEX | `#FF0000Hello` | Red text |
-| Personal Color | `/color &5&l` | Sets chat color to dark purple bold |
-| Personal Color | `/color &#E43A96` | Sets chat color to pink |
+| HEX (with `&`) | `&#FF0000Hello` | Red text |
+| HEX (without `&`) | `#FF0000Hello` | Red text |
+| Personal Color (Legacy) | `/color &5&l` | Dark purple bold text |
+| Personal Color (HEX) | `/color &#E43A96` | Pink text |
+| Personal Color (HEX alt) | `/color #E43A96` | Pink text |
+| Gradient (2 colors) | `/color #FF0000,#00FF00` | Gradient from red to green |
+| Gradient (3+ colors) | `/color #FF0000,#FFAA00,#00FF00` | Gradient with 3 colors |
+| Gradient + Modifier | `/color #FF0000,#00FF00&l` | Gradient + bold text |
+| Gradient + Mixed Formats | `/color #FF0000,&#00FF00` | Works with both `#` and `&#` |
+| Reset Color | `/color off` | Removes personal color |
+
+> **💡 Note:** Both `#FF0000` and `&#FF0000` formats are fully supported everywhere — in chat, in `/color`, and in config messages. You can freely mix them in gradients: `/color #FF0000,&#00FF00,#0000FF` works perfectly!
 
 ## ⚠️ Important Notes
 
