@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fУ вас нет прав на использование обычных цветов!'
   NoModifierPermission: '&c✘ &fУ вас нет прав на использование кодов форматирования!'
   NoHexPermission: '&c✘ &fУ вас нет прав на использование HEX-цветов!'
+  NoGradientPermission: '&c✘ &fУ вас нет прав на использование градиентных цветов!'
   MagicBlocked: '&c✘ &fУ вас нет прав на использование магического цвета!'
   Color:
-    Usage: '&e☀ &fИспользование: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fИспользование: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fЦвет вашего чата обновлён!'
     Invalid: '&c✘ &fЭто неверный код цвета!'
     Reset: '&a✔ &fЦвет вашего чата сброшен!'
     OnlyPlayers: '&cТолько игроки могут использовать эту команду!'
+    GradientMinTwo: '&c✘ &fДля градиента требуется минимум &c2 &fцвета!'
   CommandResult:
     NoPermission: '&c✘ &fУ вас нет прав на это! Право: &c%perm%&f.'
     WrongUsage: '&c✘ &fНеверное использование! Введите &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Успешно подключён к LuckPerms!'
       PlaceholderAPI: '✔ Успешно подключён к PlaceholderAPI!'
     NoPermissions: '⚠ Плагин прав не найден. Используются стандартные права.'
-    RGB:
-      Loading: '⚠ Загрузка RGB кодов цветов.'
-      NoColors: '⚠ В конфигурации не указаны пользовательские коды цветов!'
   Update:
     Available:
       Console: '&e⚠ &fНовая версия &eChatEx-Refresh &fдоступна на &eModrinth&f! Текущая версия: &e%current%&f. Последняя версия: &e%latest%&f. Скачать: &e%url%&f.'

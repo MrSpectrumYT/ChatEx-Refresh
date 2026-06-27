@@ -48,8 +48,6 @@ public enum Config {
     CHANGE_TABLIST_NAME("Tablist.Change", true, "Do you want to have the prefixes and suffixes in the tablist?"),
     TABLIST_FORMAT("Tablist.format", "%prefix%%player%%suffix%", "The format of the tablist name"),
     CHANGE_JOIN_AND_QUIT("Messages.JoinAndQuit.Enabled", false, "Do you want to change the join and the quit messages?"),
-    RGB_COLORS("colors", null, "Custom RGB color codes. Use &<code> in chat."),
-    RGB_COLORS_EXAMPLE("colors.$g", "#00ff00", "Example: &g will be replaced with green color (#00ff00)."),
     BLOCK_MAGIC_COLOR("block-magic-color", true, "Block magic color in chat?");
 
     private static final File f = new File(ChatEx.getInstance().getDataFolder(), "config.yml");

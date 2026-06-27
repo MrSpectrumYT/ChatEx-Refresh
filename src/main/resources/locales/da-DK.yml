@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fDu har ikke tilladelse til at bruge normale farver!'
   NoModifierPermission: '&c✘ &fDu har ikke tilladelse til at bruge formateringskoder!'
   NoHexPermission: '&c✘ &fDu har ikke tilladelse til at bruge HEX-farver!'
+  NoGradientPermission: '&c✘ &fDu har ikke tilladelse til at bruge gradientfarver!'
   MagicBlocked: '&c✘ &fDu har ikke tilladelse til at bruge magiske farver!'
   Color:
-    Usage: '&e☀ &fBrug: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fBrug: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fDin chatfarve er blevet opdateret!'
     Invalid: '&c✘ &fDet er ikke en gyldig farvekode!'
     Reset: '&a✔ &fDin chatfarve er blevet nulstillet!'
     OnlyPlayers: '&cKun spillere kan bruge denne kommando!'
+    GradientMinTwo: '&c✘ &fGradient kræver mindst &c2 &ffarver!'
   CommandResult:
     NoPermission: '&c✘ &fDu har ikke tilladelse til dette! Tilladelse: &c%perm%&f.'
     WrongUsage: '&c✘ &fForkert brug! Indtast &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Tilsluttet LuckPerms!'
       PlaceholderAPI: '✔ Tilsluttet PlaceholderAPI!'
     NoPermissions: '⚠ Ingen tilladelsesplugin fundet. Bruger standard tilladelser.'
-    RGB:
-      Loading: '⚠ Indlæser RGB-farvekoder.'
-      NoColors: '⚠ Ingen brugerdefinerede farvekoder angivet i konfigurationen!'
   Update:
     Available:
       Console: '&e⚠ &fNy version af &eChatEx-Refresh &ftilgængelig på &eModrinth&f! Nuværende version: &e%current%&f. Seneste version: &e%latest%&f. Download: &e%url%&f.'

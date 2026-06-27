@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &f您没有使用普通颜色的权限！'
   NoModifierPermission: '&c✘ &f您没有使用格式代码的权限！'
   NoHexPermission: '&c✘ &f您没有使用HEX颜色的权限！'
+  NoGradientPermission: '&c✘ &f您没有使用渐变颜色的权限！'
   MagicBlocked: '&c✘ &f您没有使用魔法颜色的权限！'
   Color:
-    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &f您的聊天颜色已更新！'
     Invalid: '&c✘ &f这不是一个有效的颜色代码！'
     Reset: '&a✔ &f您的聊天颜色已重置！'
     OnlyPlayers: '&c只有玩家才能使用此命令！'
+    GradientMinTwo: '&c✘ &f渐变色至少需要 &c2 &f种颜色！'
   CommandResult:
     NoPermission: '&c✘ &f您没有权限！所需权限: &c%perm%&f.'
     WrongUsage: '&c✘ &f用法错误！请输入 &c%cmd% help&f！'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ 成功挂钩到 LuckPerms！'
       PlaceholderAPI: '✔ 成功挂钩到 PlaceholderAPI！'
     NoPermissions: '⚠ 未找到权限插件。正在使用默认权限。'
-    RGB:
-      Loading: '⚠ 正在加载 RGB 颜色代码。'
-      NoColors: '⚠ 配置中未指定自定义颜色代码！'
   Update:
     Available:
       Console: '&e⚠ &f&eChatEx-Refresh &f的新版本已在 &eModrinth&f 上可用！当前版本：&e%current%&f。最新版本：&e%latest%&f。下载地址：&e%url%&f。'

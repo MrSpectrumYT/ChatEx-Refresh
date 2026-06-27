@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fЖөнөкөй түстөрдү колдонуу укугу жок!'
   NoModifierPermission: '&c✘ &fФорматтоо коддорун колдонуу укугу жок!'
   NoHexPermission: '&c✘ &fHEX түстөрүн колдонуу укугу жок!'
+  NoGradientPermission: '&c✘ &fГрадиент түстөрүн колдонуу укугу жок!'
   MagicBlocked: '&c✘ &fСыйкырдуу түстөрдү колдонуу укугу жок!'
   Color:
-    Usage: '&e☀ &fКолдонуу: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fКолдонуу: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fЧатыңыздын түсү жаңыртылды!'
     Invalid: '&c✘ &fБул туура эмес түс коду!'
     Reset: '&a✔ &fЧатыңыздын түсү баштапкы абалга келтирилди!'
     OnlyPlayers: '&cБул буйрукту оюнчулар гана колдоно алат!'
+    GradientMinTwo: '&c✘ &fГрадиент үчүн кеминде &c2 &fтүс керек!'
   CommandResult:
     NoPermission: '&c✘ &fБул үчүн укугуңуз жок! Укук: &c%perm%&f.'
     WrongUsage: '&c✘ &fКата колдонуу! Сураныч &c%cmd% help&f деп жазыңыз!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ LuckPerms ийгиликтүү туташты!'
       PlaceholderAPI: '✔ PlaceholderAPI ийгиликтүү туташты!'
     NoPermissions: '⚠ Укук плагини табылган жок. Демейки укуктар колдонулууда.'
-    RGB:
-      Loading: '⚠ RGB түс коддору жүктөлүүдө.'
-      NoColors: '⚠ Конфигурацияда өзгөчө түс коддору көрсөтүлө элек!'
   Update:
     Available:
       Console: '&e⚠ &fChatEx-Refresh жаңы версиясы &eModrinth&f-те жеткиликтүү! Учурдагы версия: &e%current%&f. Акыркы версия: &e%latest%&f. Жүктөө: &e%url%&f.'

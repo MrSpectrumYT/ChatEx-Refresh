@@ -34,7 +34,6 @@ public class ChatEx extends JavaPlugin {
         Locales.load();
         PluginManager.load();
         ChatLogger.load();
-        RGBColors.load();
         ColorManager.load();
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);

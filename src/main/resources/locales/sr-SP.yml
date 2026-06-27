@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fНемате дозволу за коришћење обичних боја!'
   NoModifierPermission: '&c✘ &fНемате дозволу за коришћење кодова за форматирање!'
   NoHexPermission: '&c✘ &fНемате дозволу за коришћење HEX боја!'
+  NoGradientPermission: '&c✘ &fНемате дозволу за коришћење градијентних боја!'
   MagicBlocked: '&c✘ &fНемате дозволу за коришћење магичних боја!'
   Color:
-    Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fБоја вашег ћаскања је ажурирана!'
     Invalid: '&c✘ &fТо није важећи код боје!'
     Reset: '&a✔ &fБоја вашег ћаскања је ресетована!'
     OnlyPlayers: '&cСамо играчи могу користити ову команду!'
+    GradientMinTwo: '&c✘ &fЗа градијент су потребне најмање &c2 &fбоје!'
   CommandResult:
     NoPermission: '&c✘ &fНемате дозволу за ово! Дозвола: &c%perm%&f.'
     WrongUsage: '&c✘ &fПогрешна употреба! Молимо унесите &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Успешно повезан са LuckPerms!'
       PlaceholderAPI: '✔ Успешно повезан са PlaceholderAPI!'
     NoPermissions: '⚠ Додатак за дозволе није пронађен. Користе се подразумеване дозволе.'
-    RGB:
-      Loading: '⚠ Учитавање RGB кодова боја.'
-      NoColors: '⚠ Ниједан прилагођени код боје није наведен у конфигурацији!'
   Update:
     Available:
       Console: '&e⚠ &fНова верзија &eChatEx-Refresh &fдоступна на &eModrinth&f-у! Тренутна верзија: &e%current%&f. Најновија верзија: &e%latest%&f. Преузимање: &e%url%&f.'

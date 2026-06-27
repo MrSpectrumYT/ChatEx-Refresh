@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fOddiy ranglarni ishlatish huquqi yoʻq!'
   NoModifierPermission: '&c✘ &fFormatlash kodlarini ishlatish huquqi yoʻq!'
   NoHexPermission: '&c✘ &fHEX ranglarini ishlatish huquqi yoʻq!'
+  NoGradientPermission: '&c✘ &fGradient ranglarni ishlatish huquqi yoʻq!'
   MagicBlocked: '&c✘ &fSehrli ranglarni ishlatish huquqi yoʻq!'
   Color:
-    Usage: '&e☀ &fIshlatish: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fIshlatish: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✓ &fChat rangingiz yangilandi!'
     Invalid: '&c✘ &fBu haqiqiy rang kodi emas!'
     Reset: '&a✓ &fChat rangingiz tiklandi!'
     OnlyPlayers: '&cBu buyruqdan faqat oʻyinchilar foydalanishi mumkin!'
+    GradientMinTwo: '&c✘ &fGradient uchun kamida &c2 &f rang kerak!'
   CommandResult:
     NoPermission: '&c✘ &fBuning uchun huquqingiz yoʻq! Huquq: &c%perm%&f.'
     WrongUsage: '&c✘ &fNotoʻgʻri foydalanish! &c%cmd% help&f yozing!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✓ LuckPerms-ga muvaffaqiyatli ulandi!'
       PlaceholderAPI: '✓ PlaceholderAPI-ga muvaffaqiyatli ulandi!'
     NoPermissions: '⚠ Hech qanday ruxsat plagini topilmadi. Standart ruxsatlardan foydalanilmoqda.'
-    RGB:
-      Loading: '⚠ RGB rang kodlari yuklanmoqda.'
-      NoColors: '⚠ Konfiguratsiyada maxsus rang kodlari koʻrsatilmagan!'
   Update:
     Available:
       Console: '&e⚠ &fChatEx-Refresh ning yangi versiyasi &eModrinth&f da mavjud! Joriy versiya: &e%current%&f. Eng soʻnggi versiya: &e%latest%&f. Yuklab olish: &e%url%&f.'

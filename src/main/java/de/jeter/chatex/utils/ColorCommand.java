@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class ColorCommand implements CommandExecutor, TabCompleter {
 
@@ -34,7 +35,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
         if (!player.hasPermission("chatex.color")) {
             Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("%perm", "chatex.color");
+            placeholders.put("%perm%", "chatex.color");
             player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
             return true;
         }
@@ -44,7 +45,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        String input = String.join(" ", args);
+        String input = String.join(" ", args).trim();
 
         if (input.equalsIgnoreCase("off") || input.equalsIgnoreCase("reset")) {
             ColorManager.removePersonalColor(player);
@@ -58,22 +59,57 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
         }
 
         ColorManager.setPersonalColor(player, input);
-
-        String processed = ColorManager.getPersonalColor(player);
-        if (!processed.isEmpty()) {
-            player.sendMessage(Locales.COLOR_SET_SUCCESS.getString(player));
-        }
+        player.sendMessage(Locales.COLOR_SET_SUCCESS.getString(player));
         return true;
     }
 
     private boolean isValidColorInput(String input, Player player) {
         if (input.isEmpty()) return false;
 
+        if (input.contains(",")) {
+            if (!player.hasPermission("chatex.chat.colorgradient")) {
+                return false;
+            }
+
+            String[] parts = input.split(",");
+            int colorCount = 0;
+
+            for (int i = 0; i < parts.length; i++) {
+                String part = parts[i].trim();
+                
+                if (i == parts.length - 1) {
+                    int ampIndex = part.lastIndexOf('&');
+                    if (ampIndex > 0) {
+                        String mods = part.substring(ampIndex);
+                        if (mods.matches("^(&[lmnork])+$")) {
+                            if (mods.contains("&k") && !player.hasPermission("chatex.chat.magic")) return false;
+                            if ((mods.contains("&l") || mods.contains("&m") || mods.contains("&n") || mods.contains("&o") || mods.contains("&r")) 
+                                    && !player.hasPermission("chatex.chat.colormodifier")) return false;
+                            part = part.substring(0, ampIndex);
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+
+                if (part.matches("^(#|&#)[a-fA-F0-9]{6}$")) {
+                    colorCount++;
+                } else {
+                    return false;
+                }
+            }
+
+            return colorCount >= 2;
+        }
+
         if (input.matches("^(#|&#)[a-fA-F0-9]{6}(&[lmnork])*$")) {
             if (!player.hasPermission("chatex.chat.colorhex")) {
                 return false;
             }
             if (input.contains("&k") && !player.hasPermission("chatex.chat.magic")) {
+                return false;
+            }
+            if (input.matches(".*&[l-or].*") && !player.hasPermission("chatex.chat.colormodifier")) {
                 return false;
             }
             return true;
@@ -115,7 +151,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
             return false;
         }
 
-        return true;
+        return colorCount > 0 || input.contains("&");
     }
 
     @Override
@@ -140,6 +176,11 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
         currentInput = currentInput.trim();
         String lowerInput = currentInput.toLowerCase();
 
+        if ((lowerInput.startsWith("#") || lowerInput.startsWith("&#")) && lowerInput.contains(",")) {
+            suggestions.add(currentInput);
+            return suggestions;
+        }
+
         if (player.hasPermission("chatex.chat.colorhex")) {
             if (lowerInput.startsWith("#") || lowerInput.startsWith("&#")) {
                 String hexPart = lowerInput.replace("&#", "#");
@@ -147,6 +188,9 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
                     suggestions.add(currentInput);
                 }
                 if (hexPart.matches("^#[a-fA-F0-9]{6}$")) {
+                    if (player.hasPermission("chatex.chat.colorgradient")) {
+                        suggestions.add(currentInput + ",");
+                    }
                     if (player.hasPermission("chatex.chat.colormodifier")) {
                         for (String f : LEGACY_FORMATS) {
                             suggestions.add(currentInput + f);
@@ -216,6 +260,10 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
         if (player.hasPermission("chatex.chat.colorhex")) {
             suggestions.add("#");
             suggestions.add("&#");
+        }
+        if (player.hasPermission("chatex.chat.colorgradient")) {
+            suggestions.add("#FF0000,#00FF00");
+            suggestions.add("&#FF0000,#00FF00");
         }
         if (player.hasPermission("chatex.chat.magic")) {
             suggestions.add(MAGIC_FORMAT);

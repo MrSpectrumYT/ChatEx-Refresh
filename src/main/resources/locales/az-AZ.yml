@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fAdi rənglərdən istifadə etmək icazəniz yoxdur!'
   NoModifierPermission: '&c✘ &fFormat kodlarından istifadə etmək icazəniz yoxdur!'
   NoHexPermission: '&c✘ &fHEX rənglərindən istifadə etmək icazəniz yoxdur!'
+  NoGradientPermission: '&c✘ &fQradient rənglərdən istifadə etmək icazəniz yoxdur!'
   MagicBlocked: '&c✘ &fSehrli rənglərdən istifadə etmək icazəniz yoxdur!'
   Color:
-    Usage: '&e☀ &fİstifadə: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fİstifadə: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✓ &fSöhbət rənginiz yeniləndi!'
     Invalid: '&c✘ &fBu keçərli rəng kodu deyil!'
     Reset: '&a✓ &fSöhbət rənginiz sıfırlandı!'
     OnlyPlayers: '&cYalnız oyunçular bu əmrdən istifadə edə bilər!'
+    GradientMinTwo: '&c✘ &fQradient üçün ən az &c2 &frəng tələb olunur!'
   CommandResult:
     NoPermission: '&c✘ &fBunun üçün icazəniz yoxdur! İcazə: &c%perm%&f.'
     WrongUsage: '&c✘ &fYanlış istifadə! Xahiş edirik &c%cmd% help&f yazın!'
@@ -45,18 +47,15 @@ Messages:
       LuckPerms: '✓ LuckPerms-ə uğurla qoşuldu!'
       PlaceholderAPI: '✓ PlaceholderAPI-ya uğurla qoşuldu!'
     NoPermissions: '⚠ Heç bir icazə plaqini tapılmadı. Standart icazələrdən istifadə olunur.'
-    RGB:
-      Loading: '⚠ RGB rəng kodları yüklənir.'
-      NoColors: '⚠ Konfiqurasiyada heç bir xüsusi rəng kodu göstərilməyib!'
   Update:
     Available:
-      Console: '&e⚠ &f&eChatEx-Refresh &fünün yeni versiyası &eModrinth&f-də mövcuddur! Cari versiya: &e%current%&f. Son versiya: &e%latest%&f. Yükləmə: &e%url%&f.'
+      Console: '&e⚠ &f&eChatEx-Refresh &fün yeni versiyası &eModrinth&f-də mövcuddur! Cari versiya: &e%current%&f. Son versiya: &e%latest%&f. Yükləmə: &e%url%&f.'
     UpToDate: '&a✓ ChatEx-Refresh &fən son versiyadır! Versiya: &a%current%&f.'
     Failed: '&e⚠ &fChatEx-Refresh &füçün yeniləmələr yoxlanıla bilmədi!'
     Notify:
       Player: |-
         &f
-        &e⚠ &f&eChatEx-Refresh &fünün yeni versiyası &eModrinth&f-də mövcuddur!
+        &e⚠ &f&eChatEx-Refresh &fün yeni versiyası &eModrinth&f-də mövcuddur!
         &f● Cari versiya: &e%current%&f.
         &f● Son versiya: &e%latest%&f.
         &f● Yükləmə: &e%url%&f.

@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fԴուք չունեք սովորական գույներ օգտագործելու թույլտվություն։'
   NoModifierPermission: '&c✘ &fԴուք չունեք ֆորմատավորման կոդեր օգտագործելու թույլտվություն։'
   NoHexPermission: '&c✘ &fԴուք չունեք HEX գույներ օգտագործելու թույլտվություն։'
+  NoGradientPermission: '&c✘ &fԴուք չունեք գրադիենտ գույներ օգտագործելու թույլտվություն։'
   MagicBlocked: '&c✘ &fԴուք չունեք կախարդական գույներ օգտագործելու թույլտվություն։'
   Color:
-    Usage: '&e☀ &fՕգտագործում՝ &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fՕգտագործում՝ &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fՉաթի գույնդ թարմացվեց։'
     Invalid: '&c✘ &fԴա վավեր գունային կոդ չէ։'
     Reset: '&a✔ &fՉաթի գույնդ վերականգնվեց։'
     OnlyPlayers: '&cՄիայն խաղացողները կարող են օգտագործել այս հրամանը։'
+    GradientMinTwo: '&c✘ &fԳրադիենտի համար անհրաժեշտ է առնվազն &c2 &fգույն։'
   CommandResult:
     NoPermission: '&c✘ &fԴուք չունեք թույլտվություն սրա համար։ Թույլտվություն՝ &c%perm%&f։'
     WrongUsage: '&c✘ &fՍխալ օգտագործում։ Խնդրում ենք մուտքագրել &c%cmd% help&f։'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Հաջողությամբ միացված է LuckPerms-ին:'
       PlaceholderAPI: '✔ Հաջողությամբ միացված է PlaceholderAPI-ին:'
     NoPermissions: '⚠ Թույլտվությունների պլագին չի գտնվել: Օգտագործվում են լռելյայն թույլտվությունները:'
-    RGB:
-      Loading: '⚠ Բեռնվում են RGB գունային կոդերը:'
-      NoColors: '⚠ Կոնֆիգուրացիայում նշված չեն հատուկ գունային կոդեր:'
   Update:
     Available:
       Console: '&e⚠ &fChatEx-Refresh-ի նոր տարբերակը հասանելի է &eModrinth&f-ում: Ընթացիկ տարբերակ: &e%current%&f: Վերջին տարբերակ: &e%latest%&f: Ներբեռնում: &e%url%&f:'

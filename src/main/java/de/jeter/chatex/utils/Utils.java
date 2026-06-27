@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -93,9 +94,6 @@ public class Utils {
 
     public static String replaceColors(String message) {
         if (message == null) return null;
-        
-        message = RGBColors.translateGradientCodes(message);
-        message = RGBColors.translateCustomColorCodes(message);
         message = translateHexColors(message);
         message = ChatColor.translateAlternateColorCodes('&', message);
         
@@ -103,7 +101,6 @@ public class Utils {
             message = message.replaceAll("(?i)§k", "");
             message = message.replaceAll("(?i)&k", "");
         }
-        
         return message;
     }
     
@@ -123,7 +120,6 @@ public class Utils {
         if (message == null || message.isEmpty()) return message;
         
         String processed = message.replace("&#", "#");
-        
         Pattern hexPattern = Pattern.compile("#[a-fA-F0-9]{6}");
         Matcher matcher = hexPattern.matcher(processed);
         StringBuffer result = new StringBuffer();
@@ -169,7 +165,6 @@ public class Utils {
             }
             recipients.add(recipient);
         }
-
         return recipients;
     }
 
@@ -188,13 +183,10 @@ public class Utils {
             ? PluginManager.getInstance().getGroupNames(player)[0] : "none");
 
         if (HookManager.checkPlaceholderAPI()) {
-            LogHelper.debug("PlaceholderAPI is installed! Replacing...");
             result = PlaceholderAPI.setPlaceholders(player, result);
-            LogHelper.debug("Result: " + result);
         }
 
         result = replaceColors(result);
-
         return result;
     }
 
@@ -218,5 +210,82 @@ public class Utils {
             }
             op.sendMessage(msg);
         }
+    }
+
+    public static String applyGradient(String text, String colorData) {
+        if (text == null || text.isEmpty()) return text;
+        if (colorData == null || colorData.isEmpty()) return text;
+
+        String colorsPart = colorData;
+        String modifiersPart = "";
+        
+        int lastAmp = colorData.lastIndexOf('&');
+        if (lastAmp > 0 && lastAmp < colorData.length() - 1) {
+            String possibleMods = colorData.substring(lastAmp + 1);
+            if (possibleMods.matches("[lmnork]+")) {
+                colorsPart = colorData.substring(0, lastAmp);
+                modifiersPart = possibleMods;
+            }
+        }
+
+        String colorsCleaned = colorsPart.replace("&#", "#").replace("&", "");
+        String[] hexColors = colorsCleaned.split(",");
+        
+        if (hexColors.length < 2) {
+            return translateHexColors(colorsPart) + text + "§r";
+        }
+
+        List<Color> colors = new ArrayList<>();
+        for (String hex : hexColors) {
+            String cleanHex = hex.trim();
+            if (!cleanHex.startsWith("#")) {
+                cleanHex = "#" + cleanHex;
+            }
+            try {
+                colors.add(Color.decode(cleanHex));
+            } catch (NumberFormatException e) {
+            }
+        }
+
+        if (colors.size() < 2) return text;
+        if (text.length() == 1) return ChatColor.of(colors.get(0)) + text + "§r";
+
+        StringBuilder modsBuilder = new StringBuilder();
+        if (!modifiersPart.isEmpty()) {
+            for (char c : modifiersPart.toCharArray()) {
+                modsBuilder.append("§").append(c);
+            }
+        }
+        String formattedMods = modsBuilder.toString();
+
+        StringBuilder gradientBuilder = new StringBuilder();
+        int textLength = text.length();
+        int sections = colors.size() - 1;
+        double interval = (double) (textLength - 1) / sections;
+
+        if (interval <= 0) interval = 1;
+
+        for (int i = 0; i < textLength; i++) {
+            int currentSection = (int) (i / interval);
+            if (currentSection >= sections) currentSection = sections - 1;
+
+            double sectionProgress = (i - (currentSection * interval)) / interval;
+
+            Color c1 = colors.get(currentSection);
+            Color c2 = colors.get(currentSection + 1);
+
+            int r = (int) (c1.getRed() + sectionProgress * (c2.getRed() - c1.getRed()));
+            int g = (int) (c1.getGreen() + sectionProgress * (c2.getGreen() - c1.getGreen()));
+            int b = (int) (c1.getBlue() + sectionProgress * (c2.getBlue() - c1.getBlue()));
+
+            r = Math.max(0, Math.min(255, r));
+            g = Math.max(0, Math.min(255, g));
+            b = Math.max(0, Math.min(255, b));
+
+            ChatColor chatColor = ChatColor.of(new Color(r, g, b));
+            gradientBuilder.append(chatColor.toString()).append(formattedMods).append(text.charAt(i));
+        }
+
+        return gradientBuilder.toString() + "§r";
     }
 }

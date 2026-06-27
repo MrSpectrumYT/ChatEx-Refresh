@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fNon hai il permesso di usare colori normali!'
   NoModifierPermission: '&c✘ &fNon hai il permesso di usare codici di formattazione!'
   NoHexPermission: '&c✘ &fNon hai il permesso di usare colori HEX!'
+  NoGradientPermission: '&c✘ &fNon hai il permesso di usare colori sfumati!'
   MagicBlocked: '&c✘ &fNon hai il permesso di usare colori magici!'
   Color:
-    Usage: '&e☀ &fUso: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fUso: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fIl colore della tua chat è stato aggiornato!'
     Invalid: '&c✘ &fNon è un codice colore valido!'
     Reset: '&a✔ &fIl colore della tua chat è stato resettato!'
     OnlyPlayers: '&cSolo i giocatori possono usare questo comando!'
+    GradientMinTwo: '&c✘ &fLa sfumatura richiede almeno &c2 &fcolori!'
   CommandResult:
     NoPermission: '&c✘ &fNon hai il permesso! Permesso: &c%perm%&f.'
     WrongUsage: '&c✘ &fUso errato! Digita &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Collegato con successo a LuckPerms!'
       PlaceholderAPI: '✔ Collegato con successo a PlaceholderAPI!'
     NoPermissions: '⚠ Nessun plugin di permessi trovato. Utilizzo dei permessi predefiniti.'
-    RGB:
-      Loading: '⚠ Caricamento dei codici colore RGB.'
-      NoColors: '⚠ Nessun codice colore personalizzato specificato nella configurazione!'
   Update:
     Available:
       Console: '&e⚠ &fNuova versione di &eChatEx-Refresh &fdisponibile su &eModrinth&f! Versione attuale: &e%current%&f. Ultima versione: &e%latest%&f. Download: &e%url%&f.'

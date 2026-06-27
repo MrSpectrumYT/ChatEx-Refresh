@@ -65,6 +65,10 @@ public class ColorManager {
         return player != null ? player.getName() : null;
     }
 
+    public static String getRawColor(Player player) {
+        return colors.getOrDefault(player.getUniqueId(), "");
+    }
+
     public static String getPersonalColor(Player player) {
         String raw = colors.getOrDefault(player.getUniqueId(), "");
         if (raw.isEmpty()) return "";
@@ -88,11 +92,8 @@ public class ColorManager {
     }
 
     public static void setPersonalColor(Player player, String rawColor) {
-        String processed = Utils.translateColorCodes(rawColor, player);
-        if (processed != null) {
-            colors.put(player.getUniqueId(), rawColor);
-            save();
-        }
+        colors.put(player.getUniqueId(), rawColor);
+        save();
     }
 
     public static void removePersonalColor(Player player) {

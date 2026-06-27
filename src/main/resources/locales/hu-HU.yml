@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fNincs jogod a normál színek használatához!'
   NoModifierPermission: '&c✘ &fNincs jogod a formázási kódok használatához!'
   NoHexPermission: '&c✘ &fNincs jogod a HEX színek használatához!'
+  NoGradientPermission: '&c✘ &fNincs jogod a gradiensek használatához!'
   MagicBlocked: '&c✘ &fNincs jogod a varázs színek használatához!'
   Color:
-    Usage: '&e☀ &fHasználat: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fHasználat: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fA chat színed frissítve!'
     Invalid: '&c✘ &fEz nem érvényes színkód!'
     Reset: '&a✔ &fA chat színed visszaállítva!'
     OnlyPlayers: '&cEzt a parancsot csak játékosok használhatják!'
+    GradientMinTwo: '&c✘ &fA gradienshez legalább &c2 &fszín szükséges!'
   CommandResult:
     NoPermission: '&c✘ &fNincs jogod ehhez! Jogosultság: &c%perm%&f.'
     WrongUsage: '&c✘ &fHelytelen használat! Kérlek írd be: &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Sikeresen csatlakozva a LuckPerms-hez!'
       PlaceholderAPI: '✔ Sikeresen csatlakozva a PlaceholderAPI-hoz!'
     NoPermissions: '⚠ Nem található jogosultság plugin. Alapértelmezett jogok használata.'
-    RGB:
-      Loading: '⚠ RGB színkódok betöltése.'
-      NoColors: '⚠ Nincsenek egyéni színkódok megadva a konfigurációban!'
   Update:
     Available:
       Console: '&e⚠ &fA &eChatEx-Refresh &fúj verziója elérhető a &eModrinth&f-en! Jelenlegi verzió: &e%current%&f. Legújabb verzió: &e%latest%&f. Letöltés: &e%url%&f.'

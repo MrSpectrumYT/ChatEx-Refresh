@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fJe hebt geen toestemming om normale kleuren te gebruiken!'
   NoModifierPermission: '&c✘ &fJe hebt geen toestemming om opmaakcodes te gebruiken!'
   NoHexPermission: '&c✘ &fJe hebt geen toestemming om HEX-kleuren te gebruiken!'
+  NoGradientPermission: '&c✘ &fJe hebt geen toestemming om verloopkleuren te gebruiken!'
   MagicBlocked: '&c✘ &fJe hebt geen toestemming om magische kleuren te gebruiken!'
   Color:
-    Usage: '&e☀ &fGebruik: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fGebruik: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fJe chatkleur is bijgewerkt!'
     Invalid: '&c✘ &fDat is geen geldige kleurcode!'
     Reset: '&a✔ &fJe chatkleur is gereset!'
     OnlyPlayers: '&cAlleen spelers kunnen dit commando gebruiken!'
+    GradientMinTwo: '&c✘ &fVerloop heeft minimaal &c2 &fkleuren nodig!'
   CommandResult:
     NoPermission: '&c✘ &fJe hebt geen toestemming! Toestemming: &c%perm%&f.'
     WrongUsage: '&c✘ &fVerkeerd gebruik! Typ &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Succesvol verbonden met LuckPerms!'
       PlaceholderAPI: '✔ Succesvol verbonden met PlaceholderAPI!'
     NoPermissions: '⚠ Geen permissions-plugin gevonden. Standaardrechten worden gebruikt.'
-    RGB:
-      Loading: '⚠ RGB-kleurcodes laden.'
-      NoColors: '⚠ Geen aangepaste kleurcodes opgegeven in configuratie!'
   Update:
     Available:
       Console: '&e⚠ &fNieuwe versie van &eChatEx-Refresh &fbeschikbaar op &eModrinth&f! Huidige versie: &e%current%&f. Nieuwste versie: &e%latest%&f. Download: &e%url%&f.'

@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჩვეულებრივი ფერები!'
   NoModifierPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ფორმატირების კოდები!'
   NoHexPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ HEX ფერები!'
+  NoGradientPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ გრადიენტური ფერები!'
   MagicBlocked: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჯადოსნური ფერები!'
   Color:
-    Usage: '&e☀ &fგამოყენება: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fგამოყენება: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fჩატის ფერი განახლდა!'
     Invalid: '&c✘ &fეს არ არის მართებული ფერის კოდი!'
     Reset: '&a✔ &fჩატის ფერი გადატვირთულია!'
     OnlyPlayers: '&cამ ბრძანების გამოყენება მხოლოდ მოთამაშეებს შეუძლიათ!'
+    GradientMinTwo: '&c✘ &fგრადიენტისთვის საჭიროა მინიმუმ &c2 &fფერი!'
   CommandResult:
     NoPermission: '&c✘ &fთქვენ არ გაქვთ უფლება! უფლება: &c%perm%&f.'
     WrongUsage: '&c✘ &fარასწორი გამოყენება! გთხოვთ ჩაწეროთ &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ წარმატებით დაუკავშირდა LuckPerms-ს!'
       PlaceholderAPI: '✔ წარმატებით დაუკავშირდა PlaceholderAPI-ს!'
     NoPermissions: '⚠ ნებართვების პლაგინი ვერ მოიძებნა. გამოიყენება ნაგულისხმევი ნებართვები.'
-    RGB:
-      Loading: '⚠ იტვირთება RGB ფერის კოდები.'
-      NoColors: '⚠ კონფიგურაციაში მითითებული არ არის საბაჟო ფერის კოდები!'
   Update:
     Available:
       Console: '&e⚠ &fChatEx-Refresh-ის ახალი ვერსია ხელმისაწვდომია &eModrinth&f-ზე! მიმდინარე ვერსია: &e%current%&f. უახლესი ვერსია: &e%latest%&f. ჩამოტვირთვა: &e%url%&f.'

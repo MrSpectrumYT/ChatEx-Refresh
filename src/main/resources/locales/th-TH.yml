@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้สีพื้นฐาน!'
   NoModifierPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้โค้ดการจัดรูปแบบ!'
   NoHexPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้สี HEX!'
+  NoGradientPermission: '&c✘ &fคุณไม่มีสิทธิ์ใช้สีไล่ระดับ!'
   MagicBlocked: '&c✘ &fคุณไม่มีสิทธิ์ใช้สีวิเศษ!'
   Color:
-    Usage: '&e☀ &fวิธีใช้: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fวิธีใช้: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fสีแชทของคุณถูกอัปเดตแล้ว!'
     Invalid: '&c✘ &fนั่นไม่ใช่รหัสสีที่ถูกต้อง!'
     Reset: '&a✔ &fสีแชทของคุณถูกรีเซ็ตแล้ว!'
     OnlyPlayers: '&cเฉพาะผู้เล่นเท่านั้นที่สามารถใช้คำสั่งนี้ได้!'
+    GradientMinTwo: '&c✘ &fสีไล่ระดับต้องการอย่างน้อย &c2 &fสี!'
   CommandResult:
     NoPermission: '&c✘ &fคุณไม่มีสิทธิ์! สิทธิ์ที่ต้องใช้: &c%perm%&f.'
     WrongUsage: '&c✘ &fใช้งานผิดพลาด! โปรดพิมพ์ &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ เชื่อมต่อกับ LuckPerms สำเร็จ!'
       PlaceholderAPI: '✔ เชื่อมต่อกับ PlaceholderAPI สำเร็จ!'
     NoPermissions: '⚠ ไม่พบปลั๊กอินสิทธิ์ กำลังใช้สิทธิ์เริ่มต้น'
-    RGB:
-      Loading: '⚠ กำลังโหลดรหัสสี RGB'
-      NoColors: '⚠ ไม่มีการระบุรหัสสีที่กำหนดเองในการตั้งค่า!'
   Update:
     Available:
       Console: '&e⚠ &fพบเวอร์ชันใหม่ของ &eChatEx-Refresh &fบน &eModrinth&f! เวอร์ชันปัจจุบัน: &e%current%&f. เวอร์ชันล่าสุด: &e%latest%&f. ดาวน์โหลด: &e%url%&f.'

@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &f通常のカラーを使用する権限がありません！'
   NoModifierPermission: '&c✘ &fフォーマットコードを使用する権限がありません！'
   NoHexPermission: '&c✘ &fHEXカラーを使用する権限がありません！'
+  NoGradientPermission: '&c✘ &fグラデーションカラーを使用する権限がありません！'
   MagicBlocked: '&c✘ &f魔法のカラーを使用する権限がありません！'
   Color:
-    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fチャットの色が更新されました！'
     Invalid: '&c✘ &f無効なカラーコードです！'
     Reset: '&a✔ &fチャットの色がリセットされました！'
     OnlyPlayers: '&cこのコマンドはプレイヤーのみ使用できます！'
+    GradientMinTwo: '&c✘ &fグラデーションには少なくとも &c2 &f色が必要です！'
   CommandResult:
     NoPermission: '&c✘ &f権限がありません！権限: &c%perm%&f.'
     WrongUsage: '&c✘ &f使用方法が間違っています！ &c%cmd% help&f を入力してください！'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ LuckPerms に正常にフックされました！'
       PlaceholderAPI: '✔ PlaceholderAPI に正常にフックされました！'
     NoPermissions: '⚠ 権限プラグインが見つかりません。デフォルトの権限を使用します。'
-    RGB:
-      Loading: '⚠ RGBカラーコードを読み込んでいます。'
-      NoColors: '⚠ 設定ファイルにカスタムカラーコードが指定されていません！'
   Update:
     Available:
       Console: '&e⚠ &f&eChatEx-Refresh &fの新しいバージョンが &eModrinth&f で利用可能です！ 現在のバージョン: &e%current%&f。最新バージョン: &e%latest%&f。ダウンロード: &e%url%&f。'

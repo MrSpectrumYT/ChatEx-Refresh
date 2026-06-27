@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fSinulla ei ole oikeutta käyttää tavallisia värejä!'
   NoModifierPermission: '&c✘ &fSinulla ei ole oikeutta käyttää muotoilukoodeja!'
   NoHexPermission: '&c✘ &fSinulla ei ole oikeutta käyttää HEX-värejä!'
+  NoGradientPermission: '&c✘ &fSinulla ei ole oikeutta käyttää liukuvärejä!'
   MagicBlocked: '&c✘ &fSinulla ei ole oikeutta käyttää maagisia värejä!'
   Color:
-    Usage: '&e☀ &fKäyttö: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fKäyttö: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fChattisi väri on päivitetty!'
     Invalid: '&c✘ &fTämä ei ole kelvollinen värikoodi!'
     Reset: '&a✔ &fChattisi väri on nollattu!'
     OnlyPlayers: '&cVain pelaajat voivat käyttää tätä komentoa!'
+    GradientMinTwo: '&c✘ &fLiukuva väri vaatii vähintään &c2 &fvärjä!'
   CommandResult:
     NoPermission: '&c✘ &fSinulla ei ole oikeutta tähän! Oikeus: &c%perm%&f.'
     WrongUsage: '&c✘ &fVirheellinen käyttö! Kirjoita &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Yhdistettiin onnistuneesti LuckPermsiin!'
       PlaceholderAPI: '✔ Yhdistettiin onnistuneesti PlaceholderAPIin!'
     NoPermissions: '⚠ Oikeusliitännäistä ei löytynyt. Käytetään oletusoikeuksia.'
-    RGB:
-      Loading: '⚠ Ladataan RGB-värikoodeja.'
-      NoColors: '⚠ Asetuksissa ei ole määritetty mukautettuja värikoodeja!'
   Update:
     Available:
       Console: '&e⚠ &fUusi versio &eChatEx-Refresh &fistä saatavilla &eModrinth&fissä! Nykyinen versio: &e%current%&f. Uusin versio: &e%latest%&f. Lataa: &e%url%&f.'

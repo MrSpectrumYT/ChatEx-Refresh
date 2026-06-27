@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε κανονικά χρώματα!'
   NoModifierPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε κωδικούς μορφοποίησης!'
   NoHexPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε HEX χρώματα!'
+  NoGradientPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε χρώματα ντεγκραντέ!'
   MagicBlocked: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε μαγικά χρώματα!'
   Color:
-    Usage: '&e☀ &fΧρήση: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fΧρήση: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fΤο χρώμα του chat σας ενημερώθηκε!'
     Invalid: '&c✘ &fΑυτός δεν είναι έγκυρος κωδικός χρώματος!'
     Reset: '&a✔ &fΤο χρώμα του chat σας επαναφέρθηκε!'
     OnlyPlayers: '&cΜόνο παίκτες μπορούν να χρησιμοποιήσουν αυτήν την εντολή!'
+    GradientMinTwo: '&c✘ &fΤο ντεγκραντέ απαιτεί τουλάχιστον &c2 &fχρώματα!'
   CommandResult:
     NoPermission: '&c✘ &fΔεν έχετε άδεια για αυτό! Δικαίωμα: &c%perm%&f.'
     WrongUsage: '&c✘ &fΛάθος χρήση! Παρακαλώ γράψτε &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Επιτυχής σύνδεση με το LuckPerms!'
       PlaceholderAPI: '✔ Επιτυχής σύνδεση με το PlaceholderAPI!'
     NoPermissions: '⚠ Δεν βρέθηκε πρόσθετο δικαιωμάτων. Χρήση προεπιλεγμένων δικαιωμάτων.'
-    RGB:
-      Loading: '⚠ Φόρτωση RGB κωδικών χρωμάτων.'
-      NoColors: '⚠ Δεν καθορίστηκαν προσαρμοσμένοι κωδικοί χρωμάτων στη διαμόρφωση!'
   Update:
     Available:
       Console: '&e⚠ &fΝέα έκδοση του &eChatEx-Refresh &fδιαθέσιμη στο &eModrinth&f! Τρέχουσα έκδοση: &e%current%&f. Τελευταία έκδοση: &e%latest%&f. Λήψη: &e%url%&f.'

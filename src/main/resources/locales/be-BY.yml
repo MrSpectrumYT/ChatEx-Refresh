@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fУ вас няма правоў на выкарыстанне звычайных колераў!'
   NoModifierPermission: '&c✘ &fУ вас няма правоў на выкарыстанне кодаў фарматавання!'
   NoHexPermission: '&c✘ &fУ вас няма правоў на выкарыстанне HEX-колераў!'
+  NoGradientPermission: '&c✘ &fУ вас няма правоў на выкарыстанне градыентных колераў!'
   MagicBlocked: '&c✘ &fУ вас няма правоў на выкарыстанне магічнага колеру!'
   Color:
-    Usage: '&e☀ &fВыкарыстанне: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fВыкарыстанне: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fКолер вашага чата абноўлены!'
     Invalid: '&c✘ &fГэта няправільны код колеру!'
     Reset: '&a✔ &fКолер вашага чата скінуты!'
     OnlyPlayers: '&cТолькі гульцы могуць выкарыстоўваць гэтую каманду!'
+    GradientMinTwo: '&c✘ &fДля градыента патрабуецца мінімум &c2 &fколеры!'
   CommandResult:
     NoPermission: '&c✘ &fУ вас няма правоў на гэта! Права: &c%perm%&f.'
     WrongUsage: '&c✘ &fНяправільны выкарыстанне! Калі ласка, увядзіце &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Паспяхова падключаны да LuckPerms!'
       PlaceholderAPI: '✔ Паспяхова падключаны да PlaceholderAPI!'
     NoPermissions: '⚠ Плагін правоў не знойдзены. Выкарыстоўваюцца стандартныя правы.'
-    RGB:
-      Loading: '⚠ Загрузка RGB кодаў колераў.'
-      NoColors: '⚠ У канфігурацыі не пазначаны карыстальніцкія коды колераў!'
   Update:
     Available:
       Console: '&e⚠ &fНовая версія &eChatEx-Refresh &fдаступная на &eModrinth&f! Бягучая версія: &e%current%&f. Апошняя версія: &e%latest%&f. Спампаваць: &e%url%&f.'

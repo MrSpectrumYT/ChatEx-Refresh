@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fVous n''avez pas la permission d''utiliser les couleurs standard!'
   NoModifierPermission: '&c✘ &fVous n''avez pas la permission d''utiliser les codes de formatage!'
   NoHexPermission: '&c✘ &fVous n''avez pas la permission d''utiliser les couleurs HEX!'
+  NoGradientPermission: '&c✘ &fVous n''avez pas la permission d''utiliser les couleurs dégradées!'
   MagicBlocked: '&c✘ &fVous n''avez pas la permission d''utiliser la couleur magique!'
   Color:
-    Usage: '&e☀ &fUtilisation: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fUtilisation: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fLa couleur de votre chat a été mise à jour!'
     Invalid: '&c✘ &fCe n''est pas un code couleur valide!'
     Reset: '&a✔ &fLa couleur de votre chat a été réinitialisée!'
     OnlyPlayers: '&cSeuls les joueurs peuvent utiliser cette commande!'
+    GradientMinTwo: '&c✘ &fLe dégradé nécessite au moins &c2 &fcouleurs!'
   CommandResult:
     NoPermission: '&c✘ &fVous n''avez pas la permission pour cela! Permission: &c%perm%&f.'
     WrongUsage: '&c✘ &fMauvaise utilisation! Tapez &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Connecté avec succès à LuckPerms!'
       PlaceholderAPI: '✔ Connecté avec succès à PlaceholderAPI!'
     NoPermissions: '⚠ Aucun plugin de permissions trouvé. Utilisation des permissions par défaut.'
-    RGB:
-      Loading: '⚠ Chargement des codes de couleur RGB.'
-      NoColors: '⚠ Aucun code de couleur personnalisé spécifié dans la configuration!'
   Update:
     Available:
       Console: '&e⚠ &fNouvelle version de &eChatEx-Refresh &fdisponible sur &eModrinth&f! Version actuelle: &e%current%&f. Dernière version: &e%latest%&f. Téléchargement: &e%url%&f.'

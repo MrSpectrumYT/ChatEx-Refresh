@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои оддиро надоред!'
   NoModifierPermission: '&c✘ &fШумо иҷозати истифодаи рамзҳои тартибдиҳиро надоред!'
   NoHexPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои HEX-ро надоред!'
+  NoGradientPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои градиентиро надоред!'
   MagicBlocked: '&c✘ &fШумо иҷозати истифодаи рангҳои ҷодуиро надоред!'
   Color:
-    Usage: '&e☀ &fИстифода: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fИстифода: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fРанги чати шумо нав карда шуд!'
     Invalid: '&c✘ &fИн рамзи ранги дуруст нест!'
     Reset: '&a✔ &fРанги чати шумо барқарор карда шуд!'
     OnlyPlayers: '&cТанҳо бозигарон метавонанд ин фармонро истифода баранд!'
+    GradientMinTwo: '&c✘ &fБарои градиент ҳадди аққал &c2 &fранг лозим аст!'
   CommandResult:
     NoPermission: '&c✘ &fШумо барои ин иҷозат надоред! Иҷозат: &c%perm%&f.'
     WrongUsage: '&c✘ &fИстифодаи нодуруст! Лутфан &c%cmd% help&f нависед!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Бомуваффақият ба LuckPerms пайваст шуд!'
       PlaceholderAPI: '✔ Бомуваффақият ба PlaceholderAPI пайваст шуд!'
     NoPermissions: '⚠ Ҳеҷ плагини иҷозат ёфт нашуд. Иҷозатҳои пешфарз истифода мешаванд.'
-    RGB:
-      Loading: '⚠ Боркунии рамзҳои ранги RGB.'
-      NoColors: '⚠ Дар конфигуратсия ягон рамзи ранги фармоишӣ муайян нашудааст!'
   Update:
     Available:
       Console: '&e⚠ &fВерсияи нави &eChatEx-Refresh &fдар &eModrinth&f дастрас аст! Версияи ҷорӣ: &e%current%&f. Версияи охирин: &e%latest%&f. Боргирӣ: &e%url%&f.'

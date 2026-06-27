@@ -182,14 +182,17 @@ public class ChatListener implements Listener {
             return;
         }
 
-        String personalColor = ColorManager.getPersonalColor(player);
-        if (!personalColor.isEmpty()) {
-            finalMessage = personalColor + finalMessage + "§r";
+        String rawColor = ColorManager.getRawColor(player);
+        if (!rawColor.isEmpty()) {
+            if (rawColor.contains(",")) {
+                finalMessage = Utils.applyGradient(finalMessage, rawColor);
+            } else {
+                finalMessage = ColorManager.getPersonalColor(player) + finalMessage + "§r";
+            }
         }
         event.setMessage(finalMessage);
         
         MentionManager.processMentions(player, chatMessage);
-        
         ChatLogger.writeToFile(player, chatMessage);
         LogHelper.debug("Everything done! Method end.");
     }

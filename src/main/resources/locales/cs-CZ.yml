@@ -20,13 +20,15 @@ Messages:
   NoColorPermission: '&c✘ &fNemáte oprávnění používat běžné barvy!'
   NoModifierPermission: '&c✘ &fNemáte oprávnění používat formátovací kódy!'
   NoHexPermission: '&c✘ &fNemáte oprávnění používat HEX barvy!'
+  NoGradientPermission: '&c✘ &fNemáte oprávnění používat gradientové barvy!'
   MagicBlocked: '&c✘ &fNemáte oprávnění používat kouzelné barvy!'
   Color:
-    Usage: '&e☀ &fPoužití: &e/color <&e&&e#HEXHEX | #HEXHEX | &e&&ex | off>'
+    Usage: '&e☀ &fPoužití: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
     Set: '&a✔ &fBarva vašeho chatu byla aktualizována!'
     Invalid: '&c✘ &fToto není platný barevný kód!'
     Reset: '&a✔ &fBarva vašeho chatu byla resetována!'
     OnlyPlayers: '&cTento příkaz mohou používat pouze hráči!'
+    GradientMinTwo: '&c✘ &fPro gradient jsou potřeba alespoň &c2 &fbarvy!'
   CommandResult:
     NoPermission: '&c✘ &fNemáte oprávnění! Oprávnění: &c%perm%&f.'
     WrongUsage: '&c✘ &fChybné použití! Napište &c%cmd% help&f!'
@@ -45,9 +47,6 @@ Messages:
       LuckPerms: '✔ Úspěšně napojen na LuckPerms!'
       PlaceholderAPI: '✔ Úspěšně napojen na PlaceholderAPI!'
     NoPermissions: '⚠ Nebyl nalezen žádný plugin práv. Používají se výchozí práva.'
-    RGB:
-      Loading: '⚠ Načítání RGB barevných kódů.'
-      NoColors: '⚠ V konfiguraci nebyly zadány žádné vlastní barevné kódy!'
   Update:
     Available:
       Console: '&e⚠ &fNová verze &eChatEx-Refresh &fje k dispozici na &eModrinth&f! Aktuální verze: &e%current%&f. Nejnovější verze: &e%latest%&f. Stažení: &e%url%&f.'
