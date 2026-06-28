@@ -66,7 +66,7 @@
 | Gradient (3+ colors) | `/color #FF0000,#FFAA00,#00FF00` | Gradient with 3 colors |
 | Gradient + Modifier | `/color #FF0000,#00FF00&l` | Gradient + bold text |
 | Gradient + Mixed Formats | `/color #FF0000,&#00FF00` | Works with both `#` and `&#` |
-| Reset Color | `/color off` | Removes personal color |
+| Reset Color | `/color reset` | Removes personal color |
 
 > **💡 Note:** Both `#FF0000` and `&#FF0000` formats are fully supported everywhere — in chat, in `/color`, and in config messages. You can freely mix them in gradients: `/color #FF0000,&#00FF00,#0000FF` works perfectly!
 
