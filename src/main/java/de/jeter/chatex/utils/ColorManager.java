@@ -6,98 +6,94 @@ import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ColorManager {
 
-    private static final Map<UUID, String> colors = new HashMap<>();
-    private static final File file = new File(ChatEx.getInstance().getDataFolder(), "userdata.yml");
-    private static YamlConfiguration cfg;
+    private static final Map<String, String> COLORS = new ConcurrentHashMap<>();
+    private static final File FILE = new File(ChatEx.getInstance().getDataFolder(), "userdata.yml");
+    private static YamlConfiguration config;
 
     public static void load() {
-        if (!file.exists()) {
+        if (!FILE.exists()) {
             try {
-                file.createNewFile();
+                FILE.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
+                return;
             }
         }
-        cfg = YamlConfiguration.loadConfiguration(file);
-        for (String nick : cfg.getKeys(false)) {
-            String color = cfg.getString(nick + ".color");
-            String uuidStr = cfg.getString(nick + ".uuid");
-            if (color != null && uuidStr != null) {
-                try {
-                    UUID uuid = UUID.fromString(uuidStr);
-                    colors.put(uuid, color);
-                } catch (IllegalArgumentException e) {
-                    ChatEx.getInstance().getLogger().warning("Invalid UUID in userdata.yml for " + nick + ": " + uuidStr);
-                }
+
+        config = YamlConfiguration.loadConfiguration(FILE);
+        COLORS.clear();
+
+        for (String nick : config.getKeys(false)) {
+            String color = config.getString(nick + ".color");
+            if (color != null) {
+                COLORS.put(nick, color);
             }
         }
     }
 
     public static void save() {
-        cfg = new YamlConfiguration();
-        for (Map.Entry<UUID, String> entry : colors.entrySet()) {
-            UUID uuid = entry.getKey();
+        config = new YamlConfiguration();
+        
+        for (Map.Entry<String, String> entry : COLORS.entrySet()) {
+            String nick = entry.getKey();
             String color = entry.getValue();
-            String nick = getNickByUUID(uuid);
-            if (nick == null) {
-                nick = uuid.toString();
-            }
-            cfg.set(nick + ".color", color);
-            cfg.set(nick + ".uuid", uuid.toString());
+            config.set(nick + ".color", color);
         }
+
         try {
-            cfg.save(file);
+            config.save(FILE);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static String getNickByUUID(UUID uuid) {
-        Player player = ChatEx.getInstance().getServer().getPlayer(uuid);
-        return player != null ? player.getName() : null;
-    }
-
     public static String getRawColor(Player player) {
-        return colors.getOrDefault(player.getUniqueId(), "");
+        if (player == null) return "";
+        return COLORS.getOrDefault(player.getName(), "");
     }
 
     public static String getPersonalColor(Player player) {
-        String raw = colors.getOrDefault(player.getUniqueId(), "");
-        if (raw.isEmpty()) return "";
-    
+        if (player == null) return "";
+        
+        String raw = COLORS.get(player.getName());
+        if (raw == null || raw.isEmpty()) return "";
+
         String processed = raw.replace("&#", "#");
-    
-        Pattern hexPattern = Pattern.compile("#[0-9a-fA-F]{6}");
-        Matcher matcher = hexPattern.matcher(processed);
-        StringBuffer sb = new StringBuffer();
+        java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("#[0-9a-fA-F]{6}").matcher(processed);
+        StringBuffer result = new StringBuffer();
+
         while (matcher.find()) {
             String hex = matcher.group().substring(1);
             StringBuilder replacement = new StringBuilder("§x");
             for (char c : hex.toCharArray()) {
                 replacement.append("§").append(c);
             }
-            matcher.appendReplacement(sb, Matcher.quoteReplacement(replacement.toString()));
+            matcher.appendReplacement(result, java.util.regex.Matcher.quoteReplacement(replacement.toString()));
         }
-        matcher.appendTail(sb);
-    
-        return sb.toString().replace("&", "§");
+        matcher.appendTail(result);
+
+        return result.toString().replace("&", "§");
     }
 
     public static void setPersonalColor(Player player, String rawColor) {
-        colors.put(player.getUniqueId(), rawColor);
+        if (player == null) return;
+        COLORS.put(player.getName(), rawColor);
         save();
     }
 
     public static void removePersonalColor(Player player) {
-        colors.remove(player.getUniqueId());
+        if (player == null) return;
+        COLORS.remove(player.getName());
+        save();
+    }
+    
+    public static void removeByNick(String nick) {
+        COLORS.remove(nick);
         save();
     }
 }

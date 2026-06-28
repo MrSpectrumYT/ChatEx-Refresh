@@ -1,6 +1,5 @@
 package de.jeter.chatex;
 
-import de.jeter.chatex.api.events.*;
 import de.jeter.chatex.plugins.PluginManager;
 import de.jeter.chatex.utils.*;
 import de.jeter.chatex.utils.adManager.AdManager;
@@ -15,57 +14,16 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UnknownFormatConversionException;
 import java.util.regex.Pattern;
 
 public class ChatListener implements Listener {
 
-    private final AdManager adManager = Config.ADS_SMART_MANAGER.getBoolean() ? new SmartAdManager() : new SimpleAdManager();
+    private final AdManager adManager = Config.ADS_SMART_MANAGER.getBoolean() 
+        ? new SmartAdManager() 
+        : new SimpleAdManager();
 
     @EventHandler(priority = EventPriority.LOWEST)
-    public void onLowest(final AsyncPlayerChatEvent event) {
-        if (Config.PRIORITY.getString().equalsIgnoreCase("LOWEST")) {
-            executeChatEvent(event);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.LOW)
-    public void onLow(final AsyncPlayerChatEvent event) {
-        if (Config.PRIORITY.getString().equalsIgnoreCase("LOW")) {
-            executeChatEvent(event);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void onNormal(final AsyncPlayerChatEvent event) {
-        if (Config.PRIORITY.getString().equalsIgnoreCase("NORMAL")) {
-            executeChatEvent(event);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onHigh(final AsyncPlayerChatEvent event) {
-        if (Config.PRIORITY.getString().equalsIgnoreCase("HIGH")) {
-            executeChatEvent(event);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onHighest(final AsyncPlayerChatEvent event) {
-        if (Config.PRIORITY.getString().equalsIgnoreCase("HIGHEST")) {
-            executeChatEvent(event);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.MONITOR)
-    public void onMonitor(final AsyncPlayerChatEvent event) {
-        if (Config.PRIORITY.getString().equalsIgnoreCase("MONITOR")) {
-            executeChatEvent(event);
-        }
-    }
-
-    private void executeChatEvent(AsyncPlayerChatEvent event) {
-        LogHelper.debug("ChatEvent fired with priority: " + Config.PRIORITY.getString().toUpperCase() + ", ChatEx-Refresh reacting to it...");
+    public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
         if (!player.hasPermission("chatex.allowchat")) {
@@ -76,108 +34,76 @@ public class ChatListener implements Listener {
             return;
         }
 
-        String format = PluginManager.getInstance().getMessageFormat(event.getPlayer());
-        LogHelper.debug("Format: " + format);
-        LogHelper.debug("Prefix: " + PluginManager.getInstance().getPrefix(event.getPlayer()));
-        LogHelper.debug("Suffix: " + PluginManager.getInstance().getSuffix(event.getPlayer()));
+        String message = event.getMessage();
 
-        String chatMessage = event.getMessage();
-
-        if (!AntiSpamManager.getInstance().isAllowed(event.getPlayer())) {
-            long remainingTime = AntiSpamManager.getInstance().getRemainingSeconds(event.getPlayer());
+        if (!AntiSpamManager.getInstance().isAllowed(player)) {
+            long remaining = AntiSpamManager.getInstance().getRemainingSeconds(player);
             Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("%time%", String.valueOf(remainingTime));
-            player.sendMessage(Locales.ANTI_SPAM_DENIED.getString(event.getPlayer(), placeholders));
+            placeholders.put("%time%", String.valueOf(remaining));
+            player.sendMessage(Locales.ANTI_SPAM_DENIED.getString(player, placeholders));
             event.setCancelled(true);
             return;
         }
-        AntiSpamManager.getInstance().put(player);
+        AntiSpamManager.getInstance().update(player);
 
-        LogHelper.debug("Player did not activate the AntiSpam. Continuing...");
-
-        if (adManager.checkForAds(chatMessage, player)) {
-            Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("%perm%", "chatex.bypassads");
-            player.sendMessage(Locales.MESSAGES_AD.getString(null, placeholders));
+        if (adManager.checkForAds(message, player)) {
+            player.sendMessage(Locales.MESSAGES_AD.getString(null));
             event.setCancelled(true);
             return;
         }
 
-        LogHelper.debug("Player did not activate the AdBlocker. Continuing...");
-
-        for(String block : Config.BLOCKED_WORDS.getStringList()) {
-            if(chatMessage.toLowerCase().contains(block.toLowerCase())) {
-                LogHelper.debug("Player activated wordblocker! ChatMessage: " + chatMessage + " contains blockedWord: " + block);
+        for (String blocked : Config.BLOCKED_WORDS.getStringList()) {
+            if (message.toLowerCase().contains(blocked.toLowerCase())) {
                 player.sendMessage(Locales.MESSAGES_BLOCKED.getString(null));
                 event.setCancelled(true);
                 return;
             }
         }
 
-        LogHelper.debug("Player did not use a blocked word. Continuing...");
-        LogHelper.debug("ChatMessage: " + chatMessage);
-        boolean global = false;
+        String format;
 
-        if (Config.RANGEMODE.getBoolean()) {
-            LogHelper.debug("Message starts with prefix (" + Config.RANGEPREFIX.getString() + "): " + chatMessage.startsWith(Config.RANGEPREFIX.getString()));
-            if (Config.RANGEMODE.getBoolean() && chatMessage.startsWith(Config.RANGEPREFIX.getString())) {
-                LogHelper.debug("Global mode enabled!");
-                if (player.hasPermission("chatex.chat.global")) {
-                    chatMessage = chatMessage.replaceFirst(Pattern.quote(Config.RANGEPREFIX.getString()), "");
-                    format = PluginManager.getInstance().getGlobalMessageFormat(player);        
-                    global = true;
-
-                    PlayerUsesGlobalChatEvent playerUsesGlobalChatEvent = new PlayerUsesGlobalChatEvent(player, chatMessage);
-                    Bukkit.getPluginManager().callEvent(playerUsesGlobalChatEvent);
-                    chatMessage = playerUsesGlobalChatEvent.getMessage();
-                    if (playerUsesGlobalChatEvent.isCancelled()) {
-                        event.setCancelled(true);
-                        return;
-                    }
-                } else {
-                    Map<String, String> placeholders = new HashMap<>();
-                    placeholders.put("%perm%", "chatex.chat.global");
-                    player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
-                    event.setCancelled(true);
-                    return;
-                }
-            } else {
-                LogHelper.debug("Range mode enabled!");
-                event.getRecipients().clear();
-                if (Utils.getLocalRecipients(player).size() == 1 && Config.SHOW_NO_RECEIVER_MSG.getBoolean()) {
-                    player.sendMessage(Locales.NO_LISTENING_PLAYERS.getString(player));
-                    event.setCancelled(true);
-                    return;
-                } else {
-                    event.getRecipients().addAll(Utils.getLocalRecipients(player));
-
-                    PlayerUsesRangeModeEvent playerUsesRangeModeEvent = new PlayerUsesRangeModeEvent(player, chatMessage);
-                    Bukkit.getPluginManager().callEvent(playerUsesRangeModeEvent);
-                    chatMessage = playerUsesRangeModeEvent.getMessage();
-                    if (playerUsesRangeModeEvent.isCancelled()) {
-                        event.setCancelled(true);
-                        return;
-                    }
-                }
+        if (Config.RANGEMODE.getBoolean() && message.startsWith(Config.RANGEPREFIX.getString())) {
+            if (!player.hasPermission("chatex.chat.global")) {
+                Map<String, String> placeholders = new HashMap<>();
+                placeholders.put("%perm%", "chatex.chat.global");
+                player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
+                event.setCancelled(true);
+                return;
             }
+            
+            message = message.replaceFirst(Pattern.quote(Config.RANGEPREFIX.getString()), "");
+            format = PluginManager.getInstance().getGlobalMessageFormat(player);
+        } else if (Config.RANGEMODE.getBoolean()) {
+            event.getRecipients().clear();
+            
+            if (Utils.getLocalRecipients(player).size() == 1 && Config.SHOW_NO_RECEIVER_MSG.getBoolean()) {
+                player.sendMessage(Locales.NO_LISTENING_PLAYERS.getString(player));
+                event.setCancelled(true);
+                return;
+            }
+            
+            event.getRecipients().addAll(Utils.getLocalRecipients(player));
+            format = PluginManager.getInstance().getMessageFormat(player);
+        } else {
+            format = PluginManager.getInstance().getMessageFormat(player);
         }
 
-        LogHelper.debug("Replacing Placeholder in format...");
         format = Utils.replacePlayerPlaceholders(player, format);
-        format = Utils.escape(format);
+
+        format = format.replace("%", "%%");
+
+        format = format.replace("%%2$s", "%2$s");
+
         format = format.replace("%%message%%", "%2$s");
-        LogHelper.debug("Format after replacing: " + format);
 
-        try {
-            event.setFormat(format);
-        } catch (UnknownFormatConversionException ex) {
-            ChatEx.getInstance().getLogger().severe("Placeholder in format is not allowed!");
-            format = format.replaceAll("%\\\\?.*?%", "");
-            event.setFormat(format);
-        }
+        LogHelper.debug("Final format: " + format);
+        event.setFormat(format);
+        
+        LogHelper.debug("Final format: " + format);
+        event.setFormat(format);
 
-        String finalMessage = Utils.translateColorCodes(chatMessage, player);
-        if (finalMessage == null) {
+        String coloredMessage = Utils.translateColorCodes(message, player);
+        if (coloredMessage == null) {
             event.setCancelled(true);
             return;
         }
@@ -185,15 +111,16 @@ public class ChatListener implements Listener {
         String rawColor = ColorManager.getRawColor(player);
         if (!rawColor.isEmpty()) {
             if (rawColor.contains(",")) {
-                finalMessage = Utils.applyGradient(finalMessage, rawColor);
+                coloredMessage = Utils.applyGradient(coloredMessage, rawColor);
             } else {
-                finalMessage = ColorManager.getPersonalColor(player) + finalMessage + "§r";
+                coloredMessage = ColorManager.getPersonalColor(player) + coloredMessage + "§r";
             }
         }
-        event.setMessage(finalMessage);
+
+        event.setMessage(coloredMessage);
         
-        MentionManager.processMentions(player, chatMessage);
-        ChatLogger.writeToFile(player, chatMessage);
-        LogHelper.debug("Everything done! Method end.");
+        MentionManager.processMentions(player, message);
+        
+        ChatLogger.writeToFile(player, message);
     }
 }

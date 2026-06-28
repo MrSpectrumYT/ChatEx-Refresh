@@ -16,80 +16,62 @@ import java.util.regex.Pattern;
 
 public class Utils {
 
-    public static String translateColorCodes(String string, Player player) {
-        if (player == null) return replaceColors(string);
-        
-        String result = string;
-        boolean hasColorWarn = false;
-        boolean hasHexWarn = false;
-        boolean hasModifierWarn = false;
-        boolean shouldCancel = false;
-        
+    private static final Pattern HEX_PATTERN = Pattern.compile("#[a-fA-F0-9]{6}");
+    private static final Pattern LEGACY_COLOR_PATTERN = Pattern.compile("&[0-9a-f]");
+    private static final Pattern MODIFIER_PATTERN = Pattern.compile("&[l-or]");
+    private static final Pattern MAGIC_PATTERN = Pattern.compile("(?i)[&§]k");
+
+    public static String translateColorCodes(String message, Player player) {
+        if (message == null || player == null) return replaceColors(message);
+
+        String result = message;
+        boolean hasError = false;
+
         if (player.hasPermission("chatex.chat.colorhex")) {
             result = translateHexColors(result);
-        } else {
-            if (containsHexColors(result)) {
-                hasHexWarn = true;
-                shouldCancel = true;
-            }
+        } else if (containsHexColors(result)) {
+            player.sendMessage(Locales.NO_HEX_PERMISSION.getString(player));
             result = result.replaceAll("#[A-Fa-f0-9]{6}", "");
             result = result.replaceAll("&#[A-Fa-f0-9]{6}", "");
+            hasError = true;
         }
-        
+
         if (player.hasPermission("chatex.chat.colorlegacy")) {
             result = ChatColor.translateAlternateColorCodes('&', result);
-        } else {
-            if (containsLegacyColors(result)) {
-                hasColorWarn = true;
-                shouldCancel = true;
-            }
+        } else if (containsLegacyColors(result)) {
+            player.sendMessage(Locales.NO_COLOR_PERMISSION.getString(player));
             result = result.replaceAll("&[0-9a-f]", "");
+            hasError = true;
         }
-        
+
         if (player.hasPermission("chatex.chat.colormodifier")) {
-            result = translateModifierColors(result);
-        } else {
-            if (containsModifierColors(result)) {
-                hasModifierWarn = true;
-                shouldCancel = true;
-            }
+            result = translateModifiers(result);
+        } else if (containsModifiers(result)) {
+            player.sendMessage(Locales.NO_MODIFIER_PERMISSION.getString(player));
             result = result.replaceAll("&[l-or]", "");
             result = result.replaceAll("&r", "");
-        }
-        
-        if (hasColorWarn) {
-            player.sendMessage(Locales.NO_COLOR_PERMISSION.getString(player));
-        }
-        if (hasHexWarn) {
-            player.sendMessage(Locales.NO_HEX_PERMISSION.getString(player));
-        }
-        if (hasModifierWarn) {
-            player.sendMessage(Locales.NO_MODIFIER_PERMISSION.getString(player));
+            hasError = true;
         }
 
         if (Config.BLOCK_MAGIC_COLOR.getBoolean() && !player.hasPermission("chatex.chat.magic")) {
-            if (containsMagicColor(result)) {
+            if (containsMagic(result)) {
                 player.sendMessage(Locales.MAGIC_BLOCKED.getString(player));
-                shouldCancel = true;
                 result = result.replaceAll("(?i)&k", "");
                 result = result.replaceAll("(?i)§k", "");
+                hasError = true;
             }
         }
-        
-        if (shouldCancel) {
-            return null;
-        }
-        
-        return result;
+
+        return hasError ? null : result;
     }
 
-    private static String translateModifierColors(String message) {
+    private static String translateModifiers(String message) {
         return message
-                .replace("&l", "§l")
-                .replace("&m", "§m")
-                .replace("&n", "§n")
-                .replace("&o", "§o")
-                .replace("&r", "§r");
+            .replace("&l", "§l")
+            .replace("&m", "§m")
+            .replace("&n", "§n")
+            .replace("&o", "§o")
+            .replace("&r", "§r");
     }
 
     public static String replaceColors(String message) {
@@ -98,37 +80,22 @@ public class Utils {
         message = ChatColor.translateAlternateColorCodes('&', message);
         
         if (Config.BLOCK_MAGIC_COLOR.getBoolean()) {
-            message = message.replaceAll("(?i)§k", "");
-            message = message.replaceAll("(?i)&k", "");
+            message = message.replaceAll("(?i)[&§]k", "");
         }
         return message;
-    }
-    
-    public static void log(String message) {
-        if (message == null) return;
-        String colored = ChatColor.translateAlternateColorCodes('&', message);
-        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §f" + colored);
-    }
-
-    public static void warn(String message) {
-        if (message == null) return;
-        String colored = ChatColor.translateAlternateColorCodes('&', message);
-        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §e" + colored);
     }
 
     private static String translateHexColors(String message) {
         if (message == null || message.isEmpty()) return message;
         
         String processed = message.replace("&#", "#");
-        Pattern hexPattern = Pattern.compile("#[a-fA-F0-9]{6}");
-        Matcher matcher = hexPattern.matcher(processed);
+        Matcher matcher = HEX_PATTERN.matcher(processed);
         StringBuffer result = new StringBuffer();
         
         while (matcher.find()) {
             String hex = matcher.group();
             try {
-                String colorCode = ChatColor.of(hex).toString();
-                matcher.appendReplacement(result, Matcher.quoteReplacement(colorCode));
+                matcher.appendReplacement(result, Matcher.quoteReplacement(ChatColor.of(hex).toString()));
             } catch (IllegalArgumentException e) {
                 matcher.appendReplacement(result, Matcher.quoteReplacement(hex));
             }
@@ -137,84 +104,88 @@ public class Utils {
         
         return result.toString();
     }
-    
+
     private static boolean containsHexColors(String message) {
         return message.matches(".*#[A-Fa-f0-9]{6}.*") || message.matches(".*&#[A-Fa-f0-9]{6}.*");
     }
-    
+
     private static boolean containsLegacyColors(String message) {
         return message.matches(".*&[0-9a-f].*");
     }
-    
-    private static boolean containsModifierColors(String message) {
+
+    private static boolean containsModifiers(String message) {
         return message.matches(".*&[l-or].*");
     }
-    
-    private static boolean containsMagicColor(String message) {
-        return message.matches(".*(?i)&k.*") || message.matches(".*(?i)§k.*");
+
+    private static boolean containsMagic(String message) {
+        return message.matches(".*(?i)[&§]k.*");
     }
 
     public static List<Player> getLocalRecipients(Player sender) {
-        Location playerLocation = sender.getLocation();
         List<Player> recipients = new ArrayList<>();
+        int range = Config.RANGE.getInt();
+        
+        if (range <= 0) {
+            recipients.addAll(sender.getWorld().getPlayers());
+            return recipients;
+        }
 
-        double squaredDistance = Math.pow(Config.RANGE.getInt(), 2);
+        double squaredDistance = Math.pow(range, 2);
+        Location senderLoc = sender.getLocation();
+
         for (Player recipient : sender.getWorld().getPlayers()) {
-            if (Config.RANGE.getInt() > 0 && (playerLocation.distanceSquared(recipient.getLocation()) > squaredDistance)) {
-                continue;
+            if (senderLoc.distanceSquared(recipient.getLocation()) <= squaredDistance) {
+                recipients.add(recipient);
             }
-            recipients.add(recipient);
         }
         return recipients;
     }
 
     public static String replacePlayerPlaceholders(Player player, String format) {
-        if (player == null) {
-            return format;
-        }
-        String result = format;
+        if (player == null || format == null) return format;
 
-        result = result.replace("%displayname%", player.getDisplayName());
-        result = result.replace("%prefix%", PluginManager.getInstance().getPrefix(player));
-        result = result.replace("%suffix%", PluginManager.getInstance().getSuffix(player));
-        result = result.replace("%player%", player.getName());
-        result = result.replace("%world%", player.getWorld().getName());
-        result = result.replace("%group%", PluginManager.getInstance().getGroupNames(player).length > 0 
-            ? PluginManager.getInstance().getGroupNames(player)[0] : "none");
+        String result = format
+            .replace("%displayname%", player.getDisplayName())
+            .replace("%prefix%", PluginManager.getInstance().getPrefix(player))
+            .replace("%suffix%", PluginManager.getInstance().getSuffix(player))
+            .replace("%player%", player.getName())
+            .replace("%world%", player.getWorld().getName());
+
+        String[] groups = PluginManager.getInstance().getGroupNames(player);
+        result = result.replace("%group%", groups.length > 0 ? groups[0] : "none");
 
         if (HookManager.checkPlaceholderAPI()) {
             result = PlaceholderAPI.setPlaceholders(player, result);
         }
 
-        result = replaceColors(result);
-        return result;
+        return replaceColors(result);
     }
 
     public static String escape(String string) {
-        return string.replace("%", "%%");
+        return string != null ? string.replace("%", "%%") : null;
     }
 
     public static boolean checkForBypassString(String message) {
-        for (String block : Config.ADS_BYPASS.getStringList()) {
-            if (message.toLowerCase().contains(block.toLowerCase())) {
+        for (String bypass : Config.ADS_BYPASS.getStringList()) {
+            if (message.toLowerCase().contains(bypass.toLowerCase())) {
                 return true;
             }
         }
         return false;
     }
 
-    public static void notifyOps(String msg) {
-        for (Player op : ChatEx.getInstance().getServer().getOnlinePlayers()) {
-            if (!op.hasPermission("chatex.notifyad")) {
-                continue;
+    public static void notifyOps(String message) {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.hasPermission("chatex.notifyad")) {
+                player.sendMessage(message);
             }
-            op.sendMessage(msg);
         }
     }
 
     public static String applyGradient(String text, String colorData) {
-        if (text == null || text.isEmpty()) return text;
-        if (colorData == null || colorData.isEmpty()) return text;
+        if (text == null || text.isEmpty() || colorData == null || colorData.isEmpty()) {
+            return text;
+        }
 
         String colorsPart = colorData;
         String modifiersPart = "";
@@ -228,64 +199,67 @@ public class Utils {
             }
         }
 
-        String colorsCleaned = colorsPart.replace("&#", "#").replace("&", "");
-        String[] hexColors = colorsCleaned.split(",");
-        
-        if (hexColors.length < 2) {
+        String[] hexStrings = colorsPart.replace("&#", "#").replace("&", "").split(",");
+        if (hexStrings.length < 2) {
             return translateHexColors(colorsPart) + text + "§r";
         }
 
         List<Color> colors = new ArrayList<>();
-        for (String hex : hexColors) {
-            String cleanHex = hex.trim();
-            if (!cleanHex.startsWith("#")) {
-                cleanHex = "#" + cleanHex;
+        for (String hex : hexStrings) {
+            String clean = hex.trim();
+            if (!clean.startsWith("#")) {
+                clean = "#" + clean;
             }
             try {
-                colors.add(Color.decode(cleanHex));
-            } catch (NumberFormatException e) {
-            }
+                colors.add(Color.decode(clean));
+            } catch (NumberFormatException ignored) {}
         }
 
         if (colors.size() < 2) return text;
-        if (text.length() == 1) return ChatColor.of(colors.get(0)) + text + "§r";
 
-        StringBuilder modsBuilder = new StringBuilder();
-        if (!modifiersPart.isEmpty()) {
-            for (char c : modifiersPart.toCharArray()) {
-                modsBuilder.append("§").append(c);
-            }
+        StringBuilder modifiers = new StringBuilder();
+        for (char c : modifiersPart.toCharArray()) {
+            modifiers.append("§").append(c);
         }
-        String formattedMods = modsBuilder.toString();
+        String mods = modifiers.toString();
 
-        StringBuilder gradientBuilder = new StringBuilder();
-        int textLength = text.length();
+        if (text.length() == 1) {
+            return ChatColor.of(colors.get(0)) + mods + text + "§r";
+        }
+
+        StringBuilder result = new StringBuilder();
+        int textLen = text.length();
         int sections = colors.size() - 1;
-        double interval = (double) (textLength - 1) / sections;
+        double interval = (double) (textLen - 1) / sections;
 
-        if (interval <= 0) interval = 1;
+        for (int i = 0; i < textLen; i++) {
+            int section = Math.min((int) (i / interval), sections - 1);
+            double progress = (i - section * interval) / interval;
 
-        for (int i = 0; i < textLength; i++) {
-            int currentSection = (int) (i / interval);
-            if (currentSection >= sections) currentSection = sections - 1;
+            Color c1 = colors.get(section);
+            Color c2 = colors.get(section + 1);
 
-            double sectionProgress = (i - (currentSection * interval)) / interval;
+            int r = (int) (c1.getRed() + progress * (c2.getRed() - c1.getRed()));
+            int g = (int) (c1.getGreen() + progress * (c2.getGreen() - c1.getGreen()));
+            int b = (int) (c1.getBlue() + progress * (c2.getBlue() - c1.getBlue()));
 
-            Color c1 = colors.get(currentSection);
-            Color c2 = colors.get(currentSection + 1);
-
-            int r = (int) (c1.getRed() + sectionProgress * (c2.getRed() - c1.getRed()));
-            int g = (int) (c1.getGreen() + sectionProgress * (c2.getGreen() - c1.getGreen()));
-            int b = (int) (c1.getBlue() + sectionProgress * (c2.getBlue() - c1.getBlue()));
-
-            r = Math.max(0, Math.min(255, r));
-            g = Math.max(0, Math.min(255, g));
-            b = Math.max(0, Math.min(255, b));
-
-            ChatColor chatColor = ChatColor.of(new Color(r, g, b));
-            gradientBuilder.append(chatColor.toString()).append(formattedMods).append(text.charAt(i));
+            result.append(ChatColor.of(new Color(
+                Math.max(0, Math.min(255, r)),
+                Math.max(0, Math.min(255, g)),
+                Math.max(0, Math.min(255, b))
+            ))).append(mods).append(text.charAt(i));
         }
 
-        return gradientBuilder.toString() + "§r";
+        return result + "§r";
+    }
+
+    public static void log(String message) {
+        if (message == null) return;
+        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §f" + replaceColors(message));
+    }
+
+    public static void warn(String message) {
+        if (message == null) return;
+        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §e" + replaceColors(message));
     }
 }

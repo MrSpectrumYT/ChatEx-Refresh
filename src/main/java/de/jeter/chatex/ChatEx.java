@@ -38,7 +38,9 @@ public class ChatEx extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        
         getCommand("chatex").setExecutor(new CommandHandler());
+        
         ColorCommand colorCmd = new ColorCommand();
         getCommand("color").setExecutor(colorCmd);
         getCommand("color").setTabCompleter(colorCmd);
@@ -52,10 +54,13 @@ public class ChatEx extends JavaPlugin {
             int pluginId = 31278;
             Metrics metrics = new Metrics(this, pluginId);
             
-            metrics.addCustomChart(new SimplePie("used_permissions_plugin", () -> PluginManager.getInstance().getName()));
-            metrics.addCustomChart(new SimplePie("updatechecker_enabled", () -> "false"));
+            metrics.addCustomChart(new SimplePie("used_permissions_plugin", 
+                () -> PluginManager.getInstance().getName()));
+            metrics.addCustomChart(new SimplePie("updatechecker_enabled", 
+                () -> String.valueOf(Config.CHECK_UPDATE.getBoolean())));
             
-            getLogger().info(Locales.PLUGIN_BSTATS.getString(null).replace("%id%", String.valueOf(pluginId)));
+            getLogger().info(Locales.PLUGIN_BSTATS.getString(null)
+                .replace("%id%", String.valueOf(pluginId)));
         }
 
         getLogger().info(Locales.PLUGIN_ENABLED.getString(null));

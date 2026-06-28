@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ColorCommand implements CommandExecutor, TabCompleter {
@@ -21,10 +22,20 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
     );
 
     private static final List<String> LEGACY_FORMATS = Arrays.asList(
-            "&l", "&m", "&n", "&o", "&r"
-    );
+            "&l", "&m", "&n", "&o"
+        );
 
     private static final String MAGIC_FORMAT = "&k";
+
+    private static final String PERM_BASE = "chatex.color";
+    private static final String PERM_LEGACY = "chatex.chat.colorlegacy";
+    private static final String PERM_MODIFIER = "chatex.chat.colormodifier";
+    private static final String PERM_MAGIC = "chatex.chat.magic";
+    private static final String PERM_HEX = "chatex.chat.colorhex";
+    private static final String PERM_GRADIENT = "chatex.chat.colorgradient";
+
+    private static final Pattern HEX_PATTERN = Pattern.compile("^(&?#)([0-9a-fA-F]*)(.*)$");
+    private static final Pattern LEGACY_PATTERN = Pattern.compile("^(&[0-9a-fA-F])(.*)$");
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -33,9 +44,9 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        if (!player.hasPermission("chatex.color")) {
+        if (!player.hasPermission(PERM_BASE)) {
             Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("%perm%", "chatex.color");
+            placeholders.put("%perm%", PERM_BASE);
             player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
             return true;
         }
@@ -47,14 +58,15 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
         String input = String.join(" ", args).trim();
 
-        if (input.equalsIgnoreCase("off") || input.equalsIgnoreCase("reset")) {
+        if (input.equalsIgnoreCase("reset")) {
             ColorManager.removePersonalColor(player);
             player.sendMessage(Locales.COLOR_RESET.getString(player));
             return true;
         }
 
-        if (!isValidColorInput(input, player)) {
-            player.sendMessage(Locales.COLOR_INVALID.getString(player));
+        String errorMessage = validateColorInput(input, player);
+        if (errorMessage != null) {
+            player.sendMessage(errorMessage);
             return true;
         }
 
@@ -63,16 +75,20 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
         return true;
     }
 
-    private boolean isValidColorInput(String input, Player player) {
-        if (input.isEmpty()) return false;
+    private String validateColorInput(String input, Player player) {
+        if (input.isEmpty()) {
+            return Locales.COLOR_INVALID.getString(player);
+        }
 
         if (input.contains(",")) {
-            if (!player.hasPermission("chatex.chat.colorgradient")) {
-                return false;
+            if (!player.hasPermission(PERM_GRADIENT)) {
+                return Locales.NO_GRADIENT_PERMISSION.getString(player);
             }
 
             String[] parts = input.split(",");
-            int colorCount = 0;
+            if (parts.length < 2) {
+                return Locales.COLOR_GRADIENT_MIN_TWO.getString(player);
+            }
 
             for (int i = 0; i < parts.length; i++) {
                 String part = parts[i].trim();
@@ -81,42 +97,45 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
                     int ampIndex = part.lastIndexOf('&');
                     if (ampIndex > 0) {
                         String mods = part.substring(ampIndex);
-                        if (mods.matches("^(&[lmnork])+$")) {
-                            if (mods.contains("&k") && !player.hasPermission("chatex.chat.magic")) return false;
-                            if ((mods.contains("&l") || mods.contains("&m") || mods.contains("&n") || mods.contains("&o") || mods.contains("&r")) 
-                                    && !player.hasPermission("chatex.chat.colormodifier")) return false;
+                        if (mods.matches("^(&[lmnok])+$")) {
+                            if (mods.contains("&k") && !player.hasPermission(PERM_MAGIC)) {
+                                return Locales.MAGIC_BLOCKED.getString(player);
+                            }
+                            if ((mods.contains("&l") || mods.contains("&m") || mods.contains("&n") || mods.contains("&o")) && 
+                                !player.hasPermission(PERM_MODIFIER)) {
+                                return Locales.NO_MODIFIER_PERMISSION.getString(player);
+                            }
                             part = part.substring(0, ampIndex);
                         } else {
-                            return false;
+                            return Locales.COLOR_INVALID.getString(player);
                         }
                     }
                 }
 
-                if (part.matches("^(#|&#)[a-fA-F0-9]{6}$")) {
-                    colorCount++;
-                } else {
-                    return false;
+                if (!part.matches("^(#|&#)[a-fA-F0-9]{6}$")) {
+                    return Locales.COLOR_INVALID.getString(player);
                 }
             }
-
-            return colorCount >= 2;
+            return null;
         }
 
-        if (input.matches("^(#|&#)[a-fA-F0-9]{6}(&[lmnork])*$")) {
-            if (!player.hasPermission("chatex.chat.colorhex")) {
-                return false;
+        if (input.matches("^(#|&#)[a-fA-F0-9]{6}(&[lmnok])*$")) {
+            if (!player.hasPermission(PERM_HEX)) {
+                return Locales.NO_HEX_PERMISSION.getString(player);
             }
-            if (input.contains("&k") && !player.hasPermission("chatex.chat.magic")) {
-                return false;
+            if (input.contains("&k") && !player.hasPermission(PERM_MAGIC)) {
+                return Locales.MAGIC_BLOCKED.getString(player);
             }
-            if (input.matches(".*&[l-or].*") && !player.hasPermission("chatex.chat.colormodifier")) {
-                return false;
+            if (input.matches(".*&[l-o].*") && !player.hasPermission(PERM_MODIFIER)) {
+                return Locales.NO_MODIFIER_PERMISSION.getString(player);
             }
-            return true;
+            return null;
         }
 
         String[] parts = input.split("(?=&)");
-        if (parts.length == 0) return false;
+        if (parts.length == 0) {
+            return Locales.COLOR_INVALID.getString(player);
+        }
 
         int colorCount = 0;
         for (String part : parts) {
@@ -124,151 +143,169 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
             String lowerPart = part.toLowerCase();
 
             if (lowerPart.equals(MAGIC_FORMAT)) {
-                if (!player.hasPermission("chatex.chat.magic")) {
-                    return false;
+                if (!player.hasPermission(PERM_MAGIC)) {
+                    return Locales.MAGIC_BLOCKED.getString(player);
                 }
                 continue;
             }
 
             if (LEGACY_COLORS.contains(lowerPart)) {
-                if (!player.hasPermission("chatex.chat.colorlegacy")) {
-                    return false;
+                if (!player.hasPermission(PERM_LEGACY)) {
+                    return Locales.NO_COLOR_PERMISSION.getString(player);
                 }
                 colorCount++;
                 if (colorCount > 1) {
-                    return false;
+                    return Locales.COLOR_INVALID.getString(player);
                 }
                 continue;
             }
 
             if (LEGACY_FORMATS.contains(lowerPart)) {
-                if (!player.hasPermission("chatex.chat.colormodifier")) {
-                    return false;
+                if (!player.hasPermission(PERM_MODIFIER)) {
+                    return Locales.NO_MODIFIER_PERMISSION.getString(player);
                 }
                 continue;
             }
 
-            return false;
+            return Locales.COLOR_INVALID.getString(player);
         }
 
-        return colorCount > 0 || input.contains("&");
+        if (colorCount == 0 && !input.contains("&")) {
+            return Locales.COLOR_INVALID.getString(player);
+        }
+
+        return null;
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> suggestions = new ArrayList<>();
 
-        if (!(sender instanceof Player player)) {
+        if (!(sender instanceof Player player) || !player.hasPermission(PERM_BASE) || args.length > 1) {
             return suggestions;
         }
 
-        if (!player.hasPermission("chatex.color")) {
+        String input = args.length == 0 ? "" : args[0];
+
+        List<String> allowedModifiers = new ArrayList<>();
+        if (player.hasPermission(PERM_MODIFIER)) {
+            allowedModifiers.addAll(LEGACY_FORMATS);
+        }
+        if (player.hasPermission(PERM_MAGIC)) {
+            allowedModifiers.add(MAGIC_FORMAT);
+        }
+
+        if (input.isEmpty()) {
+            if (player.hasPermission(PERM_LEGACY)) suggestions.addAll(LEGACY_COLORS);
+            suggestions.addAll(allowedModifiers);
+            if (player.hasPermission(PERM_HEX)) {
+                suggestions.add("#");
+                suggestions.add("&#");
+            }
+            suggestions.add("reset");
             return suggestions;
         }
 
-        String currentInput = String.join(" ", args);
+        if (input.contains(",")) {
+            int lastCommaIndex = input.lastIndexOf(',');
+            String prefix = input.substring(0, lastCommaIndex + 1);
+            String lastPart = input.substring(lastCommaIndex + 1);
 
-        if (args.length == 0 || currentInput.isEmpty()) {
-            addAvailableOptions(suggestions, player);
-            return suggestions;
-        }
-
-        currentInput = currentInput.trim();
-        String lowerInput = currentInput.toLowerCase();
-
-        if ((lowerInput.startsWith("#") || lowerInput.startsWith("&#")) && lowerInput.contains(",")) {
-            suggestions.add(currentInput);
-            return suggestions;
-        }
-
-        if (player.hasPermission("chatex.chat.colorhex")) {
-            if (lowerInput.startsWith("#") || lowerInput.startsWith("&#")) {
-                String hexPart = lowerInput.replace("&#", "#");
-                if (hexPart.matches("^#[a-fA-F0-9]{0,6}$")) {
-                    suggestions.add(currentInput);
-                }
-                if (hexPart.matches("^#[a-fA-F0-9]{6}$")) {
-                    if (player.hasPermission("chatex.chat.colorgradient")) {
-                        suggestions.add(currentInput + ",");
-                    }
-                    if (player.hasPermission("chatex.chat.colormodifier")) {
-                        for (String f : LEGACY_FORMATS) {
-                            suggestions.add(currentInput + f);
-                        }
-                    }
-                    if (player.hasPermission("chatex.chat.magic")) {
-                        suggestions.add(currentInput + MAGIC_FORMAT);
-                    }
+            if (lastPart.isEmpty()) {
+                if (player.hasPermission(PERM_HEX)) {
+                    suggestions.add(prefix + "#");
+                    suggestions.add(prefix + "&#");
                 }
                 return suggestions;
             }
-        }
 
-        if (currentInput.contains("&")) {
-            int lastAmpersand = currentInput.lastIndexOf('&');
-            String before = currentInput.substring(0, lastAmpersand);
-            String after = currentInput.substring(lastAmpersand + 1);
+            Matcher hexMatcher = HEX_PATTERN.matcher(lastPart);
+            if (hexMatcher.matches()) {
+                String hexBody = hexMatcher.group(2);
+                String currentMods = hexMatcher.group(3);
 
-            int colorCount = 0;
-            boolean hasMagic = false;
-            for (String color : LEGACY_COLORS) {
-                if (currentInput.toLowerCase().contains(color.toLowerCase())) {
-                    colorCount++;
-                }
-            }
-            if (currentInput.toLowerCase().contains(MAGIC_FORMAT)) {
-                hasMagic = true;
-            }
-
-            boolean hasHex = currentInput.matches("^(#|&#)[a-fA-F0-9]{6}.*");
-
-            if (player.hasPermission("chatex.chat.colorlegacy") && colorCount == 0 && !hasHex) {
-                for (String c : LEGACY_COLORS) {
-                    if (c.substring(1).toLowerCase().startsWith(after.toLowerCase())) {
-                        suggestions.add(before + c);
+                if (hexBody.length() < 6) {
+                    return filterByPrefix(suggestions, input);
+                } else if (hexBody.length() == 6) {
+                    if (currentMods.isEmpty()) {
+                        if (player.hasPermission(PERM_GRADIENT)) {
+                            suggestions.add(input + ",");
+                        }
+                        for (String mod : allowedModifiers) {
+                            suggestions.add(input + mod);
+                        }
+                    } else {
+                        handleModifiersCompletion(input, currentMods, allowedModifiers, suggestions);
                     }
                 }
             }
+            return filterByPrefix(suggestions, input);
+        }
 
-            if (player.hasPermission("chatex.chat.magic") && !hasMagic) {
-                if (MAGIC_FORMAT.substring(1).toLowerCase().startsWith(after.toLowerCase())) {
-                    suggestions.add(before + MAGIC_FORMAT);
-                }
-            }
+        Matcher hexMatcher = HEX_PATTERN.matcher(input);
+        if (hexMatcher.matches()) {
+            String hexBody = hexMatcher.group(2);
+            String currentMods = hexMatcher.group(3);
 
-            if (player.hasPermission("chatex.chat.colormodifier")) {
-                for (String f : LEGACY_FORMATS) {
-                    if (f.substring(1).toLowerCase().startsWith(after.toLowerCase())) {
-                        suggestions.add(before + f);
+            if (hexBody.length() < 6) {
+                return filterByPrefix(suggestions, input); 
+            } else if (hexBody.length() == 6) {
+                if (currentMods.isEmpty()) {
+                    if (player.hasPermission(PERM_GRADIENT)) {
+                        suggestions.add(input + ",");
                     }
+                    for (String mod : allowedModifiers) {
+                        suggestions.add(input + mod);
+                    }
+                } else {
+                    handleModifiersCompletion(input, currentMods, allowedModifiers, suggestions);
                 }
             }
-            return suggestions;
+            return filterByPrefix(suggestions, input);
         }
 
-        addAvailableOptions(suggestions, player);
-        return suggestions;
-    }
+        Matcher legacyMatcher = LEGACY_PATTERN.matcher(input);
+        if (legacyMatcher.matches()) {
+            String currentMods = legacyMatcher.group(2);
+            handleModifiersCompletion(input, currentMods, allowedModifiers, suggestions);
+            return filterByPrefix(suggestions, input);
+        }
 
-    private void addAvailableOptions(List<String> suggestions, Player player) {
-        if (player.hasPermission("chatex.chat.colorlegacy")) {
-            suggestions.addAll(LEGACY_COLORS);
-        }
-        if (player.hasPermission("chatex.chat.colormodifier")) {
-            suggestions.addAll(LEGACY_FORMATS);
-        }
-        if (player.hasPermission("chatex.chat.colorhex")) {
+        suggestions.add("reset");
+        if (player.hasPermission(PERM_LEGACY)) suggestions.addAll(LEGACY_COLORS);
+        suggestions.addAll(allowedModifiers);
+        if (player.hasPermission(PERM_HEX)) {
             suggestions.add("#");
             suggestions.add("&#");
         }
-        if (player.hasPermission("chatex.chat.colorgradient")) {
-            suggestions.add("#FF0000,#00FF00");
-            suggestions.add("&#FF0000,#00FF00");
+
+        return filterByPrefix(suggestions, input);
+    }
+
+    private void handleModifiersCompletion(String fullInput, String currentMods, List<String> allowedModifiers, List<String> suggestions) {
+        if (fullInput.endsWith("&")) {
+            for (String mod : allowedModifiers) {
+                if (!currentMods.contains(mod)) {
+                    suggestions.add(fullInput + mod.substring(1));
+                }
+            }
+            return;
         }
-        if (player.hasPermission("chatex.chat.magic")) {
-            suggestions.add(MAGIC_FORMAT);
+
+        for (String mod : allowedModifiers) {
+            if (!currentMods.contains(mod)) {
+                suggestions.add(fullInput + mod);
+            }
         }
-        suggestions.add("off");
-        suggestions.add("reset");
+    }
+
+    private List<String> filterByPrefix(List<String> list, String prefix) {
+        List<String> filtered = new ArrayList<>();
+        for (String s : list) {
+            if (s.toLowerCase().startsWith(prefix.toLowerCase())) {
+                filtered.add(s);
+            }
+        }
+        return filtered;
     }
 }
