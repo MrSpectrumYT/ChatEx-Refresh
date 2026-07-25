@@ -23,7 +23,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
     private static final List<String> LEGACY_FORMATS = Arrays.asList(
             "&l", "&m", "&n", "&o"
-        );
+    );
 
     private static final String MAGIC_FORMAT = "&k";
 
@@ -92,28 +92,56 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
             for (int i = 0; i < parts.length; i++) {
                 String part = parts[i].trim();
-                
+                String colorPart;
+                String mods;
+
                 if (i == parts.length - 1) {
-                    int ampIndex = part.lastIndexOf('&');
-                    if (ampIndex > 0) {
-                        String mods = part.substring(ampIndex);
-                        if (mods.matches("^(&[lmnok])+$")) {
-                            if (mods.contains("&k") && !player.hasPermission(PERM_MAGIC)) {
-                                return Locales.MAGIC_BLOCKED.getString(player);
-                            }
-                            if ((mods.contains("&l") || mods.contains("&m") || mods.contains("&n") || mods.contains("&o")) && 
-                                !player.hasPermission(PERM_MODIFIER)) {
-                                return Locales.NO_MODIFIER_PERMISSION.getString(player);
-                            }
-                            part = part.substring(0, ampIndex);
-                        } else {
+                    String[] split = Utils.splitColorAndModifiers(part);
+                    colorPart = split[0];
+                    mods = split[1];
+                } else {
+                    if (part.contains("&") && !part.startsWith("&#")) {
+                        String[] check = Utils.splitColorAndModifiers(part);
+                        if (!check[1].isEmpty()) {
                             return Locales.COLOR_INVALID.getString(player);
                         }
+                        colorPart = check[0];
+                    } else {
+                        colorPart = part;
                     }
+                    mods = "";
                 }
 
-                if (!part.matches("^(#|&#)[a-fA-F0-9]{6}$")) {
+                String hexColor;
+                if (colorPart.startsWith("&#")) {
+                    hexColor = "#" + colorPart.substring(2);
+                } else if (colorPart.startsWith("#")) {
+                    hexColor = colorPart;
+                } else if (colorPart.startsWith("&") && colorPart.length() >= 2) {
+                    String hex = Utils.legacyToHex(colorPart);
+                    if (hex == null) {
+                        return Locales.COLOR_INVALID.getString(player);
+                    }
+                    hexColor = hex;
+                } else {
                     return Locales.COLOR_INVALID.getString(player);
+                }
+
+                if (!hexColor.matches("^#[a-fA-F0-9]{6}$")) {
+                    return Locales.COLOR_INVALID.getString(player);
+                }
+
+                if (i == parts.length - 1 && !mods.isEmpty()) {
+                    if (!mods.matches("^(&[lmnok])+$")) {
+                        return Locales.COLOR_INVALID.getString(player);
+                    }
+                    if (mods.contains("&k") && !player.hasPermission(PERM_MAGIC)) {
+                        return Locales.MAGIC_BLOCKED.getString(player);
+                    }
+                    if ((mods.contains("&l") || mods.contains("&m") || mods.contains("&n") || mods.contains("&o"))
+                            && !player.hasPermission(PERM_MODIFIER)) {
+                        return Locales.NO_MODIFIER_PERMISSION.getString(player);
+                    }
                 }
             }
             return null;
@@ -248,7 +276,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
             String currentMods = hexMatcher.group(3);
 
             if (hexBody.length() < 6) {
-                return filterByPrefix(suggestions, input); 
+                return filterByPrefix(suggestions, input);
             } else if (hexBody.length() == 6) {
                 if (currentMods.isEmpty()) {
                     if (player.hasPermission(PERM_GRADIENT)) {
