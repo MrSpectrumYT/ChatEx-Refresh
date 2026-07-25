@@ -62,6 +62,7 @@
 | Personal Color (Legacy) | `/color &5&l` | Dark purple bold text |
 | Personal Color (HEX) | `/color &#E43A96` | Pink text |
 | Personal Color (HEX alt) | `/color #E43A96` | Pink text |
+| Gradient Legacy | `/color &f,&c` | Gradient from white to red |
 | Gradient (2 colors) | `/color #FF0000,#00FF00` | Gradient from red to green |
 | Gradient (3+ colors) | `/color #FF0000,#FFAA00,#00FF00` | Gradient with 3 colors |
 | Gradient + Modifier | `/color #FF0000,#00FF00&l` | Gradient + bold text |
