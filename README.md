@@ -4,7 +4,7 @@
 
 ## ✨ Features
 
-- **Full Minecraft 1.21+ support** — Folia, Leaf, Paper, Pufferfish, Purpur, Spigot
+- **Full Minecraft 1.20+ support** — Folia, Leaf, Paper, Pufferfish, Purpur, Spigot
 - **HEX & Legacy colors** — both `#RRGGBB` and `&#RRGGBB` formats
 - **Anti-Spam system** — configurable cooldowns to prevent chat flooding
 - **Ad Blocker** — smart detection with IP/domain filtering
@@ -47,8 +47,8 @@
 
 ## 📦 Requirements
 
-- **Java 21+**
-- **Folia / Leaf / Paper / Pufferfish / Purpur / Spigot 1.21+**
+- **Java 17+**
+- **Folia / Leaf / Paper / Pufferfish / Purpur / Spigot 1.20+**
 - **PlaceholderAPI** — optional but recommended
 - **LuckPerms** — optional for permission management
 
@@ -93,7 +93,7 @@ This project is licensed under the **GNU General Public License v2.0** — you a
 
 ## 💬 Support
 If you encounter issues or have questions:
-1. Check that you have **Java 21+**
+1. Check that you have **Java 17+**
 2. Verify your server is running Folia / Leaf / Paper / Pufferfish / Purpur / Spigot
 3. Read the console for error messages
 
