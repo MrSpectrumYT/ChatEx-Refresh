@@ -1,15 +1,21 @@
 package de.jeter.chatex.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 public class MentionManager {
 
     public static void processMentions(Player sender, String message) {
+        processMentionsWithRecipients(sender, message, null);
+    }
+
+    public static void processMentionsWithRecipients(Player sender, String message, Collection<Player> recipients) {
         if (!Config.MENTION_ENABLED.getBoolean()) return;
         if (!sender.hasPermission("chatex.mention")) return;
 
@@ -25,6 +31,9 @@ public class MentionManager {
 
             Player target = Bukkit.getPlayerExact(cleanWord);
             if (target != null && target.isOnline()) {
+                if (recipients != null && !recipients.contains(target)) {
+                    continue;
+                }
                 mentioned.add(target);
             }
         }

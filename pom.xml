@@ -6,7 +6,7 @@
     <name>ChatEx-Refresh</name>
     <inceptionYear>2026</inceptionYear>
 
-    <version>4.5.0</version>
+    <version>4.5.5</version>
     <description>ChatEx-Refresh — a fork of the ChatEx plugin</description>
     <url>https://modrinth.com/plugin/chatex-refresh</url>
     <licenses>
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.21.1-R0.1-SNAPSHOT</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>    
         <dependency>
@@ -104,9 +104,9 @@
     </dependencies>
 
     <properties>
-        <java.version>21</java.version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

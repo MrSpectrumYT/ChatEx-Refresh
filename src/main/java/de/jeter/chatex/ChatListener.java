@@ -5,7 +5,6 @@ import de.jeter.chatex.utils.*;
 import de.jeter.chatex.utils.adManager.AdManager;
 import de.jeter.chatex.utils.adManager.SimpleAdManager;
 import de.jeter.chatex.utils.adManager.SmartAdManager;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -98,9 +97,6 @@ public class ChatListener implements Listener {
 
         LogHelper.debug("Final format: " + format);
         event.setFormat(format);
-        
-        LogHelper.debug("Final format: " + format);
-        event.setFormat(format);
 
         String coloredMessage = Utils.translateColorCodes(message, player);
         if (coloredMessage == null) {
@@ -119,7 +115,11 @@ public class ChatListener implements Listener {
 
         event.setMessage(coloredMessage);
         
-        MentionManager.processMentions(player, message);
+        if (Config.RANGEMODE.getBoolean()) {
+            MentionManager.processMentionsWithRecipients(player, message, event.getRecipients());
+        } else {
+            MentionManager.processMentions(player, message);
+        }
         
         ChatLogger.writeToFile(player, message);
     }
