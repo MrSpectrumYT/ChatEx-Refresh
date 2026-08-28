@@ -1,6 +1,10 @@
 # ChatEx-Refresh
 
-**A powerful chat management plugin with RGB colors, anti-spam for Minecraft servers.**
+## ⚠️ WARNING
+
+**This plugin is not ChatEx. It is a fork of the ChatEx plugin. The authors of the original ChatEx — TheJeterLP and Wizard_x. ChatEx repository — https://github.com/TheJeterLP/ChatEx.**
+
+**ChatEx-Refresh — a powerful chat management plugin with RGB colors, anti-spam for Minecraft servers.**
 
 ## ✨ Features
 
