@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fSohbet renginiz güncellendi!'
     Invalid: '&c✘ &fBu geçerli bir renk kodu değil!'
     Reset: '&a✔ &fSohbet renginiz sıfırlandı!'
-    OnlyPlayers: '&cBu komutu yalnızca oyuncular kullanabilir!'
+    OnlyPlayers: '&4⚠ &fBu komutu yalnızca oyuncular kullanabilir!'
     GradientMinTwo: '&c✘ &fGradyan için en az &c2 &frenk gerekir!'
   CommandResult:
     NoPermission: '&c✘ &fBunun için izniniz yok! İzin: &c%perm%&f.'

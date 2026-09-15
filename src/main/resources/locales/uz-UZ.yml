@@ -27,7 +27,7 @@ Messages:
     Set: '&a✓ &fChat rangingiz yangilandi!'
     Invalid: '&c✘ &fBu haqiqiy rang kodi emas!'
     Reset: '&a✓ &fChat rangingiz tiklandi!'
-    OnlyPlayers: '&cBu buyruqdan faqat oʻyinchilar foydalanishi mumkin!'
+    OnlyPlayers: '&4⚠ &fBu buyruqdan faqat oʻyinchilar foydalanishi mumkin!'
     GradientMinTwo: '&c✘ &fGradient uchun kamida &c2 &f rang kerak!'
   CommandResult:
     NoPermission: '&c✘ &fBuning uchun huquqingiz yoʻq! Huquq: &c%perm%&f.'

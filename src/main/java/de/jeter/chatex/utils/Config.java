@@ -86,8 +86,7 @@ public enum Config {
         reload(false);
         List<String> header = new ArrayList<>();
         header.add("Thanks for installing " + ChatEx.getInstance().getName());
-        header.add("ChatEx-Refresh — a fork of the ChatEx plugin");
-        header.add("Original by Jeter & Wizard_x and fork by MrSpectrumYT");
+        header.add("ChatEx-Refresh — a fork of the ChatEx plugin. Based on the original ChatEx by TheJeterLP. Additional original contribution: Wizard_x.");
         header.add("https://modrinth.com/plugin/chatex-refresh");
         for (Config c : values()) {
             header.add(c.getPath() + ": " + c.getDescription());

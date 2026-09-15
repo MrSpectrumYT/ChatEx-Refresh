@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fチャットの色が更新されました！'
     Invalid: '&c✘ &f無効なカラーコードです！'
     Reset: '&a✔ &fチャットの色がリセットされました！'
-    OnlyPlayers: '&cこのコマンドはプレイヤーのみ使用できます！'
+    OnlyPlayers: '&4⚠ &fこのコマンドはプレイヤーのみ使用できます！'
     GradientMinTwo: '&c✘ &fグラデーションには少なくとも &c2 &f色が必要です！'
   CommandResult:
     NoPermission: '&c✘ &f権限がありません！権限: &c%perm%&f.'

@@ -27,7 +27,7 @@ Messages:
     Set: '&a✓ &fSöhbət rənginiz yeniləndi!'
     Invalid: '&c✘ &fBu keçərli rəng kodu deyil!'
     Reset: '&a✓ &fSöhbət rənginiz sıfırlandı!'
-    OnlyPlayers: '&cYalnız oyunçular bu əmrdən istifadə edə bilər!'
+    OnlyPlayers: '&4⚠ &fYalnız oyunçular bu əmrdən istifadə edə bilər!'
     GradientMinTwo: '&c✘ &fQradient üçün ən az &c2 &frəng tələb olunur!'
   CommandResult:
     NoPermission: '&c✘ &fBunun üçün icazəniz yoxdur! İcazə: &c%perm%&f.'

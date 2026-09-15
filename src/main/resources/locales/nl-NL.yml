@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fJe chatkleur is bijgewerkt!'
     Invalid: '&c✘ &fDat is geen geldige kleurcode!'
     Reset: '&a✔ &fJe chatkleur is gereset!'
-    OnlyPlayers: '&cAlleen spelers kunnen dit commando gebruiken!'
+    OnlyPlayers: '&4⚠ &fAlleen spelers kunnen dit commando gebruiken!'
     GradientMinTwo: '&c✘ &fVerloop heeft minimaal &c2 &fkleuren nodig!'
   CommandResult:
     NoPermission: '&c✘ &fJe hebt geen toestemming! Toestemming: &c%perm%&f.'

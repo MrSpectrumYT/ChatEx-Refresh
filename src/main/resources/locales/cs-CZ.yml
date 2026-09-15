@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fBarva vašeho chatu byla aktualizována!'
     Invalid: '&c✘ &fToto není platný barevný kód!'
     Reset: '&a✔ &fBarva vašeho chatu byla resetována!'
-    OnlyPlayers: '&cTento příkaz mohou používat pouze hráči!'
+    OnlyPlayers: '&4⚠ &fTento příkaz mohou používat pouze hráči!'
     GradientMinTwo: '&c✘ &fPro gradient jsou potřeba alespoň &c2 &fbarvy!'
   CommandResult:
     NoPermission: '&c✘ &fNemáte oprávnění! Oprávnění: &c%perm%&f.'

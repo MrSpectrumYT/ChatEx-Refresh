@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fDin chatfarve er blevet opdateret!'
     Invalid: '&c✘ &fDet er ikke en gyldig farvekode!'
     Reset: '&a✔ &fDin chatfarve er blevet nulstillet!'
-    OnlyPlayers: '&cKun spillere kan bruge denne kommando!'
+    OnlyPlayers: '&4⚠ &fKun spillere kan bruge denne kommando!'
     GradientMinTwo: '&c✘ &fGradient kræver mindst &c2 &ffarver!'
   CommandResult:
     NoPermission: '&c✘ &fDu har ikke tilladelse til dette! Tilladelse: &c%perm%&f.'

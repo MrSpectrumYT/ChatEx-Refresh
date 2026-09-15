@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &f您的聊天颜色已更新！'
     Invalid: '&c✘ &f这不是一个有效的颜色代码！'
     Reset: '&a✔ &f您的聊天颜色已重置！'
-    OnlyPlayers: '&c只有玩家才能使用此命令！'
+    OnlyPlayers: '&4⚠ &f只有玩家才能使用此命令！'
     GradientMinTwo: '&c✘ &f渐变色至少需要 &c2 &f种颜色！'
   CommandResult:
     NoPermission: '&c✘ &f您没有权限！所需权限: &c%perm%&f.'

@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fCuloarea chat-ului tău a fost actualizată!'
     Invalid: '&c✘ &fAcesta nu este un cod de culoare valid!'
     Reset: '&a✔ &fCuloarea chat-ului tău a fost resetată!'
-    OnlyPlayers: '&cDoar jucătorii pot folosi această comandă!'
+    OnlyPlayers: '&4⚠ &fDoar jucătorii pot folosi această comandă!'
     GradientMinTwo: '&c✘ &fGradientul necesită cel puțin &c2 &fculori!'
   CommandResult:
     NoPermission: '&c✘ &fNu ai permisiune pentru aceasta! Permisiune: &c%perm%&f.'

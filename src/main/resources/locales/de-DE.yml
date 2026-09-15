@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fDeine Chatfarbe wurde aktualisiert!'
     Invalid: '&c✘ &fDas ist kein gültiger Farbcode!'
     Reset: '&a✔ &fDeine Chatfarbe wurde zurückgesetzt!'
-    OnlyPlayers: '&cNur Spieler können diesen Befehl verwenden!'
+    OnlyPlayers: '&4⚠ &fNur Spieler können diesen Befehl verwenden!'
     GradientMinTwo: '&c✘ &fFür einen Farbverlauf werden mindestens &c2 &fFarben benötigt!'
   CommandResult:
     NoPermission: '&c✘ &fDu hast keine Rechte dafür! Recht: &c%perm%&f.'

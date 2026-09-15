@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fChattisi väri on päivitetty!'
     Invalid: '&c✘ &fTämä ei ole kelvollinen värikoodi!'
     Reset: '&a✔ &fChattisi väri on nollattu!'
-    OnlyPlayers: '&cVain pelaajat voivat käyttää tätä komentoa!'
+    OnlyPlayers: '&4⚠ &fVain pelaajat voivat käyttää tätä komentoa!'
     GradientMinTwo: '&c✘ &fLiukuva väri vaatii vähintään &c2 &fvärjä!'
   CommandResult:
     NoPermission: '&c✘ &fSinulla ei ole oikeutta tähän! Oikeus: &c%perm%&f.'

@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &f¡El color de tu chat ha sido actualizado!'
     Invalid: '&c✘ &f¡Ese no es un código de color válido!'
     Reset: '&a✔ &f¡El color de tu chat ha sido restablecido!'
-    OnlyPlayers: '&c¡Solo los jugadores pueden usar este comando!'
+    OnlyPlayers: '&4⚠ &f¡Solo los jugadores pueden usar este comando!'
     GradientMinTwo: '&c✘ &f¡El degradado requiere al menos &c2 &fcolores!'
   CommandResult:
     NoPermission: '&c✘ &f¡No tienes permiso para esto! Permiso: &c%perm%&f.'

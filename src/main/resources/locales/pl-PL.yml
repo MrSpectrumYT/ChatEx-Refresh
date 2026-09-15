@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fKolor twojego czatu został zaktualizowany!'
     Invalid: '&c✘ &fTo nie jest prawidłowy kod koloru!'
     Reset: '&a✔ &fKolor twojego czatu został zresetowany!'
-    OnlyPlayers: '&cTylko gracze mogą używać tej komendy!'
+    OnlyPlayers: '&4⚠ &fTylko gracze mogą używać tej komendy!'
     GradientMinTwo: '&c✘ &fGradient wymaga co najmniej &c2 &fkolorów!'
   CommandResult:
     NoPermission: '&c✘ &fNie masz uprawnień! Uprawnienie: &c%perm%&f.'

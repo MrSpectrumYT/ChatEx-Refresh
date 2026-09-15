@@ -46,7 +46,7 @@ public enum Locales {
     COLOR_SET_SUCCESS("Messages.Color.Set", "&a✔ &fYour chat color has been updated!"),
     COLOR_INVALID("Messages.Color.Invalid", "&c✘ &fThat is not a valid color code!"),
     COLOR_RESET("Messages.Color.Reset", "&a✔ &fYour chat color has been reset!"),
-    COLOR_ONLY_PLAYERS("Messages.Color.OnlyPlayers", "&cOnly players can use this command!"),
+    COLOR_ONLY_PLAYERS("Messages.Color.OnlyPlayers", "&4⚠ &fOnly players can use this command!"),
     COLOR_GRADIENT_MIN_TWO("Messages.Color.GradientMinTwo", "&c✘ &fGradient requires at least &c2 &fcolors!"),
     COMMAND_RESULT_NO_PERM("Messages.CommandResult.NoPermission", "&c✘ &fYou don't have permission for this! Permission: &c%perm%&f."),
     COMMAND_RESULT_WRONG_USAGE("Messages.CommandResult.WrongUsage", "&c✘ &fWrong usage! Please type &c%cmd% help&f!"),

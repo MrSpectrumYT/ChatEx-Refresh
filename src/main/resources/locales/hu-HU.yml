@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fA chat színed frissítve!'
     Invalid: '&c✘ &fEz nem érvényes színkód!'
     Reset: '&a✔ &fA chat színed visszaállítva!'
-    OnlyPlayers: '&cEzt a parancsot csak játékosok használhatják!'
+    OnlyPlayers: '&4⚠ &fEzt a parancsot csak játékosok használhatják!'
     GradientMinTwo: '&c✘ &fA gradienshez legalább &c2 &fszín szükséges!'
   CommandResult:
     NoPermission: '&c✘ &fNincs jogod ehhez! Jogosultság: &c%perm%&f.'

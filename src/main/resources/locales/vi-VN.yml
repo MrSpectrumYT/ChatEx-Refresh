@@ -27,7 +27,7 @@ Messages:
     Set: '&a✔ &fMàu chat của bạn đã được cập nhật!'
     Invalid: '&c✘ &fĐó không phải là mã màu hợp lệ!'
     Reset: '&a✔ &fMàu chat của bạn đã được đặt lại!'
-    OnlyPlayers: '&cChỉ người chơi mới có thể sử dụng lệnh này!'
+    OnlyPlayers: '&4⚠ &fChỉ người chơi mới có thể sử dụng lệnh này!'
     GradientMinTwo: '&c✘ &fGradient cần ít nhất &c2 &fmàu!'
   CommandResult:
     NoPermission: '&c✘ &fBạn không có quyền cho việc này! Quyền hạn: &c%perm%&f.'

@@ -322,14 +322,4 @@ public class Utils {
 
         return result + "§r";
     }
-
-    public static void log(String message) {
-        if (message == null) return;
-        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §f" + replaceColors(message));
-    }
-
-    public static void warn(String message) {
-        if (message == null) return;
-        Bukkit.getConsoleSender().sendMessage("§7[§aChatEx-Refresh§7] §e" + replaceColors(message));
-    }
 }
