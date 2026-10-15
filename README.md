@@ -83,10 +83,10 @@
 ### Umbrella permissions
 | Permission | Default | Description |
 |------------|---------|-------------|
-| `chatex.chat.legacy` | op | All legacy color permissions |
+| `chatex.chat.color` | op | All legacy color permissions |
 | `chatex.chat.minimessage` | op | All MiniMessage permissions |
 
-> **💡 Note:** `chatex.chat.color` is a standalone permission for the `/color` command — it does **not** grant any MiniMessage or legacy color permissions.
+> **💡 Note:** `chatex.color` is a standalone permission for the `/color` command — it does **not** grant any MiniMessage or legacy color permissions.
 
 ## 📦 Requirements
 
