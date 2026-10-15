@@ -25,6 +25,8 @@ import de.jeter.chatex.utils.Locales;
 import de.jeter.chatex.utils.Utils;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -93,9 +95,9 @@ public class SimpleAdManager implements AdManager {
         }
         boolean found = checkForIPPattern(msg) || checkForWebPattern(msg);
         if (found) {
-            String message = Locales.MESSAGES_AD_NOTIFY.getString(p)
-                    .replaceAll("%player%", Matcher.quoteReplacement(p.getName()))
-                    .replaceAll("%message%", Matcher.quoteReplacement(msg));
+            Map<String, String> values = new HashMap<>();
+            values.put("%message%", msg);
+            String message = Locales.MESSAGES_AD_NOTIFY.getString(p, values);
             Utils.notifyOps(message);
             ChatLogger.writeToAdFile(p, msg);
         }

@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fApua chattiin:
-      &f● &e/%cmd% clear &f— tyhjentää chatin.
-      &f● &e/%cmd% help &f— apua chattiin.
-      &f● &e/%cmd% reload &f— lataa liitännäisen uudelleen.
+      &fOhje chatille:
+      &f● <hover:show_text:'&#F34723Klikkaa suorittaaksesi /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— tyhjentää chatin.
+      &f● <hover:show_text:'&#F34723Klikkaa suorittaaksesi /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— ohje chatille.
+      &f● <hover:show_text:'&#F34723Klikkaa suorittaaksesi /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— lataa plugarin uudelleen.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fAsetukset ja kielitiedostot ladattiin uudelleen onnistuneesti!'
+      Success: '&fAsetukset, käännökset ja tietokanta ladattu onnistuneesti uudelleen!'
     Clear:
-      Success: '&4⚠ &fChatin tyhjensi &4%clearer%&f.'
+      Success: '&fChatin tyhjensi &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fMainostaminen on kielletty!'
-    BlockedWord: '&c✘ &fTämä sana on kielletty!'
-    AdNotify: '&4⚠ %player% &fyritti lähettää &4%message% &fchattiin!'
-    NoOneListens: '&4⚠ &fKukaan pelaaja ei ole tarpeeksi lähellä kuullakseen sinua! Käytä globaalia tilaa.'
-  NoColorPermission: '&c✘ &fSinulla ei ole oikeutta käyttää tavallisia värejä!'
-  NoModifierPermission: '&c✘ &fSinulla ei ole oikeutta käyttää muotoilukoodeja!'
-  NoHexPermission: '&c✘ &fSinulla ei ole oikeutta käyttää HEX-värejä!'
-  NoGradientPermission: '&c✘ &fSinulla ei ole oikeutta käyttää liukuvärejä!'
-  MagicBlocked: '&c✘ &fSinulla ei ole oikeutta käyttää maagisia värejä!'
+    AdDetected: '&fMainostaminen ei ole sallittua!'
+    BlockedWord: '&fTämä sana ei ole sallittu!'
+    AdNotify: '&#9B2D30%player%&r &fyritti kirjoittaa &#9B2D30%message%&r &fchattiin!'
+    NoOneListens: '&fLähelläsi ei ole pelaajia, jotka kuulisivat sinua! Kokeile yleistä tilaa!'
+  NoColorPermission: '&fSinulla ei ole oikeutta käyttää legacy-värejä!'
+  NoModifierPermission: '&fSinulla ei ole oikeutta käyttää muotoilukoodeja!'
+  NoHexPermission: '&fSinulla ei ole oikeutta käyttää HEX-värejä!'
+  NoGradientPermission: '&fSinulla ei ole oikeutta käyttää liukuvärejä!'
+  MagicBlocked: '&fSinulla ei ole oikeutta käyttää taikaväriä!'
+  Integrity:
+    Config:
+      Loaded: config.yml ladattu onnistuneesti!
+      Failed: 'config.yml on rikki: %error% — tiedostoa EI muutettu! Aiemmat/oletusarvot ovat käytössä! Korjaa tiedosto ja käytä /chatex reload.'
+    Locale:
+      Loaded: '%file% käännös ladattu onnistuneesti!'
+      Failed: '%file% käännös on rikki: %error% — tiedostoa EI muutettu! Aiemmat/sisäänrakennetut englanninkieliset tekstit ovat käytössä! Korjaa tiedosto ja käytä /chatex reload.'
+    Database:
+      Loaded: '%file% tietokanta ladattu onnistuneesti!'
+      Failed: '%file% tietokanta on rikki: %error% — tiedostoa EI muutettu eikä siihen tallenneta mitään, ennen kuin se on korjattu (henkilökohtaiset värit menetetään uudelleenkäynnistyksessä)! Korjaa tiedosto ja käytä /chatex reload.'
+      SaveFailed: '%file% tietokanta on rikki, joten muutosta EI tallennettu levylle (tiedosto on koskematon)! Korjaa tiedosto ja käytä /chatex reload.'
   Color:
-    Usage: '&e☀ &fKäyttö: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fChattisi väri on päivitetty!'
-    Invalid: '&c✘ &fTämä ei ole kelvollinen värikoodi!'
-    Reset: '&a✔ &fChattisi väri on nollattu!'
-    OnlyPlayers: '&4⚠ &fVain pelaajat voivat käyttää tätä komentoa!'
-    GradientMinTwo: '&c✘ &fLiukuva väri vaatii vähintään &c2 &fvärjä!'
+    PersonalActive: '&fSinulla on henkilökohtainen chat-väri, joten et voi käyttää värejä tai tekstimuotoilua chatissa! Käytä <hover:show_text:''<#9B2D30>Klikkaa nollataksesi chat-värisi''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r poistaaksesi sen.'
+    Usage: |-
+      &f&fVärillisen chatin käyttö:
+      &f● <hover:show_text:'&#F34723Ehdota esimerkkiä legacy-väristä'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— aseta legacy-väri.
+      &f● <hover:show_text:'&#F34723Ehdota esimerkkiä №1 HEX-väristä'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— aseta HEX-väri.
+      &f● <hover:show_text:'&#F34723Ehdota esimerkkiä №2 HEX-väristä'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— aseta HEX-väri.
+      &f● <hover:show_text:'&#F34723Ehdota esimerkkiä HEX-liukuväristä'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— aseta HEX-liukuväri.
+      &f● <hover:show_text:'&#F34723Ehdota esimerkkiä legacy-liukuväristä'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— aseta legacy-liukuväri.
+      &f● <hover:show_text:'&#F34723Klikkaa nollataksesi henkilökohtaisen värin'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— nollaa värisi.
+      &f
+      &fKun asetat minkä tahansa värin, muuntimet (esim. &#F34723&&#F34723l&r&f) sijoitetaan värin jälkeen ilman pilkkuja tai välilyöntejä; liukuvärissä vain viimeisen värin jälkeen!
+      &f
+    Set: '&fChat-värisi on päivitetty!'
+    Invalid: '&fTuo ei ole kelvollinen värikoodi!'
+    Reset: '&fChat-värisi on nollattu!'
+    OnlyPlayers: '&fVain pelaajat voivat käyttää tätä komentoa!'
+    GradientMinTwo: '&fLiukuväri vaatii vähintään &#CA2C922 väriä&r&f!'
+  MiniMessage:
+    NoColor: '&fSinulla ei ole oikeutta käyttää MiniMessage-värejä!'
+    NoModifier: '&fSinulla ei ole oikeutta käyttää MiniMessage-muotoilutageja!'
+    NoHex: '&fSinulla ei ole oikeutta käyttää MiniMessage HEX -värejä!'
+    NoMagic: '&fSinulla ei ole oikeutta käyttää MiniMessage obfuscated -tagia!'
+    NoGradient: '&fSinulla ei ole oikeutta käyttää MiniMessage gradient-tagia!'
+    NoRainbow: '&fSinulla ei ole oikeutta käyttää MiniMessage rainbow-tagia!'
+    NoUrl: '&fSinulla ei ole oikeutta käyttää klikattavia linkkejä chatissa!'
+    NoSuggest: '&fSinulla ei ole oikeutta käyttää suggest-command-tagia chatissa!'
+    NoCommand: '&fSinulla ei ole oikeutta käyttää run-command-tagia chatissa!'
+    NoCopy: '&fSinulla ei ole oikeutta käyttää copy-to-clipboard-tagia chatissa!'
+    NoHover: '&fSinulla ei ole oikeutta käyttää hover-tagia chatissa!'
+    NoInsertion: '&fSinulla ei ole oikeutta käyttää insertion-tagia chatissa!'
+    NoKeybind: '&fSinulla ei ole oikeutta käyttää keybind-tagia chatissa!'
+    NoFont: '&fSinulla ei ole oikeutta käyttää font-tagia chatissa!'
+    NoLang: '&fSinulla ei ole oikeutta käyttää translatable-tagia chatissa!'
+    NoNewline: '&fSinulla ei ole oikeutta käyttää newline-tagia chatissa!'
   CommandResult:
-    NoPermission: '&c✘ &fSinulla ei ole oikeutta tähän! Oikeus: &c%perm%&f.'
-    WrongUsage: '&c✘ &fVirheellinen käyttö! Kirjoita &c%cmd% help&f!'
+    NoPermission: '&fSinulla ei ole oikeutta tähän! Oikeus: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fVäärä käyttö! Kirjoita <hover:show_text:''&#F34723Klikkaa suorittaaksesi /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fSpammaaminen on kielletty! Odota vielä &c%time% &fsekuntia!'
+    Denied: '&fSpammaaminen ei ole sallittua! Odota vielä &#CA2C92%time% sekuntia&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fliittyi peliin!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fliittyi ensimmäistä kertaa!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fpotkittiin pelistä!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fpoistui pelistä!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fliittyi peliin!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fliittyi palvelimelle ensimmäistä kertaa!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fpotkittiin pelistä!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fpoistui pelistä!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh on nyt käytössä!'
-    Disabled: '✔ ChatEx-Refresh on nyt pois käytöstä!'
-    bStats: '✔ Kiitos bStatin käytöstä, se otettiin käyttöön! Liitännäisen ID: %id%.'
+    Enabled: ChatEx-Refresh on nyt käytössä!
+    Disabled: ChatEx-Refresh on nyt poistettu käytöstä!
+    bStats: 'Kiitos, että käytät bStatsia, se otettiin käyttöön! Pluginin ID: %id%.'
     Hooked:
-      LuckPerms: '✔ Yhdistettiin onnistuneesti LuckPermsiin!'
-      PlaceholderAPI: '✔ Yhdistettiin onnistuneesti PlaceholderAPIin!'
-    NoPermissions: '⚠ Oikeusliitännäistä ei löytynyt. Käytetään oletusoikeuksia.'
+      LuckPerms: Yhdistetty onnistuneesti LuckPermsiin!
+      PlaceholderAPI: Yhdistetty onnistuneesti PlaceholderAPIin!
+    NoPermissions: Oikeuspluginia ei löytynyt! Käytetään oletusoikeuksia.
   Update:
     Available:
-      Console: '&e⚠ &fUusi versio &eChatEx-Refresh &fistä saatavilla &eModrinth&fissä! Nykyinen versio: &e%current%&f. Uusin versio: &e%latest%&f. Lataa: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fon ajan tasalla! Versio: &a%current%&f.'
-    Failed: '&e⚠ &fPäivitysten tarkistaminen &eChatEx-Refresh &fille epäonnistui!'
+      Console: 'Uusi versio ChatEx-Refreshistä saatavilla Modrinthissa! Nykyinen versio: %current%. Uusin versio: %latest%. Lataus: %url%.'
+    UpToDate: 'ChatEx-Refresh on ajan tasalla! Versio: %current%.'
+    Failed: Päivitysten tarkistus ChatEx-Refreshille epäonnistui!
     Notify:
       Player: |-
         &f
-        &e⚠ &fUusi versio &eChatEx-Refresh &fistä saatavilla &eModrinth&fissä!
-        &f● Nykyinen versio: &e%current%&f.
-        &f● Uusin versio: &e%latest%&f.
-        &f● Lataa: &e%url%&f.
+        &fUusi versio &#3EB489ChatEx-Refresh&r &f saatavilla &#3EB489Modrinth&r&fissa!
+        &f● Nykyinen versio: &#3EB489%current%&r&f.
+        &f● Uusin versio: &#3EB489%latest%&r&f.
+        &f● Lataus: <hover:show_text:'&fKlikkaa avataksesi &#3EB489Modrinth&r-sivumme'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: KONSOLI
-    Unknown: TUNTEMATON
+    Console: CONSOLE
+    Unknown: UNKNOWN

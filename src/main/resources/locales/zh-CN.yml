@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &f聊天帮助:
-      &f● &e/%cmd% clear &f— 清空聊天栏.
-      &f● &e/%cmd% help &f— 聊天帮助.
-      &f● &e/%cmd% reload &f— 重新加载插件.
+      &f聊天帮助:
+      &f● <hover:show_text:'&#F34723点击运行 /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— 清除聊天。
+      &f● <hover:show_text:'&#F34723点击运行 /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— 聊天帮助。
+      &f● <hover:show_text:'&#F34723点击运行 /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— 重载插件。
       &f
   Commands:
     Reload:
-      Success: '&a✔ &f配置文件和语言文件已成功重新加载！'
+      Success: '&f配置、语言文件和数据库已成功重载！'
     Clear:
-      Success: '&4⚠ &f聊天栏已被 &4%clearer%&f 清空.'
+      Success: '&f聊天已被 &#9B2D30%clearer%&r&f 清除！'
   Chat:
-    AdDetected: '&c✘ &f禁止发布广告！'
-    BlockedWord: '&c✘ &f该词被禁止使用！'
-    AdNotify: '&4⚠ %player% &f尝试在聊天栏发布 &4%message%&f！'
-    NoOneListens: '&4⚠ &f附近没有玩家能听到你说话！请使用全局模式.'
-  NoColorPermission: '&c✘ &f您没有使用普通颜色的权限！'
-  NoModifierPermission: '&c✘ &f您没有使用格式代码的权限！'
-  NoHexPermission: '&c✘ &f您没有使用HEX颜色的权限！'
-  NoGradientPermission: '&c✘ &f您没有使用渐变颜色的权限！'
-  MagicBlocked: '&c✘ &f您没有使用魔法颜色的权限！'
+    AdDetected: '&f不允许发送广告！'
+    BlockedWord: '&f不允许使用此词语！'
+    AdNotify: '&#9B2D30%player%&r &f试图在聊天中发送 &#9B2D30%message%&r &f！'
+    NoOneListens: '&f附近没有玩家能听到你说话！请尝试使用全局模式！'
+  NoColorPermission: '&f你没有使用传统颜色的权限！'
+  NoModifierPermission: '&f你没有使用格式代码的权限！'
+  NoHexPermission: '&f你没有使用HEX颜色的权限！'
+  NoGradientPermission: '&f你没有使用渐变颜色的权限！'
+  MagicBlocked: '&f你没有使用魔法颜色的权限！'
+  Integrity:
+    Config:
+      Loaded: config.yml 加载成功！
+      Failed: 'config.yml 已损坏：%error% — 文件未被更改！正在使用之前/默认的值！请修复文件并使用 /chatex reload。'
+    Locale:
+      Loaded: '%file% 语言文件加载成功！'
+      Failed: '%file% 语言文件已损坏：%error% — 文件未被更改！正在使用之前/内置的英文文本！请修复文件并使用 /chatex reload。'
+    Database:
+      Loaded: '%file% 数据库加载成功！'
+      Failed: '%file% 数据库已损坏：%error% — 文件未被更改，在修复之前不会保存任何内容（个人颜色将在重启后丢失）！请修复文件并使用 /chatex reload。'
+      SaveFailed: '%file% 数据库已损坏，因此更改未保存到磁盘（文件保持原样）！请修复文件并使用 /chatex reload。'
   Color:
-    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &f您的聊天颜色已更新！'
-    Invalid: '&c✘ &f这不是一个有效的颜色代码！'
-    Reset: '&a✔ &f您的聊天颜色已重置！'
-    OnlyPlayers: '&4⚠ &f只有玩家才能使用此命令！'
-    GradientMinTwo: '&c✘ &f渐变色至少需要 &c2 &f种颜色！'
+    PersonalActive: '&f你拥有个人聊天颜色，因此无法在聊天中使用颜色或文本格式！请使用 <hover:show_text:''<#9B2D30>点击重置你的聊天颜色''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r 来移除它。'
+    Usage: |-
+      &f&f彩色聊天用法：
+      &f● <hover:show_text:'&#F34723建议一个传统颜色示例'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— 设置传统颜色。
+      &f● <hover:show_text:'&#F34723建议一个HEX颜色示例 №1'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— 设置HEX颜色。
+      &f● <hover:show_text:'&#F34723建议一个HEX颜色示例 №2'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— 设置HEX颜色。
+      &f● <hover:show_text:'&#F34723建议一个HEX渐变示例'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— 设置HEX渐变。
+      &f● <hover:show_text:'&#F34723建议一个传统渐变示例'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— 设置传统渐变。
+      &f● <hover:show_text:'&#F34723点击重置个人颜色'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— 重置你的颜色。
+      &f
+      &f设置任何颜色时，修饰符（例如 &#F34723&&#F34723l&r&f）放在颜色之后，不带逗号或空格；渐变时，仅放在最后一个颜色之后！
+      &f
+    Set: '&f你的聊天颜色已更新！'
+    Invalid: '&f这不是有效的颜色代码！'
+    Reset: '&f你的聊天颜色已重置！'
+    OnlyPlayers: '&f只有玩家可以使用此命令！'
+    GradientMinTwo: '&f渐变至少需要 &#CA2C922 种颜色&r&f！'
+  MiniMessage:
+    NoColor: '&f你没有使用MiniMessage颜色的权限！'
+    NoModifier: '&f你没有使用MiniMessage格式标签的权限！'
+    NoHex: '&f你没有使用MiniMessage HEX颜色的权限！'
+    NoMagic: '&f你没有使用MiniMessage obfuscated标签的权限！'
+    NoGradient: '&f你没有使用MiniMessage gradient标签的权限！'
+    NoRainbow: '&f你没有使用MiniMessage rainbow标签的权限！'
+    NoUrl: '&f你没有在聊天中使用可点击链接的权限！'
+    NoSuggest: '&f你没有在聊天中使用 suggest-command 标签的权限！'
+    NoCommand: '&f你没有在聊天中使用 run-command 标签的权限！'
+    NoCopy: '&f你没有在聊天中使用 copy-to-clipboard 标签的权限！'
+    NoHover: '&f你没有在聊天中使用 hover 标签的权限！'
+    NoInsertion: '&f你没有在聊天中使用 insertion 标签的权限！'
+    NoKeybind: '&f你没有在聊天中使用 keybind 标签的权限！'
+    NoFont: '&f你没有在聊天中使用 font 标签的权限！'
+    NoLang: '&f你没有在聊天中使用 translatable 标签的权限！'
+    NoNewline: '&f你没有在聊天中使用 newline 标签的权限！'
   CommandResult:
-    NoPermission: '&c✘ &f您没有权限！所需权限: &c%perm%&f.'
-    WrongUsage: '&c✘ &f用法错误！请输入 &c%cmd% help&f！'
+    NoPermission: '&f你没有此权限！权限：&#9B2D30%perm%&r&f。'
+    WrongUsage: '&f用法错误！请输入 <hover:show_text:''&#F34723点击运行 /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f！'
   AntiSpam:
-    Denied: '&c✘ &f禁止刷屏！请等待 &c%time% &f秒！'
+    Denied: '&f不允许发送垃圾信息！请再等待 &#CA2C92%time% 秒&r&f！'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &f加入了游戏！'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &f首次加入服务器！'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &f被踢出游戏！'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &f退出了游戏！'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &f加入了游戏！'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &f首次加入了服务器！'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &f被踢出了游戏！'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &f离开了游戏！'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh 已启用！'
-    Disabled: '✔ ChatEx-Refresh 已禁用！'
-    bStats: '✔ 感谢您使用 bStats，它已启用！插件 ID：%id%。'
+    Enabled: ChatEx-Refresh 已启用！
+    Disabled: ChatEx-Refresh 已禁用！
+    bStats: '感谢使用 bStats，它已启用！插件 ID：%id%。'
     Hooked:
-      LuckPerms: '✔ 成功挂钩到 LuckPerms！'
-      PlaceholderAPI: '✔ 成功挂钩到 PlaceholderAPI！'
-    NoPermissions: '⚠ 未找到权限插件。正在使用默认权限。'
+      LuckPerms: 已成功连接到 LuckPerms！
+      PlaceholderAPI: 已成功连接到 PlaceholderAPI！
+    NoPermissions: 未找到权限插件！正在使用默认权限。
   Update:
     Available:
-      Console: '&e⚠ &f&eChatEx-Refresh &f的新版本已在 &eModrinth&f 上可用！当前版本：&e%current%&f。最新版本：&e%latest%&f。下载地址：&e%url%&f。'
-    UpToDate: '&a✔ ChatEx-Refresh &f已是最新版本！版本：&a%current%&f。'
-    Failed: '&e⚠ &f无法检查 &eChatEx-Refresh &f的更新！'
+      Console: 'ChatEx-Refresh 有新版本可在 Modrinth 上获取！当前版本：%current%。最新版本：%latest%。下载：%url%。'
+    UpToDate: 'ChatEx-Refresh 已是最新版本！版本：%current%。'
+    Failed: 无法检查 ChatEx-Refresh 的更新！
     Notify:
       Player: |-
         &f
-        &e⚠ &f&eChatEx-Refresh &f的新版本已在 &eModrinth&f 上可用！
-        &f● 当前版本：&e%current%&f。
-        &f● 最新版本：&e%latest%&f。
-        &f● 下载地址：&e%url%&f。
+        &f&#3EB489ChatEx-Refresh&r &f有新版本可在 &#3EB489Modrinth&r&f 上获取！
+        &f● 当前版本：&#3EB489%current%&r&f。
+        &f● 最新版本：&#3EB489%latest%&r&f。
+        &f● 下载：<hover:show_text:'&f点击打开我们的 &#3EB489Modrinth&r 页面'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f。
         &f
 Commands:
   Clear:
-    Console: 控制台
-    Unknown: 未知
+    Console: CONSOLE
+    Unknown: UNKNOWN

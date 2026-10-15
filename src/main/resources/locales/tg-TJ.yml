@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fКумак барои чат:
-      &f● &e/%cmd% clear &f— чатро тоза мекунад.
-      &f● &e/%cmd% help &f— кумак барои чат.
-      &f● &e/%cmd% reload &f— плагинро аз нав бор мекунад.
+      &fКӯмак барои чат:
+      &f● <hover:show_text:'&#F34723Барои иҷрои /%cmd% clear клик кунед'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— чатро тоза мекунад.
+      &f● <hover:show_text:'&#F34723Барои иҷрои /%cmd% help клик кунед'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— кӯмак барои чат.
+      &f● <hover:show_text:'&#F34723Барои иҷрои /%cmd% reload клик кунед'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— плагинро аз нав бор мекунад.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fКонфигуратсия ва забонҳо бомуваффақият аз нав бор карда шуданд!'
+      Success: '&fТанзимот, локализатсияҳо ва пойгоҳи додаҳо бомуваффақият аз нав бор карда шуданд!'
     Clear:
-      Success: '&4⚠ &fЧат аз ҷониби &4%clearer%&f тоза карда шуд.'
+      Success: '&fЧат аз ҷониби &#9B2D30%clearer%&r&f тоза карда шуд!'
   Chat:
-    AdDetected: '&c✘ &fРеклама манъ аст!'
-    BlockedWord: '&c✘ &fИн калима манъ аст!'
-    AdNotify: '&4⚠ %player% &fкӯшиш кард, ки дар чат &4%message% &fнависад!'
-    NoOneListens: '&4⚠ &fҲеҷ бозигаре дар наздикӣ нест, ки шуморо шунавад! Реҷами глобалиро истифода баред.'
-  NoColorPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои оддиро надоред!'
-  NoModifierPermission: '&c✘ &fШумо иҷозати истифодаи рамзҳои тартибдиҳиро надоред!'
-  NoHexPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои HEX-ро надоред!'
-  NoGradientPermission: '&c✘ &fШумо иҷозати истифодаи рангҳои градиентиро надоред!'
-  MagicBlocked: '&c✘ &fШумо иҷозати истифодаи рангҳои ҷодуиро надоред!'
+    AdDetected: '&fРеклама иҷозат дода намешавад!'
+    BlockedWord: '&fИн калима иҷозат дода намешавад!'
+    AdNotify: '&#9B2D30%player%&r &fкӯшиш кард, ки &#9B2D30%message%&r &fро дар чат нависад!'
+    NoOneListens: '&fДар наздикӣ бозигароне нест, ки шуморо шунаванд! Реҷаи глобалиро санҷед!'
+  NoColorPermission: '&fШумо иҷозати истифодаи рангҳои legacy надоред!'
+  NoModifierPermission: '&fШумо иҷозати истифодаи кодҳои форматкунӣ надоред!'
+  NoHexPermission: '&fШумо иҷозати истифодаи рангҳои HEX надоред!'
+  NoGradientPermission: '&fШумо иҷозати истифодаи рангҳои градиентӣ надоред!'
+  MagicBlocked: '&fШумо иҷозати истифодаи ранги ҷодуӣ надоред!'
+  Integrity:
+    Config:
+      Loaded: config.yml бомуваффақият бор карда шуд!
+      Failed: 'config.yml вайрон аст: %error% — файл ТАҒЙИР НАЁФТ! Қиматҳои қаблӣ/пешфарз истифода мешаванд! Файлро ислоҳ кунед ва /chatex reload-ро истифода баред.'
+    Locale:
+      Loaded: '%file% локализатсия бомуваффақият бор карда шуд!'
+      Failed: '%file% локализатсия вайрон аст: %error% — файл ТАҒЙИР НАЁФТ! Матнҳои қаблӣ/дарунсохташудаи англисӣ истифода мешаванд! Файлро ислоҳ кунед ва /chatex reload-ро истифода баред.'
+    Database:
+      Loaded: '%file% пойгоҳи додаҳо бомуваффақият бор карда шуд!'
+      Failed: '%file% пойгоҳи додаҳо вайрон аст: %error% — файл ТАҒЙИР НАЁФТ ва то ислоҳ нашавад, чизе дар он нигоҳ дошта намешавад (рангҳои шахсӣ ҳангоми аз нав оғоз кардан гум мешаванд)! Файлро ислоҳ кунед ва /chatex reload-ро истифода баред.'
+      SaveFailed: '%file% пойгоҳи додаҳо вайрон аст, бинобар ин тағйирот ба диск САБТ НАШУД (файл дастнорас монд)! Файлро ислоҳ кунед ва /chatex reload-ро истифода баред.'
   Color:
-    Usage: '&e☀ &fИстифода: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fРанги чати шумо нав карда шуд!'
-    Invalid: '&c✘ &fИн рамзи ранги дуруст нест!'
-    Reset: '&a✔ &fРанги чати шумо барқарор карда шуд!'
-    OnlyPlayers: '&4⚠ &fТанҳо бозигарон метавонанд ин фармонро истифода баранд!'
-    GradientMinTwo: '&c✘ &fБарои градиент ҳадди аққал &c2 &fранг лозим аст!'
+    PersonalActive: '&fШумо ранги шахсии чат доред, бинобар ин шумо наметавонед рангҳо ё форматкунии матнро дар чат истифода баред! Барои нест кардани он <hover:show_text:''<#9B2D30>Барои аз нав танзим кардани ранги чат клик кунед''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r-ро истифода баред.'
+    Usage: |-
+      &f&fИстифодаи чати рангин:
+      &f● <hover:show_text:'&#F34723Намунаи ранги legacy-ро пешниҳод кунед'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— ранги legacy-ро танзим кунед.
+      &f● <hover:show_text:'&#F34723Намунаи №1 ранги HEX-ро пешниҳод кунед'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— ранги HEX-ро танзим кунед.
+      &f● <hover:show_text:'&#F34723Намунаи №2 ранги HEX-ро пешниҳод кунед'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— ранги HEX-ро танзим кунед.
+      &f● <hover:show_text:'&#F34723Намунаи градиенти HEX-ро пешниҳод кунед'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— градиенти HEX-ро танзим кунед.
+      &f● <hover:show_text:'&#F34723Намунаи градиенти legacy-ро пешниҳод кунед'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— градиенти legacy-ро танзим кунед.
+      &f● <hover:show_text:'&#F34723Барои аз нав танзим кардани ранги шахсӣ клик кунед'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— ранги худро аз нав танзим кунед.
+      &f
+      &fҲангоми танзими ягон ранг, модификаторҳо (масалан, &#F34723&&#F34723l&r&f) баъд аз ранг бе вергул ё фосила ҷойгир мешаванд; дар градиент танҳо баъд аз ранги охирин!
+      &f
+    Set: '&fРанги чати шумо навсозӣ шуд!'
+    Invalid: '&fИн коди дурусти ранг нест!'
+    Reset: '&fРанги чати шумо аз нав танзим шуд!'
+    OnlyPlayers: '&fИн фармонро танҳо бозигарон истифода бурда метавонанд!'
+    GradientMinTwo: '&fБарои градиент ҳадди аққал &#CA2C922 ранг&r&f лозим аст!'
+  MiniMessage:
+    NoColor: '&fШумо иҷозати истифодаи рангҳои MiniMessage надоред!'
+    NoModifier: '&fШумо иҷозати истифодаи тегҳои форматкунии MiniMessage надоред!'
+    NoHex: '&fШумо иҷозати истифодаи рангҳои HEX-и MiniMessage надоред!'
+    NoMagic: '&fШумо иҷозати истифодаи теги obfuscated-и MiniMessage надоред!'
+    NoGradient: '&fШумо иҷозати истифодаи теги gradient-и MiniMessage надоред!'
+    NoRainbow: '&fШумо иҷозати истифодаи теги rainbow-и MiniMessage надоред!'
+    NoUrl: '&fШумо иҷозати истифодаи пайвандҳои кликшаванда дар чат надоред!'
+    NoSuggest: '&fШумо иҷозати истифодаи теги suggest-command дар чат надоред!'
+    NoCommand: '&fШумо иҷозати истифодаи теги run-command дар чат надоред!'
+    NoCopy: '&fШумо иҷозати истифодаи теги copy-to-clipboard дар чат надоред!'
+    NoHover: '&fШумо иҷозати истифодаи теги hover дар чат надоред!'
+    NoInsertion: '&fШумо иҷозати истифодаи теги insertion дар чат надоред!'
+    NoKeybind: '&fШумо иҷозати истифодаи теги keybind дар чат надоред!'
+    NoFont: '&fШумо иҷозати истифодаи теги font дар чат надоред!'
+    NoLang: '&fШумо иҷозати истифодаи теги translatable дар чат надоред!'
+    NoNewline: '&fШумо иҷозати истифодаи теги newline дар чат надоред!'
   CommandResult:
-    NoPermission: '&c✘ &fШумо барои ин иҷозат надоред! Иҷозат: &c%perm%&f.'
-    WrongUsage: '&c✘ &fИстифодаи нодуруст! Лутфан &c%cmd% help&f нависед!'
+    NoPermission: '&fШумо барои ин иҷозат надоред! Иҷозат: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fИстифодаи нодуруст! Лутфан <hover:show_text:''&#F34723Барои иҷрои /%cmd% help клик кунед''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f-ро нависед!'
   AntiSpam:
-    Denied: '&c✘ &fСпам манъ аст! Лутфан &c%time% &fсонияи дигар интизор шавед!'
+    Denied: '&fСпам иҷозат дода намешавад! Лутфан боз &#CA2C92%time% сония&r&f интизор шавед!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fба бози ҳамроҳ шуд!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fбори аввал ба сервер ҳамроҳ шуд!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fаз бозӣ ронда шуд!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fаз бозӣ баромад!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fба бозӣ ҳамроҳ шуд!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fбoри аввал ба сервер ҳамроҳ шуд!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fаз бозӣ ронда шуд!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fбозӣро тарк кард!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh акнун фаъол карда шуд!'
-    Disabled: '✔ ChatEx-Refresh акнун ғайрифаъол карда шуд!'
-    bStats: '✔ Ташаккур барои истифодаи bStats, он фаъол карда шуд! ID плагин: %id%.'
+    Enabled: ChatEx-Refresh ҳоло фаъол аст!
+    Disabled: ChatEx-Refresh ҳоло ғайрифаъол аст!
+    bStats: 'Ташаккур барои истифодаи bStats, он фаъол карда шуд! ID-и плагин: %id%.'
     Hooked:
-      LuckPerms: '✔ Бомуваффақият ба LuckPerms пайваст шуд!'
-      PlaceholderAPI: '✔ Бомуваффақият ба PlaceholderAPI пайваст шуд!'
-    NoPermissions: '⚠ Ҳеҷ плагини иҷозат ёфт нашуд. Иҷозатҳои пешфарз истифода мешаванд.'
+      LuckPerms: Бомуваффақият ба LuckPerms пайваст шуд!
+      PlaceholderAPI: Бомуваффақият ба PlaceholderAPI пайваст шуд!
+    NoPermissions: Плагини иҷозатҳо ёфт нашуд! Иҷозатҳои пешфарз истифода мешаванд.
   Update:
     Available:
-      Console: '&e⚠ &fВерсияи нави &eChatEx-Refresh &fдар &eModrinth&f дастрас аст! Версияи ҷорӣ: &e%current%&f. Версияи охирин: &e%latest%&f. Боргирӣ: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fнавсозӣ шудааст! Версия: &a%current%&f.'
-    Failed: '&e⚠ &fСанҷиши навсозӣ барои &eChatEx-Refresh&f ноком шуд!'
+      Console: 'Версияи нави ChatEx-Refresh дар Modrinth дастрас аст! Версияи ҷорӣ: %current%. Версияи охирин: %latest%. Боргирӣ: %url%.'
+    UpToDate: 'ChatEx-Refresh навсозӣ шудааст! Версия: %current%.'
+    Failed: Санҷиши навсозиҳо барои ChatEx-Refresh ноком шуд!
     Notify:
       Player: |-
         &f
-        &e⚠ &fВерсияи нави &eChatEx-Refresh &fдар &eModrinth&f дастрас аст!
-        &f● Версияи ҷорӣ: &e%current%&f.
-        &f● Версияи охирин: &e%latest%&f.
-        &f● Боргирӣ: &e%url%&f.
+        &fВерсияи нави &#3EB489ChatEx-Refresh&r &fдар &#3EB489Modrinth&r&f дастрас аст!
+        &f● Версияи ҷорӣ: &#3EB489%current%&r&f.
+        &f● Версияи охирин: &#3EB489%latest%&r&f.
+        &f● Боргирӣ: <hover:show_text:'&fБарои кушодани саҳифаи &#3EB489Modrinth&r-и мо клик кунед'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: КОНСОЛ
-    Unknown: НОМАЪЛУМ
+    Console: CONSOLE
+    Unknown: UNKNOWN

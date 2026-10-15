@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fПомощ за чата:
-      &f● &e/%cmd% clear &f— изчиства чата.
-      &f● &e/%cmd% help &f— помощ за чата.
-      &f● &e/%cmd% reload &f— презарежда плъгина.
+      &fПомощ за чата:
+      &f● <hover:show_text:'&#F34723Кликнете, за да изпълните /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— изчиства чата.
+      &f● <hover:show_text:'&#F34723Кликнете, за да изпълните /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— помощ за чата.
+      &f● <hover:show_text:'&#F34723Кликнете, за да изпълните /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— презарежда плъгина.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fКонфигурацията и езиците бяха успешно презаредени!'
+      Success: '&fКонфигурацията, локализациите и базата данни бяха успешно презаредени!'
     Clear:
-      Success: '&4⚠ &fЧатът беше изчистен от &4%clearer%&f.'
+      Success: '&fЧатът беше изчистен от &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fРекламите не са позволени!'
-    BlockedWord: '&c✘ &fТази дума не е позволена!'
-    AdNotify: '&4⚠ %player% &fсе опита да напише &4%message% &fв чата!'
-    NoOneListens: '&4⚠ &fНяма играчи наблизо, които да ви чуят! Използвайте глобален режим.'
-  NoColorPermission: '&c✘ &fНямате права за използване на обикновени цветове!'
-  NoModifierPermission: '&c✘ &fНямате права за използване на кодове за форматиране!'
-  NoHexPermission: '&c✘ &fНямате права за използване на HEX цветове!'
-  NoGradientPermission: '&c✘ &fНямате права за използване на градиентни цветове!'
-  MagicBlocked: '&c✘ &fНямате права за използване на магически цветове!'
+    AdDetected: '&fРекламата не е разрешена!'
+    BlockedWord: '&fТази дума не е разрешена!'
+    AdNotify: '&#9B2D30%player%&r &fсе опита да напише &#9B2D30%message%&r &fв чата!'
+    NoOneListens: '&fНяма играчи наблизо, които да ви чуят! Опитайте да използвате глобалния режим!'
+  NoColorPermission: '&fНямате разрешение да използвате legacy цветове!'
+  NoModifierPermission: '&fНямате разрешение да използвате кодове за форматиране!'
+  NoHexPermission: '&fНямате разрешение да използвате HEX цветове!'
+  NoGradientPermission: '&fНямате разрешение да използвате градиентни цветове!'
+  MagicBlocked: '&fНямате разрешение да използвате магичен цвят!'
+  Integrity:
+    Config:
+      Loaded: config.yml е зареден успешно!
+      Failed: 'config.yml е повреден: %error% — файлът НЕ беше променен! Използват се предишните/стандартните стойности! Поправете файла и използвайте /chatex reload.'
+    Locale:
+      Loaded: '%file% локализацията е заредена успешно!'
+      Failed: '%file% локализацията е повредена: %error% — файлът НЕ беше променен! Използват се предишните/вградените английски текстове! Поправете файла и използвайте /chatex reload.'
+    Database:
+      Loaded: '%file% базата данни е заредена успешно!'
+      Failed: '%file% базата данни е повредена: %error% — файлът НЕ беше променен и нищо не се записва в него, докато не бъде поправен (личните цветове се губят при рестартиране)! Поправете файла и използвайте /chatex reload.'
+      SaveFailed: '%file% базата данни е повредена, така че промяната НЕ беше запазена на диска (файлът остава недокоснат)! Поправете файла и използвайте /chatex reload.'
   Color:
-    Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fЦветът на чата ви беше актуализиран!'
-    Invalid: '&c✘ &fТова не е валиден цветен код!'
-    Reset: '&a✔ &fЦветът на чата ви беше нулиран!'
-    OnlyPlayers: '&4⚠ &fСамо играчи могат да използват тази команда!'
-    GradientMinTwo: '&c✘ &fЗа градиент са необходими поне &c2 &fцвята!'
+    PersonalActive: '&fИмате личен цвят за чата, така че не можете да използвате цветове или форматиране на текста в чата! Използвайте <hover:show_text:''<#9B2D30>Кликнете, за да нулирате цвета на чата''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r, за да го премахнете.'
+    Usage: |-
+      &f&fУпотреба за цветен чат:
+      &f● <hover:show_text:'&#F34723Предложи примерен legacy цвят'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— задайте legacy цвят.
+      &f● <hover:show_text:'&#F34723Предложи примерен №1 HEX цвят'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— задайте HEX цвят.
+      &f● <hover:show_text:'&#F34723Предложи примерен №2 HEX цвят'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— задайте HEX цвят.
+      &f● <hover:show_text:'&#F34723Предложи примерен HEX градиент'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— задайте HEX градиент.
+      &f● <hover:show_text:'&#F34723Предложи примерен legacy градиент'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— задайте legacy градиент.
+      &f● <hover:show_text:'&#F34723Кликнете, за да нулирате личния цвят'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— нулирайте цвета си.
+      &f
+      &fПри задаване на цвят модификаторите (напр. &#F34723&&#F34723l&r&f) се поставят след цвета без запетаи или интервали; при градиент — само след последния цвят!
+      &f
+    Set: '&fЦветът на чата ви беше актуализиран!'
+    Invalid: '&fТова не е валиден код за цвят!'
+    Reset: '&fЦветът на чата ви беше нулиран!'
+    OnlyPlayers: '&fСамо играчи могат да използват тази команда!'
+    GradientMinTwo: '&fГрадиентът изисква поне &#CA2C922 цвята&r&f!'
+  MiniMessage:
+    NoColor: '&fНямате разрешение да използвате MiniMessage цветове!'
+    NoModifier: '&fНямате разрешение да използвате тагове за форматиране на MiniMessage!'
+    NoHex: '&fНямате разрешение да използвате MiniMessage HEX цветове!'
+    NoMagic: '&fНямате разрешение да използвате тага obfuscated на MiniMessage!'
+    NoGradient: '&fНямате разрешение да използвате тага gradient на MiniMessage!'
+    NoRainbow: '&fНямате разрешение да използвате тага rainbow на MiniMessage!'
+    NoUrl: '&fНямате разрешение да използвате кликаеми връзки в чата!'
+    NoSuggest: '&fНямате разрешение да използвате тага suggest-command в чата!'
+    NoCommand: '&fНямате разрешение да използвате тага run-command в чата!'
+    NoCopy: '&fНямате разрешение да използвате тага copy-to-clipboard в чата!'
+    NoHover: '&fНямате разрешение да използвате тага hover в чата!'
+    NoInsertion: '&fНямате разрешение да използвате тага insertion в чата!'
+    NoKeybind: '&fНямате разрешение да използвате тага keybind в чата!'
+    NoFont: '&fНямате разрешение да използвате тага font в чата!'
+    NoLang: '&fНямате разрешение да използвате тага translatable в чата!'
+    NoNewline: '&fНямате разрешение да използвате тага newline в чата!'
   CommandResult:
-    NoPermission: '&c✘ &fНямате права за това! Право: &c%perm%&f.'
-    WrongUsage: '&c✘ &fГрешна употреба! Моля, напишете &c%cmd% help&f!'
+    NoPermission: '&fНямате разрешение за това! Разрешение: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fГрешна употреба! Моля, въведете <hover:show_text:''&#F34723Кликнете, за да изпълните /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fСпамът не е позволен! Изчакайте още &c%time% &fсекунди!'
+    Denied: '&fСпамът не е разрешен! Моля, изчакайте още &#CA2C92%time% секунди&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fсе присъедини към играта!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fсе присъедини за първи път!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fбеше изритан от играта!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fнапусна играта!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fсе присъедини към играта!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fсе присъедини към сървъра за първи път!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fбеше изгонен от играта!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fнапусна играта!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh вече е активиран!'
-    Disabled: '✔ ChatEx-Refresh вече е деактивиран!'
-    bStats: '✔ Благодарим за използването на bStats, той беше активиран! Plugin ID: %id%.'
+    Enabled: ChatEx-Refresh вече е включен!
+    Disabled: ChatEx-Refresh вече е изключен!
+    bStats: 'Благодарим ви, че използвате bStats, той беше включен! ID на плъгина: %id%.'
     Hooked:
-      LuckPerms: '✔ Успешно свързване с LuckPerms!'
-      PlaceholderAPI: '✔ Успешно свързване с PlaceholderAPI!'
-    NoPermissions: '⚠ Не е намерен плъгин за права. Използват се стандартни права.'
+      LuckPerms: Успешно свързване с LuckPerms!
+      PlaceholderAPI: Успешно свързване с PlaceholderAPI!
+    NoPermissions: Не е намерен плъгин за разрешения! Използват се разрешения по подразбиране.
   Update:
     Available:
-      Console: '&e⚠ &fНова версия на &eChatEx-Refresh &fе налична в &eModrinth&f! Текуща версия: &e%current%&f. Последна версия: &e%latest%&f. Изтегляне: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fе актуален! Версия: &a%current%&f.'
-    Failed: '&e⚠ &fНеуспешна проверка за актуализации на &eChatEx-Refresh&f!'
+      Console: 'Нова версия на ChatEx-Refresh е налична в Modrinth! Текуща версия: %current%. Последна версия: %latest%. Изтегляне: %url%.'
+    UpToDate: 'ChatEx-Refresh е актуален! Версия: %current%.'
+    Failed: Неуспешна проверка за актуализации на ChatEx-Refresh!
     Notify:
       Player: |-
         &f
-        &e⚠ &fНова версия на &eChatEx-Refresh &fе налична в &eModrinth&f!
-        &f● Текуща версия: &e%current%&f.
-        &f● Последна версия: &e%latest%&f.
-        &f● Изтегляне: &e%url%&f.
+        &fНова версия на &#3EB489ChatEx-Refresh&r &fе налична в &#3EB489Modrinth&r&f!
+        &f● Текуща версия: &#3EB489%current%&r&f.
+        &f● Последна версия: &#3EB489%latest%&r&f.
+        &f● Изтегляне: <hover:show_text:'&fКликнете, за да отворите нашата страница в &#3EB489Modrinth&r'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: КОНЗОЛА
-    Unknown: НЕИЗВЕСТЕН
+    Console: CONSOLE
+    Unknown: UNKNOWN

@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fSöhbət yardımı:
-      &f● &e/%cmd% clear &f— söhbəti təmizləyir.
-      &f● &e/%cmd% help &f— söhbət üçün yardım.
-      &f● &e/%cmd% reload &f— plaqini yenidən yükləyir.
+      &fÇat üçün kömək:
+      &f● <hover:show_text:'&#F34723Çalışdırmaq üçün kliklə /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— çatı təmizləyir.
+      &f● <hover:show_text:'&#F34723Çalışdırmaq üçün kliklə /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— çat üçün kömək.
+      &f● <hover:show_text:'&#F34723Çalışdırmaq üçün kliklə /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— plaqini yeniləyir.
       &f
   Commands:
     Reload:
-      Success: '&a✓ &fKonfiqurasiya və dillər uğurla yenidən yükləndi!'
+      Success: '&fKonfiqurasiya, lokalizasiyalar və verilənlər bazası uğurla yeniləndi!'
     Clear:
-      Success: '&4⚠ &fSöhbət &4%clearer%&f tərəfindən təmizləndi.'
+      Success: '&fÇat &#9B2D30%clearer%&r&f tərəfindən təmizləndi!'
   Chat:
-    AdDetected: '&c✘ &fReklama etmək qadağandır!'
-    BlockedWord: '&c✘ &fBu söz qadağandır!'
-    AdNotify: '&4⚠ %player% &fsohbətdə &4%message% &fyazmağa çalışdı!'
-    NoOneListens: '&4⚠ &fYaxınlıqda sizi eşidəcək oyunçu yoxdur! Qlobal rejimdən istifadə edin.'
-  NoColorPermission: '&c✘ &fAdi rənglərdən istifadə etmək icazəniz yoxdur!'
-  NoModifierPermission: '&c✘ &fFormat kodlarından istifadə etmək icazəniz yoxdur!'
-  NoHexPermission: '&c✘ &fHEX rənglərindən istifadə etmək icazəniz yoxdur!'
-  NoGradientPermission: '&c✘ &fQradient rənglərdən istifadə etmək icazəniz yoxdur!'
-  MagicBlocked: '&c✘ &fSehrli rənglərdən istifadə etmək icazəniz yoxdur!'
+    AdDetected: '&fReklama icazəli deyil!'
+    BlockedWord: '&fBu sözə icazə verilmir!'
+    AdNotify: '&#9B2D30%player%&r &fçatda &#9B2D30%message%&r &fyazmağa çalışdı!'
+    NoOneListens: '&fYaxınlıqda sizi eşidəcək oyunçu yoxdur! Qlobal rejimdə danışmağı sınayın!'
+  NoColorPermission: '&fLegacy rənglərdən istifadə etmək icazəniz yoxdur!'
+  NoModifierPermission: '&fFormatlaşdırma kodlarından istifadə etmək icazəniz yoxdur!'
+  NoHexPermission: '&fHEX rənglərindən istifadə etmək icazəniz yoxdur!'
+  NoGradientPermission: '&fQradiyent rənglərdən istifadə etmək icazəniz yoxdur!'
+  MagicBlocked: '&fSehrli rəngdən istifadə etmək icazəniz yoxdur!'
+  Integrity:
+    Config:
+      Loaded: config.yml uğurla yükləndi!
+      Failed: 'config.yml pozulub: %error% — fayl DƏYİŞDİRİLMƏDİ! Əvvəlki/standart dəyərlər istifadə olunur! Faylı düzəldin və /chatex reload istifadə edin.'
+    Locale:
+      Loaded: '%file% lokalizasiyası uğurla yükləndi!'
+      Failed: '%file% lokalizasiyası pozulub: %error% — fayl DƏYİŞDİRİLMƏDİ! Əvvəlki/daxili ingilis mətnləri istifadə olunur! Faylı düzəldin və /chatex reload istifadə edin.'
+    Database:
+      Loaded: '%file% verilənlər bazası uğurla yükləndi!'
+      Failed: '%file% verilənlər bazası pozulub: %error% — fayl DƏYİŞDİRİLMƏDİ və düzəldilənə qədər ona heç nə yazılmır (fərdi rənglər yenidən başladıqda itir)! Faylı düzəldin və /chatex reload istifadə edin.'
+      SaveFailed: '%file% verilənlər bazası pozulub, buna görə dəyişiklik diskə YAZILMADI (fayl toxunulmaz qalır)! Faylı düzəldin və /chatex reload istifadə edin.'
   Color:
-    Usage: '&e☀ &fİstifadə: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✓ &fSöhbət rənginiz yeniləndi!'
-    Invalid: '&c✘ &fBu keçərli rəng kodu deyil!'
-    Reset: '&a✓ &fSöhbət rənginiz sıfırlandı!'
-    OnlyPlayers: '&4⚠ &fYalnız oyunçular bu əmrdən istifadə edə bilər!'
-    GradientMinTwo: '&c✘ &fQradient üçün ən az &c2 &frəng tələb olunur!'
+    PersonalActive: '&fŞəxsi çat rənginiz var, buna görə çatda rəng və ya mətn formatlaşdırmasından istifadə edə bilməzsiniz! Çat rənginizi sıfırlamaq üçün <hover:show_text:''<#9B2D30>Sıfırlamaq üçün kliklə''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r istifadə edin.'
+    Usage: |-
+      &f&fRəngli çat üçün istifadə:
+      &f● <hover:show_text:'&#F34723Nümunə legacy rəng təklif et'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— legacy rəng təyin edin.
+      &f● <hover:show_text:'&#F34723Nümunə №1 HEX rəng təklif et'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— HEX rəng təyin edin.
+      &f● <hover:show_text:'&#F34723Nümunə №2 HEX rəng təklif et'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— HEX rəng təyin edin.
+      &f● <hover:show_text:'&#F34723Nümunə HEX qradiyent təklif et'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— HEX qradiyent təyin edin.
+      &f● <hover:show_text:'&#F34723Nümunə legacy qradiyent təklif et'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— legacy qradiyent təyin edin.
+      &f● <hover:show_text:'&#F34723Şəxsi rəngi sıfırlamaq üçün kliklə'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— rənginizi sıfırlayın.
+      &f
+      &fHər hansı rəng təyin edərkən, modifikatorlar (məs. &#F34723&&#F34723l&r&f) vergül və ya boşluq olmadan rəngdən sonra yerləşdirilir; qradiyentdə yalnız son rəngdən sonra!
+      &f
+    Set: '&fÇat rənginiz yeniləndi!'
+    Invalid: '&fBu etibarlı rəng kodu deyil!'
+    Reset: '&fÇat rənginiz sıfırlandı!'
+    OnlyPlayers: '&fBu əmri yalnız oyunçular istifadə edə bilər!'
+    GradientMinTwo: '&fQradiyent ən azı &#CA2C922 rəng&r&f tələb edir!'
+  MiniMessage:
+    NoColor: '&fMiniMessage rənglərindən istifadə etmək icazəniz yoxdur!'
+    NoModifier: '&fMiniMessage formatlaşdırma teqlərindən istifadə etmək icazəniz yoxdur!'
+    NoHex: '&fMiniMessage HEX rənglərindən istifadə etmək icazəniz yoxdur!'
+    NoMagic: '&fMiniMessage obfuscated teqindən istifadə etmək icazəniz yoxdur!'
+    NoGradient: '&fMiniMessage qradiyent teqindən istifadə etmək icazəniz yoxdur!'
+    NoRainbow: '&fMiniMessage rainbow teqindən istifadə etmək icazəniz yoxdur!'
+    NoUrl: '&fÇatda kliklənə bilən linklərdən istifadə etmək icazəniz yoxdur!'
+    NoSuggest: '&fÇatda suggest-command teqindən istifadə etmək icazəniz yoxdur!'
+    NoCommand: '&fÇatda run-command teqindən istifadə etmək icazəniz yoxdur!'
+    NoCopy: '&fÇatda copy-to-clipboard teqindən istifadə etmək icazəniz yoxdur!'
+    NoHover: '&fÇatda hover teqindən istifadə etmək icazəniz yoxdur!'
+    NoInsertion: '&fÇatda insertion teqindən istifadə etmək icazəniz yoxdur!'
+    NoKeybind: '&fÇatda keybind teqindən istifadə etmək icazəniz yoxdur!'
+    NoFont: '&fÇatda font teqindən istifadə etmək icazəniz yoxdur!'
+    NoLang: '&fÇatda translatable teqindən istifadə etmək icazəniz yoxdur!'
+    NoNewline: '&fÇatda newline teqindən istifadə etmək icazəniz yoxdur!'
   CommandResult:
-    NoPermission: '&c✘ &fBunun üçün icazəniz yoxdur! İcazə: &c%perm%&f.'
-    WrongUsage: '&c✘ &fYanlış istifadə! Xahiş edirik &c%cmd% help&f yazın!'
+    NoPermission: '&fBunun üçün icazəniz yoxdur! İcazə: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fYanlış istifadə! Zəhmət olmasa <hover:show_text:''&#F34723Çalışdırmaq üçün kliklə /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f yazın!'
   AntiSpam:
-    Denied: '&c✘ &fSpam qadağandır! Zəhmət olmasa &c%time% &fsaniyə gözləyin!'
+    Denied: '&fSpam icazəli deyil! Zəhmət olmasa &#CA2C92%time% saniyə&r&f gözləyin!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &foyuna qoşuldu!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fbirinci dəfə serverə qoşuldu!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &foyundan qovuldu!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &foyunu tərk etdi!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &foyuna qoşuldu!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fserverə ilk dəfə qoşuldu!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &foyundan atıldı!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &foyundan ayrıldı!'
   Plugin:
-    Enabled: '✓ ChatEx-Refresh artıq aktivdir!'
-    Disabled: '✓ ChatEx-Refresh artıq deaktivdir!'
-    bStats: '✓ bStats istifadə etdiyiniz üçün təşəkkürlər, aktivləşdirildi! Plugin ID: %id%.'
+    Enabled: ChatEx-Refresh artıq aktivdir!
+    Disabled: ChatEx-Refresh artıq deaktivdir!
+    bStats: 'bStats istifadə etdiyiniz üçün təşəkkürlər, aktiv edildi! Plaqin ID: %id%.'
     Hooked:
-      LuckPerms: '✓ LuckPerms-ə uğurla qoşuldu!'
-      PlaceholderAPI: '✓ PlaceholderAPI-ya uğurla qoşuldu!'
-    NoPermissions: '⚠ Heç bir icazə plaqini tapılmadı. Standart icazələrdən istifadə olunur.'
+      LuckPerms: LuckPerms ilə uğurla əlaqə quruldu!
+      PlaceholderAPI: PlaceholderAPI ilə uğurla əlaqə quruldu!
+    NoPermissions: İcazə plaqini tapılmadı! Standart icazələr istifadə olunur.
   Update:
     Available:
-      Console: '&e⚠ &f&eChatEx-Refresh &fün yeni versiyası &eModrinth&f-də mövcuddur! Cari versiya: &e%current%&f. Son versiya: &e%latest%&f. Yükləmə: &e%url%&f.'
-    UpToDate: '&a✓ ChatEx-Refresh &fən son versiyadır! Versiya: &a%current%&f.'
-    Failed: '&e⚠ &fChatEx-Refresh &füçün yeniləmələr yoxlanıla bilmədi!'
+      Console: 'ChatEx-Refresh-in yeni versiyası Modrinth-də mövcuddur! Cari versiya: %current%. Ən son versiya: %latest%. Yüklə: %url%.'
+    UpToDate: 'ChatEx-Refresh aktualdır! Versiya: %current%.'
+    Failed: ChatEx-Refresh üçün yeniləmələr yoxlanıla bilmədi!
     Notify:
       Player: |-
         &f
-        &e⚠ &f&eChatEx-Refresh &fün yeni versiyası &eModrinth&f-də mövcuddur!
-        &f● Cari versiya: &e%current%&f.
-        &f● Son versiya: &e%latest%&f.
-        &f● Yükləmə: &e%url%&f.
+        &f&#3EB489ChatEx-Refresh&r &f-in yeni versiyası &#3EB489Modrinth&r&f-də mövcuddur!
+        &f● Cari versiya: &#3EB489%current%&r&f.
+        &f● Ən son versiya: &#3EB489%latest%&r&f.
+        &f● Yüklə: <hover:show_text:'&f&#3EB489Modrinth&r &f səhifəmizi açmaq üçün kliklə'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: KONSOL
-    Unknown: BİLİNMƏYƏN
+    Console: CONSOLE
+    Unknown: UNKNOWN

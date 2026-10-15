@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fΒοήθεια για το chat:
-      &f● &e/%cmd% clear &f— καθαρίζει το chat.
-      &f● &e/%cmd% help &f— βοήθεια για το chat.
-      &f● &e/%cmd% reload &f— επαναφορτώνει το plugin.
+      &fΒοήθεια για το chat:
+      &f● <hover:show_text:'&#F34723Κάντε κλικ για εκτέλεση /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— καθαρίζει το chat.
+      &f● <hover:show_text:'&#F34723Κάντε κλικ για εκτέλεση /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— βοήθεια για το chat.
+      &f● <hover:show_text:'&#F34723Κάντε κλικ για εκτέλεση /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— επαναφορτώνει το plugin.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fΗ διαμόρφωση και οι γλώσσες επαναφορτώθηκαν επιτυχώς!'
+      Success: '&fΟι ρυθμίσεις, οι μεταφράσεις και η βάση δεδομένων επαναφορτώθηκαν με επιτυχία!'
     Clear:
-      Success: '&4⚠ &fΤο chat καθαρίστηκε από τον &4%clearer%&f.'
+      Success: '&fΤο chat καθαρίστηκε από τον/την &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fΗ διαφήμιση δεν επιτρέπεται!'
-    BlockedWord: '&c✘ &fΑυτή η λέξη δεν επιτρέπεται!'
-    AdNotify: '&4⚠ %player% &fπροσπάθησε να γράψει &4%message% &fστο chat!'
-    NoOneListens: '&4⚠ &fΔεν υπάρχουν παίκτες κοντά σας για να σας ακούσουν! Χρησιμοποιήστε την καθολική λειτουργία.'
-  NoColorPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε κανονικά χρώματα!'
-  NoModifierPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε κωδικούς μορφοποίησης!'
-  NoHexPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε HEX χρώματα!'
-  NoGradientPermission: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε χρώματα ντεγκραντέ!'
-  MagicBlocked: '&c✘ &fΔεν έχετε άδεια να χρησιμοποιήσετε μαγικά χρώματα!'
+    AdDetected: '&fΗ διαφήμιση δεν επιτρέπεται!'
+    BlockedWord: '&fΑυτή η λέξη δεν επιτρέπεται!'
+    AdNotify: '&#9B2D30%player%&r &fπροσπάθησε να γράψει &#9B2D30%message%&r &fστο chat!'
+    NoOneListens: '&fΔεν υπάρχουν παίκτες κοντά σας για να σας ακούσουν! Δοκιμάστε τη γενική λειτουργία!'
+  NoColorPermission: '&fΔεν έχετε άδεια να χρησιμοποιήσετε legacy χρώματα!'
+  NoModifierPermission: '&fΔεν έχετε άδεια να χρησιμοποιήσετε κωδικούς μορφοποίησης!'
+  NoHexPermission: '&fΔεν έχετε άδεια να χρησιμοποιήσετε HEX χρώματα!'
+  NoGradientPermission: '&fΔεν έχετε άδεια να χρησιμοποιήσετε χρώματα διαβάθμισης!'
+  MagicBlocked: '&fΔεν έχετε άδεια να χρησιμοποιήσετε μαγικό χρώμα!'
+  Integrity:
+    Config:
+      Loaded: Το config.yml φορτώθηκε με επιτυχία!
+      Failed: 'Το config.yml είναι κατεστραμμένο: %error% — το αρχείο ΔΕΝ άλλαξε! Χρησιμοποιούνται οι προηγούμενες/προεπιλεγμένες τιμές! Διορθώστε το αρχείο και χρησιμοποιήστε /chatex reload.'
+    Locale:
+      Loaded: 'Η μετάφραση %file% φορτώθηκε με επιτυχία!'
+      Failed: 'Η μετάφραση %file% είναι κατεστραμμένη: %error% — το αρχείο ΔΕΝ άλλαξε! Χρησιμοποιούνται τα προηγούμενα/ενσωματωμένα αγγλικά κείμενα! Διορθώστε το αρχείο και χρησιμοποιήστε /chatex reload.'
+    Database:
+      Loaded: 'Η βάση δεδομένων %file% φορτώθηκε με επιτυχία!'
+      Failed: 'Η βάση δεδομένων %file% είναι κατεστραμμένη: %error% — το αρχείο ΔΕΝ άλλαξε και τίποτα δεν αποθηκεύεται σε αυτό μέχρι να διορθωθεί (τα προσωπικά χρώματα χάνονται μετά από επανεκκίνηση)! Διορθώστε το αρχείο και χρησιμοποιήστε /chatex reload.'
+      SaveFailed: 'Η βάση δεδομένων %file% είναι κατεστραμμένη, επομένως η αλλαγή ΔΕΝ αποθηκεύτηκε στον δίσκο (το αρχείο παραμένει ανέπαφο)! Διορθώστε το αρχείο και χρησιμοποιήστε /chatex reload.'
   Color:
-    Usage: '&e☀ &fΧρήση: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fΤο χρώμα του chat σας ενημερώθηκε!'
-    Invalid: '&c✘ &fΑυτός δεν είναι έγκυρος κωδικός χρώματος!'
-    Reset: '&a✔ &fΤο χρώμα του chat σας επαναφέρθηκε!'
-    OnlyPlayers: '&4⚠ &fΜόνο παίκτες μπορούν να χρησιμοποιήσουν αυτήν την εντολή!'
-    GradientMinTwo: '&c✘ &fΤο ντεγκραντέ απαιτεί τουλάχιστον &c2 &fχρώματα!'
+    PersonalActive: '&fΈχετε προσωπικό χρώμα chat, επομένως δεν μπορείτε να χρησιμοποιήσετε χρώματα ή μορφοποίηση κειμένου στο chat! Χρησιμοποιήστε <hover:show_text:''<#9B2D30>Κάντε κλικ για επαναφορά του χρώματος chat''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r για να το αφαιρέσετε.'
+    Usage: |-
+      &f&fΧρήση για χρωματιστό chat:
+      &f● <hover:show_text:'&#F34723Προτείνετε ένα παράδειγμα legacy χρώματος'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— ορίστε ένα legacy χρώμα.
+      &f● <hover:show_text:'&#F34723Προτείνετε ένα παράδειγμα №1 HEX χρώματος'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— ορίστε ένα HEX χρώμα.
+      &f● <hover:show_text:'&#F34723Προτείνετε ένα παράδειγμα №2 HEX χρώματος'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— ορίστε ένα HEX χρώμα.
+      &f● <hover:show_text:'&#F34723Προτείνετε ένα παράδειγμα HEX διαβάθμισης'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— ορίστε HEX διαβάθμιση.
+      &f● <hover:show_text:'&#F34723Προτείνετε ένα παράδειγμα legacy διαβάθμισης'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— ορίστε legacy διαβάθμιση.
+      &f● <hover:show_text:'&#F34723Κάντε κλικ για επαναφορά προσωπικού χρώματος'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— επαναφορά χρώματος.
+      &f
+      &fΚατά τον ορισμό οποιουδήποτε χρώματος, οι τροποποιητές (π.χ. &#F34723&&#F34723l&r&f) τοποθετούνται μετά το χρώμα χωρίς κόμματα ή κενά· στη διαβάθμιση, μόνο μετά το τελευταίο χρώμα!
+      &f
+    Set: '&fΤο χρώμα του chat σας ενημερώθηκε!'
+    Invalid: '&fΑυτός δεν είναι έγκυρος κωδικός χρώματος!'
+    Reset: '&fΤο χρώμα του chat σας επαναφέρθηκε!'
+    OnlyPlayers: '&fΜόνο οι παίκτες μπορούν να χρησιμοποιήσουν αυτήν την εντολή!'
+    GradientMinTwo: '&fΗ διαβάθμιση απαιτεί τουλάχιστον &#CA2C922 χρώματα&r&f!'
+  MiniMessage:
+    NoColor: '&fΔεν έχετε άδεια να χρησιμοποιήσετε χρώματα MiniMessage!'
+    NoModifier: '&fΔεν έχετε άδεια να χρησιμοποιήσετε ετικέτες μορφοποίησης MiniMessage!'
+    NoHex: '&fΔεν έχετε άδεια να χρησιμοποιήσετε HEX χρώματα MiniMessage!'
+    NoMagic: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα obfuscated του MiniMessage!'
+    NoGradient: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα gradient του MiniMessage!'
+    NoRainbow: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα rainbow του MiniMessage!'
+    NoUrl: '&fΔεν έχετε άδεια να χρησιμοποιήσετε συνδέσμους στο chat!'
+    NoSuggest: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα suggest-command στο chat!'
+    NoCommand: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα run-command στο chat!'
+    NoCopy: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα copy-to-clipboard στο chat!'
+    NoHover: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα hover στο chat!'
+    NoInsertion: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα insertion στο chat!'
+    NoKeybind: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα keybind στο chat!'
+    NoFont: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα font στο chat!'
+    NoLang: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα translatable στο chat!'
+    NoNewline: '&fΔεν έχετε άδεια να χρησιμοποιήσετε την ετικέτα newline στο chat!'
   CommandResult:
-    NoPermission: '&c✘ &fΔεν έχετε άδεια για αυτό! Δικαίωμα: &c%perm%&f.'
-    WrongUsage: '&c✘ &fΛάθος χρήση! Παρακαλώ γράψτε &c%cmd% help&f!'
+    NoPermission: '&fΔεν έχετε άδεια για αυτό! Άδεια: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fΛανθασμένη χρήση! Παρακαλώ πληκτρολογήστε <hover:show_text:''&#F34723Κάντε κλικ για εκτέλεση /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fΤο spam δεν επιτρέπεται! Περιμένετε άλλα &c%time% &fδευτερόλεπτα!'
+    Denied: '&fΤο spam δεν επιτρέπεται! Παρακαλώ περιμένετε άλλα &#CA2C92%time% δευτερόλεπτα&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fμπήκε στο παιχνίδι!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fμπήκε στον server για πρώτη φορά!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fδιώχθηκε από το παιχνίδι!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fβγήκε από το παιχνίδι!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fμπήκε στο παιχνίδι!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fμπήκε στον server για πρώτη φορά!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fεκδιώχθηκε από το παιχνίδι!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fέφυγε από το παιχνίδι!'
   Plugin:
-    Enabled: '✔ Το ChatEx-Refresh είναι τώρα ενεργοποιημένο!'
-    Disabled: '✔ Το ChatEx-Refresh είναι τώρα απενεργοποιημένο!'
-    bStats: '✔ Ευχαριστούμε που χρησιμοποιείτε το bStats, ενεργοποιήθηκε! Plugin ID: %id%.'
+    Enabled: Το ChatEx-Refresh ενεργοποιήθηκε!
+    Disabled: Το ChatEx-Refresh απενεργοποιήθηκε!
+    bStats: 'Ευχαριστούμε που χρησιμοποιείτε το bStats, ενεργοποιήθηκε! ID plugin: %id%.'
     Hooked:
-      LuckPerms: '✔ Επιτυχής σύνδεση με το LuckPerms!'
-      PlaceholderAPI: '✔ Επιτυχής σύνδεση με το PlaceholderAPI!'
-    NoPermissions: '⚠ Δεν βρέθηκε πρόσθετο δικαιωμάτων. Χρήση προεπιλεγμένων δικαιωμάτων.'
+      LuckPerms: Επιτυχής σύνδεση με το LuckPerms!
+      PlaceholderAPI: Επιτυχής σύνδεση με το PlaceholderAPI!
+    NoPermissions: Δεν βρέθηκε plugin δικαιωμάτων! Χρήση προεπιλεγμένων δικαιωμάτων.
   Update:
     Available:
-      Console: '&e⚠ &fΝέα έκδοση του &eChatEx-Refresh &fδιαθέσιμη στο &eModrinth&f! Τρέχουσα έκδοση: &e%current%&f. Τελευταία έκδοση: &e%latest%&f. Λήψη: &e%url%&f.'
-    UpToDate: '&a✔ Το ChatEx-Refresh &fείναι ενημερωμένο! Έκδοση: &a%current%&f.'
-    Failed: '&e⚠ &fΑποτυχία ελέγχου για ενημερώσεις για το &eChatEx-Refresh&f!'
+      Console: 'Νέα έκδοση του ChatEx-Refresh διαθέσιμη στο Modrinth! Τρέχουσα έκδοση: %current%. Τελευταία έκδοση: %latest%. Λήψη: %url%.'
+    UpToDate: 'Το ChatEx-Refresh είναι ενημερωμένο! Έκδοση: %current%.'
+    Failed: Αποτυχία ελέγχου για ενημερώσεις του ChatEx-Refresh!
     Notify:
       Player: |-
         &f
-        &e⚠ &fΝέα έκδοση του &eChatEx-Refresh &fδιαθέσιμη στο &eModrinth&f!
-        &f● Τρέχουσα έκδοση: &e%current%&f.
-        &f● Τελευταία έκδοση: &e%latest%&f.
-        &f● Λήψη: &e%url%&f.
+        &fΝέα έκδοση του &#3EB489ChatEx-Refresh&r &fδιαθέσιμη στο &#3EB489Modrinth&r&f!
+        &f● Τρέχουσα έκδοση: &#3EB489%current%&r&f.
+        &f● Τελευταία έκδοση: &#3EB489%latest%&r&f.
+        &f● Λήψη: <hover:show_text:'&fΚάντε κλικ για να ανοίξετε τη σελίδα μας στο &#3EB489Modrinth&r'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: ΚΟΝΣΟΛΑ
-    Unknown: ΑΓΝΩΣΤΟ
+    Console: CONSOLE
+    Unknown: UNKNOWN

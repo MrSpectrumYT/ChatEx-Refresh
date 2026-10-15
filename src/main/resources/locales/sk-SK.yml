@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fPomoc pre chat:
-      &f● &e/%cmd% clear &f— vyčistí chat.
-      &f● &e/%cmd% help &f— pomoc pre chat.
-      &f● &e/%cmd% reload &f— znovu načíta plugin.
+      &fPomoc pre chat:
+      &f● <hover:show_text:'&#F34723Kliknutím spustíte /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— vyčistí chat.
+      &f● <hover:show_text:'&#F34723Kliknutím spustíte /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— pomoc pre chat.
+      &f● <hover:show_text:'&#F34723Kliknutím spustíte /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— znovu načíta plugin.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fKonfigurácia a jazyky boli úspešne znovu načítané!'
+      Success: '&fKonfigurácia, lokalizácie a databáza boli úspešne znovu načítané!'
     Clear:
-      Success: '&4⚠ &fChat bol vyčistený hráčom &4%clearer%&f.'
+      Success: '&fChat bol vyčistený hráčom &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fReklama nie je povolená!'
-    BlockedWord: '&c✘ &fToto slovo nie je povolené!'
-    AdNotify: '&4⚠ %player% &fsa pokúsil napísať &4%message% &fdo chatu!'
-    NoOneListens: '&4⚠ &fV okolí nie sú žiadni hráči, ktorí by vás počuli! Použite globálny režim.'
-  NoColorPermission: '&c✘ &fNemáte oprávnenie používať bežné farby!'
-  NoModifierPermission: '&c✘ &fNemáte oprávnenie používať formátovacie kódy!'
-  NoHexPermission: '&c✘ &fNemáte oprávnenie používať HEX farby!'
-  NoGradientPermission: '&c✘ &fNemáte oprávnenie používať gradientové farby!'
-  MagicBlocked: '&c✘ &fNemáte oprávnenie používať magické farby!'
+    AdDetected: '&fReklama nie je povolená!'
+    BlockedWord: '&fToto slovo nie je povolené!'
+    AdNotify: '&#9B2D30%player%&r &fsa pokúsil napísať &#9B2D30%message%&r &fdo chatu!'
+    NoOneListens: '&fNie sú tu žiadni hráči, ktorí by vás počuli! Skúste globálny režim!'
+  NoColorPermission: '&fNemáte oprávnenie používať legacy farby!'
+  NoModifierPermission: '&fNemáte oprávnenie používať formátovacie kódy!'
+  NoHexPermission: '&fNemáte oprávnenie používať HEX farby!'
+  NoGradientPermission: '&fNemáte oprávnenie používať gradientové farby!'
+  MagicBlocked: '&fNemáte oprávnenie používať magickú farbu!'
+  Integrity:
+    Config:
+      Loaded: config.yml úspešne načítaný!
+      Failed: 'config.yml je poškodený: %error% — súbor NEBOL zmenený! Používajú sa predchádzajúce/východiskové hodnoty! Opravte súbor a použite /chatex reload.'
+    Locale:
+      Loaded: '%file% lokalizácia úspešne načítaná!'
+      Failed: '%file% lokalizácia je poškodená: %error% — súbor NEBOL zmenený! Používajú sa predchádzajúce/vstavané anglické texty! Opravte súbor a použite /chatex reload.'
+    Database:
+      Loaded: '%file% databáza úspešne načítaná!'
+      Failed: '%file% databáza je poškodená: %error% — súbor NEBOL zmenený a nič sa doň neukladá, kým nebude opravený (osobné farby sa stratia pri reštarte)! Opravte súbor a použite /chatex reload.'
+      SaveFailed: '%file% databáza je poškodená, takže zmena NEBOLA uložená na disk (súbor zostal nedotknutý)! Opravte súbor a použite /chatex reload.'
   Color:
-    Usage: '&e☀ &fPoužitie: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fFarba vášho chatu bola aktualizovaná!'
-    Invalid: '&c✘ &fToto nie je platný farebný kód!'
-    Reset: '&a✔ &fFarba vášho chatu bola resetovaná!'
-    OnlyPlayers: '&4⚠ &fTento príkaz môžu používať iba hráči!'
-    GradientMinTwo: '&c✘ &fPre gradient sú potrebné aspoň &c2 &ffarby!'
+    PersonalActive: '&fMáte osobnú farbu chatu, takže nemôžete v chate používať farby ani formátovanie textu! Použite <hover:show_text:''<#9B2D30>Kliknutím resetujete farbu chatu''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r na jej odstránenie.'
+    Usage: |-
+      &f&fPoužitie farebného chatu:
+      &f● <hover:show_text:'&#F34723Navrhnúť príklad legacy farby'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— nastaviť legacy farbu.
+      &f● <hover:show_text:'&#F34723Navrhnúť príklad №1 HEX farby'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— nastaviť HEX farbu.
+      &f● <hover:show_text:'&#F34723Navrhnúť príklad №2 HEX farby'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— nastaviť HEX farbu.
+      &f● <hover:show_text:'&#F34723Navrhnúť príklad HEX gradientu'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— nastaviť HEX gradient.
+      &f● <hover:show_text:'&#F34723Navrhnúť príklad legacy gradientu'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— nastaviť legacy gradient.
+      &f● <hover:show_text:'&#F34723Kliknutím resetujete osobnú farbu'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— resetovať vašu farbu.
+      &f
+      &fPri nastavovaní farby sa modifikátory (napr. &#F34723&&#F34723l&r&f) umiestňujú za farbu bez čiarok alebo medzier; pri gradiente iba za poslednou farbou!
+      &f
+    Set: '&fVaša farba chatu bola aktualizovaná!'
+    Invalid: '&fTo nie je platný kód farby!'
+    Reset: '&fVaša farba chatu bola resetovaná!'
+    OnlyPlayers: '&fTento príkaz môžu použiť iba hráči!'
+    GradientMinTwo: '&fGradient vyžaduje aspoň &#CA2C922 farby&r&f!'
+  MiniMessage:
+    NoColor: '&fNemáte oprávnenie používať MiniMessage farby!'
+    NoModifier: '&fNemáte oprávnenie používať MiniMessage formátovacie tagy!'
+    NoHex: '&fNemáte oprávnenie používať MiniMessage HEX farby!'
+    NoMagic: '&fNemáte oprávnenie používať tag obfuscated v MiniMessage!'
+    NoGradient: '&fNemáte oprávnenie používať tag gradient v MiniMessage!'
+    NoRainbow: '&fNemáte oprávnenie používať tag rainbow v MiniMessage!'
+    NoUrl: '&fNemáte oprávnenie používať klikateľné odkazy v chate!'
+    NoSuggest: '&fNemáte oprávnenie používať tag suggest-command v chate!'
+    NoCommand: '&fNemáte oprávnenie používať tag run-command v chate!'
+    NoCopy: '&fNemáte oprávnenie používať tag copy-to-clipboard v chate!'
+    NoHover: '&fNemáte oprávnenie používať tag hover v chate!'
+    NoInsertion: '&fNemáte oprávnenie používať tag insertion v chate!'
+    NoKeybind: '&fNemáte oprávnenie používať tag keybind v chate!'
+    NoFont: '&fNemáte oprávnenie používať tag font v chate!'
+    NoLang: '&fNemáte oprávnenie používať tag translatable v chate!'
+    NoNewline: '&fNemáte oprávnenie používať tag newline v chate!'
   CommandResult:
-    NoPermission: '&c✘ &fNemáte oprávnenie! Oprávnenie: &c%perm%&f.'
-    WrongUsage: '&c✘ &fChybné použitie! Napíšte &c%cmd% help&f!'
+    NoPermission: '&fNa toto nemáte oprávnenie! Oprávnenie: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fNesprávne použitie! Prosím napíšte <hover:show_text:''&#F34723Kliknutím spustíte /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fSpam nie je povolený! Počkajte ešte &c%time% &fsekúnd!'
+    Denied: '&fSpam nie je povolený! Počkajte prosím ďalších &#CA2C92%time% sekúnd&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fsa pripojil k hre!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fsa pripojil prvýkrát!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fbol vykopnutý z hry!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fopustil hru!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fsa pripojil k hre!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fsa prvýkrát pripojil k serveru!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fbol vyhodený z hry!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fopustil hru!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh je teraz zapnutý!'
-    Disabled: '✔ ChatEx-Refresh je teraz vypnutý!'
-    bStats: '✔ Ďakujeme za používanie bStats, bol povolený! ID pluginu: %id%.'
+    Enabled: ChatEx-Refresh je teraz zapnutý!
+    Disabled: ChatEx-Refresh je teraz vypnutý!
+    bStats: 'Ďakujeme za používanie bStats, bol zapnutý! ID pluginu: %id%.'
     Hooked:
-      LuckPerms: '✔ Úspešne pripojené k LuckPerms!'
-      PlaceholderAPI: '✔ Úspešne pripojené k PlaceholderAPI!'
-    NoPermissions: '⚠ Nebol nájdený žiadny plugin práv. Používajú sa predvolené práva.'
+      LuckPerms: Úspešne prepojené s LuckPerms!
+      PlaceholderAPI: Úspešne prepojené s PlaceholderAPI!
+    NoPermissions: Nebol nájdený žiadny plugin oprávnení! Používajú sa predvolené oprávnenia.
   Update:
     Available:
-      Console: '&e⚠ &fNová verzia &eChatEx-Refresh &fje k dispozícii na &eModrinth&f! Aktuálna verzia: &e%current%&f. Najnovšia verzia: &e%latest%&f. Stiahnutie: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fje aktuálny! Verzia: &a%current%&f.'
-    Failed: '&e⚠ &fNepodarilo sa skontrolovať aktualizácie pre &eChatEx-Refresh&f!'
+      Console: 'Nová verzia ChatEx-Refresh je dostupná na Modrinth! Aktuálna verzia: %current%. Najnovšia verzia: %latest%. Stiahnuť: %url%.'
+    UpToDate: 'ChatEx-Refresh je aktuálny! Verzia: %current%.'
+    Failed: Nepodarilo sa skontrolovať aktualizácie pre ChatEx-Refresh!
     Notify:
       Player: |-
         &f
-        &e⚠ &fNová verzia &eChatEx-Refresh &fje k dispozícii na &eModrinth&f!
-        &f● Aktuálna verzia: &e%current%&f.
-        &f● Najnovšia verzia: &e%latest%&f.
-        &f● Stiahnutie: &e%url%&f.
+        &fNová verzia &#3EB489ChatEx-Refresh&r &fje dostupná na &#3EB489Modrinth&r&f!
+        &f● Aktuálna verzia: &#3EB489%current%&r&f.
+        &f● Najnovšia verzia: &#3EB489%latest%&r&f.
+        &f● Stiahnuť: <hover:show_text:'&fKliknutím otvoríte našu stránku &#3EB489Modrinth&r'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: KONZOLA
-    Unknown: NEZNÁMY
+    Console: CONSOLE
+    Unknown: UNKNOWN

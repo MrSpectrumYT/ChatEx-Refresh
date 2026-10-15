@@ -20,22 +20,28 @@
 package de.jeter.chatex.utils;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class DomainDictionary {
 
-    private static final HashSet<String> endingSet = new HashSet<>(Config.ADS_SMART_DOMAIN_ENDINGS.getStringList());
+    private static volatile Set<String> endingSet;
+
+    /** Call after the config was (re)loaded. */
+    public static void reload() {
+        endingSet = new HashSet<>(Config.ADS_SMART_DOMAIN_ENDINGS.getStringList());
+    }
 
     public static boolean containsTopLevelEnding(String checkString) {
+        if (endingSet == null) reload();
         String[] parts = checkString.split("\\.");
         String ending = parts[parts.length - 1];
         StringBuilder stringBuilder = new StringBuilder();
-        for (char Character : ending.toCharArray()) {
-            stringBuilder.append(Character);
+        for (char character : ending.toCharArray()) {
+            stringBuilder.append(character);
             if (endingSet.contains(stringBuilder.toString())) {
                 return true;
             }
         }
         return false;
     }
-
 }

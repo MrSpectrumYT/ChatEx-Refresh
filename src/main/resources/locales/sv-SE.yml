@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fHjälp för chat:
-      &f● &e/%cmd% clear &f— rensar chatten.
-      &f● &e/%cmd% help &f— hjälp för chat.
-      &f● &e/%cmd% reload &f— laddar om plugin.
+      &fHjälp för chatt:
+      &f● <hover:show_text:'&#F34723Klicka för att köra /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— rensar chatten.
+      &f● <hover:show_text:'&#F34723Klicka för att köra /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— hjälp för chatt.
+      &f● <hover:show_text:'&#F34723Klicka för att köra /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— laddar om plugin.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fKonfiguration och lokaliseringar har laddats om!'
+      Success: '&fKonfiguration, språkfiler och databas har laddats om!'
     Clear:
-      Success: '&4⚠ &fChatten rensades av &4%clearer%&f.'
+      Success: '&fChatten rensades av &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fReklam är inte tillåtet!'
-    BlockedWord: '&c✘ &fDetta ord är inte tillåtet!'
-    AdNotify: '&4⚠ %player% &fförsökte skriva &4%message% &fi chatten!'
-    NoOneListens: '&4⚠ &fInga spelare är nära dig för att höra dig! Använd globalt läge.'
-  NoColorPermission: '&c✘ &fDu har inte tillstånd att använda vanliga färger!'
-  NoModifierPermission: '&c✘ &fDu har inte tillstånd att använda formateringskoder!'
-  NoHexPermission: '&c✘ &fDu har inte tillstånd att använda HEX-färger!'
-  NoGradientPermission: '&c✘ &fDu har inte tillstånd att använda gradientfärger!'
-  MagicBlocked: '&c✘ &fDu har inte tillstånd att använda magiska färger!'
+    AdDetected: '&fReklam är inte tillåtet!'
+    BlockedWord: '&fDetta ord är inte tillåtet!'
+    AdNotify: '&#9B2D30%player%&r &fförsökte skriva &#9B2D30%message%&r &fi chatten!'
+    NoOneListens: '&fDet finns inga spelare i närheten som kan höra dig! Prova globalt läge!'
+  NoColorPermission: '&fDu har inte behörighet att använda legacy-färger!'
+  NoModifierPermission: '&fDu har inte behörighet att använda formateringskoder!'
+  NoHexPermission: '&fDu har inte behörighet att använda HEX-färger!'
+  NoGradientPermission: '&fDu har inte behörighet att använda gradientfärger!'
+  MagicBlocked: '&fDu har inte behörighet att använda magisk färg!'
+  Integrity:
+    Config:
+      Loaded: config.yml har laddats!
+      Failed: 'config.yml är trasig: %error% — filen ändrades INTE! De tidigare/standardvärdena används! Fixa filen och använd /chatex reload.'
+    Locale:
+      Loaded: '%file% språkfil har laddats!'
+      Failed: '%file% språkfil är trasig: %error% — filen ändrades INTE! De tidigare/inbyggda engelska texterna används! Fixa filen och använd /chatex reload.'
+    Database:
+      Loaded: '%file% databas har laddats!'
+      Failed: '%file% databas är trasig: %error% — filen ändrades INTE och ingenting sparas i den förrän den är fixad (personliga färger förloras vid omstart)! Fixa filen och använd /chatex reload.'
+      SaveFailed: '%file% databas är trasig, så ändringen sparades INTE på disken (filen är orörd)! Fixa filen och använd /chatex reload.'
   Color:
-    Usage: '&e☀ &fAnvändning: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fDin chattfärg har uppdaterats!'
-    Invalid: '&c✘ &fDet är inte en giltig färgkod!'
-    Reset: '&a✔ &fDin chattfärg har återställts!'
-    OnlyPlayers: '&4⚠ &fEndast spelare kan använda detta kommando!'
-    GradientMinTwo: '&c✘ &fGradient kräver minst &c2 &ffärger!'
+    PersonalActive: '&fDu har en personlig chattfärg, så du kan inte använda färger eller textformatering i chatten! Använd <hover:show_text:''<#9B2D30>Klicka för att återställa din chattfärg''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r för att ta bort den.'
+    Usage: |-
+      &f&fAnvändning för färgad chatt:
+      &f● <hover:show_text:'&#F34723Föreslå ett exempel på legacy-färg'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— ställ in en legacy-färg.
+      &f● <hover:show_text:'&#F34723Föreslå ett exempel №1 HEX-färg'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— ställ in en HEX-färg.
+      &f● <hover:show_text:'&#F34723Föreslå ett exempel №2 HEX-färg'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— ställ in en HEX-färg.
+      &f● <hover:show_text:'&#F34723Föreslå ett exempel på HEX-gradient'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— ställ in en HEX-gradient.
+      &f● <hover:show_text:'&#F34723Föreslå ett exempel på legacy-gradient'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— ställ in en legacy-gradient.
+      &f● <hover:show_text:'&#F34723Klicka för att återställa personlig färg'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— återställ din färg.
+      &f
+      &fNär du ställer in en färg placeras modifierare (t.ex. &#F34723&&#F34723l&r&f) efter färgen utan kommatecken eller mellanslag; vid en gradient, endast efter den sista färgen!
+      &f
+    Set: '&fDin chattfärg har uppdaterats!'
+    Invalid: '&fDet är inte en giltig färgkod!'
+    Reset: '&fDin chattfärg har återställts!'
+    OnlyPlayers: '&fEndast spelare kan använda detta kommando!'
+    GradientMinTwo: '&fGradient kräver minst &#CA2C922 färger&r&f!'
+  MiniMessage:
+    NoColor: '&fDu har inte behörighet att använda MiniMessage-färger!'
+    NoModifier: '&fDu har inte behörighet att använda MiniMessage-formateringstaggar!'
+    NoHex: '&fDu har inte behörighet att använda MiniMessage HEX-färger!'
+    NoMagic: '&fDu har inte behörighet att använda MiniMessage obfuscated-tagg!'
+    NoGradient: '&fDu har inte behörighet att använda MiniMessage gradient-tagg!'
+    NoRainbow: '&fDu har inte behörighet att använda MiniMessage rainbow-tagg!'
+    NoUrl: '&fDu har inte behörighet att använda klickbara länkar i chatten!'
+    NoSuggest: '&fDu har inte behörighet att använda suggest-command-tagg i chatten!'
+    NoCommand: '&fDu har inte behörighet att använda run-command-tagg i chatten!'
+    NoCopy: '&fDu har inte behörighet att använda copy-to-clipboard-tagg i chatten!'
+    NoHover: '&fDu har inte behörighet att använda hover-tagg i chatten!'
+    NoInsertion: '&fDu har inte behörighet att använda insertion-tagg i chatten!'
+    NoKeybind: '&fDu har inte behörighet att använda keybind-tagg i chatten!'
+    NoFont: '&fDu har inte behörighet att använda font-tagg i chatten!'
+    NoLang: '&fDu har inte behörighet att använda translatable-tagg i chatten!'
+    NoNewline: '&fDu har inte behörighet att använda newline-tagg i chatten!'
   CommandResult:
-    NoPermission: '&c✘ &fDu har inte tillstånd för detta! Tillstånd: &c%perm%&f.'
-    WrongUsage: '&c✘ &fFel användning! Skriv &c%cmd% help&f!'
+    NoPermission: '&fDu har inte behörighet för detta! Behörighet: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fFel användning! Vänligen skriv <hover:show_text:''&#F34723Klicka för att köra /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fSpam är inte tillåtet! Vänta ytterligare &c%time% &fsekunder!'
+    Denied: '&fSpam är inte tillåtet! Vänligen vänta &#CA2C92%time% sekunder&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fgick med i spelet!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fgick med för första gången!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fsparkades från spelet!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &flämnade spelet!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fgick med i spelet!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fgick med i servern för första gången!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fsparkades från spelet!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &flämnade spelet!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh är nu aktiverad!'
-    Disabled: '✔ ChatEx-Refresh är nu inaktiverad!'
-    bStats: '✔ Tack för att du använder bStats, den aktiverades! Plugin-ID: %id%.'
+    Enabled: ChatEx-Refresh är nu aktiverat!
+    Disabled: ChatEx-Refresh är nu inaktiverat!
+    bStats: 'Tack för att du använder bStats, det aktiverades! Plugin-ID: %id%.'
     Hooked:
-      LuckPerms: '✔ Ansluten till LuckPerms!'
-      PlaceholderAPI: '✔ Ansluten till PlaceholderAPI!'
-    NoPermissions: '⚠ Inget behörighetsplugin hittades. Använder standardbehörigheter.'
+      LuckPerms: Ansluten till LuckPerms!
+      PlaceholderAPI: Ansluten till PlaceholderAPI!
+    NoPermissions: Ingen behörighetsplugin hittades! Använder standardbehörigheter.
   Update:
     Available:
-      Console: '&e⚠ &fNy version av &eChatEx-Refresh &ftillgänglig på &eModrinth&f! Nuvarande version: &e%current%&f. Senaste version: &e%latest%&f. Nedladdning: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fär uppdaterad! Version: &a%current%&f.'
-    Failed: '&e⚠ &fKunde inte kontrollera uppdateringar för &eChatEx-Refresh&f!'
+      Console: 'Ny version av ChatEx-Refresh tillgänglig på Modrinth! Nuvarande version: %current%. Senaste version: %latest%. Ladda ner: %url%.'
+    UpToDate: 'ChatEx-Refresh är uppdaterad! Version: %current%.'
+    Failed: Kunde inte söka efter uppdateringar för ChatEx-Refresh!
     Notify:
       Player: |-
         &f
-        &e⚠ &fNy version av &eChatEx-Refresh &ftillgänglig på &eModrinth&f!
-        &f● Nuvarande version: &e%current%&f.
-        &f● Senaste version: &e%latest%&f.
-        &f● Nedladdning: &e%url%&f.
+        &fNy version av &#3EB489ChatEx-Refresh&r &ftillgänglig på &#3EB489Modrinth&r&f!
+        &f● Nuvarande version: &#3EB489%current%&r&f.
+        &f● Senaste version: &#3EB489%latest%&r&f.
+        &f● Ladda ner: <hover:show_text:'&fKlicka för att öppna vår &#3EB489Modrinth&r-sida'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: KONSOL
-    Unknown: OKÄND
+    Console: CONSOLE
+    Unknown: UNKNOWN

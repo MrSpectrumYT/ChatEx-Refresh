@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fՕգնություն չաթի համար:
-      &f● &e/%cmd% clear &f— մաքրում է չաթը:
-      &f● &e/%cmd% help &f— օգնություն չաթի համար:
-      &f● &e/%cmd% reload &f— վերաբեռնում է պլագինը:
+      &fՕգնություն չաթի համար:
+      &f● <hover:show_text:'&#F34723Սեղմեք /%cmd% clear գործարկելու համար'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— մաքրում է չաթը:
+      &f● <hover:show_text:'&#F34723Սեղմեք /%cmd% help գործարկելու համար'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— օգնություն չաթի համար:
+      &f● <hover:show_text:'&#F34723Սեղմեք /%cmd% reload գործարկելու համար'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— վերաբեռնում է փլագինը:
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fԿոնֆիգուրացիան և լեզուները հաջողությամբ վերաբեռնվեցին!'
+      Success: '&fԿոնֆիգուրացիան, լոկալիզացիաները և տվյալների բազան հաջողությամբ վերաբեռնվեցին:'
     Clear:
-      Success: '&4⚠ &fՉաթը մաքրվեց &4%clearer%&f-ի կողմից։'
+      Success: '&fՉաթը մաքրվել է &#9B2D30%clearer%&r&f-ի կողմից:'
   Chat:
-    AdDetected: '&c✘ &fԳովազդն արգելված է!'
-    BlockedWord: '&c✘ &fԱյս բառն արգելված է!'
-    AdNotify: '&4⚠ %player% &fփորձեց գրել &4%message% &fչաթում։'
-    NoOneListens: '&4⚠ &fՄոտակայքում չկան խաղացողներ, որոնք կլսեն ձեզ։ Օգտագործեք գլոբալ ռեժիմը։'
-  NoColorPermission: '&c✘ &fԴուք չունեք սովորական գույներ օգտագործելու թույլտվություն։'
-  NoModifierPermission: '&c✘ &fԴուք չունեք ֆորմատավորման կոդեր օգտագործելու թույլտվություն։'
-  NoHexPermission: '&c✘ &fԴուք չունեք HEX գույներ օգտագործելու թույլտվություն։'
-  NoGradientPermission: '&c✘ &fԴուք չունեք գրադիենտ գույներ օգտագործելու թույլտվություն։'
-  MagicBlocked: '&c✘ &fԴուք չունեք կախարդական գույներ օգտագործելու թույլտվություն։'
+    AdDetected: '&fԳովազդը արգելված է:'
+    BlockedWord: '&fԱյս բառը արգելված է:'
+    AdNotify: '&#9B2D30%player%&r &fփորձեց գրել &#9B2D30%message%&r &fչաթում:'
+    NoOneListens: '&fՁեզ լսող խաղացողներ մոտակայքում չկան: Փորձեք գլոբալ ռեժիմը:'
+  NoColorPermission: '&fԴուք չունեք legacy գույներ օգտագործելու թույլտվություն:'
+  NoModifierPermission: '&fԴուք չունեք ֆորմատավորման կոդեր օգտագործելու թույլտվություն:'
+  NoHexPermission: '&fԴուք չունեք HEX գույներ օգտագործելու թույլտվություն:'
+  NoGradientPermission: '&fԴուք չունեք գրադիենտ գույներ օգտագործելու թույլտվություն:'
+  MagicBlocked: '&fԴուք չունեք կախարդական գույն օգտագործելու թույլտվություն:'
+  Integrity:
+    Config:
+      Loaded: config.yml-ը հաջողությամբ բեռնվեց:
+      Failed: 'config.yml-ը վնասված է: %error% — ֆայլը ՉԻ փոփոխվել: Օգտագործվում են նախորդ/կանխադրված արժեքները: Ուղղեք ֆայլը և օգտագործեք /chatex reload:'
+    Locale:
+      Loaded: '%file% լոկալիզացիան հաջողությամբ բեռնվեց:'
+      Failed: '%file% լոկալիզացիան վնասված է: %error% — ֆայլը ՉԻ փոփոխվել: Օգտագործվում են նախորդ/ներկառուցված անգլերեն տեքստերը: Ուղղեք ֆայլը և օգտագործեք /chatex reload:'
+    Database:
+      Loaded: '%file% տվյալների բազան հաջողությամբ բեռնվեց:'
+      Failed: '%file% տվյալների բազան վնասված է: %error% — ֆայլը ՉԻ փոփոխվել և ոչինչ չի պահպանվում դրա մեջ, մինչև այն ուղղվի (անձնական գույները կորչում են վերագործարկման ժամանակ): Ուղղեք ֆայլը և օգտագործեք /chatex reload:'
+      SaveFailed: '%file% տվյալների բազան վնասված է, ուստի փոփոխությունը ՉԻ պահպանվել սկավառակի վրա (ֆայլը մնացել է անփոփոխ): Ուղղեք ֆայլը և օգտագործեք /chatex reload:'
   Color:
-    Usage: '&e☀ &fՕգտագործում՝ &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fՉաթի գույնդ թարմացվեց։'
-    Invalid: '&c✘ &fԴա վավեր գունային կոդ չէ։'
-    Reset: '&a✔ &fՉաթի գույնդ վերականգնվեց։'
-    OnlyPlayers: '&4⚠ &fՄիայն խաղացողները կարող են օգտագործել այս հրամանը։'
-    GradientMinTwo: '&c✘ &fԳրադիենտի համար անհրաժեշտ է առնվազն &c2 &fգույն։'
+    PersonalActive: '&fԴուք ունեք անձնական չաթի գույն, ուստի չեք կարող օգտագործել գույներ կամ տեքստի ֆորմատավորում չաթում: Օգտագործեք <hover:show_text:''<#9B2D30>Սեղմեք ձեր չաթի գույնը վերականգնելու համար''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r այն հեռացնելու համար:'
+    Usage: |-
+      &f&fԳունավոր չաթի օգտագործում:
+      &f● <hover:show_text:'&#F34723Առաջարկել legacy գույնի օրինակ'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— սահմանել legacy գույն:
+      &f● <hover:show_text:'&#F34723Առաջարկել №1 HEX գույնի օրինակ'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— սահմանել HEX գույն:
+      &f● <hover:show_text:'&#F34723Առաջարկել №2 HEX գույնի օրինակ'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— սահմանել HEX գույն:
+      &f● <hover:show_text:'&#F34723Առաջարկել HEX գրադիենտի օրինակ'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— սահմանել HEX գրադիենտ:
+      &f● <hover:show_text:'&#F34723Առաջարկել legacy գրադիենտի օրինակ'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— սահմանել legacy գրադիենտ:
+      &f● <hover:show_text:'&#F34723Սեղմեք անձնական գույնը վերականգնելու համար'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— վերականգնել ձեր գույնը:
+      &f
+      &fՑանկացած գույն սահմանելիս մոդիֆիկատորները (օր. &#F34723&&#F34723l&r&f) տեղադրվում են գույնից հետո՝ առանց ստորակետերի կամ բացատների. գրադիենտի դեպքում՝ միայն վերջին գույնից հետո:
+      &f
+    Set: '&fՁեր չաթի գույնը թարմացվել է:'
+    Invalid: '&fԴա վավեր գունային կոդ չէ:'
+    Reset: '&fՁեր չաթի գույնը վերականգնվել է:'
+    OnlyPlayers: '&fՄիայն խաղացողները կարող են օգտագործել այս հրամանը:'
+    GradientMinTwo: '&fԳրադիենտը պահանջում է առնվազն &#CA2C922 գույն&r&f:'
+  MiniMessage:
+    NoColor: '&fԴուք չունեք MiniMessage գույներ օգտագործելու թույլտվություն:'
+    NoModifier: '&fԴուք չունեք MiniMessage ֆորմատավորման թեգեր օգտագործելու թույլտվություն:'
+    NoHex: '&fԴուք չունեք MiniMessage HEX գույներ օգտագործելու թույլտվություն:'
+    NoMagic: '&fԴուք չունեք MiniMessage obfuscated թեգ օգտագործելու թույլտվություն:'
+    NoGradient: '&fԴուք չունեք MiniMessage gradient թեգ օգտագործելու թույլտվություն:'
+    NoRainbow: '&fԴուք չունեք MiniMessage rainbow թեգ օգտագործելու թույլտվություն:'
+    NoUrl: '&fԴուք չունեք չաթում սեղմվող հղումներ օգտագործելու թույլտվություն:'
+    NoSuggest: '&fԴուք չունեք չաթում suggest-command թեգ օգտագործելու թույլտվություն:'
+    NoCommand: '&fԴուք չունեք չաթում run-command թեգ օգտագործելու թույլտվություն:'
+    NoCopy: '&fԴուք չունեք չաթում copy-to-clipboard թեգ օգտագործելու թույլտվություն:'
+    NoHover: '&fԴուք չունեք չաթում hover թեգ օգտագործելու թույլտվություն:'
+    NoInsertion: '&fԴուք չունեք չաթում insertion թեգ օգտագործելու թույլտվություն:'
+    NoKeybind: '&fԴուք չունեք չաթում keybind թեգ օգտագործելու թույլտվություն:'
+    NoFont: '&fԴուք չունեք չաթում font թեգ օգտագործելու թույլտվություն:'
+    NoLang: '&fԴուք չունեք չաթում translatable թեգ օգտագործելու թույլտվություն:'
+    NoNewline: '&fԴուք չունեք չաթում newline թեգ օգտագործելու թույլտվություն:'
   CommandResult:
-    NoPermission: '&c✘ &fԴուք չունեք թույլտվություն սրա համար։ Թույլտվություն՝ &c%perm%&f։'
-    WrongUsage: '&c✘ &fՍխալ օգտագործում։ Խնդրում ենք մուտքագրել &c%cmd% help&f։'
+    NoPermission: '&fԴուք չունեք թույլտվություն դրա համար: Թույլտվություն: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fՍխալ օգտագործում: Խնդրում ենք մուտքագրել <hover:show_text:''&#F34723Սեղմեք /%cmd% help գործարկելու համար''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f:'
   AntiSpam:
-    Denied: '&c✘ &fՍպամն արգելված է։ Սպասեք ևս &c%time% &fվայրկյան։'
+    Denied: '&fՍպամը արգելված է: Խնդրում ենք սպասել ևս &#CA2C92%time% վայրկյան&r&f:'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fմիացավ խաղին։'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fառաջին անգամ միացավ սերվերին։'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fհեռացվեց խաղից։'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fլքեց խաղը։'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fմիացավ խաղին:'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fառաջին անգամ միացավ սերվերին:'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fդուրս մղվեց խաղից:'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &flքեց խաղը:'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh-ն այժմ միացված է:'
-    Disabled: '✔ ChatEx-Refresh-ն այժմ անջատված է:'
-    bStats: '✔ Շնորհակալություն bStats-ից օգտվելու համար, այն միացված էր: Plugin ID: %id%.'
+    Enabled: ChatEx-Refresh-ն այժմ միացված է:
+    Disabled: ChatEx-Refresh-ն այժմ անջատված է:
+    bStats: 'Շնորհակալություն bStats-ը օգտագործելու համար, այն միացվել է: Փլագին ID: %id%:'
     Hooked:
-      LuckPerms: '✔ Հաջողությամբ միացված է LuckPerms-ին:'
-      PlaceholderAPI: '✔ Հաջողությամբ միացված է PlaceholderAPI-ին:'
-    NoPermissions: '⚠ Թույլտվությունների պլագին չի գտնվել: Օգտագործվում են լռելյայն թույլտվությունները:'
+      LuckPerms: Հաջողությամբ միացավ LuckPerms-ին:
+      PlaceholderAPI: Հաջողությամբ միացավ PlaceholderAPI-ին:
+    NoPermissions: Թույլտվությունների փլագին չի գտնվել: Օգտագործվում են կանխադրված թույլտվությունները:
   Update:
     Available:
-      Console: '&e⚠ &fChatEx-Refresh-ի նոր տարբերակը հասանելի է &eModrinth&f-ում: Ընթացիկ տարբերակ: &e%current%&f: Վերջին տարբերակ: &e%latest%&f: Ներբեռնում: &e%url%&f:'
-    UpToDate: '&a✔ ChatEx-Refresh &fթարմացված է: Տարբերակ: &a%current%&f:'
-    Failed: '&e⚠ &fՉհաջողվեց ստուգել ChatEx-Refresh-ի թարմացումները:'
+      Console: 'ChatEx-Refresh-ի նոր տարբերակը հասանելի է Modrinth-ում: Ընթացիկ տարբերակ: %current%: Վերջին տարբերակ: %latest%: Ներբեռնում: %url%:'
+    UpToDate: 'ChatEx-Refresh-ը արդիական է: Տարբերակ: %current%:'
+    Failed: Չհաջողվեց ստուգել ChatEx-Refresh-ի թարմացումները:
     Notify:
       Player: |-
         &f
-        &e⚠ &fChatEx-Refresh-ի նոր տարբերակը հասանելի է &eModrinth&f-ում:
-        &f● Ընթացիկ տարբերակ: &e%current%&f:
-        &f● Վերջին տարբերակ: &e%latest%&f:
-        &f● Ներբեռնում: &e%url%&f:
+        &f&#3EB489ChatEx-Refresh&r &f-ի նոր տարբերակը հասանելի է &#3EB489Modrinth&r&f-ում:
+        &f● Ընթացիկ տարբերակ: &#3EB489%current%&r&f.
+        &f● Վերջին տարբերակ: &#3EB489%latest%&r&f.
+        &f● Ներբեռնում: <hover:show_text:'&fՍեղմեք մեր &#3EB489Modrinth&r էջը բացելու համար'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: ԿՈՆՍՈԼ
-    Unknown: ԱՆՀԱՅՏ
+    Console: CONSOLE
+    Unknown: UNKNOWN

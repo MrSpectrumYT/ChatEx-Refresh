@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fチャットのヘルプ:
-      &f● &e/%cmd% clear &f— チャットをクリアします。
-      &f● &e/%cmd% help &f— チャットのヘルプを表示します。
-      &f● &e/%cmd% reload &f— プラグインをリロードします。
+      &fチャットのヘルプ:
+      &f● <hover:show_text:'&#F34723クリックして /%cmd% clear を実行'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— チャットをクリアします。
+      &f● <hover:show_text:'&#F34723クリックして /%cmd% help を実行'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— チャットのヘルプ。
+      &f● <hover:show_text:'&#F34723クリックして /%cmd% reload を実行'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— プラグインをリロードします。
       &f
   Commands:
     Reload:
-      Success: '&a✔ &f設定と言語ファイルが正常にリロードされました！'
+      Success: '&f設定、ロケール、データベースが正常にリロードされました！'
     Clear:
-      Success: '&4⚠ &fチャットは &4%clearer%&f によってクリアされました。'
+      Success: '&fチャットは &#9B2D30%clearer%&r&f によってクリアされました！'
   Chat:
-    AdDetected: '&c✘ &f広告は禁止されています！'
-    BlockedWord: '&c✘ &fこの単語は使用できません！'
-    AdNotify: '&4⚠ %player% &fがチャットで &4%message% &fを書こうとしました！'
-    NoOneListens: '&4⚠ &f近くにあなたの声を聞けるプレイヤーがいません！グローバルモードをお使いください。'
-  NoColorPermission: '&c✘ &f通常のカラーを使用する権限がありません！'
-  NoModifierPermission: '&c✘ &fフォーマットコードを使用する権限がありません！'
-  NoHexPermission: '&c✘ &fHEXカラーを使用する権限がありません！'
-  NoGradientPermission: '&c✘ &fグラデーションカラーを使用する権限がありません！'
-  MagicBlocked: '&c✘ &f魔法のカラーを使用する権限がありません！'
+    AdDetected: '&f広告は許可されていません！'
+    BlockedWord: '&fこの言葉は許可されていません！'
+    AdNotify: '&#9B2D30%player%&r &fがチャットで &#9B2D30%message%&r &fを書き込もうとしました！'
+    NoOneListens: '&f近くにあなたの声を聞くプレイヤーがいません！グローバルモードを試してください！'
+  NoColorPermission: '&fレガシーカラーを使用する権限がありません！'
+  NoModifierPermission: '&fフォーマットコードを使用する権限がありません！'
+  NoHexPermission: '&fHEXカラーを使用する権限がありません！'
+  NoGradientPermission: '&fグラデーションカラーを使用する権限がありません！'
+  MagicBlocked: '&fマジックカラーを使用する権限がありません！'
+  Integrity:
+    Config:
+      Loaded: config.yml が正常に読み込まれました！
+      Failed: 'config.yml が壊れています: %error% — ファイルは変更されませんでした！以前の/デフォルトの値が使用されます！ファイルを修正し、/chatex reload を使用してください。'
+    Locale:
+      Loaded: '%file% ロケールが正常に読み込まれました！'
+      Failed: '%file% ロケールが壊れています: %error% — ファイルは変更されませんでした！以前の/組み込みの英語テキストが使用されます！ファイルを修正し、/chatex reload を使用してください。'
+    Database:
+      Loaded: '%file% データベースが正常に読み込まれました！'
+      Failed: '%file% データベースが壊れています: %error% — ファイルは変更されず、修正されるまで何も保存されません（再起動時に個人カラーが失われます）！ファイルを修正し、/chatex reload を使用してください。'
+      SaveFailed: '%file% データベースが壊れているため、変更はディスクに保存されませんでした（ファイルはそのままです）！ファイルを修正し、/chatex reload を使用してください。'
   Color:
-    Usage: '&e☀ &f使用方法: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fチャットの色が更新されました！'
-    Invalid: '&c✘ &f無効なカラーコードです！'
-    Reset: '&a✔ &fチャットの色がリセットされました！'
-    OnlyPlayers: '&4⚠ &fこのコマンドはプレイヤーのみ使用できます！'
-    GradientMinTwo: '&c✘ &fグラデーションには少なくとも &c2 &f色が必要です！'
+    PersonalActive: '&f個人チャットカラーが設定されているため、チャットで色やテキスト装飾を使用できません！ <hover:show_text:''<#9B2D30>クリックしてチャットカラーをリセット''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r で削除してください。'
+    Usage: |-
+      &f&fカラーチャットの使用法:
+      &f● <hover:show_text:'&#F34723レガシーカラーの例を提案'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— レガシーカラーを設定します。
+      &f● <hover:show_text:'&#F34723HEXカラー例1を提案'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— HEXカラーを設定します。
+      &f● <hover:show_text:'&#F34723HEXカラー例2を提案'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— HEXカラーを設定します。
+      &f● <hover:show_text:'&#F34723HEXグラデーションの例を提案'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— HEXグラデーションを設定します。
+      &f● <hover:show_text:'&#F34723レガシーグラデーションの例を提案'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— レガシーグラデーションを設定します。
+      &f● <hover:show_text:'&#F34723クリックして個人カラーをリセット'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— カラーをリセットします。
+      &f
+      &fカラーを設定するとき、修飾子（例: &#F34723&&#F34723l&r&f）はコンマやスペースなしでカラーの後に配置します。グラデーションの場合は、最後のカラーの後にのみ配置します！
+      &f
+    Set: '&fチャットカラーが更新されました！'
+    Invalid: '&fそれは有効なカラーコードではありません！'
+    Reset: '&fチャットカラーがリセットされました！'
+    OnlyPlayers: '&fこのコマンドはプレイヤーのみが使用できます！'
+    GradientMinTwo: '&fグラデーションには少なくとも &#CA2C922 色&r&f が必要です！'
+  MiniMessage:
+    NoColor: '&fMiniMessageカラーを使用する権限がありません！'
+    NoModifier: '&fMiniMessageフォーマットタグを使用する権限がありません！'
+    NoHex: '&fMiniMessage HEXカラーを使用する権限がありません！'
+    NoMagic: '&fMiniMessage obfuscatedタグを使用する権限がありません！'
+    NoGradient: '&fMiniMessage gradientタグを使用する権限がありません！'
+    NoRainbow: '&fMiniMessage rainbowタグを使用する権限がありません！'
+    NoUrl: '&fチャットでクリック可能なリンクを使用する権限がありません！'
+    NoSuggest: '&fチャットで suggest-command タグを使用する権限がありません！'
+    NoCommand: '&fチャットで run-command タグを使用する権限がありません！'
+    NoCopy: '&fチャットで copy-to-clipboard タグを使用する権限がありません！'
+    NoHover: '&fチャットで hover タグを使用する権限がありません！'
+    NoInsertion: '&fチャットで insertion タグを使用する権限がありません！'
+    NoKeybind: '&fチャットで keybind タグを使用する権限がありません！'
+    NoFont: '&fチャットで font タグを使用する権限がありません！'
+    NoLang: '&fチャットで translatable タグを使用する権限がありません！'
+    NoNewline: '&fチャットで newline タグを使用する権限がありません！'
   CommandResult:
-    NoPermission: '&c✘ &f権限がありません！権限: &c%perm%&f.'
-    WrongUsage: '&c✘ &f使用方法が間違っています！ &c%cmd% help&f を入力してください！'
+    NoPermission: '&fこの権限がありません！権限: &#9B2D30%perm%&r&f。'
+    WrongUsage: '&f使用方法が間違っています！ <hover:show_text:''&#F34723クリックして /%cmd% help を実行''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f と入力してください！'
   AntiSpam:
-    Denied: '&c✘ &fスパムは禁止されています！あと &c%time% &f秒お待ちください！'
+    Denied: '&fスパムは許可されていません！あと &#CA2C92%time% 秒&r&f お待ちください！'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fがゲームに参加しました！'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fが初めてサーバーに参加しました！'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fがゲームからキックされました！'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fがゲームを退出しました！'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fがゲームに参加しました！'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fが初めてサーバーに参加しました！'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fがゲームからキックされました！'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fがゲームを退出しました！'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh が有効になりました！'
-    Disabled: '✔ ChatEx-Refresh が無効になりました！'
-    bStats: '✔ bStats をご利用いただきありがとうございます、有効になりました！ プラグインID: %id%。'
+    Enabled: ChatEx-Refresh が有効になりました！
+    Disabled: ChatEx-Refresh が無効になりました！
+    bStats: 'bStats をご利用いただきありがとうございます。有効化されました！プラグインID: %id%。'
     Hooked:
-      LuckPerms: '✔ LuckPerms に正常にフックされました！'
-      PlaceholderAPI: '✔ PlaceholderAPI に正常にフックされました！'
-    NoPermissions: '⚠ 権限プラグインが見つかりません。デフォルトの権限を使用します。'
+      LuckPerms: LuckPerms に正常に接続しました！
+      PlaceholderAPI: PlaceholderAPI に正常に接続しました！
+    NoPermissions: 権限プラグインが見つかりません！デフォルトの権限を使用します。
   Update:
     Available:
-      Console: '&e⚠ &f&eChatEx-Refresh &fの新しいバージョンが &eModrinth&f で利用可能です！ 現在のバージョン: &e%current%&f。最新バージョン: &e%latest%&f。ダウンロード: &e%url%&f。'
-    UpToDate: '&a✔ ChatEx-Refresh &fは最新です！ バージョン: &a%current%&f。'
-    Failed: '&e⚠ &f&eChatEx-Refresh &fのアップデートの確認に失敗しました！'
+      Console: 'ChatEx-Refresh の新しいバージョンが Modrinth で利用可能です！現在のバージョン: %current%。最新バージョン: %latest%。ダウンロード: %url%。'
+    UpToDate: 'ChatEx-Refresh は最新です！バージョン: %current%。'
+    Failed: ChatEx-Refresh のアップデート確認に失敗しました！
     Notify:
       Player: |-
         &f
-        &e⚠ &f&eChatEx-Refresh &fの新しいバージョンが &eModrinth&f で利用可能です！
-        &f● 現在のバージョン: &e%current%&f。
-        &f● 最新バージョン: &e%latest%&f。
-        &f● ダウンロード: &e%url%&f。
+        &f&#3EB489ChatEx-Refresh&r &fの新しいバージョンが &#3EB489Modrinth&r&f で利用可能です！
+        &f● 現在のバージョン: &#3EB489%current%&r&f.
+        &f● 最新バージョン: &#3EB489%latest%&r&f.
+        &f● ダウンロード: <hover:show_text:'&fクリックして &#3EB489Modrinth&r ページを開く'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: コンソール
-    Unknown: 不明
+    Console: CONSOLE
+    Unknown: UNKNOWN

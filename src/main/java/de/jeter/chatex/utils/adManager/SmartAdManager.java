@@ -22,6 +22,7 @@ package de.jeter.chatex.utils.adManager;
 import de.jeter.chatex.utils.*;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -108,9 +109,9 @@ public class SmartAdManager implements AdManager {
         if (canceled) {
             errorScore.put(uuid, Config.ADS_THRESHOLD.getDouble());
             
-            String notifyMsg = Locales.MESSAGES_AD_NOTIFY.getString(player)
-                .replace("%player%", Matcher.quoteReplacement(player.getName()))
-                .replace("%message%", Matcher.quoteReplacement(message));
+            Map<String, String> values = new HashMap<>();
+            values.put("%message%", message);
+            String notifyMsg = Locales.MESSAGES_AD_NOTIFY.getString(player, values);
             Utils.notifyOps(notifyMsg);
             ChatLogger.writeToAdFile(player, message);
         } else {

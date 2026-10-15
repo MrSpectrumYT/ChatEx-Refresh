@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fHilfe für den Chat:
-      &f● &e/%cmd% clear &f— leert den Chat.
-      &f● &e/%cmd% help &f— Hilfe für den Chat.
-      &f● &e/%cmd% reload &f— lädt das Plugin neu.
+      &fHilfe für den Chat:
+      &f● <hover:show_text:'&#F34723Klicke, um /%cmd% clear auszuführen'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— leert den Chat.
+      &f● <hover:show_text:'&#F34723Klicke, um /%cmd% help auszuführen'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— Hilfe für den Chat.
+      &f● <hover:show_text:'&#F34723Klicke, um /%cmd% reload auszuführen'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— lädt das Plugin neu.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fKonfiguration und Locales wurden neu geladen!'
+      Success: '&fKonfiguration, Lokalisierungen und Datenbank erfolgreich neu geladen!'
     Clear:
-      Success: '&4⚠ &fDer Chat wurde von &4%clearer%&f geleert.'
+      Success: '&fDer Chat wurde von &#9B2D30%clearer%&r&f geleert!'
   Chat:
-    AdDetected: '&c✘ &fWerbung ist nicht erlaubt!'
-    BlockedWord: '&c✘ &fDieses Wort ist nicht erlaubt!'
-    AdNotify: '&4⚠ %player% &fversuchte &4%message% &fin den Chat zu schreiben!'
-    NoOneListens: '&4⚠ &fNiemand ist in deiner Nähe, um dich zu hören! Nutze den globalen Modus.'
-  NoColorPermission: '&c✘ &fDu hast keine Rechte für normale Farben!'
-  NoModifierPermission: '&c✘ &fDu hast keine Rechte für Formatierungscodes!'
-  NoHexPermission: '&c✘ &fDu hast keine Rechte für HEX-Farben!'
-  NoGradientPermission: '&c✘ &fDu hast keine Rechte für Verlaufsfarben!'
-  MagicBlocked: '&c✘ &fDu hast keine Rechte für magische Farben!'
+    AdDetected: '&fWerbung ist nicht erlaubt!'
+    BlockedWord: '&fDieses Wort ist nicht erlaubt!'
+    AdNotify: '&#9B2D30%player%&r &fhat versucht, &#9B2D30%message%&r &fin den Chat zu schreiben!'
+    NoOneListens: '&fKeine Spieler in der Nähe, die dich hören könnten! Versuche den globalen Modus!'
+  NoColorPermission: '&fDu hast keine Berechtigung für Legacy-Farben!'
+  NoModifierPermission: '&fDu hast keine Berechtigung für Formatierungscodes!'
+  NoHexPermission: '&fDu hast keine Berechtigung für HEX-Farben!'
+  NoGradientPermission: '&fDu hast keine Berechtigung für Verlaufsfarben!'
+  MagicBlocked: '&fDu hast keine Berechtigung für magische Farbe!'
+  Integrity:
+    Config:
+      Loaded: config.yml erfolgreich geladen!
+      Failed: 'config.yml ist beschädigt: %error% — die Datei wurde NICHT geändert! Die vorherigen/Standardwerte werden verwendet! Repariere die Datei und benutze /chatex reload.'
+    Locale:
+      Loaded: '%file% Lokalisierung erfolgreich geladen!'
+      Failed: '%file% Lokalisierung ist beschädigt: %error% — die Datei wurde NICHT geändert! Die vorherigen/internen englischen Texte werden verwendet! Repariere die Datei und benutze /chatex reload.'
+    Database:
+      Loaded: '%file% Datenbank erfolgreich geladen!'
+      Failed: '%file% Datenbank ist beschädigt: %error% — die Datei wurde NICHT geändert und es wird nichts hineingespeichert, bis sie repariert ist (persönliche Farben gehen beim Neustart verloren)! Repariere die Datei und benutze /chatex reload.'
+      SaveFailed: '%file% Datenbank ist beschädigt, daher wurde die Änderung NICHT auf der Festplatte gespeichert (die Datei bleibt unberührt)! Repariere die Datei und benutze /chatex reload.'
   Color:
-    Usage: '&e☀ &fVerwendung: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fDeine Chatfarbe wurde aktualisiert!'
-    Invalid: '&c✘ &fDas ist kein gültiger Farbcode!'
-    Reset: '&a✔ &fDeine Chatfarbe wurde zurückgesetzt!'
-    OnlyPlayers: '&4⚠ &fNur Spieler können diesen Befehl verwenden!'
-    GradientMinTwo: '&c✘ &fFür einen Farbverlauf werden mindestens &c2 &fFarben benötigt!'
+    PersonalActive: '&fDu hast eine persönliche Chatfarbe, daher kannst du keine Farben oder Textformatierungen im Chat verwenden! Benutze <hover:show_text:''<#9B2D30>Klicke, um deine Chatfarbe zurückzusetzen''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r, um sie zu entfernen.'
+    Usage: |-
+      &f&fVerwendung für farbigen Chat:
+      &f● <hover:show_text:'&#F34723Beispiel für Legacy-Farbe vorschlagen'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— setze eine Legacy-Farbe.
+      &f● <hover:show_text:'&#F34723Beispiel №1 für HEX-Farbe vorschlagen'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— setze eine HEX-Farbe.
+      &f● <hover:show_text:'&#F34723Beispiel №2 für HEX-Farbe vorschlagen'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— setze eine HEX-Farbe.
+      &f● <hover:show_text:'&#F34723Beispiel für HEX-Verlauf vorschlagen'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— setze einen HEX-Verlauf.
+      &f● <hover:show_text:'&#F34723Beispiel für Legacy-Verlauf vorschlagen'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— setze einen Legacy-Verlauf.
+      &f● <hover:show_text:'&#F34723Klicke, um persönliche Farbe zurückzusetzen'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— setze deine Farbe zurück.
+      &f
+      &fBeim Setzen einer Farbe werden Modifikatoren (z.B. &#F34723&&#F34723l&r&f) nach der Farbe ohne Kommas oder Leerzeichen platziert; bei einem Verlauf nur nach der letzten Farbe!
+      &f
+    Set: '&fDeine Chatfarbe wurde aktualisiert!'
+    Invalid: '&fDas ist kein gültiger Farbcode!'
+    Reset: '&fDeine Chatfarbe wurde zurückgesetzt!'
+    OnlyPlayers: '&fNur Spieler können diesen Befehl verwenden!'
+    GradientMinTwo: '&fVerlauf erfordert mindestens &#CA2C922 Farben&r&f!'
+  MiniMessage:
+    NoColor: '&fDu hast keine Berechtigung für MiniMessage-Farben!'
+    NoModifier: '&fDu hast keine Berechtigung für MiniMessage-Formatierungs-Tags!'
+    NoHex: '&fDu hast keine Berechtigung für MiniMessage HEX-Farben!'
+    NoMagic: '&fDu hast keine Berechtigung für den MiniMessage obfuscated-Tag!'
+    NoGradient: '&fDu hast keine Berechtigung für den MiniMessage gradient-Tag!'
+    NoRainbow: '&fDu hast keine Berechtigung für den MiniMessage rainbow-Tag!'
+    NoUrl: '&fDu hast keine Berechtigung für klickbare Links im Chat!'
+    NoSuggest: '&fDu hast keine Berechtigung für den suggest-command-Tag im Chat!'
+    NoCommand: '&fDu hast keine Berechtigung für den run-command-Tag im Chat!'
+    NoCopy: '&fDu hast keine Berechtigung für den copy-to-clipboard-Tag im Chat!'
+    NoHover: '&fDu hast keine Berechtigung für den hover-Tag im Chat!'
+    NoInsertion: '&fDu hast keine Berechtigung für den insertion-Tag im Chat!'
+    NoKeybind: '&fDu hast keine Berechtigung für den keybind-Tag im Chat!'
+    NoFont: '&fDu hast keine Berechtigung für den font-Tag im Chat!'
+    NoLang: '&fDu hast keine Berechtigung für den translatable-Tag im Chat!'
+    NoNewline: '&fDu hast keine Berechtigung für den newline-Tag im Chat!'
   CommandResult:
-    NoPermission: '&c✘ &fDu hast keine Rechte dafür! Recht: &c%perm%&f.'
-    WrongUsage: '&c✘ &fFalsche Verwendung! Bitte gebe &c%cmd% help&f ein!'
+    NoPermission: '&fDu hast keine Berechtigung dafür! Berechtigung: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fFalsche Verwendung! Bitte gib <hover:show_text:''&#F34723Klicke, um /%cmd% help auszuführen''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f ein!'
   AntiSpam:
-    Denied: '&c✘ &fSpam ist nicht erlaubt! Bitte warte noch &c%time% &fSekunden!'
+    Denied: '&fSpam ist nicht erlaubt! Bitte warte weitere &#CA2C92%time% Sekunden&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fbetrat das Spiel!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fbetrat den Server zum ersten Mal!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fwurde vom Server gekickt!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fverließ das Spiel!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fist dem Spiel beigetreten!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fist zum ersten Mal dem Server beigetreten!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fwurde aus dem Spiel geworfen!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fhat das Spiel verlassen!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh ist jetzt aktiviert!'
-    Disabled: '✔ ChatEx-Refresh ist jetzt deaktiviert!'
-    bStats: '✔ Danke für die Nutzung von bStats, es wurde aktiviert! Plugin-ID: %id%.'
+    Enabled: ChatEx-Refresh ist jetzt aktiviert!
+    Disabled: ChatEx-Refresh ist jetzt deaktiviert!
+    bStats: 'Danke für die Nutzung von bStats, es wurde aktiviert! Plugin-ID: %id%.'
     Hooked:
-      LuckPerms: '✔ Erfolgreich mit LuckPerms verbunden!'
-      PlaceholderAPI: '✔ Erfolgreich mit PlaceholderAPI verbunden!'
-    NoPermissions: '⚠ Kein Berechtigungs-Plugin gefunden. Verwende Standardrechte.'
+      LuckPerms: Erfolgreich mit LuckPerms verbunden!
+      PlaceholderAPI: Erfolgreich mit PlaceholderAPI verbunden!
+    NoPermissions: Kein Berechtigungs-Plugin gefunden! Standardberechtigungen werden verwendet.
   Update:
     Available:
-      Console: '&e⚠ &fNeue Version von &eChatEx-Refresh &fauf &eModrinth&f verfügbar! Aktuelle Version: &e%current%&f. Neueste Version: &e%latest%&f. Download: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fist aktuell! Version: &a%current%&f.'
-    Failed: '&e⚠ &fUpdateprüfung für &eChatEx-Refresh&f fehlgeschlagen!'
+      Console: 'Neue Version von ChatEx-Refresh auf Modrinth verfügbar! Aktuelle Version: %current%. Neueste Version: %latest%. Download: %url%.'
+    UpToDate: 'ChatEx-Refresh ist auf dem neuesten Stand! Version: %current%.'
+    Failed: Fehler beim Prüfen auf Updates für ChatEx-Refresh!
     Notify:
       Player: |-
         &f
-        &e⚠ &fNeue Version von &eChatEx-Refresh &fauf &eModrinth&f verfügbar!
-        &f● Aktuelle Version: &e%current%&f.
-        &f● Neueste Version: &e%latest%&f.
-        &f● Download: &e%url%&f.
+        &fNeue Version von &#3EB489ChatEx-Refresh&r &fauf &#3EB489Modrinth&r&f verfügbar!
+        &f● Aktuelle Version: &#3EB489%current%&r&f.
+        &f● Neueste Version: &#3EB489%latest%&r&f.
+        &f● Download: <hover:show_text:'&fKlicke, um unsere &#3EB489Modrinth&r-Seite zu öffnen'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: KONSOLE
-    Unknown: UNBEKANNT
+    Console: CONSOLE
+    Unknown: UNKNOWN

@@ -33,16 +33,12 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onJoin(PlayerJoinEvent event) {
         if (Config.CHANGE_JOIN_AND_QUIT.getBoolean()) {
-            String msg = event.getPlayer().hasPlayedBefore() 
-                ? Locales.PLAYER_JOIN.getString(event.getPlayer())
-                : Locales.PLAYER_JOIN_FIRST_TIME.getString(event.getPlayer());
-            event.setJoinMessage(Utils.replacePlayerPlaceholders(event.getPlayer(), msg));
+            Locales msg = event.getPlayer().hasPlayedBefore() ? Locales.PLAYER_JOIN : Locales.PLAYER_JOIN_FIRST_TIME;
+            event.setJoinMessage(msg.getString(event.getPlayer()));
         }
 
         if (Config.CHANGE_TABLIST_NAME.getBoolean()) {
-            String name = Config.TABLIST_FORMAT.getString();
-            name = Utils.replacePlayerPlaceholders(event.getPlayer(), name);
-            event.getPlayer().setPlayerListName(name);
+            event.getPlayer().setPlayerListName(Utils.tablistName(event.getPlayer()));
         }
 
         if (Config.CHECK_UPDATE.getBoolean() && ChatEx.getInstance().getUpdateChecker() != null) {
@@ -56,8 +52,7 @@ public class PlayerListener implements Listener {
         SmartAdManager.removePlayer(event.getPlayer());
 
         if (Config.CHANGE_JOIN_AND_QUIT.getBoolean()) {
-            String msg = Locales.PLAYER_QUIT.getString(event.getPlayer());
-            event.setQuitMessage(Utils.replacePlayerPlaceholders(event.getPlayer(), msg));
+            event.setQuitMessage(Locales.PLAYER_QUIT.getString(event.getPlayer()));
         }
     }
 
@@ -67,8 +62,7 @@ public class PlayerListener implements Listener {
         SmartAdManager.removePlayer(event.getPlayer());
 
         if (Config.CHANGE_JOIN_AND_QUIT.getBoolean()) {
-            String msg = Locales.PLAYER_KICK.getString(event.getPlayer());
-            event.setLeaveMessage(Utils.replacePlayerPlaceholders(event.getPlayer(), msg));
+            event.setLeaveMessage(Locales.PLAYER_KICK.getString(event.getPlayer()));
         }
     }
 }

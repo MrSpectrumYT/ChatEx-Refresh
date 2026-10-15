@@ -20,126 +20,204 @@
 package de.jeter.chatex;
 
 import de.jeter.chatex.plugins.PluginManager;
+import de.jeter.chatex.text.Fmt;
+import de.jeter.chatex.text.MessageGuard;
+import de.jeter.chatex.text.MiniParser;
+import de.jeter.chatex.text.Rendered;
 import de.jeter.chatex.utils.*;
-import de.jeter.chatex.utils.adManager.AdManager;
-import de.jeter.chatex.utils.adManager.SimpleAdManager;
-import de.jeter.chatex.utils.adManager.SmartAdManager;
+import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
-import java.util.regex.Pattern;
+import java.util.WeakHashMap;
 
+/**
+ * Chat handling.
+ * <p>
+ * Normal way: the event format / message are set (works with every other plugin).
+ * Component way (system messages, click/hover): the event is cancelled at MONITOR and the line
+ * is sent to the recipients as a server message. Doing it at MONITOR keeps mute / vanish plugins working.
+ */
 public class ChatListener implements Listener {
 
-    private final AdManager adManager = Config.ADS_SMART_MANAGER.getBoolean() 
-        ? new SmartAdManager() 
-        : new SimpleAdManager();
+    /** Marks the place of the message while the format is rendered. */
+    private static final String SENTINEL = "\uE000";
 
-    @EventHandler(priority = EventPriority.LOWEST)
-    public void onChat(AsyncPlayerChatEvent event) {
+    private static final class Pending {
+        final String formatMM;
+        final String messageMM;
+        final String legacyFormat;
+        final String legacyMessage;
+
+        Pending(String formatMM, String messageMM, String legacyFormat, String legacyMessage) {
+            this.formatMM = formatMM;
+            this.messageMM = messageMM;
+            this.legacyFormat = legacyFormat;
+            this.legacyMessage = legacyMessage;
+        }
+    }
+
+    /** Weak keys: nothing can leak if an event never reaches MONITOR. */
+    private final Map<AsyncPlayerChatEvent, Pending> pending = Collections.synchronizedMap(new WeakHashMap<>());
+
+    public void register(ChatEx plugin) {
+        EventPriority priority;
+        try {
+            priority = EventPriority.valueOf(Config.PRIORITY.getString().toUpperCase(Locale.ROOT));
+        } catch (IllegalArgumentException ex) {
+            plugin.getLogger().warning("Unknown EventPriority '" + Config.PRIORITY.getString() + "', using LOWEST.");
+            priority = EventPriority.LOWEST;
+        }
+        plugin.getServer().getPluginManager().registerEvent(AsyncPlayerChatEvent.class, this, priority,
+                (listener, event) -> {
+                    if (event instanceof AsyncPlayerChatEvent) {
+                        handle((AsyncPlayerChatEvent) event);
+                    }
+                }, plugin, true);
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
+    }
+
+    private void handle(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
 
         if (!player.hasPermission("chatex.allowchat")) {
-            Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("%perm%", "chatex.allowchat");
-            player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
+            Map<String, String> values = new HashMap<>();
+            values.put("%perm%", "chatex.allowchat");
+            Locales.COMMAND_RESULT_NO_PERM.send(player, values);
             event.setCancelled(true);
             return;
         }
 
         String message = event.getMessage();
 
-        if (!AntiSpamManager.getInstance().isAllowed(player)) {
-            long remaining = AntiSpamManager.getInstance().getRemainingSeconds(player);
-            Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("%time%", String.valueOf(remaining));
-            player.sendMessage(Locales.ANTI_SPAM_DENIED.getString(player, placeholders));
-            event.setCancelled(true);
-            return;
-        }
-        AntiSpamManager.getInstance().update(player);
-
-        if (adManager.checkForAds(message, player)) {
-            player.sendMessage(Locales.MESSAGES_AD.getString(null));
+        if (!ChatRules.check(player, message, Config.ANTISPAM_ENABLED.getBoolean(), true, true)) {
             event.setCancelled(true);
             return;
         }
 
-        for (String blocked : Config.BLOCKED_WORDS.getStringList()) {
-            if (message.toLowerCase().contains(blocked.toLowerCase())) {
-                player.sendMessage(Locales.MESSAGES_BLOCKED.getString(null));
-                event.setCancelled(true);
-                return;
-            }
-        }
+        boolean ranged = Config.RANGEMODE.getBoolean();
+        String prefix = Config.RANGEPREFIX.getString();
+        String rawFormat;
 
-        String format;
-
-        if (Config.RANGEMODE.getBoolean() && message.startsWith(Config.RANGEPREFIX.getString())) {
+        if (ranged && !prefix.isEmpty() && message.startsWith(prefix)) {
             if (!player.hasPermission("chatex.chat.global")) {
-                Map<String, String> placeholders = new HashMap<>();
-                placeholders.put("%perm%", "chatex.chat.global");
-                player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
+                Map<String, String> values = new HashMap<>();
+                values.put("%perm%", "chatex.chat.global");
+                Locales.COMMAND_RESULT_NO_PERM.send(player, values);
                 event.setCancelled(true);
                 return;
             }
-            
-            message = message.replaceFirst(Pattern.quote(Config.RANGEPREFIX.getString()), "");
-            format = PluginManager.getInstance().getGlobalMessageFormat(player);
-        } else if (Config.RANGEMODE.getBoolean()) {
-            event.getRecipients().clear();
-            
-            if (Utils.getLocalRecipients(player).size() == 1 && Config.SHOW_NO_RECEIVER_MSG.getBoolean()) {
-                player.sendMessage(Locales.NO_LISTENING_PLAYERS.getString(player));
+            message = message.substring(prefix.length()).stripLeading();
+            if (message.isEmpty()) {
                 event.setCancelled(true);
                 return;
             }
-            
-            event.getRecipients().addAll(Utils.getLocalRecipients(player));
-            format = PluginManager.getInstance().getMessageFormat(player);
+            rawFormat = PluginManager.getInstance().getGlobalMessageFormat(player);
         } else {
-            format = PluginManager.getInstance().getMessageFormat(player);
+            rawFormat = PluginManager.getInstance().getMessageFormat(player);
+            if (ranged) {
+                List<Player> local = Utils.getLocalRecipients(player);
+                if (local.size() <= 1 && Config.SHOW_NO_RECEIVER_MSG.getBoolean()) {
+                    Locales.NO_LISTENING_PLAYERS.send(player);
+                    if (!Config.NO_PLAYERS_KEEP_MESSAGE.getBoolean()) {
+                        event.setCancelled(true);
+                        return;
+                    }
+                }
+                event.getRecipients().clear();
+                event.getRecipients().addAll(local);
+            }
         }
 
-        format = Utils.replacePlayerPlaceholders(player, format);
-
-        format = format.replace("%", "%%");
-
-        format = format.replace("%%2$s", "%2$s");
-
-        format = format.replace("%%message%%", "%2$s");
-
-        LogHelper.debug("Final format: " + format);
-        event.setFormat(format);
-
-        String coloredMessage = Utils.translateColorCodes(message, player);
-        if (coloredMessage == null) {
+        // 1. permissions of the player + legacy / MiniMessage -> MiniMessage
+        MessageGuard.Result checked = MessageGuard.process(message, player);
+        String[] personal = ColorManager.wrap(player);
+        if (personal != null && checked.usedStyle() && Config.PERSONAL_COLOR_BLOCKS_CODES.getBoolean()) {
+            // a personal /color is set: no own colors or text modifiers in chat (hover, click, ... are still allowed by their permissions)
+            Locales.PERSONAL_COLOR_ACTIVE.send(player);
             event.setCancelled(true);
             return;
         }
-
-        String rawColor = ColorManager.getRawColor(player);
-        if (!rawColor.isEmpty()) {
-            if (rawColor.contains(",")) {
-                coloredMessage = Utils.applyGradient(coloredMessage, rawColor);
-            } else {
-                coloredMessage = ColorManager.getPersonalColor(player) + coloredMessage + "§r";
+        if (!checked.denied().isEmpty()) {
+            for (MessageGuard.Check check : checked.denied()) {
+                check.message().send(player);
             }
+            event.setCancelled(true);
+            return;
+        }
+        String messageMM = checked.mm();
+        if (personal != null) {
+            messageMM = personal[0] + messageMM + personal[1];
         }
 
-        event.setMessage(coloredMessage);
-        
-        if (Config.RANGEMODE.getBoolean()) {
-            MentionManager.processMentionsWithRecipients(player, message, event.getRecipients());
-        } else {
-            MentionManager.processMentions(player, message);
+        // 2. placeholders -> text, legacy codes -> MiniMessage
+        String formatMM = Fmt.toMM(Utils.replacePlayerPlaceholders(player, rawFormat));
+
+        // 3. render
+        Rendered formatRendered = MiniParser.parse(formatMM.replace("%message%", SENTINEL));
+        Rendered messageRendered = MiniParser.parse(messageMM);
+        String legacyFormat = formatRendered.toLegacy().replace("%", "%%").replace(SENTINEL, "%2$s");
+        String legacyMessage = messageRendered.toLegacy();
+
+        LogHelper.debug("Final format: " + legacyFormat);
+        event.setFormat(legacyFormat);
+        event.setMessage(legacyMessage);
+
+        if (Config.SYSTEM_MESSAGES.getBoolean() || formatRendered.needsComponents() || messageRendered.needsComponents()) {
+            pending.put(event, new Pending(formatMM, messageMM, legacyFormat, legacyMessage));
         }
-        
+
+        String plain = Fmt.plain(message);
+        if (ranged) {
+            MentionManager.processMentionsWithRecipients(player, plain, event.getRecipients());
+        } else {
+            MentionManager.processMentions(player, plain);
+        }
+
         ChatLogger.writeToFile(player, message);
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onMonitor(AsyncPlayerChatEvent event) {
+        Pending p = pending.remove(event);
+        if (p == null) return;
+
+        Player player = event.getPlayer();
+        String formatMM = p.formatMM;
+        String messageMM = p.messageMM;
+
+        // another plugin changed the format or the message after us: respect that
+        if (!event.getFormat().equals(p.legacyFormat)) {
+            String f = event.getFormat().replace("%%", "\u0001")
+                    .replace("%1$s", player.getDisplayName())
+                    .replace("%2$s", "%message%")
+                    .replace("\u0001", "%");
+            formatMM = Fmt.toMM(f);
+        }
+        if (!event.getMessage().equals(p.legacyMessage)) {
+            messageMM = Fmt.toMM(event.getMessage().replace("\\", "\\\\").replace("<", "\\<"));
+        }
+
+        Rendered line = MiniParser.parse(formatMM.replace("%message%", messageMM));
+        BaseComponent[] components = line.toComponents();
+
+        for (Player recipient : event.getRecipients()) {
+            recipient.spigot().sendMessage(components);
+        }
+        Bukkit.getConsoleSender().sendMessage(line.plain());
+        event.setCancelled(true);
+    }
+
+    public void clear() {
+        pending.clear();
     }
 }

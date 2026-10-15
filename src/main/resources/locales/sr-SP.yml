@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fПомоћ за ћаскање:
-      &f● &e/%cmd% clear &f— чисти чат.
-      &f● &e/%cmd% help &f— помоћ за ћаскање.
-      &f● &e/%cmd% reload &f— поново учитава додатак.
+      &fПомоћ за чет:
+      &f● <hover:show_text:'&#F34723Кликните да бисте покренули /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— брише чет.
+      &f● <hover:show_text:'&#F34723Кликните да бисте покренули /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— помоћ за чет.
+      &f● <hover:show_text:'&#F34723Кликните да бисте покренули /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— поново учитава плугин.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fКонфигурација и језици су успешно поново учитани!'
+      Success: '&fКонфигурација, локализације и база података су успешно поново учитане!'
     Clear:
-      Success: '&4⚠ &fЧат је очистио &4%clearer%&f.'
+      Success: '&fЧет је обрисао &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fРекламе нису дозвољене!'
-    BlockedWord: '&c✘ &fОва реч није дозвољена!'
-    AdNotify: '&4⚠ %player% &fје покушао да напише &4%message% &fу чату!'
-    NoOneListens: '&4⚠ &fНиједан играч није близу да вас чује! Користите глобални режим.'
-  NoColorPermission: '&c✘ &fНемате дозволу за коришћење обичних боја!'
-  NoModifierPermission: '&c✘ &fНемате дозволу за коришћење кодова за форматирање!'
-  NoHexPermission: '&c✘ &fНемате дозволу за коришћење HEX боја!'
-  NoGradientPermission: '&c✘ &fНемате дозволу за коришћење градијентних боја!'
-  MagicBlocked: '&c✘ &fНемате дозволу за коришћење магичних боја!'
+    AdDetected: '&fРеклама није дозвољена!'
+    BlockedWord: '&fОва реч није дозвољена!'
+    AdNotify: '&#9B2D30%player%&r &fје покушао да напише &#9B2D30%message%&r &fу чет!'
+    NoOneListens: '&fНема играча у близини који би вас чули! Пробајте глобални режим!'
+  NoColorPermission: '&fНемате дозволу да користите legacy боје!'
+  NoModifierPermission: '&fНемате дозволу да користите кодове за форматирање!'
+  NoHexPermission: '&fНемате дозволу да користите HEX боје!'
+  NoGradientPermission: '&fНемате дозволу да користите градијентне боје!'
+  MagicBlocked: '&fНемате дозволу да користите магичну боју!'
+  Integrity:
+    Config:
+      Loaded: config.yml је успешно учитан!
+      Failed: 'config.yml је оштећен: %error% — датотека НИЈЕ промењена! Користе се претходне/подразумеване вредности! Поправите датотеку и користите /chatex reload.'
+    Locale:
+      Loaded: '%file% локализација је успешно учитана!'
+      Failed: '%file% локализација је оштећена: %error% — датотека НИЈЕ промењена! Користе се претходни/уграђени енглески текстови! Поправите датотеку и користите /chatex reload.'
+    Database:
+      Loaded: '%file% база података је успешно учитана!'
+      Failed: '%file% база података је оштећена: %error% — датотека НИЈЕ промењена и ништа се у њу не чува док се не поправи (личне боје се губе при поновном покретању)! Поправите датотеку и користите /chatex reload.'
+      SaveFailed: '%file% база података је оштећена, тако да промена НИЈЕ сачувана на диск (датотека је остала нетакнута)! Поправите датотеку и користите /chatex reload.'
   Color:
-    Usage: '&e☀ &fУпотреба: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fБоја вашег ћаскања је ажурирана!'
-    Invalid: '&c✘ &fТо није важећи код боје!'
-    Reset: '&a✔ &fБоја вашег ћаскања је ресетована!'
-    OnlyPlayers: '&4⚠ &fСамо играчи могу користити ову команду!'
-    GradientMinTwo: '&c✘ &fЗа градијент су потребне најмање &c2 &fбоје!'
+    PersonalActive: '&fИмате личну боју чета, тако да не можете да користите боје или форматирање текста у чету! Користите <hover:show_text:''<#9B2D30>Кликните да бисте ресетовали боју чета''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r да бисте је уклонили.'
+    Usage: |-
+      &f&fУпотреба обојеног чета:
+      &f● <hover:show_text:'&#F34723Предложи пример legacy боје'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— постави legacy боју.
+      &f● <hover:show_text:'&#F34723Предложи пример №1 HEX боје'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— постави HEX боју.
+      &f● <hover:show_text:'&#F34723Предложи пример №2 HEX боје'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— постави HEX боју.
+      &f● <hover:show_text:'&#F34723Предложи пример HEX градијента'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— постави HEX градијент.
+      &f● <hover:show_text:'&#F34723Предложи пример legacy градијента'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— постави legacy градијент.
+      &f● <hover:show_text:'&#F34723Кликните да бисте ресетовали личну боју'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— ресетујте своју боју.
+      &f
+      &fПриликом постављања било које боје, модификатори (нпр. &#F34723&&#F34723l&r&f) се постављају после боје без зареза или размака; код градијента, само после последње боје!
+      &f
+    Set: '&fВаша боја чета је ажурирана!'
+    Invalid: '&fТо није важећи код боје!'
+    Reset: '&fВаша боја чета је ресетована!'
+    OnlyPlayers: '&fСамо играчи могу да користе ову команду!'
+    GradientMinTwo: '&fГрадијент захтева најмање &#CA2C922 боје&r&f!'
+  MiniMessage:
+    NoColor: '&fНемате дозволу да користите MiniMessage боје!'
+    NoModifier: '&fНемате дозволу да користите MiniMessage ознаке за форматирање!'
+    NoHex: '&fНемате дозволу да користите MiniMessage HEX боје!'
+    NoMagic: '&fНемате дозволу да користите MiniMessage obfuscated ознаку!'
+    NoGradient: '&fНемате дозволу да користите MiniMessage gradient ознаку!'
+    NoRainbow: '&fНемате дозволу да користите MiniMessage rainbow ознаку!'
+    NoUrl: '&fНемате дозволу да користите кликабилне линкове у чету!'
+    NoSuggest: '&fНемате дозволу да користите suggest-command ознаку у чету!'
+    NoCommand: '&fНемате дозволу да користите run-command ознаку у чету!'
+    NoCopy: '&fНемате дозволу да користите copy-to-clipboard ознаку у чету!'
+    NoHover: '&fНемате дозволу да користите hover ознаку у чету!'
+    NoInsertion: '&fНемате дозволу да користите insertion ознаку у чету!'
+    NoKeybind: '&fНемате дозволу да користите keybind ознаку у чету!'
+    NoFont: '&fНемате дозволу да користите font ознаку у чету!'
+    NoLang: '&fНемате дозволу да користите translatable ознаку у чету!'
+    NoNewline: '&fНемате дозволу да користите newline ознаку у чету!'
   CommandResult:
-    NoPermission: '&c✘ &fНемате дозволу за ово! Дозвола: &c%perm%&f.'
-    WrongUsage: '&c✘ &fПогрешна употреба! Молимо унесите &c%cmd% help&f!'
+    NoPermission: '&fНемате дозволу за ово! Дозвола: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fПогрешна употреба! Молимо укуцајте <hover:show_text:''&#F34723Кликните да бисте покренули /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fСпам није дозвољен! Сачекајте још &c%time% &fсекунди!'
+    Denied: '&fСпам није дозвољен! Молимо сачекајте још &#CA2C92%time% секунди&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fсе придружио игри!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fсе први пут придружио серверу!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fје избачен из игре!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fнапустио је игру!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fсе придружио игри!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fсе први пут придружио серверу!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fје избачен из игре!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fје напустио игру!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh је сада омогућен!'
-    Disabled: '✔ ChatEx-Refresh је сада онемогућен!'
-    bStats: '✔ Хвала вам што користите bStats, омогућен је! ID додатка: %id%.'
+    Enabled: ChatEx-Refresh је сада омогућен!
+    Disabled: ChatEx-Refresh је сада онемогућен!
+    bStats: 'Хвала што користите bStats, омогућен је! ID плугина: %id%.'
     Hooked:
-      LuckPerms: '✔ Успешно повезан са LuckPerms!'
-      PlaceholderAPI: '✔ Успешно повезан са PlaceholderAPI!'
-    NoPermissions: '⚠ Додатак за дозволе није пронађен. Користе се подразумеване дозволе.'
+      LuckPerms: Успешно повезано са LuckPerms!
+      PlaceholderAPI: Успешно повезано са PlaceholderAPI!
+    NoPermissions: Није пронађен плугин за дозволе! Користе се подразумеване дозволе.
   Update:
     Available:
-      Console: '&e⚠ &fНова верзија &eChatEx-Refresh &fдоступна на &eModrinth&f-у! Тренутна верзија: &e%current%&f. Најновија верзија: &e%latest%&f. Преузимање: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fје ажуриран! Верзија: &a%current%&f.'
-    Failed: '&e⚠ &fНије успело проверавање ажурирања за &eChatEx-Refresh&f!'
+      Console: 'Нова верзија ChatEx-Refresh доступна на Modrinth! Тренутна верзија: %current%. Најновија верзија: %latest%. Преузми: %url%.'
+    UpToDate: 'ChatEx-Refresh је ажуран! Верзија: %current%.'
+    Failed: Провера ажурирања за ChatEx-Refresh није успела!
     Notify:
       Player: |-
         &f
-        &e⚠ &fНова верзија &eChatEx-Refresh &fдоступна на &eModrinth&f-у!
-        &f● Тренутна верзија: &e%current%&f.
-        &f● Најновија верзија: &e%latest%&f.
-        &f● Преузимање: &e%url%&f.
+        &fНова верзија &#3EB489ChatEx-Refresh&r &fдоступна на &#3EB489Modrinth&r&f!
+        &f● Тренутна верзија: &#3EB489%current%&r&f.
+        &f● Најновија верзија: &#3EB489%latest%&r&f.
+        &f● Преузми: <hover:show_text:'&fКликните да отворите нашу &#3EB489Modrinth&r страницу'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: КОНЗОЛА
-    Unknown: НЕПОЗНАТ
+    Console: CONSOLE
+    Unknown: UNKNOWN

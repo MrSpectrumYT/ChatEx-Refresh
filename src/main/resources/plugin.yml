@@ -5,7 +5,7 @@ license: GPL-2.0
 authors: [Jeter, Wizard_x, MrSpectrumYT]
 description: "ChatEx-Refresh — a fork of the ChatEx plugin. Based on the original ChatEx by TheJeterLP. Additional original contribution: Wizard_x."
 softdepend: [LuckPerms, PlaceholderAPI]
-api-version: 1.20
+api-version: 1.13
 folia-supported: true
 
 commands:
@@ -35,12 +35,88 @@ permissions:
   chatex.chat.colorhex:
     description: Permission to use HEX colors
     default: op
-  chatex.chat.magic:
-    description: Permission to use magic color
+  chatex.chat.colormagic:
+    description: "Permission to use magic color (&k)"
     default: op
   chatex.chat.colorgradient:
-    description: Permission to use gradient colors
+    description: Permission to use gradient colors in /color
     default: op
+  сhatex.chat.color:
+    description: "All color permissions (legacy + HEX + gradient + magic)"
+    default: op
+    children:
+      chatex.chat.colorlegacy: true
+      chatex.chat.colormodifier: true
+      chatex.chat.colorhex: true
+      chatex.chat.colormagic: true
+  chatex.chat.minimessagelegacy:
+    description: "Permission to use MiniMessage color tags like <red>"
+    default: op
+  chatex.chat.minimessagemodifier:
+    description: "Permission to use MiniMessage bold/italic/underlined/strikethrough/reset tags"
+    default: op
+  chatex.chat.minimessagehex:
+    description: "Permission to use MiniMessage HEX color tags like <#FFAA00>"
+    default: op
+  chatex.chat.minimessagemagic:
+    description: "Permission to use MiniMessage <obfuscated> tag"
+    default: op
+  chatex.chat.minimessagegradient:
+    description: "Permission to use MiniMessage <gradient> tag"
+    default: op
+  chatex.chat.minimessagerainbow:
+    description: "Permission to use MiniMessage <rainbow> tag"
+    default: op
+  chatex.chat.minimessageurl:
+    description: "Permission to use <click:open_url> (links)"
+    default: op
+  chatex.chat.minimessagesuggest:
+    description: "Permission to use <click:suggest_command>"
+    default: op
+  chatex.chat.minimessagecommand:
+    description: "Permission to use <click:run_command> (dangerous!)"
+    default: op
+  chatex.chat.minimessagecopy:
+    description: "Permission to use <click:copy_to_clipboard>"
+    default: op
+  chatex.chat.minimessagehover:
+    description: "Permission to use <hover:show_text>"
+    default: op
+  chatex.chat.minimessageinsertion:
+    description: "Permission to use <insertion>"
+    default: op
+  chatex.chat.minimessagekeybind:
+    description: "Permission to use <key> keybind tag"
+    default: op
+  chatex.chat.minimessagefont:
+    description: "Permission to use <font> tag"
+    default: op
+  chatex.chat.minimessagelang:
+    description: "Permission to use <lang> translatable tag"
+    default: op
+  chatex.chat.minimessagenewline:
+    description: "Permission to use <newline> tag"
+    default: op
+  chatex.chat.minimessage:
+    description: All MiniMessage permissions
+    default: op
+    children:
+      chatex.chat.minimessagelegacy: true
+      chatex.chat.minimessagemodifier: true
+      chatex.chat.minimessagehex: true
+      chatex.chat.minimessagemagic: true
+      chatex.chat.minimessagegradient: true
+      chatex.chat.minimessagerainbow: true
+      chatex.chat.minimessageurl: true
+      chatex.chat.minimessagesuggest: true
+      chatex.chat.minimessagecommand: true
+      chatex.chat.minimessagecopy: true
+      chatex.chat.minimessagehover: true
+      chatex.chat.minimessageinsertion: true
+      chatex.chat.minimessagekeybind: true
+      chatex.chat.minimessagefont: true
+      chatex.chat.minimessagelang: true
+      chatex.chat.minimessagenewline: true
   chatex.antispam.bypass:
     description: Permission to bypass the antispam system
     default: op

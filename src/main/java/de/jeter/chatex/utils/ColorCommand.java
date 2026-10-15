@@ -49,7 +49,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
     private static final String PERM_BASE = "chatex.color";
     private static final String PERM_LEGACY = "chatex.chat.colorlegacy";
     private static final String PERM_MODIFIER = "chatex.chat.colormodifier";
-    private static final String PERM_MAGIC = "chatex.chat.magic";
+    private static final String PERM_MAGIC = "chatex.chat.colormagic";
     private static final String PERM_HEX = "chatex.chat.colorhex";
     private static final String PERM_GRADIENT = "chatex.chat.colorgradient";
 
@@ -59,19 +59,19 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player player)) {
-            sender.sendMessage(Locales.COLOR_ONLY_PLAYERS.getString(null));
+            Locales.COLOR_ONLY_PLAYERS.send(sender);
             return true;
         }
 
         if (!player.hasPermission(PERM_BASE)) {
             Map<String, String> placeholders = new HashMap<>();
             placeholders.put("%perm%", PERM_BASE);
-            player.sendMessage(Locales.COMMAND_RESULT_NO_PERM.getString(player, placeholders));
+            Locales.COMMAND_RESULT_NO_PERM.send(player, placeholders);
             return true;
         }
 
         if (args.length == 0) {
-            player.sendMessage(Locales.COLOR_USAGE.getString(player));
+            Locales.COLOR_USAGE.send(player);
             return true;
         }
 
@@ -79,34 +79,34 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
         if (input.equalsIgnoreCase("reset")) {
             ColorManager.removePersonalColor(player);
-            player.sendMessage(Locales.COLOR_RESET.getString(player));
+            Locales.COLOR_RESET.send(player);
             return true;
         }
 
-        String errorMessage = validateColorInput(input, player);
-        if (errorMessage != null) {
-            player.sendMessage(errorMessage);
+        Locales error = validateColorInput(input, player);
+        if (error != null) {
+            error.send(player);
             return true;
         }
 
         ColorManager.setPersonalColor(player, input);
-        player.sendMessage(Locales.COLOR_SET_SUCCESS.getString(player));
+        Locales.COLOR_SET_SUCCESS.send(player);
         return true;
     }
 
-    private String validateColorInput(String input, Player player) {
+    private Locales validateColorInput(String input, Player player) {
         if (input.isEmpty()) {
-            return Locales.COLOR_INVALID.getString(player);
+            return Locales.COLOR_INVALID;
         }
 
         if (input.contains(",")) {
             if (!player.hasPermission(PERM_GRADIENT)) {
-                return Locales.NO_GRADIENT_PERMISSION.getString(player);
+                return Locales.NO_GRADIENT_PERMISSION;
             }
 
             String[] parts = input.split(",");
             if (parts.length < 2) {
-                return Locales.COLOR_GRADIENT_MIN_TWO.getString(player);
+                return Locales.COLOR_GRADIENT_MIN_TWO;
             }
 
             for (int i = 0; i < parts.length; i++) {
@@ -122,7 +122,7 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
                     if (part.contains("&") && !part.startsWith("&#")) {
                         String[] check = Utils.splitColorAndModifiers(part);
                         if (!check[1].isEmpty()) {
-                            return Locales.COLOR_INVALID.getString(player);
+                            return Locales.COLOR_INVALID;
                         }
                         colorPart = check[0];
                     } else {
@@ -139,27 +139,27 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
                 } else if (colorPart.startsWith("&") && colorPart.length() >= 2) {
                     String hex = Utils.legacyToHex(colorPart);
                     if (hex == null) {
-                        return Locales.COLOR_INVALID.getString(player);
+                        return Locales.COLOR_INVALID;
                     }
                     hexColor = hex;
                 } else {
-                    return Locales.COLOR_INVALID.getString(player);
+                    return Locales.COLOR_INVALID;
                 }
 
                 if (!hexColor.matches("^#[a-fA-F0-9]{6}$")) {
-                    return Locales.COLOR_INVALID.getString(player);
+                    return Locales.COLOR_INVALID;
                 }
 
                 if (i == parts.length - 1 && !mods.isEmpty()) {
                     if (!mods.matches("^(&[lmnok])+$")) {
-                        return Locales.COLOR_INVALID.getString(player);
+                        return Locales.COLOR_INVALID;
                     }
                     if (mods.contains("&k") && !player.hasPermission(PERM_MAGIC)) {
-                        return Locales.MAGIC_BLOCKED.getString(player);
+                        return Locales.MAGIC_BLOCKED;
                     }
                     if ((mods.contains("&l") || mods.contains("&m") || mods.contains("&n") || mods.contains("&o"))
                             && !player.hasPermission(PERM_MODIFIER)) {
-                        return Locales.NO_MODIFIER_PERMISSION.getString(player);
+                        return Locales.NO_MODIFIER_PERMISSION;
                     }
                 }
             }
@@ -168,20 +168,20 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
         if (input.matches("^(#|&#)[a-fA-F0-9]{6}(&[lmnok])*$")) {
             if (!player.hasPermission(PERM_HEX)) {
-                return Locales.NO_HEX_PERMISSION.getString(player);
+                return Locales.NO_HEX_PERMISSION;
             }
             if (input.contains("&k") && !player.hasPermission(PERM_MAGIC)) {
-                return Locales.MAGIC_BLOCKED.getString(player);
+                return Locales.MAGIC_BLOCKED;
             }
             if (input.matches(".*&[l-o].*") && !player.hasPermission(PERM_MODIFIER)) {
-                return Locales.NO_MODIFIER_PERMISSION.getString(player);
+                return Locales.NO_MODIFIER_PERMISSION;
             }
             return null;
         }
 
         String[] parts = input.split("(?=&)");
         if (parts.length == 0) {
-            return Locales.COLOR_INVALID.getString(player);
+            return Locales.COLOR_INVALID;
         }
 
         int colorCount = 0;
@@ -191,34 +191,34 @@ public class ColorCommand implements CommandExecutor, TabCompleter {
 
             if (lowerPart.equals(MAGIC_FORMAT)) {
                 if (!player.hasPermission(PERM_MAGIC)) {
-                    return Locales.MAGIC_BLOCKED.getString(player);
+                    return Locales.MAGIC_BLOCKED;
                 }
                 continue;
             }
 
             if (LEGACY_COLORS.contains(lowerPart)) {
                 if (!player.hasPermission(PERM_LEGACY)) {
-                    return Locales.NO_COLOR_PERMISSION.getString(player);
+                    return Locales.NO_COLOR_PERMISSION;
                 }
                 colorCount++;
                 if (colorCount > 1) {
-                    return Locales.COLOR_INVALID.getString(player);
+                    return Locales.COLOR_INVALID;
                 }
                 continue;
             }
 
             if (LEGACY_FORMATS.contains(lowerPart)) {
                 if (!player.hasPermission(PERM_MODIFIER)) {
-                    return Locales.NO_MODIFIER_PERMISSION.getString(player);
+                    return Locales.NO_MODIFIER_PERMISSION;
                 }
                 continue;
             }
 
-            return Locales.COLOR_INVALID.getString(player);
+            return Locales.COLOR_INVALID;
         }
 
         if (colorCount == 0 && !input.contains("&")) {
-            return Locales.COLOR_INVALID.getString(player);
+            return Locales.COLOR_INVALID;
         }
 
         return null;

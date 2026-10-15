@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fSegítség a chat-hez:
-      &f● &e/%cmd% clear &f— kitörli a chat-et.
-      &f● &e/%cmd% help &f— segítség a chat-hez.
-      &f● &e/%cmd% reload &f— újratölti a plugint.
+      &fSúgó a chathez:
+      &f● <hover:show_text:'&#F34723Kattints a /%cmd% clear futtatásához'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— törli a chatet.
+      &f● <hover:show_text:'&#F34723Kattints a /%cmd% help futtatásához'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— súgó a chathez.
+      &f● <hover:show_text:'&#F34723Kattints a /%cmd% reload futtatásához'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— újratölti a plugint.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fKonfiguráció és nyelvek sikeresen újratöltve!'
+      Success: '&fKonfiguráció, nyelvi fájlok és adatbázis sikeresen újratöltve!'
     Clear:
-      Success: '&4⚠ &fA chat-et &4%clearer%&f törölte ki.'
+      Success: '&fA chatet törölte: &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fA reklámozás nem engedélyezett!'
-    BlockedWord: '&c✘ &fEz a szó nem engedélyezett!'
-    AdNotify: '&4⚠ %player% &fmegpróbálta ezt írni a chat-be: &4%message%&f!'
-    NoOneListens: '&4⚠ &fNincs a közelben játékos, aki hallana! Használd a globális módot.'
-  NoColorPermission: '&c✘ &fNincs jogod a normál színek használatához!'
-  NoModifierPermission: '&c✘ &fNincs jogod a formázási kódok használatához!'
-  NoHexPermission: '&c✘ &fNincs jogod a HEX színek használatához!'
-  NoGradientPermission: '&c✘ &fNincs jogod a gradiensek használatához!'
-  MagicBlocked: '&c✘ &fNincs jogod a varázs színek használatához!'
+    AdDetected: '&fA reklám nem engedélyezett!'
+    BlockedWord: '&fEz a szó nem engedélyezett!'
+    AdNotify: '&#9B2D30%player%&r &fmegpróbálta beírni: &#9B2D30%message%&r &fa chatbe!'
+    NoOneListens: '&fNincsenek a közeledben játékosok, akik hallanának! Próbáld a globális módot!'
+  NoColorPermission: '&fNincs jogosultságod legacy színek használatára!'
+  NoModifierPermission: '&fNincs jogosultságod formázási kódok használatára!'
+  NoHexPermission: '&fNincs jogosultságod HEX színek használatára!'
+  NoGradientPermission: '&fNincs jogosultságod színátmenetes színek használatára!'
+  MagicBlocked: '&fNincs jogosultságod mágikus szín használatára!'
+  Integrity:
+    Config:
+      Loaded: config.yml sikeresen betöltve!
+      Failed: 'config.yml sérült: %error% — a fájl NEM lett módosítva! Az előző/alapértelmezett értékek használatban! Javítsd a fájlt és használd a /chatex reload parancsot.'
+    Locale:
+      Loaded: '%file% nyelvi fájl sikeresen betöltve!'
+      Failed: '%file% nyelvi fájl sérült: %error% — a fájl NEM lett módosítva! Az előző/beépített angol szövegek használatban! Javítsd a fájlt és használd a /chatex reload parancsot.'
+    Database:
+      Loaded: '%file% adatbázis sikeresen betöltve!'
+      Failed: '%file% adatbázis sérült: %error% — a fájl NEM lett módosítva, és semmi sem kerül mentésre, amíg ki nem javítják (a személyes színek elvesznek újraindításkor)! Javítsd a fájlt és használd a /chatex reload parancsot.'
+      SaveFailed: '%file% adatbázis sérült, ezért a változás NEM került mentésre a lemezre (a fájl érintetlen maradt)! Javítsd a fájlt és használd a /chatex reload parancsot.'
   Color:
-    Usage: '&e☀ &fHasználat: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fA chat színed frissítve!'
-    Invalid: '&c✘ &fEz nem érvényes színkód!'
-    Reset: '&a✔ &fA chat színed visszaállítva!'
-    OnlyPlayers: '&4⚠ &fEzt a parancsot csak játékosok használhatják!'
-    GradientMinTwo: '&c✘ &fA gradienshez legalább &c2 &fszín szükséges!'
+    PersonalActive: '&fVan személyes chat színed, ezért nem használhatsz színeket vagy szövegformázást a chatben! Használd a <hover:show_text:''<#9B2D30>Kattints a chat színed visszaállításához''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r parancsot az eltávolításához.'
+    Usage: |-
+      &f&fSzínes chat használata:
+      &f● <hover:show_text:'&#F34723Példa legacy színre'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— legacy szín beállítása.
+      &f● <hover:show_text:'&#F34723Példa №1 HEX színre'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— HEX szín beállítása.
+      &f● <hover:show_text:'&#F34723Példa №2 HEX színre'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— HEX szín beállítása.
+      &f● <hover:show_text:'&#F34723Példa HEX színátmenetre'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— HEX színátmenet beállítása.
+      &f● <hover:show_text:'&#F34723Példa legacy színátmenetre'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— legacy színátmenet beállítása.
+      &f● <hover:show_text:'&#F34723Kattints a személyes szín visszaállításához'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— színed visszaállítása.
+      &f
+      &fBármely szín beállításakor a módosítók (pl. &#F34723&&#F34723l&r&f) a szín után, vessző vagy szóköz nélkül kerülnek; színátmenetnél csak az utolsó szín után!
+      &f
+    Set: '&fA chat színed frissítve lett!'
+    Invalid: '&fEz nem érvényes színkód!'
+    Reset: '&fA chat színed visszaállt!'
+    OnlyPlayers: '&fCsak játékosok használhatják ezt a parancsot!'
+    GradientMinTwo: '&fA színátmenethez legalább &#CA2C922 szín&r&f szükséges!'
+  MiniMessage:
+    NoColor: '&fNincs jogosultságod MiniMessage színek használatára!'
+    NoModifier: '&fNincs jogosultságod MiniMessage formázási tagek használatára!'
+    NoHex: '&fNincs jogosultságod MiniMessage HEX színek használatára!'
+    NoMagic: '&fNincs jogosultságod a MiniMessage obfuscated tag használatára!'
+    NoGradient: '&fNincs jogosultságod a MiniMessage gradient tag használatára!'
+    NoRainbow: '&fNincs jogosultságod a MiniMessage rainbow tag használatára!'
+    NoUrl: '&fNincs jogosultságod kattintható linkek használatára a chatben!'
+    NoSuggest: '&fNincs jogosultságod a suggest-command tag használatára a chatben!'
+    NoCommand: '&fNincs jogosultságod a run-command tag használatára a chatben!'
+    NoCopy: '&fNincs jogosultságod a copy-to-clipboard tag használatára a chatben!'
+    NoHover: '&fNincs jogosultságod a hover tag használatára a chatben!'
+    NoInsertion: '&fNincs jogosultságod a insertion tag használatára a chatben!'
+    NoKeybind: '&fNincs jogosultságod a keybind tag használatára a chatben!'
+    NoFont: '&fNincs jogosultságod a font tag használatára a chatben!'
+    NoLang: '&fNincs jogosultságod a translatable tag használatára a chatben!'
+    NoNewline: '&fNincs jogosultságod a newline tag használatára a chatben!'
   CommandResult:
-    NoPermission: '&c✘ &fNincs jogod ehhez! Jogosultság: &c%perm%&f.'
-    WrongUsage: '&c✘ &fHelytelen használat! Kérlek írd be: &c%cmd% help&f!'
+    NoPermission: '&fNincs jogosultságod ehhez! Jogosultság: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fHelytelen használat! Kérlek írd be: <hover:show_text:''&#F34723Kattints a /%cmd% help futtatásához''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fA spam nem engedélyezett! Kérlek várj még &c%time% &fmásodpercet!'
+    Denied: '&fA spam nem engedélyezett! Kérlek várj még &#CA2C92%time% másodpercet&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fcsatlakozott a játékhoz!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fmost csatlakozott először!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fki lett rúgva a játékból!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fkilépett a játékból!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fcsatlakozott a játékhoz!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &felőször csatlakozott a szerverhez!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fkirúgva a játékból!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &felhagyta a játékot!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh mostantól engedélyezve!'
-    Disabled: '✔ ChatEx-Refresh mostantól letiltva!'
-    bStats: '✔ Köszönjük, hogy használod a bStats-ot, engedélyezve lett! Plugin ID: %id%.'
+    Enabled: A ChatEx-Refresh most engedélyezve van!
+    Disabled: A ChatEx-Refresh most letiltva!
+    bStats: 'Köszönjük, hogy használod a bStats-ot, engedélyezve lett! Plugin ID: %id%.'
     Hooked:
-      LuckPerms: '✔ Sikeresen csatlakozva a LuckPerms-hez!'
-      PlaceholderAPI: '✔ Sikeresen csatlakozva a PlaceholderAPI-hoz!'
-    NoPermissions: '⚠ Nem található jogosultság plugin. Alapértelmezett jogok használata.'
+      LuckPerms: Sikeresen csatlakozva a LuckPermshez!
+      PlaceholderAPI: Sikeresen csatlakozva a PlaceholderAPIhoz!
+    NoPermissions: Nem található jogosultságkezelő plugin! Alapértelmezett jogosultságok használata.
   Update:
     Available:
-      Console: '&e⚠ &fA &eChatEx-Refresh &fúj verziója elérhető a &eModrinth&f-en! Jelenlegi verzió: &e%current%&f. Legújabb verzió: &e%latest%&f. Letöltés: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fnaprakész! Verzió: &a%current%&f.'
-    Failed: '&e⚠ &fNem sikerült ellenőrizni a &eChatEx-Refresh &ffrissítéseit!'
+      Console: 'Új verzió érhető el a ChatEx-Refreshből a Modrinth-en! Jelenlegi verzió: %current%. Legújabb verzió: %latest%. Letöltés: %url%.'
+    UpToDate: 'A ChatEx-Refresh naprakész! Verzió: %current%.'
+    Failed: Nem sikerült ellenőrizni a ChatEx-Refresh frissítéseit!
     Notify:
       Player: |-
         &f
-        &e⚠ &fA &eChatEx-Refresh &fúj verziója elérhető a &eModrinth&f-en!
-        &f● Jelenlegi verzió: &e%current%&f.
-        &f● Legújabb verzió: &e%latest%&f.
-        &f● Letöltés: &e%url%&f.
+        &fÚj verzió érhető el a &#3EB489ChatEx-Refresh&r &fből a &#3EB489Modrinth&r&f-en!
+        &f● Jelenlegi verzió: &#3EB489%current%&r&f.
+        &f● Legújabb verzió: &#3EB489%latest%&r&f.
+        &f● Letöltés: <hover:show_text:'&fKattints a &#3EB489Modrinth&r oldalunk megnyitásához'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: KONZOL
-    Unknown: ISMERETLEN
+    Console: CONSOLE
+    Unknown: UNKNOWN

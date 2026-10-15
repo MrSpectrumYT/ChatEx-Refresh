@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fЧатқа көмек:
-      &f● &e/%cmd% clear &f— чатты тазартады.
-      &f● &e/%cmd% help &f— чатқа көмек.
-      &f● &e/%cmd% reload &f— плагинді қайта жүктейді.
+      &fЧатқа көмек:
+      &f● <hover:show_text:'&#F34723/%cmd% clear іске қосу үшін басыңыз'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— чатты тазалайды.
+      &f● <hover:show_text:'&#F34723/%cmd% help іске қосу үшін басыңыз'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— чатқа көмек.
+      &f● <hover:show_text:'&#F34723/%cmd% reload іске қосу үшін басыңыз'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— плагинді қайта жүктейді.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fКонфигурация мен локали сәтті қайта жүктелді!'
+      Success: '&fКонфигурация, локализациялар және дерекқор сәтті қайта жүктелді!'
     Clear:
-      Success: '&4⚠ &fЧат &4%clearer%&f ойыншысымен тазартылды.'
+      Success: '&fЧатты &#9B2D30%clearer%&r&f тазалады!'
   Chat:
-    AdDetected: '&c✘ &fЖарнамаға тыйым салынған!'
-    BlockedWord: '&c✘ &fБұл сөзге тыйым салынған!'
-    AdNotify: '&4⚠ %player% &fчатта &4%message% &fжазбақшы болды!'
-    NoOneListens: '&4⚠ &fСізді еститін ойыншылар жақын жерде жоқ! Жаһандық режимді қолданыңыз.'
-  NoColorPermission: '&c✘ &fҚарапайым түстерді пайдалану құқығыңыз жоқ!'
-  NoModifierPermission: '&c✘ &fПішімдеу кодтарын пайдалану құқығыңыз жоқ!'
-  NoHexPermission: '&c✘ &fHEX-түстерді пайдалану құқығыңыз жоқ!'
-  NoGradientPermission: '&c✘ &fГрадиент түстерді пайдалану құқығыңыз жоқ!'
-  MagicBlocked: '&c✘ &fСиқырлы түсті пайдалану құқығыңыз жоқ!'
+    AdDetected: '&fЖарнамаға тыйым салынады!'
+    BlockedWord: '&fБұл сөзге тыйым салынады!'
+    AdNotify: '&#9B2D30%player%&r &fчатқа &#9B2D30%message%&r &fжазбақ болды!'
+    NoOneListens: '&fСізді еститін ойыншылар жақын жерде жоқ! Ғаламдық режимді қолданып көріңіз!'
+  NoColorPermission: '&fСізде legacy түстерді қолдануға рұқсат жоқ!'
+  NoModifierPermission: '&fСізде форматтау кодтарын қолдануға рұқсат жоқ!'
+  NoHexPermission: '&fСізде HEX түстерді қолдануға рұқсат жоқ!'
+  NoGradientPermission: '&fСізде градиент түстерді қолдануға рұқсат жоқ!'
+  MagicBlocked: '&fСізде сиқырлы түсті қолдануға рұқсат жоқ!'
+  Integrity:
+    Config:
+      Loaded: config.yml сәтті жүктелді!
+      Failed: 'config.yml бүлінген: %error% — файл ӨЗГЕРТІЛМЕДІ! Алдыңғы/әдепкі мәндер қолданылады! Файлды түзетіп, /chatex reload қолданыңыз.'
+    Locale:
+      Loaded: '%file% локализациясы сәтті жүктелді!'
+      Failed: '%file% локализациясы бүлінген: %error% — файл ӨЗГЕРТІЛМЕДІ! Алдыңғы/кірістірілген ағылшын мәтіндері қолданылады! Файлды түзетіп, /chatex reload қолданыңыз.'
+    Database:
+      Loaded: '%file% дерекқоры сәтті жүктелді!'
+      Failed: '%file% дерекқоры бүлінген: %error% — файл ӨЗГЕРТІЛМЕДІ және ол түзетілмейінше оған ештеңе сақталмайды (жеке түстер қайта іске қосқанда жоғалады)! Файлды түзетіп, /chatex reload қолданыңыз.'
+      SaveFailed: '%file% дерекқоры бүлінген, сондықтан өзгеріс дискіге САҚТАЛМАДЫ (файл өзгеріссіз қалды)! Файлды түзетіп, /chatex reload қолданыңыз.'
   Color:
-    Usage: '&e☀ &fҚолдану: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fЧат түсіңіз жаңартылды!'
-    Invalid: '&c✘ &fБұл жарамды түс коды емес!'
-    Reset: '&a✔ &fЧат түсіңіз қалпына келтірілді!'
-    OnlyPlayers: '&4⚠ &fБұл команданы тек ойыншылар пайдалана алады!'
-    GradientMinTwo: '&c✘ &fГрадиент үшін кемінде &c2 &fтүс қажет!'
+    PersonalActive: '&fСізде жеке чат түсі бар, сондықтан чатта түстерді немесе мәтінді форматтауды қолдана алмайсыз! Оны жою үшін <hover:show_text:''<#9B2D30>Чат түсін қалпына келтіру үшін басыңыз''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r қолданыңыз.'
+    Usage: |-
+      &f&fТүсті чатты қолдану:
+      &f● <hover:show_text:'&#F34723Legacy түс үлгісін ұсыну'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— legacy түс орнату.
+      &f● <hover:show_text:'&#F34723№1 HEX түс үлгісін ұсыну'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— HEX түс орнату.
+      &f● <hover:show_text:'&#F34723№2 HEX түс үлгісін ұсыну'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— HEX түс орнату.
+      &f● <hover:show_text:'&#F34723HEX градиент үлгісін ұсыну'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— HEX градиент орнату.
+      &f● <hover:show_text:'&#F34723Legacy градиент үлгісін ұсыну'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— legacy градиент орнату.
+      &f● <hover:show_text:'&#F34723Жеке түсті қалпына келтіру үшін басыңыз'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— түсіңізді қалпына келтіріңіз.
+      &f
+      &fКез келген түсті орнатқанда, модификаторлар (мыс. &#F34723&&#F34723l&r&f) үтірсіз немесе бос орынсыз түстен кейін қойылады; градиентте тек соңғы түстен кейін!
+      &f
+    Set: '&fЧат түсіңіз жаңартылды!'
+    Invalid: '&fБұл жарамды түс коды емес!'
+    Reset: '&fЧат түсіңіз қалпына келтірілді!'
+    OnlyPlayers: '&fБұл команданы тек ойыншылар қолдана алады!'
+    GradientMinTwo: '&fГрадиентке кемінде &#CA2C922 түс&r&f қажет!'
+  MiniMessage:
+    NoColor: '&fСізде MiniMessage түстерін қолдануға рұқсат жоқ!'
+    NoModifier: '&fСізде MiniMessage форматтау тегтерін қолдануға рұқсат жоқ!'
+    NoHex: '&fСізде MiniMessage HEX түстерін қолдануға рұқсат жоқ!'
+    NoMagic: '&fСізде MiniMessage obfuscated тегін қолдануға рұқсат жоқ!'
+    NoGradient: '&fСізде MiniMessage gradient тегін қолдануға рұқсат жоқ!'
+    NoRainbow: '&fСізде MiniMessage rainbow тегін қолдануға рұқсат жоқ!'
+    NoUrl: '&fСізде чатта басылатын сілтемелерді қолдануға рұқсат жоқ!'
+    NoSuggest: '&fСізде чатта suggest-command тегін қолдануға рұқсат жоқ!'
+    NoCommand: '&fСізде чатта run-command тегін қолдануға рұқсат жоқ!'
+    NoCopy: '&fСізде чатта copy-to-clipboard тегін қолдануға рұқсат жоқ!'
+    NoHover: '&fСізде чатта hover тегін қолдануға рұқсат жоқ!'
+    NoInsertion: '&fСізде чатта insertion тегін қолдануға рұқсат жоқ!'
+    NoKeybind: '&fСізде чатта keybind тегін қолдануға рұқсат жоқ!'
+    NoFont: '&fСізде чатта font тегін қолдануға рұқсат жоқ!'
+    NoLang: '&fСізде чатта translatable тегін қолдануға рұқсат жоқ!'
+    NoNewline: '&fСізде чатта newline тегін қолдануға рұқсат жоқ!'
   CommandResult:
-    NoPermission: '&c✘ &fСіздің бұған рұқсатыңыз жоқ! Рұқсат: &c%perm%&f.'
-    WrongUsage: '&c✘ &fҚате қолдану! &c%cmd% help&f енгізіңіз!'
+    NoPermission: '&fБұған рұқсатыңыз жоқ! Рұқсат: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fҚате қолдану! <hover:show_text:''&#F34723/%cmd% help іске қосу үшін басыңыз''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f теріңіз!'
   AntiSpam:
-    Denied: '&c✘ &fСпамға тыйым салынған! Тағы &c%time% &fсекунд күтіңіз!'
+    Denied: '&fСпамға тыйым салынады! Тағы &#CA2C92%time% секунд&r&f күте тұрыңыз!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fсерверге қосылды!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fсерверге бірінші рет қосылды!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fсерверден қуылды!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fсерверден шықты!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fойынға қосылды!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fсерверге бірінші рет қосылды!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fойыннан шығарылды!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fойыннан шықты!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh енді қосылды!'
-    Disabled: '✔ ChatEx-Refresh енді өшірілді!'
-    bStats: '✔ bStats пайдаланғаныңыз үшін рахмет, ол қосылды! Плагин ID: %id%.'
+    Enabled: ChatEx-Refresh енді қосылды!
+    Disabled: ChatEx-Refresh енді өшірілді!
+    bStats: 'bStats қолданғаныңызға рахмет, ол қосылды! Плагин ID: %id%.'
     Hooked:
-      LuckPerms: '✔ LuckPerms-ке сәтті қосылды!'
-      PlaceholderAPI: '✔ PlaceholderAPI-ға сәтті қосылды!'
-    NoPermissions: '⚠ Ешқандай рұқсат плагині табылмады. Әдепкі рұқсаттар пайдаланылуда.'
+      LuckPerms: LuckPerms-ке сәтті қосылды!
+      PlaceholderAPI: PlaceholderAPI-ге сәтті қосылды!
+    NoPermissions: Рұқсаттар плагині табылмады! Әдепкі рұқсаттар қолданылады.
   Update:
     Available:
-      Console: '&e⚠ &fChatEx-Refresh-тің жаңа нұсқасы &eModrinth&f-те қолжетімді! Ағымдағы нұсқа: &e%current%&f. Соңғы нұсқа: &e%latest%&f. Жүктеу: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fжаңартылған! Нұсқа: &a%current%&f.'
-    Failed: '&e⚠ &fChatEx-Refresh үшін жаңартуларды тексеру сәтсіз аяқталды!'
+      Console: 'ChatEx-Refresh-тің жаңа нұсқасы Modrinth-те қолжетімді! Ағымдағы нұсқа: %current%. Соңғы нұсқа: %latest%. Жүктеу: %url%.'
+    UpToDate: 'ChatEx-Refresh жаңартылған! Нұсқа: %current%.'
+    Failed: ChatEx-Refresh үшін жаңартуларды тексеру сәтсіз аяқталды!'
     Notify:
       Player: |-
         &f
-        &e⚠ &fChatEx-Refresh-тің жаңа нұсқасы &eModrinth&f-те қолжетімді!
-        &f● Ағымдағы нұсқа: &e%current%&f.
-        &f● Соңғы нұсқа: &e%latest%&f.
-        &f● Жүктеу: &e%url%&f.
+        &f&#3EB489ChatEx-Refresh&r &f-тің жаңа нұсқасы &#3EB489Modrinth&r&f-те қолжетімді!
+        &f● Ағымдағы нұсқа: &#3EB489%current%&r&f.
+        &f● Соңғы нұсқа: &#3EB489%latest%&r&f.
+        &f● Жүктеу: <hover:show_text:'&f&#3EB489Modrinth&r бетімізді ашу үшін басыңыз'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: КОНСОЛЬ
-    Unknown: БЕЛГІСІЗ
+    Console: CONSOLE
+    Unknown: UNKNOWN

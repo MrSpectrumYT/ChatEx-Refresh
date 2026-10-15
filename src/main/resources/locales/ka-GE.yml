@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fდახმარება ჩატისთვის:
-      &f● &e/%cmd% clear &f— ასუფთავებს ჩატს.
-      &f● &e/%cmd% help &f— დახმარება ჩატისთვის.
-      &f● &e/%cmd% reload &f— გადატვირთავს პლაგინს.
+      &fდახმარება ჩატისთვის:
+      &f● <hover:show_text:'&#F34723დააჭირე /%cmd% clear-ის გასაშვებად'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— ასუფთავებს ჩატს.
+      &f● <hover:show_text:'&#F34723დააჭირე /%cmd% help-ის გასაშვებად'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— დახმარება ჩატისთვის.
+      &f● <hover:show_text:'&#F34723დააჭირე /%cmd% reload-ის გასაშვებად'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— გადატვირთავს პლაგინს.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fკონფიგურაცია და ენები წარმატებით გადაიტვირთა!'
+      Success: '&fკონფიგურაცია, ლოკალიზაციები და მონაცემთა ბაზა წარმატებით გადაიტვირთა!'
     Clear:
-      Success: '&4⚠ &fჩატი გაასუფთავა მოთამაშემ &4%clearer%&f.'
+      Success: '&fჩატი გაასუფთავა &#9B2D30%clearer%&r&f-მა!'
   Chat:
-    AdDetected: '&c✘ &fრეკლამა აკრძალულია!'
-    BlockedWord: '&c✘ &fეს სიტყვა აკრძალულია!'
-    AdNotify: '&4⚠ %player% &fცდილობდა დაეწერა &4%message% &fჩატში!'
-    NoOneListens: '&4⚠ &fახლოს არ არის მოთამაშეები, რომ გაიგონონ თქვენი საუბარი! გამოიყენეთ გლობალური რეჟიმი.'
-  NoColorPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჩვეულებრივი ფერები!'
-  NoModifierPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ფორმატირების კოდები!'
-  NoHexPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ HEX ფერები!'
-  NoGradientPermission: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ გრადიენტური ფერები!'
-  MagicBlocked: '&c✘ &fთქვენ არ გაქვთ უფლება გამოიყენოთ ჯადოსნური ფერები!'
+    AdDetected: '&fრეკლამა დაუშვებელია!'
+    BlockedWord: '&fეს სიტყვა დაუშვებელია!'
+    AdNotify: '&#9B2D30%player%&r &fცადა დაეწერა &#9B2D30%message%&r &fჩატში!'
+    NoOneListens: '&fახლოს არ არიან მოთამაშეები, რომლებიც მოგისმენენ! სცადეთ გლობალური რეჟიმი!'
+  NoColorPermission: '&fთქვენ არ გაქვთ ლეგასი ფერების გამოყენების ნებართვა!'
+  NoModifierPermission: '&fთქვენ არ გაქვთ ფორმატირების კოდების გამოყენების ნებართვა!'
+  NoHexPermission: '&fთქვენ არ გაქვთ HEX ფერების გამოყენების ნებართვა!'
+  NoGradientPermission: '&fთქვენ არ გაქვთ გრადიენტური ფერების გამოყენების ნებართვა!'
+  MagicBlocked: '&fთქვენ არ გაქვთ მაგიური ფერის გამოყენების ნებართვა!'
+  Integrity:
+    Config:
+      Loaded: config.yml წარმატებით ჩაიტვირთა!
+      Failed: 'config.yml დაზიანებულია: %error% — ფაილი არ შეცვლილა! გამოიყენება წინა/ნაგულისხმევი მნიშვნელობები! გაასწორეთ ფაილი და გამოიყენეთ /chatex reload.'
+    Locale:
+      Loaded: '%file% ლოკალიზაცია წარმატებით ჩაიტვირთა!'
+      Failed: '%file% ლოკალიზაცია დაზიანებულია: %error% — ფაილი არ შეცვლილა! გამოიყენება წინა/ჩაშენებული ინგლისური ტექსტები! გაასწორეთ ფაილი და გამოიყენეთ /chatex reload.'
+    Database:
+      Loaded: '%file% მონაცემთა ბაზა წარმატებით ჩაიტვირთა!'
+      Failed: '%file% მონაცემთა ბაზა დაზიანებულია: %error% — ფაილი არ შეცვლილა და მასში არაფერი შეინახება, სანამ არ გასწორდება (პირადი ფერები იკარგება გადატვირთვისას)! გაასწორეთ ფაილი და გამოიყენეთ /chatex reload.'
+      SaveFailed: '%file% მონაცემთა ბაზა დაზიანებულია, ამიტომ ცვლილება არ შეინახა დისკზე (ფაილი ხელუხლებელია)! გაასწორეთ ფაილი და გამოიყენეთ /chatex reload.'
   Color:
-    Usage: '&e☀ &fგამოყენება: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fჩატის ფერი განახლდა!'
-    Invalid: '&c✘ &fეს არ არის მართებული ფერის კოდი!'
-    Reset: '&a✔ &fჩატის ფერი გადატვირთულია!'
-    OnlyPlayers: '&4⚠ &fამ ბრძანების გამოყენება მხოლოდ მოთამაშეებს შეუძლიათ!'
-    GradientMinTwo: '&c✘ &fგრადიენტისთვის საჭიროა მინიმუმ &c2 &fფერი!'
+    PersonalActive: '&fთქვენ გაქვთ პირადი ჩატის ფერი, ამიტომ ვერ გამოიყენებთ ფერებს ან ტექსტის ფორმატირებას ჩატში! გამოიყენეთ <hover:show_text:''<#9B2D30>დააჭირე ჩატის ფერის გასუფთავებას''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r მის მოსაშორებლად.'
+    Usage: |-
+      &f&fფერადი ჩატის გამოყენება:
+      &f● <hover:show_text:'&#F34723შემოგვთავაზე ლეგასი ფერის მაგალითი'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— დააყენე ლეგასი ფერი.
+      &f● <hover:show_text:'&#F34723შემოგვთავაზე №1 HEX ფერის მაგალითი'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— დააყენე HEX ფერი.
+      &f● <hover:show_text:'&#F34723შემოგვთავაზე №2 HEX ფერის მაგალითი'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— დააყენე HEX ფერი.
+      &f● <hover:show_text:'&#F34723შემოგვთავაზე HEX გრადიენტის მაგალითი'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— დააყენე HEX გრადიენტი.
+      &f● <hover:show_text:'&#F34723შემოგვთავაზე ლეგასი გრადიენტის მაგალითი'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— დააყენე ლეგასი გრადიენტი.
+      &f● <hover:show_text:'&#F34723დააჭირე პირადი ფერის გასუფთავებას'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— გაასუფთავე შენი ფერი.
+      &f
+      &fნებისმიერი ფერის დაყენებისას, მოდიფიკატორები (მაგ. &#F34723&&#F34723l&r&f) იდება ფერის შემდეგ მძიმის ან სივრცის გარეშე; გრადიენტის შემთხვევაში, მხოლოდ ბოლო ფერის შემდეგ!
+      &f
+    Set: '&fთქვენი ჩატის ფერი განახლდა!'
+    Invalid: '&fეს არ არის სწორი ფერის კოდი!'
+    Reset: '&fთქვენი ჩატის ფერი გასუფთავდა!'
+    OnlyPlayers: '&fმხოლოდ მოთამაშეებს შეუძლიათ ამ ბრძანების გამოყენება!'
+    GradientMinTwo: '&fგრადიენტს სჭირდება მინიმუმ &#CA2C922 ფერი&r&f!'
+  MiniMessage:
+    NoColor: '&fთქვენ არ გაქვთ MiniMessage ფერების გამოყენების ნებართვა!'
+    NoModifier: '&fთქვენ არ გაქვთ MiniMessage ფორმატირების ტეგების გამოყენების ნებართვა!'
+    NoHex: '&fთქვენ არ გაქვთ MiniMessage HEX ფერების გამოყენების ნებართვა!'
+    NoMagic: '&fთქვენ არ გაქვთ MiniMessage obfuscated ტეგის გამოყენების ნებართვა!'
+    NoGradient: '&fთქვენ არ გაქვთ MiniMessage gradient ტეგის გამოყენების ნებართვა!'
+    NoRainbow: '&fთქვენ არ გაქვთ MiniMessage rainbow ტეგის გამოყენების ნებართვა!'
+    NoUrl: '&fთქვენ არ გაქვთ ჩატში დაწკაპუნებადი ბმულების გამოყენების ნებართვა!'
+    NoSuggest: '&fთქვენ არ გაქვთ ჩატში suggest-command ტეგის გამოყენების ნებართვა!'
+    NoCommand: '&fთქვენ არ გაქვთ ჩატში run-command ტეგის გამოყენების ნებართვა!'
+    NoCopy: '&fთქვენ არ გაქვთ ჩატში copy-to-clipboard ტეგის გამოყენების ნებართვა!'
+    NoHover: '&fთქვენ არ გაქვთ ჩატში hover ტეგის გამოყენების ნებართვა!'
+    NoInsertion: '&fთქვენ არ გაქვთ ჩატში insertion ტეგის გამოყენების ნებართვა!'
+    NoKeybind: '&fთქვენ არ გაქვთ ჩატში keybind ტეგის გამოყენების ნებართვა!'
+    NoFont: '&fთქვენ არ გაქვთ ჩატში font ტეგის გამოყენების ნებართვა!'
+    NoLang: '&fთქვენ არ გაქვთ ჩატში translatable ტეგის გამოყენების ნებართვა!'
+    NoNewline: '&fთქვენ არ გაქვთ ჩატში newline ტეგის გამოყენების ნებართვა!'
   CommandResult:
-    NoPermission: '&c✘ &fთქვენ არ გაქვთ უფლება! უფლება: &c%perm%&f.'
-    WrongUsage: '&c✘ &fარასწორი გამოყენება! გთხოვთ ჩაწეროთ &c%cmd% help&f!'
+    NoPermission: '&fთქვენ არ გაქვთ ამის ნებართვა! ნებართვა: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fარასწორი გამოყენება! გთხოვთ ჩაწეროთ <hover:show_text:''&#F34723დააჭირე /%cmd% help-ის გასაშვებად''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fსპამი აკრძალულია! გთხოვთ დაიცადოთ კიდევ &c%time% &fწამი!'
+    Denied: '&fსპამი დაუშვებელია! გთხოვთ დაელოდოთ კიდევ &#CA2C92%time% წამს&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fშემოუერთდა თამაშს!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &fპირველად შემოუერთდა სერვერს!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fგამოაგდეს თამაშიდან!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fგამოვიდა თამაშიდან!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fშეუერთდა თამაშს!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fპირველად შეუერთდა სერვერს!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fგააძევეს თამაშიდან!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fდატოვა თამაში!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh ახლა ჩართულია!'
-    Disabled: '✔ ChatEx-Refresh ახლა გამორთულია!'
-    bStats: '✔ მადლობა bStats-ის გამოყენებისთვის, ის ჩართული იყო! პლაგინის ID: %id%.'
+    Enabled: ChatEx-Refresh ახლა ჩართულია!
+    Disabled: ChatEx-Refresh ახლა გამორთულია!
+    bStats: 'მადლობა bStats-ის გამოყენებისთვის, ის ჩართულია! პლაგინის ID: %id%.'
     Hooked:
-      LuckPerms: '✔ წარმატებით დაუკავშირდა LuckPerms-ს!'
-      PlaceholderAPI: '✔ წარმატებით დაუკავშირდა PlaceholderAPI-ს!'
-    NoPermissions: '⚠ ნებართვების პლაგინი ვერ მოიძებნა. გამოიყენება ნაგულისხმევი ნებართვები.'
+      LuckPerms: წარმატებით დაუკავშირდა LuckPerms-ს!
+      PlaceholderAPI: წარმატებით დაუკავშირდა PlaceholderAPI-ს!
+    NoPermissions: ნებართვების პლაგინი ვერ მოიძებნა! გამოიყენება ნაგულისხმევი ნებართვები.
   Update:
     Available:
-      Console: '&e⚠ &fChatEx-Refresh-ის ახალი ვერსია ხელმისაწვდომია &eModrinth&f-ზე! მიმდინარე ვერსია: &e%current%&f. უახლესი ვერსია: &e%latest%&f. ჩამოტვირთვა: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fარის განახლებული! ვერსია: &a%current%&f.'
-    Failed: '&e⚠ &fვერ მოხერხდა განახლებების შემოწმება ChatEx-Refresh-ისთვის!'
+      Console: 'ChatEx-Refresh-ის ახალი ვერსია ხელმისაწვდომია Modrinth-ზე! მიმდინარე ვერსია: %current%. უახლესი ვერსია: %latest%. ჩამოტვირთვა: %url%.'
+    UpToDate: 'ChatEx-Refresh განახლებულია! ვერსია: %current%.'
+    Failed: ვერ მოხერხდა ChatEx-Refresh-ის განახლებების შემოწმება!
     Notify:
       Player: |-
         &f
-        &e⚠ &fChatEx-Refresh-ის ახალი ვერსია ხელმისაწვდომია &eModrinth&f-ზე!
-        &f● მიმდინარე ვერსია: &e%current%&f.
-        &f● უახლესი ვერსია: &e%latest%&f.
-        &f● ჩამოტვირთვა: &e%url%&f.
+        &f&#3EB489ChatEx-Refresh&r &f-ის ახალი ვერსია ხელმისაწვდომია &#3EB489Modrinth&r&f-ზე!
+        &f● მიმდინარე ვერსია: &#3EB489%current%&r&f.
+        &f● უახლესი ვერსია: &#3EB489%latest%&r&f.
+        &f● ჩამოტვირთვა: <hover:show_text:'&fდააჭირე ჩვენი &#3EB489Modrinth&r გვერდის გასახსნელად'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: კონსოლი
-    Unknown: უცნობი
+    Console: CONSOLE
+    Unknown: UNKNOWN

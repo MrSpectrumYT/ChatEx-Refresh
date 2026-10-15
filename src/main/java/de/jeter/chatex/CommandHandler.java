@@ -19,115 +19,103 @@
  */
 package de.jeter.chatex;
 
-import de.jeter.chatex.utils.ColorManager;
-import de.jeter.chatex.utils.Config;
-import de.jeter.chatex.utils.Locales;
-import de.jeter.chatex.utils.Utils;
+import de.jeter.chatex.utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CommandHandler implements CommandExecutor, TabCompleter {
 
+    private static Map<String, String> cmd(Command command) {
+        Map<String, String> values = new HashMap<>();
+        values.put("%cmd%", command.getName());
+        return values;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 0) {
-            String help = Locales.HELP_MESSAGE.getString(null)
-                    .replace("%cmd%", command.getName());
-            sender.sendMessage(help);
+        if (args.length == 0 || args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("?")) {
+            if (args.length > 1) {
+                Locales.COMMAND_RESULT_WRONG_USAGE.send(sender, cmd(command));
+            } else {
+                Locales.HELP_MESSAGE.send(sender, cmd(command));
+            }
             return true;
         }
-        
-        if (args.length > 1) {
-            String wrongUsage = Locales.COMMAND_RESULT_WRONG_USAGE.getString(null)
-                    .replace("%cmd%", command.getName());
-            sender.sendMessage(wrongUsage);
-            return true;
-        }
-        
-        if (args[0].equalsIgnoreCase("reload")) {
-            if (sender.hasPermission("chatex.reload")) {
-                Config.reload(true);
-                Locales.fullReload();
-                ColorManager.load();
-                sender.sendMessage(Locales.MESSAGES_RELOAD.getString(null));
 
-                if (Config.CHANGE_TABLIST_NAME.getBoolean()) {
-                    for (Player p : Bukkit.getOnlinePlayers()) {
-                        String name = Config.TABLIST_FORMAT.getString();
-                        name = Utils.replacePlayerPlaceholders(p, name);
-                        p.setPlayerListName(name);
-                    }
-                }
+        if (args.length > 1) {
+            Locales.COMMAND_RESULT_WRONG_USAGE.send(sender, cmd(command));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("reload")) {
+            if (!sender.hasPermission("chatex.reload")) {
+                Map<String, String> values = new HashMap<>();
+                values.put("%perm%", "chatex.reload");
+                Locales.COMMAND_RESULT_NO_PERM.send(sender, values);
+                return true;
+            }
+            if (ChatEx.getInstance().reloadAll()) {
+                Locales.MESSAGES_RELOAD.send(sender);
             } else {
-                String noPerm = Locales.COMMAND_RESULT_NO_PERM.getString(null)
-                        .replace("%perm%", "chatex.reload");
-                sender.sendMessage(noPerm);
+                Integrity.reportFailures(sender);
             }
             return true;
         }
-        
+
         if (args[0].equalsIgnoreCase("clear")) {
-            if (sender.hasPermission("chatex.clear")) {
-                clearChat();
-        
-                String clearerName;
-                if (sender instanceof ConsoleCommandSender || sender instanceof BlockCommandSender) {
-                    clearerName = Locales.COMMAND_CLEAR_CONSOLE.getString(null);
-                } else if (sender instanceof Player) {
-                    clearerName = sender.getName();
-                } else {
-                    clearerName = Locales.COMMAND_CLEAR_UNKNOWN.getString(null);
-                }
-        
-                String message = Locales.MESSAGES_CLEAR.getString(null)
-                        .replace("%clearer%", clearerName);
-        
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    player.sendMessage(message);
-                }
-                Bukkit.getConsoleSender().sendMessage(message);
-            } else {
-                String noPerm = Locales.COMMAND_RESULT_NO_PERM.getString(null)
-                        .replace("%perm%", "chatex.clear");
-                sender.sendMessage(noPerm);
+            if (!sender.hasPermission("chatex.clear")) {
+                Map<String, String> values = new HashMap<>();
+                values.put("%perm%", "chatex.clear");
+                Locales.COMMAND_RESULT_NO_PERM.send(sender, values);
+                return true;
             }
+
+            String clearerName;
+            if (sender instanceof Player) {
+                clearerName = sender.getName();
+            } else if (sender instanceof ConsoleCommandSender || sender instanceof BlockCommandSender) {
+                clearerName = Locales.COMMAND_CLEAR_CONSOLE.getPlain();
+            } else {
+                clearerName = Locales.COMMAND_CLEAR_UNKNOWN.getPlain();
+            }
+            Map<String, String> values = new HashMap<>();
+            values.put("%clearer%", clearerName);
+
+            // one message with many empty lines pushes the old chat out of the screen
+            String blank = "§r";
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                for (int i = 0; i < 150; i++) {
+                    player.sendMessage(blank);
+                }
+                Locales.MESSAGES_CLEAR.send(player, values);
+            }
+            Locales.MESSAGES_CLEAR.send(Bukkit.getConsoleSender(), values);
             return true;
         }
-        
-        if (args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("?")) {
-            String help = Locales.HELP_MESSAGE.getString(null)
-                    .replace("%cmd%", command.getName());
-            sender.sendMessage(help);
-            return true;
-        }
-        
-        String wrongUsage = Locales.COMMAND_RESULT_WRONG_USAGE.getString(null)
-                .replace("%cmd%", "/chatex");
-        sender.sendMessage(wrongUsage);
+
+        Map<String, String> values = new HashMap<>();
+        values.put("%cmd%", "/chatex");
+        Locales.COMMAND_RESULT_WRONG_USAGE.send(sender, values);
         return true;
     }
 
-    private void clearChat() {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            for (int i = 0; i < 200; i++) {
-                player.sendMessage("");
-            }
-        }
-    }
-
     @Override
-    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
-        List<String> possibleTabs = new ArrayList<>();
-        if (commandSender.hasPermission("chatex.clear")) {
-            possibleTabs.add("clear");
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> tabs = new ArrayList<>();
+        if (args.length > 1) return tabs;
+        tabs.add("help");
+        if (sender.hasPermission("chatex.clear")) tabs.add("clear");
+        if (sender.hasPermission("chatex.reload")) tabs.add("reload");
+        if (args.length == 1) {
+            String start = args[0].toLowerCase();
+            tabs.removeIf(s -> !s.startsWith(start));
         }
-        if (commandSender.hasPermission("chatex.reload")) {
-            possibleTabs.add("reload");
-        }
-        return possibleTabs;
+        return tabs;
     }
 }

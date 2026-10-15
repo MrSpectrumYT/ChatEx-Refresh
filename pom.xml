@@ -6,7 +6,7 @@
     <name>ChatEx-Refresh</name>
     <inceptionYear>2026</inceptionYear>
 
-    <version>4.6.1</version>
+    <version>5.0.0</version>
     <description>ChatEx-Refresh — a fork of the ChatEx plugin. Based on the original ChatEx by TheJeterLP. Additional original contribution: Wizard_x.</description>
     <url>https://modrinth.com/plugin/chatex-refresh</url>
     <licenses>
@@ -59,6 +59,10 @@
 
     <repositories>
         <repository>
+            <id>spigotmc-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
             <id>papermc-repo</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
@@ -78,9 +82,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>    
         <dependency>
@@ -107,6 +111,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

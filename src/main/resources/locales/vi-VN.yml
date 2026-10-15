@@ -2,65 +2,104 @@ Messages:
   Help:
     Message: |-
       &f
-      &e☀ &fTrợ giúp về chat:
-      &f● &e/%cmd% clear &f— xóa chat.
-      &f● &e/%cmd% help &f— trợ giúp về chat.
-      &f● &e/%cmd% reload &f— tải lại plugin.
+      &fTrợ giúp cho chat:
+      &f● <hover:show_text:'&#F34723Nhấp để chạy /%cmd% clear'><click:run_command:'/%cmd% clear'>&#F34723/%cmd% clear</click></hover>&r &f— xóa chat.
+      &f● <hover:show_text:'&#F34723Nhấp để chạy /%cmd% help'><click:run_command:'/%cmd% help'>&#F34723/%cmd% help</click></hover>&r &f— trợ giúp cho chat.
+      &f● <hover:show_text:'&#F34723Nhấp để chạy /%cmd% reload'><click:run_command:'/%cmd% reload'>&#F34723/%cmd% reload</click></hover>&r &f— tải lại plugin.
       &f
   Commands:
     Reload:
-      Success: '&a✔ &fCấu hình và ngôn ngữ đã được tải lại thành công!'
+      Success: '&fCấu hình, ngôn ngữ và cơ sở dữ liệu đã được tải lại thành công!'
     Clear:
-      Success: '&4⚠ &fChat đã bị xóa bởi &4%clearer%&f.'
+      Success: '&fChat đã được xóa bởi &#9B2D30%clearer%&r&f!'
   Chat:
-    AdDetected: '&c✘ &fQuảng cáo không được phép!'
-    BlockedWord: '&c✘ &fTừ này không được phép!'
-    AdNotify: '&4⚠ %player% &fđã cố gắng viết &4%message% &ftrong chat!'
-    NoOneListens: '&4⚠ &fKhông có người chơi nào gần bạn để nghe thấy! Hãy sử dụng chế độ toàn cầu.'
-  NoColorPermission: '&c✘ &fBạn không có quyền sử dụng màu sắc thông thường!'
-  NoModifierPermission: '&c✘ &fBạn không có quyền sử dụng mã định dạng!'
-  NoHexPermission: '&c✘ &fBạn không có quyền sử dụng màu HEX!'
-  NoGradientPermission: '&c✘ &fBạn không có quyền sử dụng màu gradient!'
-  MagicBlocked: '&c✘ &fBạn không có quyền sử dụng màu ma thuật!'
+    AdDetected: '&fQuảng cáo không được phép!'
+    BlockedWord: '&fTừ này không được phép!'
+    AdNotify: '&#9B2D30%player%&r &fđã cố viết &#9B2D30%message%&r &ftrong chat!'
+    NoOneListens: '&fKhông có người chơi nào ở gần để nghe bạn! Hãy thử chế độ toàn cầu!'
+  NoColorPermission: '&fBạn không có quyền sử dụng màu legacy!'
+  NoModifierPermission: '&fBạn không có quyền sử dụng mã định dạng!'
+  NoHexPermission: '&fBạn không có quyền sử dụng màu HEX!'
+  NoGradientPermission: '&fBạn không có quyền sử dụng màu chuyển sắc!'
+  MagicBlocked: '&fBạn không có quyền sử dụng màu ma thuật!'
+  Integrity:
+    Config:
+      Loaded: config.yml đã được tải thành công!
+      Failed: 'config.yml bị hỏng: %error% — tệp KHÔNG được thay đổi! Các giá trị trước đó/mặc định được sử dụng! Hãy sửa tệp và dùng /chatex reload.'
+    Locale:
+      Loaded: '%file% ngôn ngữ đã được tải thành công!'
+      Failed: '%file% ngôn ngữ bị hỏng: %error% — tệp KHÔNG được thay đổi! Các văn bản tiếng Anh trước đó/tích hợp được sử dụng! Hãy sửa tệp và dùng /chatex reload.'
+    Database:
+      Loaded: '%file% cơ sở dữ liệu đã được tải thành công!'
+      Failed: '%file% cơ sở dữ liệu bị hỏng: %error% — tệp KHÔNG được thay đổi và không có gì được lưu vào đó cho đến khi nó được sửa (màu cá nhân sẽ mất khi khởi động lại)! Hãy sửa tệp và dùng /chatex reload.'
+      SaveFailed: '%file% cơ sở dữ liệu bị hỏng, vì vậy thay đổi KHÔNG được lưu vào đĩa (tệp vẫn còn nguyên)! Hãy sửa tệp và dùng /chatex reload.'
   Color:
-    Usage: '&e☀ &fCách dùng: &e/color <&e&&e#HEXHEX | &e&&e#HEXHEX,#HEXHEX,... | #HEXHEX | &e&&ex | off>'
-    Set: '&a✔ &fMàu chat của bạn đã được cập nhật!'
-    Invalid: '&c✘ &fĐó không phải là mã màu hợp lệ!'
-    Reset: '&a✔ &fMàu chat của bạn đã được đặt lại!'
-    OnlyPlayers: '&4⚠ &fChỉ người chơi mới có thể sử dụng lệnh này!'
-    GradientMinTwo: '&c✘ &fGradient cần ít nhất &c2 &fmàu!'
+    PersonalActive: '&fBạn có màu chat cá nhân, vì vậy bạn không thể sử dụng màu sắc hoặc định dạng văn bản trong chat! Hãy dùng <hover:show_text:''<#9B2D30>Nhấp để đặt lại màu chat của bạn''><click:run_command:''/color reset''><#9B2D30>/color reset</click></hover>&r để xóa nó.'
+    Usage: |-
+      &f&fCách sử dụng chat màu:
+      &f● <hover:show_text:'&#F34723Gợi ý ví dụ màu legacy'><click:suggest_command:'/color &9'>&#F34723/color &#F34723&&#F34723x</click></hover>&r &f— đặt màu legacy.
+      &f● <hover:show_text:'&#F34723Gợi ý ví dụ màu HEX №1'><click:suggest_command:'/color &#FFAA00'>&#F34723/color &#F34723&&#F34723#&#F34723HEXHEX</click></hover>&r &f— đặt màu HEX.
+      &f● <hover:show_text:'&#F34723Gợi ý ví dụ màu HEX №2'><click:suggest_command:'/color #00AAFF'>&#F34723/color &#F34723#&#F34723HEXHEX</click></hover>&r &f— đặt màu HEX.
+      &f● <hover:show_text:'&#F34723Gợi ý ví dụ chuyển sắc HEX'><click:suggest_command:'/color &#FF0000,#00FF00'>&#F34723/color &#F34723#&#F34723HEX1,&#F34723&&#F34723#&#F34723HEX2,...</click></hover>&r &f— đặt chuyển sắc HEX.
+      &f● <hover:show_text:'&#F34723Gợi ý ví dụ chuyển sắc legacy'><click:suggest_command:'/color &4,&f'>&#F34723/color &#F34723&&#F34723x1,&#F34723&&#F34723x2,...</click></hover>&r &f— đặt chuyển sắc legacy.
+      &f● <hover:show_text:'&#F34723Nhấp để đặt lại màu cá nhân'><click:run_command:'/color reset'>&#F34723/color reset</click></hover>&r &f— đặt lại màu của bạn.
+      &f
+      &fKhi đặt bất kỳ màu nào, các bổ ngữ (ví dụ: &#F34723&&#F34723l&r&f) được đặt sau màu mà không có dấu phẩy hoặc dấu cách; với chuyển sắc, chỉ sau màu cuối cùng!
+      &f
+    Set: '&fMàu chat của bạn đã được cập nhật!'
+    Invalid: '&fĐó không phải là mã màu hợp lệ!'
+    Reset: '&fMàu chat của bạn đã được đặt lại!'
+    OnlyPlayers: '&fChỉ người chơi mới có thể sử dụng lệnh này!'
+    GradientMinTwo: '&fChuyển sắc cần ít nhất &#CA2C922 màu&r&f!'
+  MiniMessage:
+    NoColor: '&fBạn không có quyền sử dụng màu MiniMessage!'
+    NoModifier: '&fBạn không có quyền sử dụng thẻ định dạng MiniMessage!'
+    NoHex: '&fBạn không có quyền sử dụng màu HEX MiniMessage!'
+    NoMagic: '&fBạn không có quyền sử dụng thẻ obfuscated của MiniMessage!'
+    NoGradient: '&fBạn không có quyền sử dụng thẻ gradient của MiniMessage!'
+    NoRainbow: '&fBạn không có quyền sử dụng thẻ rainbow của MiniMessage!'
+    NoUrl: '&fBạn không có quyền sử dụng liên kết có thể nhấp trong chat!'
+    NoSuggest: '&fBạn không có quyền sử dụng thẻ suggest-command trong chat!'
+    NoCommand: '&fBạn không có quyền sử dụng thẻ run-command trong chat!'
+    NoCopy: '&fBạn không có quyền sử dụng thẻ copy-to-clipboard trong chat!'
+    NoHover: '&fBạn không có quyền sử dụng thẻ hover trong chat!'
+    NoInsertion: '&fBạn không có quyền sử dụng thẻ insertion trong chat!'
+    NoKeybind: '&fBạn không có quyền sử dụng thẻ keybind trong chat!'
+    NoFont: '&fBạn không có quyền sử dụng thẻ font trong chat!'
+    NoLang: '&fBạn không có quyền sử dụng thẻ translatable trong chat!'
+    NoNewline: '&fBạn không có quyền sử dụng thẻ newline trong chat!'
   CommandResult:
-    NoPermission: '&c✘ &fBạn không có quyền cho việc này! Quyền hạn: &c%perm%&f.'
-    WrongUsage: '&c✘ &fSử dụng sai! Vui lòng gõ &c%cmd% help&f!'
+    NoPermission: '&fBạn không có quyền cho việc này! Quyền: &#9B2D30%perm%&r&f.'
+    WrongUsage: '&fSử dụng sai! Vui lòng nhập <hover:show_text:''&#F34723Nhấp để chạy /%cmd% help''><click:run_command:''/%cmd% help''>&#F34723/%cmd% help</click></hover>&r&f!'
   AntiSpam:
-    Denied: '&c✘ &fSpam không được phép! Vui lòng đợi thêm &c%time% &fgiây!'
+    Denied: '&fSpam không được phép! Vui lòng đợi thêm &#CA2C92%time% giây&r&f!'
   Player:
-    Join: '&f● &e%prefix%%displayname%%suffix% &fđã tham gia trò chơi!'
-    JoinFirstTime: '&f● &e%prefix%%displayname%%suffix% &flần đầu tham gia máy chủ!'
-    Kick: '&f● &e%prefix%%displayname%%suffix% &fđã bị kick khỏi trò chơi!'
-    Quit: '&f● &e%prefix%%displayname%%suffix% &fđã rời khỏi trò chơi!'
+    Join: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fđã tham gia trò chơi!'
+    JoinFirstTime: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fđã tham gia máy chủ lần đầu tiên!'
+    Kick: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fđã bị đá khỏi trò chơi!'
+    Quit: '&f● &#6495ED%prefix%%displayname%%suffix%&r &fđã rời khỏi trò chơi!'
   Plugin:
-    Enabled: '✔ ChatEx-Refresh hiện đã được bật!'
-    Disabled: '✔ ChatEx-Refresh hiện đã được tắt!'
-    bStats: '✔ Cảm ơn bạn đã sử dụng bStats, nó đã được bật! ID Plugin: %id%.'
+    Enabled: ChatEx-Refresh hiện đã được bật!
+    Disabled: ChatEx-Refresh hiện đã bị tắt!
+    bStats: 'Cảm ơn bạn đã sử dụng bStats, nó đã được bật! ID plugin: %id%.'
     Hooked:
-      LuckPerms: '✔ Đã kết nối thành công với LuckPerms!'
-      PlaceholderAPI: '✔ Đã kết nối thành công với PlaceholderAPI!'
-    NoPermissions: '⚠ Không tìm thấy plugin quyền. Đang sử dụng quyền mặc định.'
+      LuckPerms: Đã kết nối thành công với LuckPerms!
+      PlaceholderAPI: Đã kết nối thành công với PlaceholderAPI!
+    NoPermissions: Không tìm thấy plugin quyền! Sử dụng quyền mặc định.
   Update:
     Available:
-      Console: '&e⚠ &fPhiên bản mới của &eChatEx-Refresh &fcó sẵn trên &eModrinth&f! Phiên bản hiện tại: &e%current%&f. Phiên bản mới nhất: &e%latest%&f. Tải xuống: &e%url%&f.'
-    UpToDate: '&a✔ ChatEx-Refresh &fđã được cập nhật! Phiên bản: &a%current%&f.'
-    Failed: '&e⚠ &fKhông thể kiểm tra bản cập nhật cho &eChatEx-Refresh&f!'
+      Console: 'Phiên bản mới của ChatEx-Refresh có sẵn trên Modrinth! Phiên bản hiện tại: %current%. Phiên bản mới nhất: %latest%. Tải xuống: %url%.'
+    UpToDate: 'ChatEx-Refresh đã được cập nhật! Phiên bản: %current%.'
+    Failed: Không thể kiểm tra cập nhật cho ChatEx-Refresh!
     Notify:
       Player: |-
         &f
-        &e⚠ &fPhiên bản mới của &eChatEx-Refresh &fcó sẵn trên &eModrinth&f!
-        &f● Phiên bản hiện tại: &e%current%&f.
-        &f● Phiên bản mới nhất: &e%latest%&f.
-        &f● Tải xuống: &e%url%&f.
+        &fPhiên bản mới của &#3EB489ChatEx-Refresh&r &fcó sẵn trên &#3EB489Modrinth&r&f!
+        &f● Phiên bản hiện tại: &#3EB489%current%&r&f.
+        &f● Phiên bản mới nhất: &#3EB489%latest%&r&f.
+        &f● Tải xuống: <hover:show_text:'&fNhấp để mở trang &#3EB489Modrinth&r của chúng tôi'><click:open_url:'%url%'><#3EB489>%url%</click></hover>&r&f.
         &f
 Commands:
   Clear:
-    Console: BẢNG ĐIỀU KHIỂN
-    Unknown: KHÔNG RÕ
+    Console: CONSOLE
+    Unknown: UNKNOWN
